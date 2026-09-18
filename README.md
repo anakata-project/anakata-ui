@@ -1,73 +1,65 @@
-# Nuxt Layer Starter
+# anakata-ui
 
-Create Nuxt extendable layer with this GitHub template.
+Shared Nuxt 4 layer for **anakata-panel** (RMS + CRM) and **anakata-engine**. It owns the design tokens, Nuxt UI theme, fonts, `Ank*` components, and the API / money / date composables.
 
-## Setup
+## What the layer provides
 
-Make sure to install the dependencies:
+- **Tokens** in `app/assets/css/main.css` — prototype names (`--forest`, `--coral`, `--ivory`, `--hair`…) mapped onto Nuxt UI (`--ui-*`). Dark is the default; light is the alternative.
+- **Nuxt UI theme** in `app/app.config.ts` — back-office sizes (RMS / CRM). The engine adds its own size overrides in its app.
+- **Fonts** via `@nuxt/fonts`: Oswald, Archivo, IBM Plex Mono, Manrope.
+- **Components** (`AnkLabel`, `AnkPill`, `AnkPanel`, `AnkKpi`, `AnkMoney`, `AnkThemeToggle`).
+- **Composables:** `useApi()`, `useMoney()`, `useDates()`.
+- **i18n** locale `en` for layer UI strings (theme toggle).
 
-```bash
-pnpm install
-```
+Nothing app-specific belongs here. If only one app uses it, it lives in that app.
 
-## Working on your layer
+## How apps consume it
 
-Your layer is at the root of this repository, it is exactly like a regular Nuxt project, except you can publish it on NPM.
-
-The `.playground` directory should help you on trying your layer during development.
-
-Running `pnpm dev` will prepare and boot `.playground` directory, which imports your layer itself.
-
-## Distributing your layer
-
-Your Nuxt layer is shaped exactly the same as any other Nuxt project, except you can publish it on NPM.
-
-To do so, you only have to check if `files` in `package.json` are valid, then run:
-
-```bash
-npm publish --access public
-```
-
-Once done, your users will only have to run:
-
-```bash
-npm install --save your-layer
-```
-
-Then add the dependency to their `extends` in `nuxt.config`:
+Local path only, for now:
 
 ```ts
-defineNuxtConfig({
-  extends: 'your-layer'
+export default defineNuxtConfig({
+  extends: ['../anakata-ui'],
 })
 ```
 
-## Development Server
+How apps fetch the layer remotely will be decided with the git host (08-dev-decisions A13). Do not publish this package to npm.
 
-Start the development server on http://localhost:3000
+`@nuxt/ui` and `tailwindcss` versions in the apps **must match** this layer. Today that is `@nuxt/ui` `^4.11.1` and `tailwindcss` `^4.3.3`. If you bump one, bump the others in the same change.
+
+## Style guide
+
+The `.playground` app is the visual spec.
 
 ```bash
+pnpm install
 pnpm dev
 ```
 
-## Production
+http://localhost:3010 — port **3010** so it never collides with the engine on 3000. Dark by default; use the header toggle for light.
 
-Build the application for production:
+## Quality
 
 ```bash
+pnpm lint
+pnpm typecheck
+pnpm test
 pnpm build
 ```
 
-Or statically generate it with:
+`build` builds the playground.
+
+## How to release
+
+Semantic version git tags (`v0.1.0`, `v0.2.0`…). Breaking changes bump the **minor** while the version is `< 1.0`. Write a line in `CHANGELOG.md` per release.
+
+1. Bump `"version"` in `package.json`.
+2. Add the release notes to `CHANGELOG.md`.
+3. Commit.
+4. Tag and push:
 
 ```bash
-pnpm generate
+git tag v0.1.0
+git push origin HEAD
+git push origin v0.1.0
 ```
-
-Locally preview production build:
-
-```bash
-pnpm preview
-```
-
-Checkout the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
