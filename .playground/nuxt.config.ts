@@ -8,5 +8,8 @@ export default defineNuxtConfig({
       // Use the generated ESLint config for lint root project as well
       rootDir: fileURLToPath(new URL('..', import.meta.url))
     }
-  }
+  },
+  devServer: {
+    port: 3010,
+  },
 })

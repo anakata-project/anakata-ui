@@ -1,14 +1,12 @@
 export default defineAppConfig({
-  myLayer: {
-    name: 'Hello from Nuxt layer'
-  }
+  ui: {
+    colors: {
+      primary: 'coral',
+      success: 'ok',
+      warning: 'warn',
+      info: 'sand',
+      error: 'coral-deep',
+      neutral: 'forest',
+    },
+  },
 })
-
-declare module '@nuxt/schema' {
-  interface AppConfigInput {
-    myLayer?: {
-      /** Project name */
-      name?: string
-    }
-  }
-}

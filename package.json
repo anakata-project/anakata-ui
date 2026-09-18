@@ -9,7 +9,8 @@
     "build": "nuxt build .playground",
     "generate": "nuxt generate .playground",
     "preview": "nuxt preview .playground",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "typecheck": "nuxt typecheck .playground"
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.17.0",
@@ -17,10 +18,12 @@
     "eslint": "^10.10.0",
     "nuxt": "^4.5.2",
     "typescript": "^6.0.3",
-    "vue": "^3.5.42"
+    "vue": "^3.5.42",
+    "vue-tsc": "^3.3.11"
   },
   "dependencies": {
     "@nuxt/ui": "^4.11.1",
+    "@nuxtjs/i18n": "^10.6.0",
     "tailwindcss": "^4.3.3"
   }
 }
