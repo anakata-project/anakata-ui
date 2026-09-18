@@ -22,4 +22,6 @@ This repo is a **Nuxt layer** extended by anakata-panel (RMS + CRM) and anakata-
 - Every visual value is taken from the prototypes' CSS — never from Nuxt UI defaults or taste. When in doubt, open `prototype/index.html` (RMS), find the class, copy the values.
 - Keep `@nuxt/ui` and `tailwindcss` versions identical to the three apps.
 - The `.playground` app contains a **style guide page** showing every token, every themed Nuxt UI component and every `Ank*` component in both themes. Update it whenever you add or change something.
+- Apps (panel, engine) extend this layer via the local path `../anakata-ui` for now. How they fetch it remotely is decided later with the git host.
+- Quality: local `lint`, `typecheck`, `test` and `build` must pass.
 - Releases: semantic version git tags (`v0.1.0`, `v0.2.0`…). Breaking changes bump the minor while < 1.0. Write a line in `CHANGELOG.md` per release.
