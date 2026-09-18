@@ -11,7 +11,8 @@
     "preview": "nuxt preview .playground",
     "lint": "eslint .",
     "typecheck": "nuxt typecheck .playground",
-    "test": "vitest run"
+    "test": "vitest run",
+    "postinstall": "nuxt prepare .playground"
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.17.0",
