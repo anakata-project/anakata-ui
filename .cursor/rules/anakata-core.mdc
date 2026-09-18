@@ -14,7 +14,7 @@ Three systems for Anakata (Galápagos yacht expeditions, yachts ANAMARA and ANAT
 Repos (all open in one Cursor multi-root workspace):
 | Repo | What | Port |
 |---|---|---|
-| `anakata-api` | Laravel 12 + MySQL 8 + Redis. Modules: Rms, Crm, Engine, Shared | 8000 |
+| `anakata-api` | Laravel 13 + MySQL 8 + Redis. Modules: Rms, Crm, Engine, Shared | 8000 |
 | `anakata-ui` | Shared Nuxt layer: design tokens, Nuxt UI theme, shared components, composables, API types | — |
 | `anakata-rms` | Nuxt 4 + Nuxt UI, SPA, staff back office | 3001 |
 | `anakata-crm` | Nuxt 4 + Nuxt UI, SPA, staff CRM | 3002 |
