@@ -156,4 +156,15 @@
   .font-manrope {
     font-family: 'Manrope', sans-serif;
   }
+
+  :focus-visible, select:focus-visible, input:focus-visible, textarea:focus-visible, a:focus-visible {
+    outline: 1px solid var(--coral);
+    outline-offset: 2px;
+  }
+}
+
+/* Unlayered so this beats Nuxt UI's focus-visible:outline-3 utilities. Same rule as @layer base. */
+:focus-visible, select:focus-visible, input:focus-visible, textarea:focus-visible, a:focus-visible {
+  outline: 1px solid var(--coral);
+  outline-offset: 2px;
 }
