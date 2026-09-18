@@ -6,7 +6,7 @@ alwaysApply: true
 
 # anakata-ui — shared layer rules
 
-This repo is a **Nuxt layer** extended by anakata-rms, anakata-crm and anakata-engine. It owns:
+This repo is a **Nuxt layer** extended by anakata-panel (RMS + CRM) and anakata-engine. It owns:
 - the design tokens (`app/assets/css/main.css`) — variable names identical to the prototypes: `--forest, --forest-950/900/700/600, --coral, --coral-600/400, --ivory, --iv62, --iv38, --hair, --sand, --olive, --ok, --warn`, plus the engine's easing curves `--ease, --eo, --eio`
 - the mapping of those tokens onto Nuxt UI's variables (`--ui-bg*`, `--ui-text*`, `--ui-border*`, `--ui-primary`, `--ui-radius: 0`)
 - the Nuxt UI component overrides (`app.config.ts`) — tuned to the **back office** (RMS and CRM share identical CSS). The engine layers its own size overrides on top in its app.
