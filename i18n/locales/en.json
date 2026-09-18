@@ -1,1 +1,7 @@
-{}
+{
+  "theme": {
+    "toLight": "◐ Light",
+    "toDark": "◑ Dark",
+    "toggleAria": "Toggle colour mode"
+  }
+}

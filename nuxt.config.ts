@@ -25,4 +25,9 @@ export default defineNuxtConfig({
       { code: 'en', language: 'en', file: 'en.json' },
     ],
   },
+  runtimeConfig: {
+    public: {
+      apiBase: 'http://localhost:8000',
+    },
+  },
 })

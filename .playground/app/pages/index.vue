@@ -73,8 +73,8 @@ const menuItems: Array<Array<{ label: string }>> = [
 <template>
   <div class="p-8 max-w-5xl">
     <div class="flex items-center justify-between gap-6 mb-8">
-      <h1>Task 08 theme</h1>
-      <UColorModeButton />
+      <h1>Task 09 components</h1>
+      <AnkThemeToggle />
     </div>
 
     <p class="mb-3">
@@ -92,6 +92,44 @@ const menuItems: Array<Array<{ label: string }>> = [
     <p class="sr-only font-manrope font-semibold">
       Manrope 600
     </p>
+
+    <section class="mb-10">
+      <AnkLabel>Ank components</AnkLabel>
+      <div class="flex flex-wrap gap-2 mt-3 mb-6">
+        <AnkPill>Neutral</AnkPill>
+        <AnkPill tone="ok">
+          Confirmed
+        </AnkPill>
+        <AnkPill tone="warn">
+          Hold
+        </AnkPill>
+        <AnkPill tone="sand">
+          Pending
+        </AnkPill>
+        <AnkPill tone="coral">
+          Cancelled
+        </AnkPill>
+      </div>
+      <AnkPanel title="Incoming requests">
+        <template #actions>
+          <AnkPill>Admin</AnkPill>
+        </template>
+        <p class="px-5 py-4">
+          Panel body — hairline, forest-900, Oswald header.
+        </p>
+      </AnkPanel>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-px bg-(--hair) border border-(--hair) mb-6">
+        <AnkKpi label="Collected to date" sub="deposits + balances, all channels">
+          <AnkMoney :amount="28520" />
+        </AnkKpi>
+        <AnkKpi label="Pending payments" sub="due at T−120">
+          <AnkMoney :amount="23940" />
+        </AnkKpi>
+        <AnkKpi label="Document cents">
+          <AnkMoney :cents="2852000" />
+        </AnkKpi>
+      </div>
+    </section>
 
     <section class="mb-10">
       <p class="label mb-3">
