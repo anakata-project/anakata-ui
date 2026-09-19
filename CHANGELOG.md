@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.3.0
+
+- Regenerated API types from the Sprint 2 OpenAPI spec (rates, engine settings, business rules, price check, `engine_copy.manage`).
+- Sprint 2 aliases (`RatesDocument`, `EngineSettingsDocument`, `BusinessRulesDocument`, `ConfigVersion<T>`, `ConfigVersionSummary`, `ConfigChange`, `ConfigValidation`, `PriceCheckRow`, `Quote`, `RuleRegistryRow`, `RuleRegistryCounts`, `Permission`) plus hand-written document shapes in `app/types/config.ts` where Scramble emits untyped objects.
+
 ## v0.2.1
 
 - Moved the `anakata:api-error` hook and `anakata.displayTimeZone` AppConfig augmentation to `app/types/anakata-augment.d.ts` so it is committed. `nuxt.d.ts` stays gitignored (Nuxt’s generated file).

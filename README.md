@@ -38,7 +38,7 @@ Regenerate after every API change the apps consume, and before starting the fron
 pnpm types:api
 ```
 
-The script reads `${API_OPENAPI_URL:-http://localhost:8000/docs/api.json}` (API must be running). Convenient aliases (`Me`, `Role`, `PermissionItem`, `UserListItem`, `ChangeHistoryEntry`, `Paginated<T>`) live in `app/types/index.ts`.
+The script reads `${API_OPENAPI_URL:-http://localhost:8000/docs/api.json}` (API must be running). Convenient aliases live in `app/types/index.ts`: Sprint 1 (`Me`, `Role`, `PermissionItem`, `Permission`, `UserListItem`, `ChangeHistoryEntry`, `Paginated<T>`) and Sprint 2 (`RatesDocument`, `EngineSettingsDocument`, `BusinessRulesDocument`, `ConfigVersion<T>`, `ConfigVersionSummary`, `ConfigChange`, `ConfigValidation`, `PriceCheckRow`, `Quote`, `RuleRegistryRow`, `RuleRegistryCounts`). Hand-written document shapes (while Scramble emits `document` as an untyped object) live in `app/types/config.ts`.
 
 ## Style guide
 

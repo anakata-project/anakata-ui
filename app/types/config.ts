@@ -1,0 +1,363 @@
+/**
+ * Hand-written shapes for configuration documents and related payloads.
+ * Scramble emits `document` / `changes` / `scenarios` / `registry` as untyped
+ * objects. Each type mirrors a PHP class and must change with it.
+ */
+
+/** Mirrors App\Support\Config\Documents\RateYear. Update when the PHP class changes. */
+export type RateYear = {
+  year: number
+  suite_pp: number
+  owner_pp: number
+  charter_week: number
+}
+
+/** Mirrors App\Support\Config\Documents\RateTerms. Update when the PHP class changes. */
+export type RateTerms = {
+  cabin_deposit_pct: number
+  cabin_balance_days: number
+  charter_deposit_pct: number
+  charter_deposit_business_days: number
+  charter_balance_days: number
+}
+
+/** Mirrors App\Support\Config\Documents\RateRules. Update when the PHP class changes. */
+export type RateRules = {
+  single_supplement_pct: number
+  triple_discount_pct: number
+  child_discount_pct: number
+  child_discounts_per_adult: number
+  child_discounts_per_cabin: number
+  back_to_back_pct: number
+  festive_supplement_pp: number
+  festive_supplement_charter: number
+}
+
+/** Mirrors App\Support\Config\Documents\RatesDocument. Update when the PHP document changes. */
+export type RatesDocument = {
+  currency: string
+  years: Array<RateYear>
+  terms: RateTerms
+  rules: RateRules
+}
+
+/** Mirrors App\Support\Config\Documents\GuestsSettings. Update when the PHP class changes. */
+export type GuestsSettings = {
+  max_per_cabin: number
+  max_per_yacht: number
+  child_min_age: number
+  child_max_age: number
+  adult_required_with_children: boolean
+  under_age_message: string
+}
+
+/** Mirrors App\Support\Config\Documents\CalendarSettings. Update when the PHP class changes. */
+export type CalendarSettings = {
+  default_search_from: string
+  default_search_to: string
+  default_adults: number
+  horizon_months: number
+}
+
+/** Mirrors App\Support\Config\Documents\LocaleSettings. Update when the PHP class changes. */
+export type LocaleSettings = {
+  default: string
+  live: Array<string>
+  currency: string
+}
+
+/** Mirrors App\Support\Config\Documents\PngFees. Update when the PHP class changes. */
+export type PngFees = {
+  foreign_over_12: number
+  foreign_12_and_under: number
+  can_adult: number
+  can_minor: number
+  national_or_resident: number
+  exempt_under_age: number
+}
+
+/** Mirrors App\Support\Config\Documents\FeesSettings. Update when the PHP class changes. */
+export type FeesSettings = {
+  tct_pp: number
+  png: PngFees
+  show_in_price_panel: boolean
+  footnote: string
+}
+
+/** Mirrors App\Support\Config\Documents\CopySettings. Update when the PHP class changes. */
+export type CopySettings = {
+  book_now_pay_later: string
+  traveling_with_children: string
+  solo_and_triple: string
+  pay_today: string
+  details_note: string
+  confirmation_steps: Array<string>
+}
+
+/** Mirrors App\Support\Config\Documents\CharterSettings. Update when the PHP class changes. */
+export type CharterSettings = {
+  headline: string
+  intro: string
+  itinerary_label: string
+  response_sla_hours: number
+  group_contexts: Array<string>
+  thank_you: string
+}
+
+/** Mirrors App\Support\Config\Documents\EngineSettingsDocument. Update when the PHP document changes. */
+export type EngineSettingsDocument = {
+  guests: GuestsSettings
+  calendar: CalendarSettings
+  locale: LocaleSettings
+  fees: FeesSettings
+  copy: CopySettings
+  charter: CharterSettings
+}
+
+/** Mirrors App\Support\Config\Documents\CommissionRules. Update when the PHP class changes. */
+export type CommissionRules = {
+  cap_pct: number
+  default_pct: number
+  payable_days_after_cruise: number
+}
+
+/** Mirrors App\Support\Config\Documents\PaymentsRules. Update when the PHP class changes. */
+export type PaymentsRules = {
+  extras_due_hours: number
+  wire_window_hours: number
+  balance_reminder_days: Array<number>
+}
+
+/** Mirrors App\Support\Config\Documents\DiscountsRules. Update when the PHP class changes. */
+export type DiscountsRules = {
+  online_deposit_discount_pct: number
+  max_total_discount_pct: number | null
+}
+
+/** Mirrors App\Support\Config\Documents\HoldsRules. Update when the PHP class changes. */
+export type HoldsRules = {
+  web_minutes: number
+  web_extension_minutes: number
+  near_term_business_hours: number
+  long_lead_business_days: number
+}
+
+/** Mirrors App\Support\Config\Documents\SlaRules. Update when the PHP class changes. */
+export type SlaRules = {
+  response_hours: number
+  refund_business_days: number
+  agency_approval_business_days: number
+}
+
+/** Mirrors App\Support\Config\Documents\ManifestsRules. Update when the PHP class changes. */
+export type ManifestsRules = {
+  dpng_fit_days: number
+  dpng_charter_days: number
+}
+
+/** Mirrors App\Support\Config\Documents\AlertsRules. Update when the PHP class changes. */
+export type AlertsRules = {
+  low_occupancy_pct: number
+  low_occupancy_days_before: number
+}
+
+/** Mirrors App\Support\Config\Documents\RetentionRules. Update when the PHP class changes. */
+export type RetentionRules = {
+  passport_months_after_cruise: number
+  medical_days_after_cruise: number
+}
+
+/** Mirrors App\Support\Config\Documents\CancellationBand. Update when the PHP class changes. */
+export type CancellationBand = {
+  min_days: number
+  penalty_pct: number
+}
+
+/** Mirrors App\Support\Config\Documents\BusinessRulesDocument. Update when the PHP document changes. */
+export type BusinessRulesDocument = {
+  commission: CommissionRules
+  modification_fee_usd: number
+  payments: PaymentsRules
+  discounts: DiscountsRules
+  holds: HoldsRules
+  sla: SlaRules
+  manifests: ManifestsRules
+  alerts: AlertsRules
+  retention: RetentionRules
+  cancellation: {
+    bands: Array<CancellationBand>
+  }
+}
+
+/** Mirrors App\Support\Config\Change. Update when the PHP class changes. */
+export type ConfigChange = {
+  path: string
+  label: string
+  from: unknown
+  to: unknown
+}
+
+/** Mirrors App\Support\Config\Warning. Update when the PHP class changes. */
+export type ConfigWarning = {
+  path: string
+  message: string
+}
+
+/** Mirrors App\Services\Config\ValidationReport. Update when the PHP class changes. */
+export type ConfigValidation = {
+  errors: Record<string, Array<string>>
+  warnings: Array<ConfigWarning>
+  changes: Array<ConfigChange>
+}
+
+/**
+ * Mirrors App\Http\Resources\Rms\EngineSettingsValidationResource.
+ * Update when the PHP resource changes.
+ */
+export type EngineSettingsValidation = ConfigValidation & {
+  rule_fields_changed: boolean
+}
+
+/** Mirrors the `published_by` object on ConfigCurrentResource. Update when the PHP resource changes. */
+export type ConfigPublisher = {
+  id: number
+  name: string
+}
+
+/**
+ * Shared current-version envelope. Mirrors App\Http\Resources\Rms\ConfigCurrentResource
+ * with a typed `document`. Update when the PHP resource changes.
+ */
+export type ConfigVersion<TDocument> = {
+  version: number
+  document: TDocument
+  published_at: string | null
+  published_by: ConfigPublisher | null
+  approval_reference: string | null
+}
+
+/**
+ * Mirrors App\Http\Resources\Rms\ConfigVersionDetailResource.
+ * Update when the PHP resource changes.
+ */
+export type ConfigVersionDetail<TDocument> = ConfigVersion<TDocument> & {
+  changes: Array<ConfigChange>
+}
+
+/**
+ * Mirrors App\Http\Resources\Rms\ConfigVersionSummaryResource.
+ * Update when the PHP resource changes.
+ */
+export type ConfigVersionSummary = {
+  version: number
+  published_at: string | null
+  published_by: ConfigPublisher | null
+  approval_reference: string | null
+  changes: Array<ConfigChange>
+}
+
+/** Mirrors App\Services\Pricing\QuoteLine. Update when the PHP class changes. */
+export type QuoteLine = {
+  code: string
+  label: string
+  amount: number
+}
+
+/** Mirrors App\Services\Pricing\Quote. Update when the PHP class changes. */
+export type Quote = {
+  lines: Array<QuoteLine>
+  total: number
+  deposit_pct: number
+  deposit: number
+}
+
+/** Mirrors App\Services\Pricing\NoRate. Update when the PHP class changes. */
+export type NoRate = {
+  reason: string
+}
+
+/**
+ * One price-check scenario. Mirrors the list items in
+ * App\Http\Resources\Rms\PriceCheckResource. Update when the PHP resource changes.
+ */
+export type PriceCheckRow = {
+  key: string
+  label: string
+  published: Quote | NoRate
+  draft: Quote | NoRate
+  difference: number | null
+}
+
+/** Mirrors App\Enums\RuleGroup. Update when the PHP enum changes. */
+export type RuleGroup =
+  | 'pricing_payments'
+  | 'holds_service_levels'
+  | 'cancellation'
+  | 'guests_capacity'
+  | 'data_retention'
+  | 'structural_locked'
+
+/** Mirrors App\Enums\RuleStatus. Update when the PHP enum changes. */
+export type RuleStatus =
+  | 'CONFIRMED'
+  | 'PENDING_CLIENT'
+  | 'PENDING_LEGAL'
+  | 'TEXT_IN_DRAFTING'
+  | 'RMS_SPEC'
+
+/** Mirrors App\Enums\RuleWhere. Update when the PHP enum changes. */
+export type RuleWhere =
+  | 'here'
+  | 'rates'
+  | 'engine_settings'
+  | 'departures'
+  | 'locked'
+
+/**
+ * Mirrors App\Support\BusinessRules\Registry::rows().
+ * Update when the PHP registry row shape changes.
+ */
+export type RuleRegistryRow = {
+  key: string
+  group: RuleGroup
+  group_label: string
+  source_code: string
+  name: string
+  status: RuleStatus
+  where: RuleWhere
+  paths: Array<string>
+  source_display: string
+  source_value: unknown
+  current_display: string
+  differs: boolean
+  used_in: string
+  lock_reason: string | null
+  note: string | null
+  link: string | null
+}
+
+/**
+ * Mirrors App\Support\BusinessRules\Registry::counts().
+ * Update when the PHP method changes.
+ */
+export type RuleRegistryCounts = {
+  all: number
+  here: number
+  other_pages: number
+  locked: number
+  differs_or_flagged: number
+}
+
+/** GET /rms/rates — ConfigCurrentResource with a typed rates document. */
+export type RatesVersion = ConfigVersion<RatesDocument>
+
+/** GET /rms/engine-settings — EngineSettingsCurrentResource with a typed document. */
+export type EngineSettingsVersion = ConfigVersion<EngineSettingsDocument> & {
+  copy_paths: Array<string>
+}
+
+/** GET /rms/business-rules — BusinessRulesCurrentResource with a typed document. */
+export type BusinessRulesVersion = ConfigVersion<BusinessRulesDocument> & {
+  registry: Array<RuleRegistryRow>
+  counts: RuleRegistryCounts
+}

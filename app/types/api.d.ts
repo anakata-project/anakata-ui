@@ -179,6 +179,134 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/rms/business-rules": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["businessRules.current"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/business-rules/validate": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["businessRules.validateDocument"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/business-rules/versions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["businessRules.index"];
+        put?: never;
+        post: operations["businessRules.store"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/business-rules/versions/{version}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["businessRules.show"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/engine-settings": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["engineSettings.current"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/engine-settings/validate": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["engineSettings.validateDocument"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/engine-settings/versions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["engineSettings.index"];
+        put?: never;
+        post: operations["engineSettings.store"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/engine-settings/versions/{version}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["engineSettings.show"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/health": {
         parameters: {
             query?: never;
@@ -203,6 +331,86 @@ export interface paths {
             cookie?: never;
         };
         get: operations["permission.index"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/rates": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["rates.current"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/rates/validate": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["rates.validateDocument"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/rates/price-check": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["rates.priceCheck"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/rates/versions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["rates.index"];
+        put?: never;
+        post: operations["rates.store"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/rates/versions/{version}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["rates.show"];
         put?: never;
         post?: never;
         delete?: never;
@@ -367,6 +575,44 @@ export interface components {
             password: string;
             password_confirmation: string;
         };
+        /** BusinessRulesCurrentResource */
+        BusinessRulesCurrentResource: {
+            version: number;
+            document: {
+                [key: string]: unknown;
+            };
+            published_at: string | null;
+            published_by: {
+                id: string;
+                name: string;
+            } | null;
+            approval_reference: string | null;
+            registry: {
+                key: string;
+                group: string;
+                group_label: string;
+                source_code: string;
+                name: string;
+                status: string;
+                where: string;
+                paths: string;
+                source_display: string;
+                source_value: string;
+                current_display: string;
+                differs: string;
+                used_in: string;
+                lock_reason: string;
+                note: string;
+                link: string;
+            }[];
+            counts: {
+                all: number;
+                here: number;
+                other_pages: number;
+                locked: number;
+                differs_or_flagged: number;
+            };
+        };
         /** ChangeHistoryResource */
         ChangeHistoryResource: {
             id: number;
@@ -389,9 +635,91 @@ export interface components {
             source: string | "system";
             at: string | null;
         };
+        /** ConfigCurrentResource */
+        ConfigCurrentResource: {
+            version: number;
+            document: {
+                [key: string]: unknown;
+            };
+            published_at: string | null;
+            published_by: {
+                id: string;
+                name: string;
+            } | null;
+            approval_reference: string | null;
+        };
+        /** ConfigValidationResource */
+        ConfigValidationResource: {
+            errors: {
+                [key: string]: string[];
+            };
+            warnings: unknown[];
+            changes: unknown[];
+        };
+        /** ConfigVersionDetailResource */
+        ConfigVersionDetailResource: {
+            version: number;
+            document: {
+                [key: string]: unknown;
+            };
+            published_at: string | null;
+            published_by: {
+                id: string;
+                name: string;
+            } | null;
+            approval_reference: string | null;
+            changes: string;
+        };
+        /** ConfigVersionSummaryResource */
+        ConfigVersionSummaryResource: {
+            version: number;
+            published_at: string | null;
+            published_by: {
+                id: string;
+                name: string;
+            } | null;
+            approval_reference: string | null;
+            changes: string;
+        };
         /** DisableUserRequest */
         DisableUserRequest: {
             reason?: string | null;
+        };
+        /** EngineSettingsCurrentResource */
+        EngineSettingsCurrentResource: {
+            version: number;
+            document: {
+                [key: string]: unknown;
+            };
+            published_at: string | null;
+            published_by: {
+                id: string;
+                name: string;
+            } | null;
+            approval_reference: string | null;
+            copy_paths: [
+                "fees.footnote",
+                "copy.book_now_pay_later",
+                "copy.traveling_with_children",
+                "copy.solo_and_triple",
+                "copy.pay_today",
+                "copy.details_note",
+                "copy.confirmation_steps",
+                "charter.headline",
+                "charter.intro",
+                "charter.itinerary_label",
+                "charter.group_contexts",
+                "charter.thank_you"
+            ];
+        };
+        /** EngineSettingsValidationResource */
+        EngineSettingsValidationResource: {
+            errors: {
+                [key: string]: string[];
+            };
+            warnings: unknown[];
+            changes: unknown[];
+            rule_fields_changed: boolean;
         };
         /** ForgotPasswordRequest */
         ForgotPasswordRequest: {
@@ -430,17 +758,32 @@ export interface components {
          * @description Staff permissions are code, not data. Adding a case is a code change and needs a default decision for the Manager and Sales Exec roles.
          * @enum {string}
          */
-        Permission: "panel.rms" | "panel.crm" | "users.manage" | "roles.manage" | "records.act_on_any" | "bookings.view_all" | "bookings.create" | "bookings.change_status" | "bookings.move" | "bookings.delete" | "requests.confirm" | "requests.release" | "departures.manage" | "itineraries.manage" | "blocks.manage" | "rates.manage" | "rules.view" | "rules.manage" | "engine_settings.manage" | "offers.manage" | "offers.approve" | "extras.manage" | "agencies.manage" | "guests.view_sensitive" | "pipeline.move_stage" | "payments.mark_wire_received" | "refunds.execute" | "refunds.approve" | "commissions.override_cap" | "bookings.overdue_decision";
+        Permission: "panel.rms" | "panel.crm" | "users.manage" | "roles.manage" | "records.act_on_any" | "bookings.view_all" | "bookings.create" | "bookings.change_status" | "bookings.move" | "bookings.delete" | "requests.confirm" | "requests.release" | "departures.manage" | "itineraries.manage" | "blocks.manage" | "rates.manage" | "rules.view" | "rules.manage" | "engine_settings.manage" | "engine_copy.manage" | "offers.manage" | "offers.approve" | "extras.manage" | "agencies.manage" | "guests.view_sensitive" | "pipeline.move_stage" | "payments.mark_wire_received" | "refunds.execute" | "refunds.approve" | "commissions.override_cap" | "bookings.overdue_decision";
         /** PermissionResource */
         PermissionResource: {
             value: string;
             /** @enum {string} */
-            label: "Access RMS" | "Access CRM" | "Manage users" | "Manage roles" | "Act on any record" | "View all reservations" | "Create reservation" | "Change reservation status" | "Move reservation" | "Delete reservation" | "Confirm requests" | "Release requests" | "Manage departures" | "Manage itineraries" | "Manage internal blocks" | "Edit rates, deposit terms and discount rules" | "View business rules" | "View and adjust business rules" | "Manage engine settings" | "Manage offers" | "Approve offers" | "Manage extras catalog" | "Manage agencies" | "View sensitive guest data" | "Move lead stage" | "Mark wire received" | "Execute refunds" | "Approve refunds" | "Approve commission above cap" | "OPS-007 overdue decisions";
+            label: "Access RMS" | "Access CRM" | "Manage users" | "Manage roles" | "Act on any record" | "View all reservations" | "Create reservation" | "Change reservation status" | "Move reservation" | "Delete reservation" | "Confirm requests" | "Release requests" | "Manage departures" | "Manage itineraries" | "Manage internal blocks" | "Edit rates, deposit terms and discount rules" | "View business rules" | "View and adjust business rules" | "Manage engine settings" | "Edit engine copy" | "Manage offers" | "Approve offers" | "Manage extras catalog" | "Manage agencies" | "View sensitive guest data" | "Move lead stage" | "Mark wire received" | "Execute refunds" | "Approve refunds" | "Approve commission above cap" | "OPS-007 overdue decisions";
             /** @enum {string} */
             group: "sections" | "admin" | "bookings" | "requests" | "inventory" | "commercial" | "guests" | "crm" | "finance" | "director";
             /** @enum {string} */
             group_label: "Sections" | "Admin" | "Bookings" | "Requests" | "Inventory" | "Commercial" | "Guests" | "CRM" | "Finance" | "Director";
             is_flag: boolean;
+        };
+        /** PriceCheckRequest */
+        PriceCheckRequest: {
+            year: number;
+            document: string[];
+        };
+        /** PriceCheckResource */
+        PriceCheckResource: {
+            scenarios: string;
+        };
+        /** PublishConfigRequest */
+        PublishConfigRequest: {
+            document: string[];
+            base_version: number;
+            approval_reference?: string | null;
         };
         /** ResetPasswordRequest */
         ResetPasswordRequest: {
@@ -498,6 +841,10 @@ export interface components {
          * @enum {string}
          */
         UserStatus: "invited" | "active" | "disabled";
+        /** ValidateConfigRequest */
+        ValidateConfigRequest: {
+            document: string[];
+        };
     };
     responses: {
         /** @description Validation error */
@@ -704,6 +1051,294 @@ export interface operations {
             401: components["responses"]["AuthenticationException"];
         };
     };
+    "businessRules.current": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `BusinessRulesCurrentResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["BusinessRulesCurrentResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+        };
+    };
+    "businessRules.validateDocument": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ValidateConfigRequest"];
+            };
+        };
+        responses: {
+            /** @description `ConfigValidationResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ConfigValidationResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "businessRules.index": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Paginated set of `ConfigVersionSummaryResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["ConfigVersionSummaryResource"][];
+                        links: {
+                            first: string | null;
+                            last: string | null;
+                            prev: string | null;
+                            next: string | null;
+                        };
+                        meta: {
+                            current_page: number;
+                            from: number | null;
+                            last_page: number;
+                            /** @description Generated paginator links. */
+                            links: {
+                                url: string | null;
+                                label: string;
+                                active: boolean;
+                            }[];
+                            /** @description Base path for paginator generated URLs. */
+                            path: string | null;
+                            /** @description Number of items shown per page. */
+                            per_page: number;
+                            /** @description Number of the last item in the slice. */
+                            to: number | null;
+                            /** @description Total number of items being paginated. */
+                            total: number;
+                        };
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+        };
+    };
+    "businessRules.store": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PublishConfigRequest"];
+            };
+        };
+        responses: {
+            /** @description `ConfigVersionDetailResource` */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ConfigVersionDetailResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "businessRules.show": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                version: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `ConfigVersionDetailResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ConfigVersionDetailResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+        };
+    };
+    "engineSettings.current": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `EngineSettingsCurrentResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["EngineSettingsCurrentResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+        };
+    };
+    "engineSettings.validateDocument": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ValidateConfigRequest"];
+            };
+        };
+        responses: {
+            /** @description `EngineSettingsValidationResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["EngineSettingsValidationResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "engineSettings.index": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Paginated set of `ConfigVersionSummaryResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["ConfigVersionSummaryResource"][];
+                        links: {
+                            first: string | null;
+                            last: string | null;
+                            prev: string | null;
+                            next: string | null;
+                        };
+                        meta: {
+                            current_page: number;
+                            from: number | null;
+                            last_page: number;
+                            /** @description Generated paginator links. */
+                            links: {
+                                url: string | null;
+                                label: string;
+                                active: boolean;
+                            }[];
+                            /** @description Base path for paginator generated URLs. */
+                            path: string | null;
+                            /** @description Number of items shown per page. */
+                            per_page: number;
+                            /** @description Number of the last item in the slice. */
+                            to: number | null;
+                            /** @description Total number of items being paginated. */
+                            total: number;
+                        };
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+        };
+    };
+    "engineSettings.store": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PublishConfigRequest"];
+            };
+        };
+        responses: {
+            /** @description `ConfigVersionDetailResource` */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ConfigVersionDetailResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "engineSettings.show": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                version: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `ConfigVersionDetailResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ConfigVersionDetailResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+        };
+    };
     health: {
         parameters: {
             query?: never;
@@ -745,6 +1380,176 @@ export interface operations {
             };
             401: components["responses"]["AuthenticationException"];
             403: components["responses"]["AuthorizationException"];
+        };
+    };
+    "rates.current": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `ConfigCurrentResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ConfigCurrentResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+        };
+    };
+    "rates.validateDocument": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ValidateConfigRequest"];
+            };
+        };
+        responses: {
+            /** @description `ConfigValidationResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ConfigValidationResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "rates.priceCheck": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PriceCheckRequest"];
+            };
+        };
+        responses: {
+            /** @description `PriceCheckResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PriceCheckResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "rates.index": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Paginated set of `ConfigVersionSummaryResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["ConfigVersionSummaryResource"][];
+                        links: {
+                            first: string | null;
+                            last: string | null;
+                            prev: string | null;
+                            next: string | null;
+                        };
+                        meta: {
+                            current_page: number;
+                            from: number | null;
+                            last_page: number;
+                            /** @description Generated paginator links. */
+                            links: {
+                                url: string | null;
+                                label: string;
+                                active: boolean;
+                            }[];
+                            /** @description Base path for paginator generated URLs. */
+                            path: string | null;
+                            /** @description Number of items shown per page. */
+                            per_page: number;
+                            /** @description Number of the last item in the slice. */
+                            to: number | null;
+                            /** @description Total number of items being paginated. */
+                            total: number;
+                        };
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+        };
+    };
+    "rates.store": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PublishConfigRequest"];
+            };
+        };
+        responses: {
+            /** @description `ConfigVersionDetailResource` */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ConfigVersionDetailResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "rates.show": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                version: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `ConfigVersionDetailResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ConfigVersionDetailResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
         };
     };
     "role.index": {
