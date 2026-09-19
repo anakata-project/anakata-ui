@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.2.1
+
+- Moved the `anakata:api-error` hook and `anakata.displayTimeZone` AppConfig augmentation to `app/types/anakata-augment.d.ts` so it is committed. `nuxt.d.ts` stays gitignored (Nuxt’s generated file).
+
 ## v0.2.0
 
 - Generated API types from the Scramble OpenAPI spec (`pnpm types:api`, committed `app/types/api.d.ts`) and Sprint 1 aliases (`Me`, `Role`, `PermissionItem`, `UserListItem`, `ChangeHistoryEntry`, `Paginated<T>`).
