@@ -1,4 +1,8 @@
 export default defineAppConfig({
+  anakata: {
+    displayTimeZone: 'UTC',
+  },
+
   ui: {
     colors: {
       primary: 'coral',

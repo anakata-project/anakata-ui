@@ -183,6 +183,109 @@ describe('createApiClient', () => {
     ])
   })
 
+  it('calls onError for 401, 403 and 422 just before throw', async () => {
+    const onError = vi.fn()
+    const fetchImpl = vi.fn<ApiFetch>()
+    const client = createApiClient({
+      baseURL: 'http://localhost:8000',
+      isClient: true,
+      fetchImpl,
+      readXsrfToken: () => 'token',
+      onError,
+    })
+
+    fetchImpl.mockRejectedValueOnce(Object.assign(new Error('Unauthenticated.'), {
+      status: 401,
+      data: { message: 'Unauthenticated.' },
+    }))
+    await expect(client.request('/api/me')).rejects.toBeInstanceOf(ApiError)
+
+    fetchImpl.mockRejectedValueOnce(Object.assign(new Error('Forbidden'), {
+      status: 403,
+      data: { message: 'Forbidden' },
+    }))
+    await expect(client.request('/api/me')).rejects.toBeInstanceOf(ApiError)
+
+    fetchImpl.mockRejectedValueOnce(Object.assign(new Error('The given data was invalid.'), {
+      status: 422,
+      data: { message: 'The given data was invalid.', errors: { email: ['Required.'] } },
+    }))
+    await expect(client.request('/api/me')).rejects.toBeInstanceOf(ApiError)
+
+    expect(onError).toHaveBeenCalledTimes(3)
+    expect(onError.mock.calls.map(call => call[0]?.status)).toEqual([401, 403, 422])
+  })
+
+  it('does not call onError when a 419 retry succeeds', async () => {
+    const onError = vi.fn()
+    let posts = 0
+    const fetchImpl = vi.fn<ApiFetch>(async (url) => {
+      if (url === '/sanctum/csrf-cookie') {
+        return undefined
+      }
+
+      posts += 1
+
+      if (posts === 1) {
+        throw csrfError(419, 'CSRF token mismatch.')
+      }
+
+      return { ok: true }
+    })
+    const client = createApiClient({
+      baseURL: 'http://localhost:8000',
+      isClient: true,
+      fetchImpl,
+      readXsrfToken: () => 'token',
+      onError,
+    })
+
+    await expect(client.request('/api/bookings', { method: 'POST' })).resolves.toEqual({ ok: true })
+    expect(onError).not.toHaveBeenCalled()
+  })
+
+  it('calls onError once when a 419 retry also fails', async () => {
+    const onError = vi.fn()
+    const fetchImpl = vi.fn<ApiFetch>(async (url) => {
+      if (url === '/sanctum/csrf-cookie') {
+        return undefined
+      }
+
+      throw csrfError(419, 'CSRF token mismatch.')
+    })
+    const client = createApiClient({
+      baseURL: 'http://localhost:8000',
+      isClient: true,
+      fetchImpl,
+      readXsrfToken: () => 'token',
+      onError,
+    })
+
+    await expect(client.request('/api/bookings', { method: 'POST' })).rejects.toMatchObject({
+      name: 'ApiError',
+      status: 419,
+    })
+    expect(onError).toHaveBeenCalledTimes(1)
+    expect(onError.mock.calls[0]?.[0]?.status).toBe(419)
+  })
+
+  it('does not call onError for non-API errors', async () => {
+    const onError = vi.fn()
+    const fetchImpl = vi.fn<ApiFetch>(async () => {
+      throw Object.assign(new Error('Server error'), { status: 500 })
+    })
+    const client = createApiClient({
+      baseURL: 'http://localhost:8000',
+      isClient: true,
+      fetchImpl,
+      readXsrfToken: () => 'token',
+      onError,
+    })
+
+    await expect(client.request('/api/me')).rejects.not.toBeInstanceOf(ApiError)
+    expect(onError).not.toHaveBeenCalled()
+  })
+
   it('skips csrf and cookie reads on the server', async () => {
     const readXsrfToken = vi.fn(() => 'secret')
     const fetchImpl = vi.fn<ApiFetch>(async () => ({ ok: true }))

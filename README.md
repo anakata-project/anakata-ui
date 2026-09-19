@@ -9,6 +9,7 @@ Shared Nuxt 4 layer for **anakata-panel** (RMS + CRM) and **anakata-engine**. It
 - **Fonts** via `@nuxt/fonts`: Oswald, Archivo, IBM Plex Mono, Manrope.
 - **Components** (`AnkLabel`, `AnkPill`, `AnkPanel`, `AnkKpi`, `AnkMoney`, `AnkThemeToggle`).
 - **Composables:** `useApi()`, `useMoney()`, `useDates()`.
+- **Generated API types** in `app/types/api.d.ts` (aliases in `app/types/index.ts`).
 - **i18n** locale `en` for layer UI strings (theme toggle).
 
 Nothing app-specific belongs here. If only one app uses it, it lives in that app.
@@ -26,6 +27,18 @@ export default defineNuxtConfig({
 How apps fetch the layer remotely will be decided with the git host (08-dev-decisions A13). Do not publish this package to npm.
 
 `@nuxt/ui` and `tailwindcss` versions in the apps **must match** this layer. Today that is `@nuxt/ui` `^4.11.1` and `tailwindcss` `^4.3.3`. If you bump one, bump the others in the same change.
+
+## API types
+
+`app/types/api.d.ts` is generated from the API OpenAPI spec and committed. Do not edit it by hand.
+
+Regenerate after every API change the apps consume, and before starting the frontend tasks of a sprint:
+
+```bash
+pnpm types:api
+```
+
+The script reads `${API_OPENAPI_URL:-http://localhost:8000/docs/api.json}` (API must be running). Convenient aliases (`Me`, `Role`, `PermissionItem`, `UserListItem`, `ChangeHistoryEntry`, `Paginated<T>`) live in `app/types/index.ts`.
 
 ## Style guide
 

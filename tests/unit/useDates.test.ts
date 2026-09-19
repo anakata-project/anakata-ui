@@ -1,8 +1,10 @@
 import { describe, expect, it } from 'vitest'
 import { useDates } from '../../app/composables/useDates'
 
+const GALAPAGOS = { timeZone: 'Pacific/Galapagos' }
+
 describe('useDates', () => {
-  const { format, parseIso, toIso } = useDates()
+  const { format, parseIso, toIso, zoneLabel } = useDates()
 
   it('parses and formats ISO dates in UTC', () => {
     const date = parseIso('2027-11-07')
@@ -21,6 +23,31 @@ describe('useDates', () => {
     expect(format(date, 'dateTime')).toBe('18 Sep 2026, 18:22')
   })
 
+  it('converts instants into Galápagos time', () => {
+    expect(format('2026-12-31T23:30:00Z', 'dateTime', GALAPAGOS)).toBe('31 Dec 2026, 17:30')
+    expect(format('2027-01-01T03:00:00Z', 'dateTime', GALAPAGOS)).toBe('31 Dec 2026, 21:00')
+  })
+
+  it('formats midnight with hourCycle h23', () => {
+    expect(format('2027-01-01T06:00:00Z', 'dateTime', GALAPAGOS)).toBe('1 Jan 2027, 00:00')
+    expect(format('2027-01-01T06:00:00Z', 'time', GALAPAGOS)).toBe('00:00')
+  })
+
+  it('never shifts a calendar date', () => {
+    expect(format('2027-01-07', 'short', { timeZone: 'UTC' })).toBe('7 Jan 2027')
+    expect(format('2027-01-07', 'short', GALAPAGOS)).toBe('7 Jan 2027')
+    expect(format('2027-01-07', 'short', { timeZone: 'Pacific/Kiritimati' })).toBe('7 Jan 2027')
+  })
+
+  it('throws dateTime on a date-only string', () => {
+    expect(() => format('2027-01-07', 'dateTime')).toThrow(/calendar date has no time/)
+  })
+
+  it('throws on a datetime without Z or an offset', () => {
+    expect(() => format('2026-12-31T23:30:00')).toThrow(/Invalid ISO datetime/)
+    expect(() => format('2026-12-31T23:30:00', 'dateTime', GALAPAGOS)).toThrow(/Invalid ISO datetime/)
+  })
+
   it('renders an em dash for null and undefined', () => {
     expect(format(null)).toBe('—')
     expect(format(undefined)).toBe('—')
@@ -30,5 +57,12 @@ describe('useDates', () => {
     expect(() => parseIso('07 Nov 2027')).toThrow(/Invalid ISO date/)
     expect(() => format('2027-13-40')).toThrow(/Invalid ISO date/)
     expect(() => format('not-a-date')).toThrow(/Invalid ISO date/)
+  })
+
+  it('returns zone labels from the small map', () => {
+    expect(zoneLabel('Pacific/Galapagos')).toBe('Galápagos time · UTC−6')
+    expect(zoneLabel('UTC')).toBe('UTC')
+    expect(zoneLabel('Etc/UTC')).toBe('UTC')
+    expect(zoneLabel('Europe/London')).toBe('Europe/London')
   })
 })

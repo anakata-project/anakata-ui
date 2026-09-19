@@ -1,12 +1,109 @@
-export type DateStyle = 'iso' | 'short' | 'shortPadded' | 'long' | 'dateTime'
+export type DateStyle = 'iso' | 'short' | 'shortPadded' | 'long' | 'dateTime' | 'time'
+
+export type DateFormatOptions = {
+  timeZone?: string
+}
 
 const ISO_DATE = /^(\d{4})-(\d{2})-(\d{2})$/
+const ISO_DATETIME = /^(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2}(?::\d{2}(?:\.\d{1,9})?)?)(Z|[+-]\d{2}:\d{2})$/
+
 const SHORT_MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'] as const
 const LONG_MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] as const
 const WEEKDAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'] as const
 
+const ZONE_LABELS: Record<string, string> = {
+  'Pacific/Galapagos': 'Galápagos time · UTC−6',
+  UTC: 'UTC',
+  'Etc/UTC': 'UTC',
+}
+
+type CalendarParts = {
+  year: number
+  month: number
+  day: number
+  hour: number
+  minute: number
+}
+
 function pad2(value: number): string {
   return String(value).padStart(2, '0')
+}
+
+function configuredTimeZone(): string {
+  try {
+    return useAppConfig().anakata?.displayTimeZone ?? 'UTC'
+  }
+  catch {
+    return 'UTC'
+  }
+}
+
+function instantParts(date: Date, timeZone: string): CalendarParts {
+  const formatter = new Intl.DateTimeFormat('en-US', {
+    timeZone,
+    hourCycle: 'h23',
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+  })
+
+  const values: Record<string, string> = {}
+
+  for (const part of formatter.formatToParts(date)) {
+    if (part.type !== 'literal') {
+      values[part.type] = part.value
+    }
+  }
+
+  return {
+    year: Number(values.year),
+    month: Number(values.month) - 1,
+    day: Number(values.day),
+    hour: Number(values.hour),
+    minute: Number(values.minute),
+  }
+}
+
+function utcParts(date: Date): CalendarParts {
+  return {
+    year: date.getUTCFullYear(),
+    month: date.getUTCMonth(),
+    day: date.getUTCDate(),
+    hour: date.getUTCHours(),
+    minute: date.getUTCMinutes(),
+  }
+}
+
+function weekdayFromParts(parts: CalendarParts): number {
+  return new Date(Date.UTC(parts.year, parts.month, parts.day)).getUTCDay()
+}
+
+function formatParts(parts: CalendarParts, style: DateStyle): string {
+  const { year, month, day } = parts
+
+  if (style === 'iso') {
+    return `${year}-${pad2(month + 1)}-${pad2(day)}`
+  }
+
+  if (style === 'short') {
+    return `${day} ${SHORT_MONTHS[month]} ${year}`
+  }
+
+  if (style === 'shortPadded') {
+    return `${pad2(day)} ${SHORT_MONTHS[month]} ${year}`
+  }
+
+  if (style === 'long') {
+    return `${WEEKDAYS[weekdayFromParts(parts)]}, ${LONG_MONTHS[month]} ${day}, ${year}`
+  }
+
+  if (style === 'time') {
+    return `${pad2(parts.hour)}:${pad2(parts.minute)}`
+  }
+
+  return `${day} ${SHORT_MONTHS[month]} ${year}, ${pad2(parts.hour)}:${pad2(parts.minute)}`
 }
 
 export function useDates() {
@@ -33,59 +130,68 @@ export function useDates() {
     return date
   }
 
+  function parseInstant(iso: string): Date {
+    if (!ISO_DATETIME.test(iso)) {
+      throw new Error(`Invalid ISO datetime: ${iso}`)
+    }
+
+    const date = new Date(iso)
+
+    if (Number.isNaN(date.getTime())) {
+      throw new Error(`Invalid ISO datetime: ${iso}`)
+    }
+
+    return date
+  }
+
   function toIso(date: Date): string {
     return date.toISOString().slice(0, 10)
   }
 
-  function resolve(value: string | Date | null | undefined): Date | null {
+  function format(
+    value: string | Date | null | undefined,
+    style: DateStyle = 'short',
+    options: DateFormatOptions = {},
+  ): string {
     if (value === null || value === undefined) {
-      return null
+      return '—'
     }
+
+    const timeZone = options.timeZone ?? configuredTimeZone()
 
     if (value instanceof Date) {
       if (Number.isNaN(value.getTime())) {
         throw new Error('Invalid date')
       }
 
-      return value
+      return formatParts(instantParts(value, timeZone), style)
     }
 
-    return parseIso(value)
+    if (ISO_DATE.test(value)) {
+      if (style === 'dateTime' || style === 'time') {
+        throw new Error('A calendar date has no time')
+      }
+
+      return formatParts(utcParts(parseIso(value)), style)
+    }
+
+    if (value.includes('T') && !ISO_DATETIME.test(value)) {
+      throw new Error(`Invalid ISO datetime: ${value}`)
+    }
+
+    return formatParts(instantParts(parseInstant(value), timeZone), style)
   }
 
-  function format(value: string | Date | null | undefined, style: DateStyle = 'short'): string {
-    const date = resolve(value)
+  function zoneLabel(timeZone?: string): string {
+    const zone = timeZone ?? configuredTimeZone()
 
-    if (date === null) {
-      return '—'
-    }
-
-    const year = date.getUTCFullYear()
-    const month = date.getUTCMonth()
-    const day = date.getUTCDate()
-
-    if (style === 'iso') {
-      return toIso(date)
-    }
-
-    if (style === 'short') {
-      return `${day} ${SHORT_MONTHS[month]} ${year}`
-    }
-
-    if (style === 'shortPadded') {
-      return `${pad2(day)} ${SHORT_MONTHS[month]} ${year}`
-    }
-
-    if (style === 'long') {
-      return `${WEEKDAYS[date.getUTCDay()]}, ${LONG_MONTHS[month]} ${day}, ${year}`
-    }
-
-    return `${pad2(day)} ${SHORT_MONTHS[month]} ${year}, ${pad2(date.getUTCHours())}:${pad2(date.getUTCMinutes())}`
+    return ZONE_LABELS[zone] ?? zone
   }
 
   return {
     toIso,
     parseIso,
     format,
+    zoneLabel,
   }
 }

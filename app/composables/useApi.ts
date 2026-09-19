@@ -93,8 +93,9 @@ export function createApiClient(options: {
   isClient: boolean
   fetchImpl: ApiFetch
   readXsrfToken?: () => string | null
+  onError?: (error: ApiError) => void
 }) {
-  const { baseURL, isClient, fetchImpl } = options
+  const { baseURL, isClient, fetchImpl, onError } = options
   const readXsrfToken = options.readXsrfToken ?? readDocumentXsrfToken
   let csrfPromise: Promise<void> | null = null
 
@@ -151,6 +152,7 @@ export function createApiClient(options: {
       }
 
       if (apiError) {
+        onError?.(apiError)
         throw apiError
       }
 
@@ -165,6 +167,7 @@ export function createApiClient(options: {
 
 export function useApi() {
   const config = useRuntimeConfig()
+  const nuxtApp = useNuxtApp()
   const baseURL = String(config.public.apiBase)
   const client = createApiClient({
     baseURL,
@@ -182,6 +185,9 @@ export function useApi() {
       }
 
       return readDocumentXsrfToken()
+    },
+    onError: (error) => {
+      void nuxtApp.callHook('anakata:api-error', error)
     },
   })
 
