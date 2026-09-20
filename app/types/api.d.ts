@@ -243,6 +243,102 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/rms/calendar": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["rms.calendar"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/departures": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["departure.index"];
+        put?: never;
+        post: operations["departure.store"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/departures/generate-season": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["departure.generate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/departures/{departure}/layout": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["departure.layout"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/departures/{departure}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["departure.show"];
+        put?: never;
+        post?: never;
+        delete: operations["departure.destroy"];
+        options?: never;
+        head?: never;
+        patch: operations["departure.update"];
+        trace?: never;
+    };
+    "/rms/departures/{departure}/history": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["departure.history"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/rms/engine-settings": {
         parameters: {
             query?: never;
@@ -315,6 +411,150 @@ export interface paths {
             cookie?: never;
         };
         get: operations["health"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/blocks": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["internalBlock.index"];
+        put?: never;
+        post: operations["internalBlock.store"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/blocks/{block}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch: operations["internalBlock.update"];
+        trace?: never;
+    };
+    "/rms/blocks/{block}/release": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["internalBlock.release"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/blocks/{block}/history": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["internalBlock.history"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/itineraries": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["itinerary.index"];
+        put?: never;
+        post: operations["itinerary.store"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/itineraries/defaults": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["itinerary.defaults"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/itineraries/{itinerary}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["itinerary.show"];
+        put?: never;
+        post?: never;
+        delete: operations["itinerary.destroy"];
+        options?: never;
+        head?: never;
+        patch: operations["itinerary.update"];
+        trace?: never;
+    };
+    "/rms/itineraries/{itinerary}/image": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["itinerary.image"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/itineraries/{itinerary}/history": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["itinerary.history"];
         put?: never;
         post?: never;
         delete?: never;
@@ -563,6 +803,22 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/rms/yachts": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["yacht.index"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
@@ -575,6 +831,11 @@ export interface components {
             password: string;
             password_confirmation: string;
         };
+        /**
+         * BlockReason
+         * @enum {string}
+         */
+        BlockReason: "FAM_TRIP" | "MAINTENANCE" | "NEGOTIATION_HOLD" | "COURTESY";
         /** BusinessRulesCurrentResource */
         BusinessRulesCurrentResource: {
             version: number;
@@ -599,7 +860,7 @@ export interface components {
                 source_display: string;
                 source_value: string;
                 current_display: string;
-                differs: string;
+                differs: boolean | null;
                 used_in: string;
                 lock_reason: string;
                 note: string;
@@ -681,6 +942,80 @@ export interface components {
             approval_reference: string | null;
             changes: string;
         };
+        /** DepartureResource */
+        DepartureResource: {
+            id: number;
+            reference: string;
+            date: string;
+            return_date: string;
+            yacht_id: number;
+            itinerary_id: number;
+            status: string;
+            urgency_threshold: number;
+            waitlist_enabled: boolean;
+            public_note: string | null;
+            festive: boolean;
+            yacht: {
+                id: number;
+                code: string;
+                name: string;
+            };
+            itinerary: {
+                id: number;
+                code: string;
+                name: string;
+                status: string;
+                festive: boolean;
+            };
+            rates: {
+                year: number;
+                suite_from: number | null;
+            };
+            availability: {
+                counts: {
+                    sold: number;
+                    held: number;
+                    blocked: number;
+                    free: number;
+                    suites_free: number;
+                    owner_free: boolean;
+                };
+                engine_label: {
+                    code: string;
+                    text: string;
+                    tone: string;
+                };
+                cabins: {
+                    cabin: {
+                        code: string;
+                        label: string;
+                        category: string;
+                    };
+                    state: string;
+                    claim: {
+                        kind: string;
+                        hold_type: string | null;
+                        expires_at: string | null;
+                        holder: {
+                            type: string;
+                            id: number;
+                            reference: string | null;
+                            label: string | null;
+                        };
+                    } | null;
+                }[];
+            };
+            locks: {
+                date_and_yacht: boolean;
+                delete: boolean;
+                reason: string | null;
+            };
+        };
+        /**
+         * DepartureStatus
+         * @enum {string}
+         */
+        DepartureStatus: "ON_SALE" | "CLOSED" | "HIDDEN" | "CHARTER";
         /** DisableUserRequest */
         DisableUserRequest: {
             reason?: string | null;
@@ -726,6 +1061,59 @@ export interface components {
             /** Format: email */
             email: string;
         };
+        /** GenerateSeasonRequest */
+        GenerateSeasonRequest: {
+            /** Format: date */
+            from: string;
+            /** Format: date */
+            to: string;
+            yacht_ids: number[];
+            pattern: components["schemas"]["SeasonPattern"];
+            festive_window: boolean;
+            /** @enum {string} */
+            status: "CLOSED" | "ON_SALE";
+        };
+        /** InternalBlockResource */
+        InternalBlockResource: {
+            id: number;
+            reference: string;
+            reason: string;
+            /** @enum {string} */
+            reason_label: "Fam trip" | "Maintenance" | "Negotiation hold" | "Courtesy";
+            notes: string | null;
+            scope_summary: string;
+            created_by: {
+                id: number;
+                name: string;
+            } | null;
+            created_at: string | null;
+            released_at: string | null;
+            released_by: {
+                id: number;
+                name: string;
+            } | null;
+            release_note: string | null;
+            claims: {
+                id: number;
+                kind: string;
+                released_at: string | null;
+                cabin: {
+                    id: number;
+                    code: string;
+                    label: string;
+                };
+                departure: {
+                    id: number;
+                    reference: string;
+                    date: string;
+                    yacht: {
+                        id: number;
+                        code: string;
+                        name: string;
+                    };
+                };
+            }[];
+        };
         /** InviteUserRequest */
         InviteUserRequest: {
             name: string;
@@ -733,6 +1121,141 @@ export interface components {
             email: string;
             role_id: number;
         };
+        /** ItineraryDefaultsResource */
+        ItineraryDefaultsResource: {
+            status: string;
+            /** @constant */
+            sort_order: 9;
+            festive: boolean;
+            /** @constant */
+            days: 8;
+            /** @constant */
+            nights: 7;
+            /** @constant */
+            embark: "San Cristóbal (SCY)";
+            /** @constant */
+            disembark: "San Cristóbal (SCY)";
+            /** @constant */
+            tagline: "8 days · 7 nights";
+            hero_alt: string;
+            fallback_gradient: string;
+            card_description: string;
+            /** @constant */
+            overview: "Embark & disembark San Cristóbal (SCY) · All expeditions include naturalist guides, snorkel, kayak, guided walks and wildlife observation.";
+            long_description: string;
+            highlights: string[];
+            chips: [
+                "16 guests",
+                "8 suites + owner's",
+                "7 nights · Sun→Sun",
+                "SCY ↔ SCY"
+            ];
+            facts: [
+                [
+                    "Accommodation",
+                    "9 cabins — 8 Suites + Owner's Suite, all facing the sea"
+                ],
+                [
+                    "Dining",
+                    "Sustainable, locally sourced — expedition gastronomy"
+                ],
+                [
+                    "Yacht",
+                    "Sundeck, jacuzzi & Wi-Fi · 16 guests"
+                ],
+                [
+                    "Crew & Guides",
+                    "Expert naturalist guides · full expedition crew"
+                ],
+                [
+                    "Activities",
+                    "Snorkel, kayak, guided walks, wildlife observation"
+                ],
+                [
+                    "Language",
+                    "English & Spanish"
+                ]
+            ];
+            day_plan: string[];
+            included: [
+                "All meals aboard, expedition gastronomy, house wines with dinner",
+                "All guided excursions, snorkel & kayak equipment, wetsuits",
+                "Expert naturalist guides · transfers in San Cristóbal"
+            ];
+            excluded: [
+                "International & domestic flights · PNG entry fee (paid at SCY airport) · TCT transit card (USD 20)",
+                "Travel insurance — sole responsibility of the passenger; Anakata does not sell or intermediate travel insurance",
+                "Spa, premium bar & boutique — arranged with our concierge after booking"
+            ];
+            faqs: [
+                [
+                    "Do I pay anything today?",
+                    "No — book now, pay later. We hold your cabins obligation-free and send a 10% deposit link once our team confirms."
+                ],
+                [
+                    "Can children join?",
+                    "From age 6 on departure day. Ages 6–17 receive −15% ppdo (not on festive departures)."
+                ],
+                [
+                    "Can I change dates later?",
+                    "Date changes are free of charge, subject to availability."
+                ]
+            ];
+            slug: null;
+            meta_title: string;
+            meta_description: string;
+        };
+        /** ItineraryResource */
+        ItineraryResource: {
+            id: number;
+            code: string;
+            name: string;
+            status: string;
+            sort_order: number;
+            festive: boolean;
+            days: number;
+            nights: number;
+            embark: string;
+            disembark: string;
+            tagline: string;
+            hero_image_url: null;
+            hero_alt: string;
+            fallback_gradient: string;
+            card_description: string;
+            overview: string;
+            long_description: string;
+            highlights: string[];
+            chips: string[];
+            facts: [
+                string,
+                string
+            ][];
+            day_plan: [
+                string,
+                string
+            ][];
+            included: string[];
+            excluded: string[];
+            faqs: [
+                string,
+                string
+            ][];
+            slug: string | null;
+            meta_title: string;
+            meta_description: string;
+            completeness: {
+                pct: number;
+                missing: string[];
+                blocking: string[];
+            };
+            departures_count: number;
+            live_departures_count: number;
+        };
+        /**
+         * ItineraryStatus
+         * @enum {string}
+         */
+        ItineraryStatus: "DRAFT" | "PUBLISHED" | "HIDDEN";
         /** LoginRequest */
         LoginRequest: {
             /** Format: email */
@@ -785,6 +1308,10 @@ export interface components {
             base_version: number;
             approval_reference?: string | null;
         };
+        /** ReleaseInternalBlockRequest */
+        ReleaseInternalBlockRequest: {
+            note?: string | null;
+        };
         /** ResetPasswordRequest */
         ResetPasswordRequest: {
             token: string;
@@ -804,11 +1331,136 @@ export interface components {
             users_count: number;
             permissions: string[];
         };
+        /**
+         * SeasonPattern
+         * @enum {string}
+         */
+        SeasonPattern: "ALT" | "WEST" | "NORTH";
+        /** StoreDepartureRequest */
+        StoreDepartureRequest: {
+            /** Format: date */
+            date: string;
+            yacht_id: number;
+            itinerary_id: number;
+            status: components["schemas"]["DepartureStatus"];
+            urgency_threshold?: number;
+            waitlist_enabled?: boolean;
+            public_note?: string | null;
+            festive?: boolean;
+        };
+        /** StoreInternalBlockRequest */
+        StoreInternalBlockRequest: {
+            reason: components["schemas"]["BlockReason"];
+            notes?: string | null;
+            departures: {
+                departure_id: number;
+                cabin_codes: string;
+            }[];
+        };
+        /** StoreItineraryImageRequest */
+        StoreItineraryImageRequest: {
+            /**
+             * Format: binary
+             * @description Maximum file size: 4096 kilobytes.
+             */
+            image: string;
+        };
+        /** StoreItineraryRequest */
+        StoreItineraryRequest: {
+            name?: string;
+            sort_order?: number;
+            festive?: boolean;
+            days?: number;
+            nights?: number;
+            embark?: string;
+            disembark?: string;
+            tagline?: string;
+            hero_alt?: string;
+            /** @enum {string} */
+            fallback_gradient?: "Western (slate)" | "Northern (forest)" | "Festive (amber)";
+            card_description?: string;
+            overview?: string;
+            long_description?: string;
+            highlights?: string[];
+            chips?: string[];
+            facts?: {
+                0: string;
+                1: string;
+            }[];
+            day_plan?: {
+                0: string;
+                1: string;
+            }[];
+            included?: string[];
+            excluded?: string[];
+            faqs?: {
+                0: string;
+                1: string;
+            }[];
+            slug?: string | null;
+            meta_title?: string;
+            meta_description?: string;
+            code: string;
+        };
         /** StoreRoleRequest */
         StoreRoleRequest: {
             name: string;
             description?: string | null;
             permissions?: components["schemas"]["Permission"][];
+        };
+        /** UpdateDepartureRequest */
+        UpdateDepartureRequest: {
+            /** Format: date */
+            date?: string;
+            yacht_id?: number;
+            itinerary_id?: number;
+            status?: components["schemas"]["DepartureStatus"];
+            urgency_threshold?: number;
+            waitlist_enabled?: boolean;
+            public_note?: string | null;
+            festive?: boolean;
+        };
+        /** UpdateInternalBlockRequest */
+        UpdateInternalBlockRequest: {
+            reason?: components["schemas"]["BlockReason"];
+            notes?: string | null;
+        };
+        /** UpdateItineraryRequest */
+        UpdateItineraryRequest: {
+            name?: string;
+            sort_order?: number;
+            festive?: boolean;
+            days?: number;
+            nights?: number;
+            embark?: string;
+            disembark?: string;
+            tagline?: string;
+            hero_alt?: string;
+            /** @enum {string} */
+            fallback_gradient?: "Western (slate)" | "Northern (forest)" | "Festive (amber)";
+            card_description?: string;
+            overview?: string;
+            long_description?: string;
+            highlights?: string[];
+            chips?: string[];
+            facts?: {
+                0: string;
+                1: string;
+            }[];
+            day_plan?: {
+                0: string;
+                1: string;
+            }[];
+            included?: string[];
+            excluded?: string[];
+            faqs?: {
+                0: string;
+                1: string;
+            }[];
+            slug?: string | null;
+            meta_title?: string;
+            meta_description?: string;
+            status?: components["schemas"]["ItineraryStatus"];
         };
         /** UpdateRoleRequest */
         UpdateRoleRequest: {
@@ -844,6 +1496,13 @@ export interface components {
         /** ValidateConfigRequest */
         ValidateConfigRequest: {
             document: string[];
+        };
+        /** YachtResource */
+        YachtResource: {
+            id: number;
+            code: string;
+            name: string;
+            cabins: unknown[];
         };
     };
     responses: {
@@ -1195,6 +1854,333 @@ export interface operations {
             401: components["responses"]["AuthenticationException"];
         };
     };
+    "rms.calendar": {
+        parameters: {
+            query?: {
+                from?: string;
+                to?: string;
+                yacht_id?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        departures: string[];
+                        rows: {
+                            yacht: {
+                                id: string;
+                                code: string;
+                                name: string;
+                            };
+                            cabin: {
+                                id: string;
+                                code: string;
+                                label: string;
+                                category: string;
+                                sort: string;
+                            };
+                            cells: string;
+                        }[];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "departure.index": {
+        parameters: {
+            query?: {
+                from?: string;
+                to?: string;
+                yacht_id?: number;
+                status?: components["schemas"]["DepartureStatus"];
+                per_page?: number;
+                with_cabins?: boolean;
+                page?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Paginated set of `DepartureResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["DepartureResource"][];
+                        links: {
+                            first: string | null;
+                            last: string | null;
+                            prev: string | null;
+                            next: string | null;
+                        };
+                        meta: {
+                            current_page: number;
+                            from: number | null;
+                            last_page: number;
+                            /** @description Generated paginator links. */
+                            links: {
+                                url: string | null;
+                                label: string;
+                                active: boolean;
+                            }[];
+                            /** @description Base path for paginator generated URLs. */
+                            path: string | null;
+                            /** @description Number of items shown per page. */
+                            per_page: number;
+                            /** @description Number of the last item in the slice. */
+                            to: number | null;
+                            /** @description Total number of items being paginated. */
+                            total: number;
+                            kpis: string;
+                        };
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "departure.store": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["StoreDepartureRequest"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        warnings: string[];
+                    } & {
+                        [key: string]: unknown;
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "departure.generate": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["GenerateSeasonRequest"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        created: string[];
+                        skipped: {
+                            yacht: string;
+                            date: string;
+                        }[];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "departure.layout": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The departure ID */
+                departure: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `DepartureResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DepartureResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "departure.show": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The departure ID */
+                departure: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `DepartureResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DepartureResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "departure.destroy": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The departure ID */
+                departure: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No content */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "departure.update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The departure ID */
+                departure: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["UpdateDepartureRequest"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        warnings: string[];
+                    } & {
+                        [key: string]: unknown;
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "departure.history": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The departure ID */
+                departure: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Paginated set of `ChangeHistoryResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["ChangeHistoryResource"][];
+                        links: {
+                            first: string | null;
+                            last: string | null;
+                            prev: string | null;
+                            next: string | null;
+                        };
+                        meta: {
+                            current_page: number;
+                            from: number | null;
+                            last_page: number;
+                            /** @description Generated paginator links. */
+                            links: {
+                                url: string | null;
+                                label: string;
+                                active: boolean;
+                            }[];
+                            /** @description Base path for paginator generated URLs. */
+                            path: string | null;
+                            /** @description Number of items shown per page. */
+                            per_page: number;
+                            /** @description Number of the last item in the slice. */
+                            to: number | null;
+                            /** @description Total number of items being paginated. */
+                            total: number;
+                        };
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
     "engineSettings.current": {
         parameters: {
             query?: never;
@@ -1356,6 +2342,416 @@ export interface operations {
                     "application/json": string;
                 };
             };
+        };
+    };
+    "internalBlock.index": {
+        parameters: {
+            query?: {
+                status?: "active" | "released" | "all";
+                from?: string;
+                to?: string;
+                yacht_id?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Array of `InternalBlockResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["InternalBlockResource"][];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "internalBlock.store": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["StoreInternalBlockRequest"];
+            };
+        };
+        responses: {
+            /** @description `InternalBlockResource` */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["InternalBlockResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "internalBlock.update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The block ID */
+                block: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["UpdateInternalBlockRequest"];
+            };
+        };
+        responses: {
+            /** @description `InternalBlockResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["InternalBlockResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "internalBlock.release": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The block ID */
+                block: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["ReleaseInternalBlockRequest"];
+            };
+        };
+        responses: {
+            /** @description `InternalBlockResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["InternalBlockResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "internalBlock.history": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The block ID */
+                block: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Paginated set of `ChangeHistoryResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["ChangeHistoryResource"][];
+                        links: {
+                            first: string | null;
+                            last: string | null;
+                            prev: string | null;
+                            next: string | null;
+                        };
+                        meta: {
+                            current_page: number;
+                            from: number | null;
+                            last_page: number;
+                            /** @description Generated paginator links. */
+                            links: {
+                                url: string | null;
+                                label: string;
+                                active: boolean;
+                            }[];
+                            /** @description Base path for paginator generated URLs. */
+                            path: string | null;
+                            /** @description Number of items shown per page. */
+                            per_page: number;
+                            /** @description Number of the last item in the slice. */
+                            to: number | null;
+                            /** @description Total number of items being paginated. */
+                            total: number;
+                        };
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "itinerary.index": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Array of `ItineraryResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["ItineraryResource"][];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+        };
+    };
+    "itinerary.store": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["StoreItineraryRequest"];
+            };
+        };
+        responses: {
+            /** @description `ItineraryResource` */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ItineraryResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "itinerary.defaults": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `ItineraryDefaultsResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ItineraryDefaultsResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+        };
+    };
+    "itinerary.show": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The itinerary ID */
+                itinerary: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `ItineraryResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ItineraryResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "itinerary.destroy": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The itinerary ID */
+                itinerary: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No content */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "itinerary.update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The itinerary ID */
+                itinerary: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["UpdateItineraryRequest"];
+            };
+        };
+        responses: {
+            /** @description `ItineraryResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ItineraryResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "itinerary.image": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The itinerary ID */
+                itinerary: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "multipart/form-data": components["schemas"]["StoreItineraryImageRequest"];
+            };
+        };
+        responses: {
+            /** @description `ItineraryResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ItineraryResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "itinerary.history": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The itinerary ID */
+                itinerary: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Paginated set of `ChangeHistoryResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["ChangeHistoryResource"][];
+                        links: {
+                            first: string | null;
+                            last: string | null;
+                            prev: string | null;
+                            next: string | null;
+                        };
+                        meta: {
+                            current_page: number;
+                            from: number | null;
+                            last_page: number;
+                            /** @description Generated paginator links. */
+                            links: {
+                                url: string | null;
+                                label: string;
+                                active: boolean;
+                            }[];
+                            /** @description Base path for paginator generated URLs. */
+                            path: string | null;
+                            /** @description Number of items shown per page. */
+                            per_page: number;
+                            /** @description Number of the last item in the slice. */
+                            to: number | null;
+                            /** @description Total number of items being paginated. */
+                            total: number;
+                        };
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
         };
     };
     "permission.index": {
@@ -1959,6 +3355,30 @@ export interface operations {
             401: components["responses"]["AuthenticationException"];
             403: components["responses"]["AuthorizationException"];
             404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "yacht.index": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Array of `YachtResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["YachtResource"][];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
         };
     };
 }

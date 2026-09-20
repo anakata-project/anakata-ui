@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.4.0
+
+- Regenerated API types from the Sprint 3 OpenAPI spec (yachts, itineraries, departures, calendar, internal blocks, generate season).
+- Sprint 3 aliases (`Yacht`, `Cabin`, `Itinerary`, `Departure`, `CalendarGrid`, `InternalBlock`, `GenerateSeasonResult`, plus defaults / mutation / 409 envelopes) and hand-written inventory shapes in `app/types/inventory.ts` where Scramble emits untyped or over-literal JSON. Calendar dates stay `YYYY-MM-DD` strings.
+
 ## v0.3.0
 
 - Regenerated API types from the Sprint 2 OpenAPI spec (rates, engine settings, business rules, price check, `engine_copy.manage`).
