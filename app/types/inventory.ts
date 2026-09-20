@@ -50,6 +50,12 @@ export type Yacht = Omit<components['schemas']['YachtResource'], 'cabins'> & {
 /** Mirrors itinerary facts / day_plan / faqs pairs (list<array{0: string, 1: string}>). */
 export type ItineraryPair = [string, string]
 
+/** Mirrors App\Support\Itineraries\Gradients::catalog() entries. */
+export type ItineraryGradient = {
+  key: string
+  css: string
+}
+
 /** Mirrors App\Support\Itineraries\Completeness. Update when the PHP class changes. */
 export type ItineraryCompleteness = {
   pct: number
@@ -81,6 +87,7 @@ export type Itinerary = Omit<
   excluded: Array<string>
   faqs: Array<ItineraryPair>
   completeness: ItineraryCompleteness
+  fallback_gradient_key: string
 }
 
 /** List and show use the same ItineraryResource. */
@@ -102,6 +109,8 @@ export type ItineraryDefaults = {
   tagline: string
   hero_alt: string
   fallback_gradient: string
+  fallback_gradient_key: string
+  gradients: Array<ItineraryGradient>
   card_description: string
   overview: string
   long_description: string

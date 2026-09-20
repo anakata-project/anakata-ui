@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.4.1
+
+- Itinerary overlays: `fallback_gradient_key` on `Itinerary`, and `gradients` (`{ key, css }`) plus `fallback_gradient_key` on `ItineraryDefaults`.
+
 ## v0.4.0
 
 - Regenerated API types from the Sprint 3 OpenAPI spec (yachts, itineraries, departures, calendar, internal blocks, generate season).

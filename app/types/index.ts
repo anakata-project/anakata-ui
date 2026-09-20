@@ -112,6 +112,7 @@ export type {
   Itinerary,
   ItineraryCompleteness,
   ItineraryDefaults,
+  ItineraryGradient,
   ItineraryListItem,
   ItineraryPair,
   ItineraryStatus,
