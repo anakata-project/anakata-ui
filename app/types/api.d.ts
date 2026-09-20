@@ -227,6 +227,22 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/rms/bookings/form-options": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["booking.formOptions"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/rms/bookings/quote": {
         parameters: {
             query?: never;
@@ -1132,6 +1148,30 @@ export interface components {
             client: unknown;
             what: unknown;
             why: string | null;
+        };
+        /** BookingFormOptionsResource */
+        BookingFormOptionsResource: {
+            main: {
+                value: string;
+                label: string;
+                trade: boolean;
+            }[];
+            origin: {
+                group: string;
+                options: {
+                    value: string;
+                    label: string;
+                }[];
+            }[];
+            preferred: {
+                value: string;
+                label: string;
+            }[];
+            guests: {
+                child_min_age: number;
+                child_max_age: number;
+                max_per_cabin: number;
+            };
         };
         /** BookingOwnerResource */
         BookingOwnerResource: {
@@ -2066,6 +2106,15 @@ export interface components {
             /** @enum {integer|null} */
             deposit: 0 | null;
             warnings: string[];
+            terms: {
+                balance_days: number;
+                charter: {
+                    deposit_pct: number;
+                    deposit_business_days: number;
+                    balance_days: number;
+                    dpng_manifest_days: number;
+                } | null;
+            };
         };
         /** ResetPasswordRequest */
         ResetPasswordRequest: {
@@ -2747,6 +2796,28 @@ export interface operations {
                     "application/json": {
                         data: components["schemas"]["BookingOwnerResource"][];
                     };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+        };
+    };
+    "booking.formOptions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `BookingFormOptionsResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["BookingFormOptionsResource"];
                 };
             };
             401: components["responses"]["AuthenticationException"];

@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.5.2
+
+- Regenerated API types for Task 08: `GET /bookings/form-options` (`BookingFormOptionsResource`) and `ReservationQuoteResource.terms` (`balance_days` plus CHARTER deposit / business days / DPNG).
+- Alias: `BookingFormOptions`. `BookingQuote` leftover overlay now includes `terms`.
+
 ## v0.5.1
 
 - Regenerated API types for the Task 07 prelude: `BookingResource.request` (preferred channel, advisor, notes, hold, sla), `departure` extras (`return_date`, `itinerary_name`, `embark`, `festive`), `GET /bookings/owners` (`BookingOwnerResource`), and `GET /groups` `from` / `to`.

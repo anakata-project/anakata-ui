@@ -82,6 +82,7 @@ export type {
   AllowedTransition,
   Booking,
   BookingAuditRow,
+  BookingFormOptions,
   BookingListItem,
   BookingOwner,
   BookingRequestSummary,

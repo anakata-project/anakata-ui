@@ -98,10 +98,12 @@ export type BookingListItem = Booking
 
 export type BookingQuoteRequest = components['schemas']['QuoteReservationRequest']
 export type CreateReservationRequest = components['schemas']['StoreReservationRequest']
+export type BookingFormOptions = components['schemas']['BookingFormOptionsResource']
 
 /**
  * Mirrors App\Http\Resources\Rms\ReservationQuoteResource.
  * Generated cabins is unknown[] and total / deposit freeze as 0 | null.
+ * terms comes through from the generated schema.
  */
 export type BookingQuote = {
   departure_id: number
@@ -125,6 +127,7 @@ export type BookingQuote = {
   total: number | null
   deposit: number | null
   warnings: Array<string>
+  terms: components['schemas']['ReservationQuoteResource']['terms']
 }
 
 type CreatedBody = operations['booking.store']['responses'][201]['content']['application/json']
