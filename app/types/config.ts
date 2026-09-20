@@ -140,6 +140,11 @@ export type HoldsRules = {
   web_extension_minutes: number
   near_term_business_hours: number
   long_lead_business_days: number
+  business_days: Array<number>
+  business_day_start: string
+  business_day_end: string
+  holidays: Array<string>
+  near_term_max_days: number
 }
 
 /** Mirrors App\Support\Config\Documents\SlaRules. Update when the PHP class changes. */

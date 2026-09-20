@@ -1,0 +1,171 @@
+/**
+ * Booking aliases over generated schemas. Overlays only where Scramble
+ * still cannot express the shape. Each leftover mirrors a PHP class.
+ */
+
+import type { components, operations } from './api'
+import type { CabinCategory } from './inventory'
+
+export type BookingStatus = components['schemas']['BookingStatus']
+export type BookingType = components['schemas']['BookingType']
+export type BookingSegment = components['schemas']['BookingSegment']
+export type MainChannel = components['schemas']['MainChannel']
+export type ChannelOfOrigin = components['schemas']['ChannelOfOrigin']
+export type PreferredChannel = components['schemas']['PreferredChannel']
+
+export type PriceLine = {
+  code: string
+  label: string
+  amount: number
+}
+
+/**
+ * Mirrors App\Support\Bookings\Transitions::allowedFor() items.
+ * BookingResource.allowed_transitions items serialise as [] in OpenAPI.
+ */
+export type AllowedTransition = {
+  to: BookingStatus
+  reason_required: boolean
+}
+
+export type Contact = components['schemas']['ContactResource']
+export type ContactSearchResult = Contact
+
+export type GroupSummary = {
+  id: number
+  reference: string
+  name: string
+  coordinator: {
+    id: number
+    name: string
+  }
+}
+
+export type Group = Omit<components['schemas']['GroupResource'], 'statuses'> & {
+  statuses: Array<BookingStatus>
+}
+
+export type Booking = Omit<
+  components['schemas']['BookingResource'],
+  | 'type'
+  | 'status'
+  | 'segment'
+  | 'main_channel'
+  | 'channel_of_origin'
+  | 'can_act'
+  | 'allowed_transitions'
+  | 'price_lines'
+  | 'contact'
+  | 'group'
+> & {
+  type: BookingType
+  status: BookingStatus
+  segment: BookingSegment
+  main_channel: MainChannel
+  channel_of_origin: ChannelOfOrigin
+  can_act: boolean
+  allowed_transitions: Array<AllowedTransition>
+  price_lines: Array<PriceLine>
+  contact: Contact
+  group: GroupSummary | null
+}
+
+export type BookingListItem = Booking
+
+export type BookingQuoteRequest = components['schemas']['QuoteReservationRequest']
+export type CreateReservationRequest = components['schemas']['StoreReservationRequest']
+
+/**
+ * Mirrors App\Http\Resources\Rms\ReservationQuoteResource.
+ * Generated cabins is unknown[] and total / deposit freeze as 0 | null.
+ */
+export type BookingQuote = {
+  departure_id: number
+  type: BookingType
+  back_to_back: boolean
+  cabins: Array<{
+    cabin_code: string | null
+    cabin_label: string
+    adults: number
+    children: number
+    available: boolean
+    quote: {
+      lines: Array<PriceLine>
+      total: number
+      deposit_pct: number
+      deposit: number
+    } | null
+    errors: Array<string>
+    warnings: Array<string>
+  }>
+  total: number | null
+  deposit: number | null
+  warnings: Array<string>
+}
+
+type CreatedBody = operations['booking.store']['responses'][201]['content']['application/json']
+
+export type CreateReservationResponse = Omit<CreatedBody, 'bookings'> & {
+  bookings: Array<Booking>
+}
+
+export type MovePreview = components['schemas']['MovePreviewResource']
+
+/**
+ * Mirrors App\Http\Resources\Rms\BookingAuditResource.
+ * Generated client / what are unknown.
+ */
+export type BookingAuditRow = Omit<
+  components['schemas']['BookingAuditResource'],
+  'client' | 'what' | 'at'
+> & {
+  at: string
+  client: string | null
+  what: string
+}
+
+/**
+ * Mirrors App\Http\Resources\Rms\BookingRequestResource.
+ * Generated can_act is string; party freezes a seed literal.
+ */
+export type RequestQueueItem = Omit<
+  components['schemas']['BookingRequestResource'],
+  'can_act' | 'party' | 'contact'
+> & {
+  can_act: boolean
+  party: string
+  contact: {
+    name: string
+    preferred_channel: string
+  }
+}
+
+/**
+ * Mirrors App\Http\Resources\Rms\HoldResource.
+ * Generated departure is string and remaining_business_minutes is string.
+ */
+export type HoldListItem = {
+  type: string
+  client: string
+  departure: {
+    date: string
+    yacht: {
+      code: string
+      name: string
+    }
+  }
+  cabin: string
+  expires_at: string | null
+  remaining_business_minutes: number
+  rule: string
+  reference: string | null
+}
+
+export type WaitlistEntry = Omit<
+  components['schemas']['WaitlistEntryResource'],
+  'cabin_category'
+> & {
+  cabin_category: CabinCategory
+}
+
+export type RequestQueueRules = operations['request.index']['responses'][200]['content']['application/json']['meta']['rules']

@@ -179,6 +179,134 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/rms/bookings": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["booking.index"];
+        put?: never;
+        post: operations["booking.store"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/bookings/audit": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["booking.audit"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/bookings/quote": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["booking.quote"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/bookings/{booking}/transition": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["booking.transition"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/bookings/{booking}/move/preview": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["booking.movePreview"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/bookings/{booking}/move": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["booking.move"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/bookings/{booking}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["booking.show"];
+        put?: never;
+        post?: never;
+        delete: operations["booking.destroy"];
+        options?: never;
+        head?: never;
+        patch: operations["booking.update"];
+        trace?: never;
+    };
+    "/rms/bookings/{booking}/history": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["booking.history"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/rms/business-rules": {
         parameters: {
             query?: never;
@@ -251,6 +379,22 @@ export interface paths {
             cookie?: never;
         };
         get: operations["rms.calendar"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/contacts": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["contact.index"];
         put?: never;
         post?: never;
         delete?: never;
@@ -403,6 +547,22 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/rms/groups": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["group.index"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/health": {
         parameters: {
             query?: never;
@@ -411,6 +571,22 @@ export interface paths {
             cookie?: never;
         };
         get: operations["health"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/holds": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["hold.index"];
         put?: never;
         post?: never;
         delete?: never;
@@ -659,6 +835,54 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/rms/requests": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["request.index"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/requests/{booking}/confirm": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["request.confirm"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/requests/{booking}/release": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["request.release"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/rms/roles": {
         parameters: {
             query?: never;
@@ -803,6 +1027,54 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/rms/waitlist": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["waitlist.index"];
+        put?: never;
+        post: operations["waitlist.store"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/waitlist/{entry}/notify": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["waitlist.notify"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/waitlist/{entry}/remove": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["waitlist.remove"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/rms/yachts": {
         parameters: {
             query?: never;
@@ -836,6 +1108,134 @@ export interface components {
          * @enum {string}
          */
         BlockReason: "FAM_TRIP" | "MAINTENANCE" | "NEGOTIATION_HOLD" | "COURTESY";
+        /** BookingAuditResource */
+        BookingAuditResource: {
+            at: string | null;
+            actor_label: string;
+            reference: string | null;
+            client: unknown;
+            what: unknown;
+            why: string | null;
+        };
+        /** BookingRequestResource */
+        BookingRequestResource: {
+            id: number;
+            display_reference: string | null;
+            contact: {
+                name: string;
+                preferred_channel: string;
+            };
+            travel_advisor: boolean;
+            party: string | "1 adult · 1 cabin";
+            departure: {
+                id: number;
+                date: string;
+                yacht: {
+                    id: number;
+                    code: string;
+                    name: string;
+                };
+            };
+            cabin_label: string;
+            estimated_value: number;
+            hold: {
+                expires_at: string | null;
+                rule: string;
+                remaining_business_minutes: number;
+                expired: boolean;
+            };
+            sla: {
+                due_at: string | "";
+                remaining_minutes: number;
+                breached: boolean;
+            };
+            can_act: string;
+        };
+        /** BookingResource */
+        BookingResource: {
+            id: number;
+            reference: string | null;
+            request_reference: string | null;
+            display_reference: string | null;
+            type: string;
+            status: string;
+            segment: string;
+            main_channel: string;
+            channel_of_origin: string;
+            adults: number;
+            children: number;
+            party_label: string;
+            back_to_back: boolean;
+            total: number;
+            balance: number;
+            deposit_pct: number;
+            deposit_amount: number;
+            balance_days: number;
+            balance_due_date: string;
+            price_lines: {
+                code: string;
+                label: string;
+                amount: number;
+            }[];
+            rates_version: {
+                id: number;
+                version: number;
+            };
+            internal_notes: string | null;
+            can_act: string;
+            allowed_transitions: unknown[];
+            departure: {
+                id: number;
+                date: string;
+                yacht: {
+                    id: number;
+                    code: string;
+                    name: string;
+                };
+            };
+            cabin: {
+                id: number;
+                code: string;
+                label: string;
+            } | null;
+            cabin_label: string;
+            contact: {
+                id: number;
+                name: string;
+                email: string | null;
+                phone: string | null;
+                country: string | null;
+                preferred_channel: string;
+            };
+            group: {
+                id: number;
+                reference: string;
+                name: string;
+                coordinator: {
+                    id: number;
+                    name: string;
+                };
+            } | null;
+            owner: {
+                id: number;
+                name: string;
+            };
+        };
+        /**
+         * BookingSegment
+         * @enum {string}
+         */
+        BookingSegment: "CHARTER" | "B2B" | "D2C";
+        /**
+         * BookingStatus
+         * @enum {string}
+         */
+        BookingStatus: "REQUESTED" | "PENDING_PAYMENT" | "CONFIRMED" | "FULLY_PAID" | "ON_BOARD" | "COMPLETED" | "OVERDUE" | "ON_HOLD_AGENCY" | "WAITLISTED" | "RELEASED" | "CANCELLED" | "CANCELLED_POSTPAID";
+        /**
+         * BookingType
+         * @enum {string}
+         */
+        BookingType: "CABIN" | "CHARTER";
         /** BusinessRulesCurrentResource */
         BusinessRulesCurrentResource: {
             version: number;
@@ -874,6 +1274,74 @@ export interface components {
                 differs_or_flagged: number;
             };
         };
+        /**
+         * CabinCategory
+         * @enum {string}
+         */
+        CabinCategory: "SUITE" | "OWNER";
+        /** CalendarGridResource */
+        CalendarGridResource: {
+            departures: {
+                id: number;
+                reference: string;
+                date: string;
+                yacht: {
+                    id: number;
+                    code: string;
+                    name: string;
+                };
+                itinerary: {
+                    id: number;
+                    code: string;
+                    name: string;
+                };
+                festive: boolean;
+                status: string;
+            }[];
+            rows: {
+                yacht: {
+                    id: number;
+                    code: string;
+                    name: string;
+                };
+                cabin: {
+                    id: number;
+                    code: string;
+                    label: string;
+                    category: string;
+                    sort: number;
+                };
+                cells: {
+                    [key: string]: {
+                        state: string;
+                        claim: {
+                            kind: string;
+                            hold_type: string | null;
+                            expires_at: string | null;
+                            holder: {
+                                type: string;
+                                id: number;
+                                reference: string | null;
+                                label: string | null;
+                                detail: {
+                                    reason: string;
+                                    reason_label: string;
+                                } | {
+                                    status: string;
+                                    type: string;
+                                    segment: string;
+                                    display_reference: string | null;
+                                    owner_id: number;
+                                    owner_name: string;
+                                    party_label: string;
+                                    hold_expired: boolean;
+                                } | null;
+                            };
+                        } | null;
+                    };
+                };
+            }[];
+        };
         /** ChangeHistoryResource */
         ChangeHistoryResource: {
             id: number;
@@ -896,19 +1364,11 @@ export interface components {
             source: string | "system";
             at: string | null;
         };
-        /** ConfigCurrentResource */
-        ConfigCurrentResource: {
-            version: number;
-            document: {
-                [key: string]: unknown;
-            };
-            published_at: string | null;
-            published_by: {
-                id: string;
-                name: string;
-            } | null;
-            approval_reference: string | null;
-        };
+        /**
+         * ChannelOfOrigin
+         * @enum {string}
+         */
+        ChannelOfOrigin: "Hotel Website Inquiry" | "Hotel Booking Engine" | "Phone" | "Email" | "WhatsApp" | "Hotel Social" | "Organic Search" | "Paid Search" | "Paid Ads" | "AI / LLM" | "Email Marketing" | "Referral" | "Travel Advisor" | "Luxury Agency" | "Host Agency" | "Consortia" | "Tour Operator" | "Luxury Tour Operator" | "DMC" | "Incoming Operator" | "Wholesaler" | "Corporate Direct" | "Corporate Travel Agency" | "Business Travel" | "MICE" | "Group" | "GDS" | "CRS" | "Switch" | "Hotel Partner" | "Airline" | "Credit Card" | "Membership Club" | "Affiliate" | "Influencer" | "Brand Partnership" | "Complimentary" | "Owner" | "Staff" | "Unknown";
         /** ConfigValidationResource */
         ConfigValidationResource: {
             errors: {
@@ -941,6 +1401,98 @@ export interface components {
             } | null;
             approval_reference: string | null;
             changes: string;
+        };
+        /** ContactResource */
+        ContactResource: {
+            id: number;
+            name: string;
+            email: string | null;
+            phone: string | null;
+            country: string | null;
+            preferred_channel: string;
+        };
+        /** DepartureMutationResource */
+        DepartureMutationResource: {
+            id: number;
+            reference: string;
+            date: string;
+            return_date: string;
+            yacht_id: number;
+            itinerary_id: number;
+            status: string;
+            urgency_threshold: number;
+            waitlist_enabled: boolean;
+            public_note: string | null;
+            festive: boolean;
+            yacht: {
+                id: number;
+                code: string;
+                name: string;
+            };
+            itinerary: {
+                id: number;
+                code: string;
+                name: string;
+                status: string;
+                festive: boolean;
+            };
+            rates: {
+                year: number;
+                suite_from: number | null;
+            };
+            availability: {
+                counts: {
+                    sold: number;
+                    held: number;
+                    blocked: number;
+                    free: number;
+                    suites_free: number;
+                    owner_free: boolean;
+                };
+                engine_label: {
+                    code: string;
+                    text: string;
+                    tone: string;
+                };
+                cabins: {
+                    cabin: {
+                        code: string;
+                        label: string;
+                        category: string;
+                    };
+                    state: string;
+                    claim: {
+                        kind: string;
+                        hold_type: string | null;
+                        expires_at: string | null;
+                        holder: {
+                            type: string;
+                            id: number;
+                            reference: string | null;
+                            label: string | null;
+                            detail: {
+                                reason: string;
+                                reason_label: string;
+                            } | {
+                                status: string;
+                                type: string;
+                                segment: string;
+                                display_reference: string | null;
+                                owner_id: number;
+                                owner_name: string;
+                                party_label: string;
+                                hold_expired: boolean;
+                            } | null;
+                        };
+                    } | null;
+                }[];
+            };
+            locks: {
+                date_and_yacht: boolean;
+                delete: boolean;
+                reason: string | null;
+            };
+            warnings: string[];
         };
         /** DepartureResource */
         DepartureResource: {
@@ -1001,6 +1553,19 @@ export interface components {
                             id: number;
                             reference: string | null;
                             label: string | null;
+                            detail: {
+                                reason: string;
+                                reason_label: string;
+                            } | {
+                                status: string;
+                                type: string;
+                                segment: string;
+                                display_reference: string | null;
+                                owner_id: number;
+                                owner_name: string;
+                                party_label: string;
+                                hold_expired: boolean;
+                            } | null;
                         };
                     } | null;
                 }[];
@@ -1072,6 +1637,51 @@ export interface components {
             festive_window: boolean;
             /** @enum {string} */
             status: "CLOSED" | "ON_SALE";
+        };
+        /** GenerateSeasonResource */
+        GenerateSeasonResource: {
+            created: string[];
+            skipped: {
+                yacht: string;
+                date: string;
+            }[];
+        };
+        /** GroupResource */
+        GroupResource: {
+            id: number;
+            reference: string;
+            name: string;
+            coordinator: {
+                id: number;
+                name: string;
+                email: string | null;
+                preferred_channel: string;
+            };
+            departure: {
+                id: number;
+                date: string;
+                yacht: {
+                    id: number;
+                    code: string;
+                    name: string;
+                };
+            };
+            cabins: string[];
+            guests: number;
+            total: number;
+            balance: number;
+            statuses: string[];
+        };
+        /** HoldResource */
+        HoldResource: {
+            type: string;
+            client: string;
+            departure: string;
+            cabin: string;
+            expires_at: string | null;
+            remaining_business_minutes: string;
+            rule: string;
+            reference: string;
         };
         /** InternalBlockResource */
         InternalBlockResource: {
@@ -1204,6 +1814,12 @@ export interface components {
             slug: null;
             meta_title: string;
             meta_description: string;
+            /** @constant */
+            fallback_gradient_key: "Western (slate)";
+            gradients: {
+                key: string;
+                css: string;
+            }[];
         };
         /** ItineraryResource */
         ItineraryResource: {
@@ -1221,6 +1837,7 @@ export interface components {
             hero_image_url: null;
             hero_alt: string;
             fallback_gradient: string;
+            fallback_gradient_key: string;
             card_description: string;
             overview: string;
             long_description: string;
@@ -1262,6 +1879,11 @@ export interface components {
             email: string;
             password: string;
         };
+        /**
+         * MainChannel
+         * @enum {string}
+         */
+        MainChannel: "D2C" | "B2B" | "B2B – Travel Advisor" | "B2B – Tour Operator" | "B2B – Corporate" | "Wholesale / Distribution" | "Partners" | "Other";
         /** MeResource */
         MeResource: {
             id: number;
@@ -1275,6 +1897,31 @@ export interface components {
             permissions: string[];
             sections: ("rms" | "crm")[];
             time_zone: string;
+        };
+        /** MoveBookingRequest */
+        MoveBookingRequest: {
+            departure_id: number;
+            cabin_code?: string | null;
+            confirm_total: number;
+        };
+        /** MovePreviewResource */
+        MovePreviewResource: {
+            available: boolean;
+            current_total: number;
+            new_total: number;
+            difference: number;
+            new_price_lines: {
+                code: string;
+                label: string;
+                amount: number;
+            }[];
+            sailing_year_changes: boolean;
+            festive_changes: boolean;
+            warnings: string[];
+        };
+        /** NotifyWaitlistEntryRequest */
+        NotifyWaitlistEntryRequest: {
+            channel: components["schemas"]["PreferredChannel"];
         };
         /**
          * Permission
@@ -1293,6 +1940,16 @@ export interface components {
             group_label: "Sections" | "Admin" | "Bookings" | "Requests" | "Inventory" | "Commercial" | "Guests" | "CRM" | "Finance" | "Director";
             is_flag: boolean;
         };
+        /**
+         * PreferredChannel
+         * @enum {string}
+         */
+        PreferredChannel: "EMAIL" | "WHATSAPP" | "PHONE";
+        /** PreviewMoveBookingRequest */
+        PreviewMoveBookingRequest: {
+            departure_id: number;
+            cabin_code?: string | null;
+        };
         /** PriceCheckRequest */
         PriceCheckRequest: {
             year: number;
@@ -1308,9 +1965,67 @@ export interface components {
             base_version: number;
             approval_reference?: string | null;
         };
+        /** QuoteReservationRequest */
+        QuoteReservationRequest: {
+            departure_id: number;
+            type: components["schemas"]["BookingType"];
+            back_to_back?: boolean;
+            cabins: {
+                cabin_code?: string | null;
+                adults: number;
+                children: number;
+            }[];
+        };
+        /** RatesCurrentResource */
+        RatesCurrentResource: {
+            version: number;
+            document: {
+                [key: string]: unknown;
+            };
+            published_at: string | null;
+            published_by: {
+                id: string;
+                name: string;
+            } | null;
+            approval_reference: string | null;
+        };
         /** ReleaseInternalBlockRequest */
         ReleaseInternalBlockRequest: {
             note?: string | null;
+        };
+        /** ReleaseRequestRequest */
+        ReleaseRequestRequest: {
+            reason: string;
+        };
+        /** RemoveWaitlistEntryRequest */
+        RemoveWaitlistEntryRequest: {
+            reason: string;
+        };
+        /** ReservationCreatedResource */
+        ReservationCreatedResource: {
+            bookings: string[];
+            group: {
+                id: number;
+                reference: string;
+                name: string;
+                coordinator: {
+                    id: number;
+                    name: string;
+                };
+            } | null;
+            warnings: string[];
+        };
+        /** ReservationQuoteResource */
+        ReservationQuoteResource: {
+            departure_id: number;
+            type: string;
+            back_to_back: boolean;
+            cabins: unknown[];
+            /** @enum {integer|null} */
+            total: 0 | null;
+            /** @enum {integer|null} */
+            deposit: 0 | null;
+            warnings: string[];
         };
         /** ResetPasswordRequest */
         ResetPasswordRequest: {
@@ -1402,11 +2117,63 @@ export interface components {
             meta_description?: string;
             code: string;
         };
+        /** StoreReservationRequest */
+        StoreReservationRequest: {
+            departure_id: number;
+            type: components["schemas"]["BookingType"];
+            back_to_back?: boolean;
+            cabins: {
+                cabin_code?: string | null;
+                adults: number;
+                children: number;
+            }[];
+            client: {
+                name: string;
+                /** Format: email */
+                email?: string | null;
+                phone?: string | null;
+                country?: string | null;
+                preferred_channel?: components["schemas"]["PreferredChannel"];
+            };
+            main_channel: components["schemas"]["MainChannel"];
+            channel_of_origin: components["schemas"]["ChannelOfOrigin"];
+            group?: {
+                existing_group_id?: number;
+                name?: string | null;
+            };
+            internal_notes?: string | null;
+        };
         /** StoreRoleRequest */
         StoreRoleRequest: {
             name: string;
             description?: string | null;
             permissions?: components["schemas"]["Permission"][];
+        };
+        /** StoreWaitlistEntryRequest */
+        StoreWaitlistEntryRequest: {
+            departure_id: number;
+            cabin_category: components["schemas"]["CabinCategory"];
+            client: {
+                name: string;
+                /** Format: email */
+                email?: string | null;
+                phone?: string | null;
+                country?: string | null;
+                preferred_channel?: components["schemas"]["PreferredChannel"];
+            };
+            adults: number;
+            children: number;
+            notes?: string | null;
+        };
+        /** TransitionBookingRequest */
+        TransitionBookingRequest: {
+            to: components["schemas"]["BookingStatus"];
+            reason?: string | null;
+        };
+        /** UpdateBookingRequest */
+        UpdateBookingRequest: {
+            internal_notes?: string | null;
+            owner_id?: number;
         };
         /** UpdateDepartureRequest */
         UpdateDepartureRequest: {
@@ -1497,12 +2264,47 @@ export interface components {
         ValidateConfigRequest: {
             document: string[];
         };
+        /** WaitlistEntryResource */
+        WaitlistEntryResource: {
+            id: number;
+            contact: {
+                name: string;
+                email: string | null;
+            };
+            departure: {
+                id: number;
+                date: string;
+                yacht: {
+                    code: string;
+                    name: string;
+                };
+                festive: boolean;
+            };
+            cabin_category: string;
+            /** @enum {string} */
+            cabin_type: "Owner's Suite" | "Suite";
+            position: number | null;
+            since: string | null;
+            notified: {
+                at: string | null;
+                channel: string;
+                by: string;
+            } | null;
+            cabin_available: boolean;
+            notes: string | null;
+        };
         /** YachtResource */
         YachtResource: {
             id: number;
             code: string;
             name: string;
-            cabins: unknown[];
+            cabins: {
+                id: string;
+                code: string;
+                label: string;
+                category: string;
+                sort: string;
+            }[];
         };
     };
     responses: {
@@ -1555,6 +2357,29 @@ export interface components {
                 "application/json": {
                     /** @description Error overview. */
                     message: string;
+                };
+            };
+        };
+        /** @description Cabin unavailable */
+        CabinUnavailableException: {
+            headers: {
+                [name: string]: unknown;
+            };
+            content: {
+                "application/json": {
+                    message: string;
+                    unavailable: {
+                        cabin: {
+                            id: number;
+                            code: string;
+                            label: string;
+                        };
+                        held_by: {
+                            kind: string;
+                            holder_type: string;
+                            reference: string | null;
+                        };
+                    }[];
                 };
             };
         };
@@ -1708,6 +2533,419 @@ export interface operations {
                 };
             };
             401: components["responses"]["AuthenticationException"];
+        };
+    };
+    "booking.index": {
+        parameters: {
+            query?: {
+                segment?: components["schemas"]["BookingSegment"];
+                status?: components["schemas"]["BookingStatus"];
+                from?: string;
+                to?: string;
+                departure_id?: number;
+                group_id?: number;
+                q?: string;
+                mine?: boolean;
+                per_page?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Paginated set of `BookingResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["BookingResource"][];
+                        links: {
+                            first: string | null;
+                            last: string | null;
+                            prev: string | null;
+                            next: string | null;
+                        };
+                        meta: {
+                            current_page: number;
+                            from: number | null;
+                            last_page: number;
+                            /** @description Generated paginator links. */
+                            links: {
+                                url: string | null;
+                                label: string;
+                                active: boolean;
+                            }[];
+                            /** @description Base path for paginator generated URLs. */
+                            path: string | null;
+                            /** @description Number of items shown per page. */
+                            per_page: number;
+                            /** @description Number of the last item in the slice. */
+                            to: number | null;
+                            /** @description Total number of items being paginated. */
+                            total: number;
+                        };
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "booking.store": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["StoreReservationRequest"];
+            };
+        };
+        responses: {
+            /** @description `ReservationCreatedResource` */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        bookings: components["schemas"]["BookingResource"][];
+                        group: {
+                            id: number;
+                            reference: string;
+                            name: string;
+                            coordinator: {
+                                id: number;
+                                name: string;
+                            };
+                        } | null;
+                        warnings: string[];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            409: components["responses"]["CabinUnavailableException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "booking.audit": {
+        parameters: {
+            query?: {
+                from?: string;
+                to?: string;
+                per_page?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Paginated set of `BookingAuditResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["BookingAuditResource"][];
+                        links: {
+                            first: string | null;
+                            last: string | null;
+                            prev: string | null;
+                            next: string | null;
+                        };
+                        meta: {
+                            current_page: number;
+                            from: number | null;
+                            last_page: number;
+                            /** @description Generated paginator links. */
+                            links: {
+                                url: string | null;
+                                label: string;
+                                active: boolean;
+                            }[];
+                            /** @description Base path for paginator generated URLs. */
+                            path: string | null;
+                            /** @description Number of items shown per page. */
+                            per_page: number;
+                            /** @description Number of the last item in the slice. */
+                            to: number | null;
+                            /** @description Total number of items being paginated. */
+                            total: number;
+                        };
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "booking.quote": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["QuoteReservationRequest"];
+            };
+        };
+        responses: {
+            /** @description `ReservationQuoteResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ReservationQuoteResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "booking.transition": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The booking ID */
+                booking: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["TransitionBookingRequest"];
+            };
+        };
+        responses: {
+            /** @description `BookingResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["BookingResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            409: components["responses"]["CabinUnavailableException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "booking.movePreview": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The booking ID */
+                booking: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PreviewMoveBookingRequest"];
+            };
+        };
+        responses: {
+            /** @description `MovePreviewResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MovePreviewResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "booking.move": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The booking ID */
+                booking: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["MoveBookingRequest"];
+            };
+        };
+        responses: {
+            /** @description `BookingResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["BookingResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            409: components["responses"]["CabinUnavailableException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "booking.show": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The booking ID */
+                booking: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `BookingResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["BookingResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "booking.destroy": {
+        parameters: {
+            query: {
+                reason: string;
+            };
+            header?: never;
+            path: {
+                /** @description The booking ID */
+                booking: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No content */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "booking.update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The booking ID */
+                booking: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["UpdateBookingRequest"];
+            };
+        };
+        responses: {
+            /** @description `BookingResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["BookingResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "booking.history": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The booking ID */
+                booking: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Paginated set of `ChangeHistoryResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["ChangeHistoryResource"][];
+                        links: {
+                            first: string | null;
+                            last: string | null;
+                            prev: string | null;
+                            next: string | null;
+                        };
+                        meta: {
+                            current_page: number;
+                            from: number | null;
+                            last_page: number;
+                            /** @description Generated paginator links. */
+                            links: {
+                                url: string | null;
+                                label: string;
+                                active: boolean;
+                            }[];
+                            /** @description Base path for paginator generated URLs. */
+                            path: string | null;
+                            /** @description Number of items shown per page. */
+                            per_page: number;
+                            /** @description Number of the last item in the slice. */
+                            to: number | null;
+                            /** @description Total number of items being paginated. */
+                            total: number;
+                        };
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
         };
     };
     "businessRules.current": {
@@ -1867,28 +3105,39 @@ export interface operations {
         };
         requestBody?: never;
         responses: {
+            /** @description `CalendarGridResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CalendarGridResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "contact.index": {
+        parameters: {
+            query?: {
+                q?: string | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Array of `ContactResource` */
             200: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
                     "application/json": {
-                        departures: string[];
-                        rows: {
-                            yacht: {
-                                id: string;
-                                code: string;
-                                name: string;
-                            };
-                            cabin: {
-                                id: string;
-                                code: string;
-                                label: string;
-                                category: string;
-                                sort: string;
-                            };
-                            cells: string;
-                        }[];
+                        data: components["schemas"]["ContactResource"][];
                     };
                 };
             };
@@ -1932,21 +3181,21 @@ export interface operations {
                             current_page: number;
                             from: number | null;
                             last_page: number;
-                            /** @description Generated paginator links. */
                             links: {
                                 url: string | null;
                                 label: string;
                                 active: boolean;
                             }[];
-                            /** @description Base path for paginator generated URLs. */
                             path: string | null;
-                            /** @description Number of items shown per page. */
                             per_page: number;
-                            /** @description Number of the last item in the slice. */
                             to: number | null;
-                            /** @description Total number of items being paginated. */
                             total: number;
-                            kpis: string;
+                            kpis: {
+                                on_sale_on_engine: number;
+                                cabins_bookable: number;
+                                showing_only_n_left: number;
+                                full: number;
+                            };
                         };
                     };
                 };
@@ -1969,16 +3218,13 @@ export interface operations {
             };
         };
         responses: {
+            /** @description `DepartureMutationResource` */
             201: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        warnings: string[];
-                    } & {
-                        [key: string]: unknown;
-                    };
+                    "application/json": components["schemas"]["DepartureMutationResource"];
                 };
             };
             401: components["responses"]["AuthenticationException"];
@@ -1999,18 +3245,13 @@ export interface operations {
             };
         };
         responses: {
+            /** @description `GenerateSeasonResource` */
             200: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        created: string[];
-                        skipped: {
-                            yacht: string;
-                            date: string;
-                        }[];
-                    };
+                    "application/json": components["schemas"]["GenerateSeasonResource"];
                 };
             };
             401: components["responses"]["AuthenticationException"];
@@ -2110,16 +3351,13 @@ export interface operations {
             };
         };
         responses: {
+            /** @description `DepartureMutationResource` */
             200: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        warnings: string[];
-                    } & {
-                        [key: string]: unknown;
-                    };
+                    "application/json": components["schemas"]["DepartureMutationResource"];
                 };
             };
             401: components["responses"]["AuthenticationException"];
@@ -2325,6 +3563,33 @@ export interface operations {
             401: components["responses"]["AuthenticationException"];
         };
     };
+    "group.index": {
+        parameters: {
+            query?: {
+                departure_id?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Array of `GroupResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["GroupResource"][];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
     health: {
         parameters: {
             query?: never;
@@ -2342,6 +3607,29 @@ export interface operations {
                     "application/json": string;
                 };
             };
+        };
+    };
+    "hold.index": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Array of `HoldResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["HoldResource"][];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
         };
     };
     "internalBlock.index": {
@@ -2398,6 +3686,7 @@ export interface operations {
             };
             401: components["responses"]["AuthenticationException"];
             403: components["responses"]["AuthorizationException"];
+            409: components["responses"]["CabinUnavailableException"];
             422: components["responses"]["ValidationException"];
         };
     };
@@ -2787,13 +4076,13 @@ export interface operations {
         };
         requestBody?: never;
         responses: {
-            /** @description `ConfigCurrentResource` */
+            /** @description `RatesCurrentResource` */
             200: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["ConfigCurrentResource"];
+                    "application/json": components["schemas"]["RatesCurrentResource"];
                 };
             };
             401: components["responses"]["AuthenticationException"];
@@ -2946,6 +4235,103 @@ export interface operations {
                 };
             };
             401: components["responses"]["AuthenticationException"];
+        };
+    };
+    "request.index": {
+        parameters: {
+            query?: {
+                from?: string;
+                to?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Array of `BookingRequestResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["BookingRequestResource"][];
+                        meta: {
+                            rules: {
+                                near_term_business_hours: number;
+                                long_lead_business_days: number;
+                                near_term_max_days: number;
+                                response_hours: number;
+                                business_day_minutes: number;
+                                cabin_deposit_pct: number;
+                            };
+                        };
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "request.confirm": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The booking ID */
+                booking: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `BookingResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["BookingResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            409: components["responses"]["CabinUnavailableException"];
+        };
+    };
+    "request.release": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The booking ID */
+                booking: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ReleaseRequestRequest"];
+            };
+        };
+        responses: {
+            /** @description `BookingResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["BookingResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            409: components["responses"]["CabinUnavailableException"];
+            422: components["responses"]["ValidationException"];
         };
     };
     "role.index": {
@@ -3355,6 +4741,125 @@ export interface operations {
             401: components["responses"]["AuthenticationException"];
             403: components["responses"]["AuthorizationException"];
             404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "waitlist.index": {
+        parameters: {
+            query?: {
+                from?: string;
+                to?: string;
+                departure_id?: number;
+                include_removed?: boolean;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Array of `WaitlistEntryResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["WaitlistEntryResource"][];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "waitlist.store": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["StoreWaitlistEntryRequest"];
+            };
+        };
+        responses: {
+            /** @description `WaitlistEntryResource` */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["WaitlistEntryResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "waitlist.notify": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The entry ID */
+                entry: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["NotifyWaitlistEntryRequest"];
+            };
+        };
+        responses: {
+            /** @description `WaitlistEntryResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["WaitlistEntryResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "waitlist.remove": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The entry ID */
+                entry: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RemoveWaitlistEntryRequest"];
+            };
+        };
+        responses: {
+            /** @description `WaitlistEntryResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["WaitlistEntryResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
         };
     };
     "yacht.index": {

@@ -79,6 +79,33 @@ export type {
 } from './config'
 
 export type {
+  AllowedTransition,
+  Booking,
+  BookingAuditRow,
+  BookingListItem,
+  BookingQuote,
+  BookingQuoteRequest,
+  BookingSegment,
+  BookingStatus,
+  BookingType,
+  ChannelOfOrigin,
+  Contact,
+  ContactSearchResult,
+  CreateReservationRequest,
+  CreateReservationResponse,
+  Group,
+  GroupSummary,
+  HoldListItem,
+  MainChannel,
+  MovePreview,
+  PreferredChannel,
+  PriceLine,
+  RequestQueueItem,
+  RequestQueueRules,
+  WaitlistEntry,
+} from './bookings'
+
+export type {
   Availability,
   AvailabilityCounts,
   BlockClaim,

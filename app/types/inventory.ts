@@ -1,39 +1,36 @@
 /**
- * Hand-written shapes for inventory payloads. Scramble leaves some nested
- * JSON untyped or emits `string` where the PHP enum is a closed set. Each
- * type mirrors a PHP class and must change with it.
+ * Inventory aliases over generated schemas. Leftovers are closed unions
+ * Scramble still emits as string, ItineraryPair tuples, ItineraryDefaults
+ * seed literals, and overlays that only narrow. Each leftover mirrors a PHP
+ * class and must change with it.
  */
 
-import type { components } from './api'
+import type { components, operations } from './api'
 
-/** Mirrors App\Enums\CabinCategory. Update when the PHP enum changes. */
-export type CabinCategory = 'SUITE' | 'OWNER'
-
-/** Mirrors App\Enums\CabinState. Update when the PHP enum changes. */
-export type CabinState = 'FREE' | 'HELD' | 'SOLD' | 'BLOCKED'
-
-/** Mirrors App\Enums\ItineraryStatus. Update when the PHP enum changes. */
+export type CabinCategory = components['schemas']['CabinCategory']
 export type ItineraryStatus = components['schemas']['ItineraryStatus']
-
-/** Mirrors App\Enums\DepartureStatus. Update when the PHP enum changes. */
 export type DepartureStatus = components['schemas']['DepartureStatus']
-
-/** Mirrors App\Enums\BlockReason. Update when the PHP enum changes. */
 export type BlockReason = components['schemas']['BlockReason']
 
-/** Mirrors App\Enums\ClaimKind. Update when the PHP enum changes. */
+/** Mirrors App\Enums\CabinState. Scramble emits string. */
+export type CabinState = 'FREE' | 'HELD' | 'SOLD' | 'BLOCKED'
+
+/** Mirrors App\Enums\ClaimKind. Scramble emits string. */
 export type ClaimKind = 'BLOCK' | 'HOLD' | 'BOOKING'
 
-/** Mirrors App\Enums\HoldType. Update when the PHP enum changes. */
+/** Mirrors App\Enums\HoldType. Scramble emits string. */
 export type HoldType = 'WEB' | 'REQUEST' | 'AGENCY' | 'CHARTER_QUOTE'
 
-/** Mirrors App\Enums\EngineLabelCode. Update when the PHP enum changes. */
+/** Mirrors App\Enums\EngineLabelCode. Scramble emits string. */
 export type EngineLabelCode = 'NOT_SHOWN' | 'CHARTERED' | 'CLOSED' | 'CHARTER' | 'LIMITED' | 'FULL' | 'ONLY_N_LEFT' | 'AVAILABLE'
 
-/** Mirrors App\Enums\EngineLabelTone. Update when the PHP enum changes. */
+/** Mirrors App\Enums\EngineLabelTone. Scramble emits string. */
 export type EngineLabelTone = 'wait' | 'comp' | 'pend' | 'canc' | 'hold' | 'conf'
 
-/** Mirrors App\Http\Resources\Rms\CabinResource. Update when the PHP resource changes. */
+/**
+ * Mirrors App\Http\Resources\Rms\YachtResource cabins.
+ * Generated items type id / sort as string.
+ */
 export type Cabin = {
   id: number
   code: string
@@ -42,7 +39,6 @@ export type Cabin = {
   sort: number
 }
 
-/** Mirrors App\Http\Resources\Rms\YachtResource. Update when the PHP resource changes. */
 export type Yacht = Omit<components['schemas']['YachtResource'], 'cabins'> & {
   cabins: Array<Cabin>
 }
@@ -56,46 +52,24 @@ export type ItineraryGradient = {
   css: string
 }
 
-/** Mirrors App\Support\Itineraries\Completeness. Update when the PHP class changes. */
-export type ItineraryCompleteness = {
-  pct: number
-  missing: Array<string>
-  blocking: Array<string>
-}
+export type ItineraryCompleteness = components['schemas']['ItineraryResource']['completeness']
 
-/** Mirrors App\Http\Resources\Rms\ItineraryResource. Update when the PHP resource changes. */
 export type Itinerary = Omit<
   components['schemas']['ItineraryResource'],
-  | 'status'
-  | 'hero_image_url'
-  | 'highlights'
-  | 'chips'
-  | 'facts'
-  | 'day_plan'
-  | 'included'
-  | 'excluded'
-  | 'faqs'
-  | 'completeness'
+  'status' | 'hero_image_url' | 'facts' | 'day_plan' | 'faqs'
 > & {
   status: ItineraryStatus
   hero_image_url: string | null
-  highlights: Array<string>
-  chips: Array<string>
   facts: Array<ItineraryPair>
   day_plan: Array<ItineraryPair>
-  included: Array<string>
-  excluded: Array<string>
   faqs: Array<ItineraryPair>
-  completeness: ItineraryCompleteness
-  fallback_gradient_key: string
 }
 
-/** List and show use the same ItineraryResource. */
 export type ItineraryListItem = Itinerary
 
 /**
  * Mirrors App\Support\Itineraries\Defaults::payload().
- * Scramble's ItineraryDefaultsResource freezes seed literals and types
+ * Generated ItineraryDefaultsResource freezes seed literals and types
  * day_plan as string[]. Update when the PHP payload changes.
  */
 export type ItineraryDefaults = {
@@ -126,26 +100,42 @@ export type ItineraryDefaults = {
   meta_description: string
 }
 
-/** Mirrors App\Support\Inventory\EngineLabel. Update when the PHP class changes. */
+/** Mirrors App\Support\Inventory\EngineLabel. Scramble emits code / tone as string. */
 export type EngineLabel = {
   code: EngineLabelCode
   text: string
   tone: EngineLabelTone
 }
 
-/** Mirrors App\Services\Inventory\Availability holder payload. */
+/**
+ * Mirrors App\Services\Inventory\Availability holder.detail.
+ * Generated oneOf is usable; enums on each arm stay string in the spec.
+ */
+export type ClaimHolderDetail =
+  | {
+    reason: BlockReason
+    reason_label: string
+  }
+  | {
+    status: components['schemas']['BookingStatus']
+    type: components['schemas']['BookingType']
+    segment: components['schemas']['BookingSegment']
+    display_reference: string | null
+    owner_id: number
+    owner_name: string
+    party_label: string
+    hold_expired: boolean
+  }
+  | null
+
 export type ClaimHolder = {
   type: string
   id: number
   reference: string | null
   label: string | null
-  detail: {
-    reason: BlockReason
-    reason_label: string
-  } | null
+  detail: ClaimHolderDetail
 }
 
-/** Mirrors App\Services\Inventory\Availability::claimSummary(). Update when the PHP method changes. */
 export type ClaimSummary = {
   kind: ClaimKind
   hold_type: HoldType | null
@@ -153,7 +143,6 @@ export type ClaimSummary = {
   holder: ClaimHolder
 }
 
-/** Mirrors one cabin row on a departure snapshot. */
 export type CabinAvailability = {
   cabin: {
     code: string
@@ -164,42 +153,18 @@ export type CabinAvailability = {
   claim: ClaimSummary | null
 }
 
-/** Mirrors App\Support\Inventory\DepartureSnapshot::$counts. */
-export type AvailabilityCounts = {
-  sold: number
-  held: number
-  blocked: number
-  free: number
-  suites_free: number
-  owner_free: boolean
-}
+export type AvailabilityCounts = components['schemas']['DepartureResource']['availability']['counts']
 
-/** Mirrors the availability object on DepartureResource. */
 export type Availability = {
   counts: AvailabilityCounts
   engine_label: EngineLabel
   cabins?: Array<CabinAvailability>
 }
 
-/** Mirrors App\Support\Inventory\DepartureLocks::for(). Update when the PHP class changes. */
-export type DepartureLocks = {
-  date_and_yacht: boolean
-  delete: boolean
-  reason: string | null
-}
+export type DepartureLocks = components['schemas']['DepartureResource']['locks']
 
-/** Mirrors App\Services\Inventory\Availability::kpis(). Update when the PHP method changes. */
-export type DepartureKpis = {
-  on_sale_on_engine: number
-  cabins_bookable: number
-  showing_only_n_left: number
-  full: number
-}
+export type DepartureKpis = operations['departure.index']['responses'][200]['content']['application/json']['meta']['kpis']
 
-/**
- * Detail / layout departure (locks and cabin rows present).
- * Mirrors App\Http\Resources\Rms\DepartureResource.
- */
 export type Departure = Omit<
   components['schemas']['DepartureResource'],
   'status' | 'availability' | 'locks'
@@ -209,7 +174,6 @@ export type Departure = Omit<
   locks: DepartureLocks
 }
 
-/** List row: locks and availability.cabins omitted unless with_cabins=1. */
 export type DepartureListItem = Omit<
   components['schemas']['DepartureResource'],
   'status' | 'availability' | 'locks'
@@ -219,94 +183,46 @@ export type DepartureListItem = Omit<
   locks?: DepartureLocks
 }
 
-/** Layout is the same DepartureResource with cabins and locks. */
 export type DepartureLayout = Departure
 
-/** POST/PATCH /rms/departures body: departure fields plus warnings. */
 export type DepartureMutationResponse = Departure & {
   warnings: Array<string>
 }
 
-/**
- * Mirrors App\Actions\Departures\GenerateSeason return.
- * Calendar dates (`skipped[].date`) are YYYY-MM-DD strings.
- */
-export type GenerateSeasonResult = {
-  created: Array<string>
-  skipped: Array<{
-    yacht: string
-    date: string
-  }>
-}
+export type GenerateSeasonResult = components['schemas']['GenerateSeasonResource']
 
-/** One departure column on GET /rms/calendar. Dates are YYYY-MM-DD. */
-export type CalendarDeparture = {
-  id: number
-  reference: string
-  date: string
-  yacht: {
-    id: number
-    code: string
-    name: string
-  }
-  itinerary: {
-    id: number
-    code: string
-    name: string
-  }
-  festive: boolean
+export type CalendarDeparture = Omit<
+  components['schemas']['CalendarGridResource']['departures'][number],
+  'status'
+> & {
   status: DepartureStatus
 }
 
-/** One cabin × departure cell on GET /rms/calendar. */
 export type CalendarCell = {
   state: CabinState
   claim: ClaimSummary | null
 }
 
-/** One cabin row on GET /rms/calendar. `cells` is keyed by departure id. */
-export type CalendarRow = {
-  yacht: {
-    id: number
-    code: string
-    name: string
-  }
+export type CalendarRow = Omit<
+  components['schemas']['CalendarGridResource']['rows'][number],
+  'cabin' | 'cells'
+> & {
   cabin: Cabin
   cells: Record<string, CalendarCell>
 }
 
-/**
- * Mirrors App\Http\Controllers\Rms\CalendarController JSON.
- * Scramble emits departures / cells as string. Update when the PHP payload changes.
- */
 export type CalendarGrid = {
   departures: Array<CalendarDeparture>
   rows: Array<CalendarRow>
 }
 
-/** One claim row on InternalBlockResource. Dates are YYYY-MM-DD. */
-export type BlockClaim = {
-  id: number
+export type BlockClaim = Omit<
+  components['schemas']['InternalBlockResource']['claims'][number],
+  'kind'
+> & {
   kind: ClaimKind
-  released_at: string | null
-  cabin: {
-    id: number
-    code: string
-    label: string
-  }
-  departure: {
-    id: number
-    reference: string
-    date: string
-    yacht: {
-      id: number
-      code: string
-      name: string
-    }
-  }
 }
 
-/** Mirrors App\Http\Resources\Rms\InternalBlockResource. Update when the PHP resource changes. */
 export type InternalBlock = Omit<
   components['schemas']['InternalBlockResource'],
   'reason' | 'claims'
@@ -315,16 +231,9 @@ export type InternalBlock = Omit<
   claims: Array<BlockClaim>
 }
 
-/**
- * Mirrors App\Exceptions\CabinUnavailableException::render().
- * Update when the PHP exception payload changes.
- */
-export type CabinUnavailableItem = {
-  cabin: {
-    id: number
-    code: string
-    label: string
-  }
+type UnavailableBody = components['responses']['CabinUnavailableException']['content']['application/json']
+
+export type CabinUnavailableItem = Omit<UnavailableBody['unavailable'][number], 'held_by'> & {
   held_by: {
     kind: ClaimKind
     holder_type: string

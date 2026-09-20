@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.5.0
+
+- Regenerated API types from the Sprint 4 OpenAPI spec (bookings, groups, contacts, requests, holds, waitlist, move preview, audit, request `meta.rules`, G5 `holds.*` fields).
+- Retired hand-written inventory shapes that now have real generated properties (`CalendarGrid*`, `GenerateSeasonResult`, `DepartureMutationResponse`, `DepartureKpis`, availability / claim / lock objects, `CabinUnavailable*`, `CabinCategory`).
+- Booking aliases (`Booking`, `BookingQuote`, `RequestQueueItem`, `HoldListItem`, `WaitlistEntry`, …). Overlays remain where Scramble emits `unknown[]` / `string[]` / seed literals (`allowed_transitions`, quote cabins, created-schema `bookings`, `HoldResource.departure`).
+- Claim holder `detail` is the generated union: block `{ reason, reason_label }` or booking `{ status, type, segment, display_reference, owner_id, owner_name, party_label, hold_expired }` or `null`.
+- `HoldsRules` G5 fields: `business_days`, `business_day_start`, `business_day_end`, `holidays`, `near_term_max_days`.
+
 ## v0.4.2
 
 - Claim holder `detail`: `{ reason, reason_label }` on internal-block claims, otherwise `null`.
