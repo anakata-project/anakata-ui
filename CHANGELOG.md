@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.5.1
+
+- Regenerated API types for the Task 07 prelude: `BookingResource.request` (preferred channel, advisor, notes, hold, sla), `departure` extras (`return_date`, `itinerary_name`, `embark`, `festive`), `GET /bookings/owners` (`BookingOwnerResource`), and `GET /groups` `from` / `to`.
+- Aliases: `BookingRequestSummary`, `BookingOwner`.
+
 ## v0.5.0
 
 - Regenerated API types from the Sprint 4 OpenAPI spec (bookings, groups, contacts, requests, holds, waitlist, move preview, audit, request `meta.rules`, G5 `holds.*` fields).

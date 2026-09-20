@@ -28,6 +28,14 @@ describe('useDates', () => {
     expect(format('2027-01-01T03:00:00Z', 'dateTime', GALAPAGOS)).toBe('31 Dec 2026, 21:00')
   })
 
+  it('formats a Date iso as the Galápagos calendar day, not UTC', () => {
+    // 23:30 GALT = 05:30 UTC the next day
+    const now = new Date('2026-09-21T05:30:00.000Z')
+
+    expect(format(now, 'iso', GALAPAGOS)).toBe('2026-09-20')
+    expect(format(now, 'iso', { timeZone: 'UTC' })).toBe('2026-09-21')
+  })
+
   it('formats midnight with hourCycle h23', () => {
     expect(format('2027-01-01T06:00:00Z', 'dateTime', GALAPAGOS)).toBe('1 Jan 2027, 00:00')
     expect(format('2027-01-01T06:00:00Z', 'time', GALAPAGOS)).toBe('00:00')

@@ -45,6 +45,28 @@ export type Group = Omit<components['schemas']['GroupResource'], 'statuses'> & {
   statuses: Array<BookingStatus>
 }
 
+export type BookingOwner = components['schemas']['BookingOwnerResource']
+
+/**
+ * Mirrors App\Support\Bookings\RequestSummary::for().
+ * Generated sla.due_at is string | null; the API always sends a string.
+ */
+export type BookingRequestSummary = {
+  preferred_channel: string
+  travel_advisor: boolean
+  notes: string | null
+  hold: {
+    expires_at: string | null
+    expired: boolean
+    rule: string
+  }
+  sla: {
+    due_at: string
+    remaining_minutes: number
+    breached: boolean
+  }
+}
+
 export type Booking = Omit<
   components['schemas']['BookingResource'],
   | 'type'
@@ -57,6 +79,7 @@ export type Booking = Omit<
   | 'price_lines'
   | 'contact'
   | 'group'
+  | 'request'
 > & {
   type: BookingType
   status: BookingStatus
@@ -68,6 +91,7 @@ export type Booking = Omit<
   price_lines: Array<PriceLine>
   contact: Contact
   group: GroupSummary | null
+  request: BookingRequestSummary | null
 }
 
 export type BookingListItem = Booking

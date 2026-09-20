@@ -83,6 +83,8 @@ export type {
   Booking,
   BookingAuditRow,
   BookingListItem,
+  BookingOwner,
+  BookingRequestSummary,
   BookingQuote,
   BookingQuoteRequest,
   BookingSegment,

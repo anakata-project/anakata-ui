@@ -211,6 +211,22 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/rms/bookings/owners": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["booking.owners"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/rms/bookings/quote": {
         parameters: {
             query?: never;
@@ -1117,6 +1133,11 @@ export interface components {
             what: unknown;
             why: string | null;
         };
+        /** BookingOwnerResource */
+        BookingOwnerResource: {
+            id: number;
+            name: string;
+        };
         /** BookingRequestResource */
         BookingRequestResource: {
             id: number;
@@ -1139,13 +1160,13 @@ export interface components {
             cabin_label: string;
             estimated_value: number;
             hold: {
-                expires_at: string | null;
+                expires_at: string;
                 rule: string;
                 remaining_business_minutes: number;
-                expired: boolean;
+                expired: string;
             };
-            sla: {
-                due_at: string | "";
+            sla: string | {
+                due_at: string;
                 remaining_minutes: number;
                 breached: boolean;
             };
@@ -1187,6 +1208,10 @@ export interface components {
             departure: {
                 id: number;
                 date: string;
+                return_date: string;
+                itinerary_name: string;
+                embark: string;
+                festive: boolean;
                 yacht: {
                     id: number;
                     code: string;
@@ -1220,6 +1245,21 @@ export interface components {
                 id: number;
                 name: string;
             };
+            request: {
+                preferred_channel: string;
+                travel_advisor: boolean;
+                notes: string | null;
+                hold: {
+                    expires_at: string | null;
+                    expired: boolean;
+                    rule: string;
+                };
+                sla: {
+                    due_at: string | null;
+                    remaining_minutes: number;
+                    breached: boolean;
+                };
+            } | null;
         };
         /**
          * BookingSegment
@@ -2689,6 +2729,30 @@ export interface operations {
             422: components["responses"]["ValidationException"];
         };
     };
+    "booking.owners": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Array of `BookingOwnerResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["BookingOwnerResource"][];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+        };
+    };
     "booking.quote": {
         parameters: {
             query?: never;
@@ -3566,6 +3630,8 @@ export interface operations {
     "group.index": {
         parameters: {
             query?: {
+                from?: string;
+                to?: string;
                 departure_id?: number;
             };
             header?: never;
