@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.5.3
+
+- Regenerated API types for Task 09: `RequestSummary.hold.remaining_business_minutes`, `HoldResource.booking_id` / typed `departure` and `remaining_business_minutes`, `GET /holds` `from` / `to` and `meta.rules.business_day_minutes`.
+- Aliases: `HoldListItem` (overlays only `type` and `booking_id`), `HoldListRules`, `BookingRequestSummary.hold.remaining_business_minutes`. `RequestQueueItem` overlays `hold` / `sla` because Scramble still emits `string | object`.
+
 ## v0.5.2
 
 - Regenerated API types for Task 08: `GET /bookings/form-options` (`BookingFormOptionsResource`) and `ReservationQuoteResource.terms` (`balance_days` plus CHARTER deposit / business days / DPNG).

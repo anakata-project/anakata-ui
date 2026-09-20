@@ -1199,11 +1199,11 @@ export interface components {
             };
             cabin_label: string;
             estimated_value: number;
-            hold: {
-                expires_at: string;
+            hold: string | {
+                expires_at: null;
+                expired: boolean;
                 rule: string;
                 remaining_business_minutes: number;
-                expired: string;
             };
             sla: string | {
                 due_at: string;
@@ -1293,6 +1293,7 @@ export interface components {
                     expires_at: string | null;
                     expired: boolean;
                     rule: string;
+                    remaining_business_minutes: number;
                 };
                 sla: {
                     due_at: string | null;
@@ -1754,14 +1755,21 @@ export interface components {
         };
         /** HoldResource */
         HoldResource: {
-            type: string;
+            type: string | null;
             client: string;
-            departure: string;
+            departure: {
+                date: string;
+                yacht: {
+                    code: string;
+                    name: string;
+                };
+            };
             cabin: string;
             expires_at: string | null;
-            remaining_business_minutes: string;
+            remaining_business_minutes: number;
             rule: string;
-            reference: string;
+            reference: string | null;
+            booking_id: number;
         };
         /** InternalBlockResource */
         InternalBlockResource: {
@@ -3748,7 +3756,10 @@ export interface operations {
     };
     "hold.index": {
         parameters: {
-            query?: never;
+            query?: {
+                from?: string;
+                to?: string;
+            };
             header?: never;
             path?: never;
             cookie?: never;
@@ -3763,10 +3774,16 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: components["schemas"]["HoldResource"][];
+                        meta: {
+                            rules: {
+                                business_day_minutes: number;
+                            };
+                        };
                     };
                 };
             };
             401: components["responses"]["AuthenticationException"];
+            422: components["responses"]["ValidationException"];
         };
     };
     "internalBlock.index": {

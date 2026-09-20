@@ -59,6 +59,7 @@ export type BookingRequestSummary = {
     expires_at: string | null
     expired: boolean
     rule: string
+    remaining_business_minutes: number
   }
   sla: {
     due_at: string
@@ -153,11 +154,12 @@ export type BookingAuditRow = Omit<
 
 /**
  * Mirrors App\Http\Resources\Rms\BookingRequestResource.
- * Generated can_act is string; party freezes a seed literal.
+ * Generated can_act is string; party freezes a seed literal;
+ * hold / sla are `string | object` (Scramble follows the runtime `??` fallback).
  */
 export type RequestQueueItem = Omit<
   components['schemas']['BookingRequestResource'],
-  'can_act' | 'party' | 'contact'
+  'can_act' | 'party' | 'contact' | 'hold' | 'sla'
 > & {
   can_act: boolean
   party: string
@@ -165,27 +167,20 @@ export type RequestQueueItem = Omit<
     name: string
     preferred_channel: string
   }
+  hold: BookingRequestSummary['hold']
+  sla: BookingRequestSummary['sla']
 }
 
 /**
  * Mirrors App\Http\Resources\Rms\HoldResource.
- * Generated departure is string and remaining_business_minutes is string.
+ * Generated type is string | null; booking_id is number (PHPDoc is int|null).
  */
-export type HoldListItem = {
+export type HoldListItem = Omit<
+  components['schemas']['HoldResource'],
+  'type' | 'booking_id'
+> & {
   type: string
-  client: string
-  departure: {
-    date: string
-    yacht: {
-      code: string
-      name: string
-    }
-  }
-  cabin: string
-  expires_at: string | null
-  remaining_business_minutes: number
-  rule: string
-  reference: string | null
+  booking_id: number | null
 }
 
 export type WaitlistEntry = Omit<
@@ -196,3 +191,5 @@ export type WaitlistEntry = Omit<
 }
 
 export type RequestQueueRules = operations['request.index']['responses'][200]['content']['application/json']['meta']['rules']
+
+export type HoldListRules = operations['hold.index']['responses'][200]['content']['application/json']['meta']['rules']

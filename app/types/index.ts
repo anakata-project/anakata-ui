@@ -99,6 +99,7 @@ export type {
   Group,
   GroupSummary,
   HoldListItem,
+  HoldListRules,
   MainChannel,
   MovePreview,
   PreferredChannel,
