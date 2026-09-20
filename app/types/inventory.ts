@@ -139,6 +139,10 @@ export type ClaimHolder = {
   id: number
   reference: string | null
   label: string | null
+  detail: {
+    reason: BlockReason
+    reason_label: string
+  } | null
 }
 
 /** Mirrors App\Services\Inventory\Availability::claimSummary(). Update when the PHP method changes. */

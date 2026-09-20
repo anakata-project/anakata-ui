@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.4.2
+
+- Claim holder `detail`: `{ reason, reason_label }` on internal-block claims, otherwise `null`.
+- `useApi().useFetch` accepts a computed URL (`MaybeRefOrGetter<string>`), matching Nuxt `useFetch`.
+
 ## v0.4.1
 
 - Itinerary overlays: `fallback_gradient_key` on `Itinerary`, and `gradients` (`{ key, css }`) plus `fallback_gradient_key` on `ItineraryDefaults`.

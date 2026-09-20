@@ -1,3 +1,5 @@
+import type { MaybeRefOrGetter } from 'vue'
+
 export const API_ERROR_STATUSES = [401, 403, 409, 419, 422] as const
 
 export type ApiErrorStatus = (typeof API_ERROR_STATUSES)[number]
@@ -192,7 +194,7 @@ export function useApi() {
   })
 
   function useApiFetch<DataT>(
-    url: string,
+    url: MaybeRefOrGetter<string>,
     options: Record<string, unknown> = {},
   ) {
     return useFetch<DataT>(url, {
