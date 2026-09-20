@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.6.0
+
+- Regenerated API types from the Sprint 5 OpenAPI spec (payments ledger, payment links, reconciliation, agencies, commissions, refunds, booking money / overdue / agency / refund fields, `GET /rms/payments` `meta.kpis`).
+- New `app/types/payments.ts` aliases (`Payment` / `PaymentListItem` on the same schema, `PaymentLink`, `ReconciliationReport`, `Agency`, `CommissionRow`, `RefundRequest`, generated `PaymentsKpis`). Overlays remain where Scramble emits `string` for bools / enums (`can_mark_wire`, `sla_breached`, `kind` / `status` on resources).
+- `Booking` keeps the Sprint 4 name and overlays `refund` and `payment_links`. `paid`, `pledged`, `overdue`, `agency` and `commission_*` come through from `BookingResource`.
+
 ## v0.5.3
 
 - Regenerated API types for Task 09: `RequestSummary.hold.remaining_business_minutes`, `HoldResource.booking_id` / typed `departure` and `remaining_business_minutes`, `GET /holds` `from` / `to` and `meta.rules.business_day_minutes`.

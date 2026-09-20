@@ -110,6 +110,27 @@ export type {
 } from './bookings'
 
 export type {
+  Agency,
+  AgencyListItem,
+  AgencyStatus,
+  AgencyUser,
+  CancellationBandLabel,
+  CommissionRow,
+  CommissionStatus,
+  Payment,
+  PaymentKind,
+  PaymentLink,
+  PaymentListItem,
+  PaymentMethod,
+  PaymentStatus,
+  PaymentsKpis,
+  ReconciliationReport,
+  ReconciliationRow,
+  RefundRequest,
+  RefundStatus,
+} from './payments'
+
+export type {
   Availability,
   AvailabilityCounts,
   BlockClaim,

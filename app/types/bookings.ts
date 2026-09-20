@@ -5,6 +5,7 @@
 
 import type { components, operations } from './api'
 import type { CabinCategory } from './inventory'
+import type { CancellationBandLabel, PaymentLink, RefundStatus } from './payments'
 
 export type BookingStatus = components['schemas']['BookingStatus']
 export type BookingType = components['schemas']['BookingType']
@@ -81,6 +82,8 @@ export type Booking = Omit<
   | 'contact'
   | 'group'
   | 'request'
+  | 'refund'
+  | 'payment_links'
 > & {
   type: BookingType
   status: BookingStatus
@@ -93,6 +96,14 @@ export type Booking = Omit<
   contact: Contact
   group: GroupSummary | null
   request: BookingRequestSummary | null
+  refund: {
+    status: RefundStatus
+    penalty_amount: number
+    refund_due: number
+    band_label: CancellationBandLabel
+    due_by: string
+  } | null
+  payment_links: Array<PaymentLink>
 }
 
 export type BookingListItem = Booking

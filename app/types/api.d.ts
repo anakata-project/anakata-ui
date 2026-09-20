@@ -83,6 +83,54 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/rms/agencies": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["agency.index"];
+        put?: never;
+        post: operations["agency.store"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/agencies/{agency}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["agency.show"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch: operations["agency.update"];
+        trace?: never;
+    };
+    "/rms/agencies/{agency}/decide": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["agency.decide"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/auth/login": {
         parameters: {
             query?: never;
@@ -275,6 +323,22 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/rms/bookings/{booking}/overdue-decision": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["booking.overdueDecision"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/rms/bookings/{booking}/move/preview": {
         parameters: {
             query?: never;
@@ -411,6 +475,38 @@ export interface paths {
             cookie?: never;
         };
         get: operations["rms.calendar"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/bookings/{booking}/commission-approval": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["commission.decide"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/commissions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["commission.index"];
         put?: never;
         post?: never;
         delete?: never;
@@ -771,6 +867,86 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/rms/payments": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["payment.index"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/payments/{payment}/mark-received": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["payment.markReceived"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/bookings/{booking}/payments": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["payment.forBooking"];
+        put?: never;
+        post: operations["payment.store"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/payment-links/{paymentLink}/cancel": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["paymentLink.cancel"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/bookings/{booking}/payment-link": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["paymentLink.store"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/rms/permissions": {
         parameters: {
             query?: never;
@@ -867,6 +1043,86 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/rms/payments/reconciliation": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["reconciliation.index"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/payments/reconciliation/apply": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["reconciliation.apply"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/refunds": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["refund.index"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/refunds/{refund}/decide": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["refund.decide"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/refunds/{refund}/execute": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["refund.execute"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/rms/requests": {
         parameters: {
             query?: never;
@@ -957,6 +1213,22 @@ export interface paths {
         get: operations["role.history"];
         put?: never;
         post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/stripe/webhook": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["stripeWebhook"];
         delete?: never;
         options?: never;
         head?: never;
@@ -1135,6 +1407,94 @@ export interface components {
             password: string;
             password_confirmation: string;
         };
+        /** AgencyResource */
+        AgencyResource: {
+            id: number;
+            reference: string;
+            name: string;
+            contact: string;
+            email: string;
+            country: string | null;
+            network: string | null;
+            commission_pct: number;
+            payment_terms: string;
+            status: string;
+            requested_at: string | null;
+            decided_at: string | null;
+            decided_by: {
+                id: number;
+                name: string;
+            } | null;
+            decision_reason: string | null;
+            sla_business_days_elapsed: number;
+            sla_breached: string;
+            users: {
+                id: number;
+                name: string;
+                email: string;
+                status: string;
+            }[];
+            revenue: number;
+            commission_accrued: number;
+            bookings_count: number;
+            bookings: {
+                id: number;
+                reference: string | null;
+                status: string;
+                total: number;
+                commission_pct: number | null;
+                commission_amount: number;
+                commission_approved: boolean;
+                departure_date: string;
+                client: string;
+            }[];
+            portal_preview: {
+                commission_pct: number;
+                net_rates: {
+                    year: string;
+                    suite_pp: number;
+                    owner_pp: number;
+                    charter_week: number;
+                }[];
+            };
+        } | {
+            id: number;
+            reference: string;
+            name: string;
+            contact: string;
+            email: string;
+            country: string | null;
+            network: string | null;
+            commission_pct: number;
+            payment_terms: string;
+            status: string;
+            requested_at: string | null;
+            decided_at: string | null;
+            decided_by: {
+                id: number;
+                name: string;
+            } | null;
+            decision_reason: string | null;
+            sla_business_days_elapsed: number;
+            sla_breached: string;
+            users: {
+                id: number;
+                name: string;
+                email: string;
+                status: string;
+            }[];
+        };
+        /**
+         * AgencyStatus
+         * @enum {string}
+         */
+        AgencyStatus: "PENDING" | "APPROVED" | "REJECTED";
+        /** ApplyReconciliationRequest */
+        ApplyReconciliationRequest: {
+            stripe_id: string;
+            booking_id: number;
+            kind: components["schemas"]["PaymentKind"];
+        };
         /**
          * BlockReason
          * @enum {string}
@@ -1172,6 +1532,17 @@ export interface components {
                 child_max_age: number;
                 max_per_cabin: number;
             };
+            commission: {
+                cap_pct: number;
+                default_pct: number;
+            };
+            agencies: {
+                id: number;
+                reference: string;
+                name: string;
+                network: string | null;
+                commission_pct: number;
+            }[];
         };
         /** BookingOwnerResource */
         BookingOwnerResource: {
@@ -1228,11 +1599,17 @@ export interface components {
             party_label: string;
             back_to_back: boolean;
             total: number;
+            paid: number;
+            pledged: number;
             balance: number;
+            payments_count: number;
             deposit_pct: number;
             deposit_amount: number;
             balance_days: number;
             balance_due_date: string;
+            overdue: boolean;
+            overdue_days: number | null;
+            wire_window_ends_at: string | null;
             price_lines: {
                 code: string;
                 label: string;
@@ -1285,6 +1662,21 @@ export interface components {
                 id: number;
                 name: string;
             };
+            agency: {
+                id: number;
+                reference: string;
+                name: string;
+                commission_pct: number;
+            } | null;
+            commission_pct: number | null;
+            commission_amount: number;
+            commission_approved: boolean;
+            commission_approved_by: {
+                id: number;
+                name: string;
+            } | null;
+            commission_approved_at: string | null;
+            commission_reason: string | null;
             request: {
                 preferred_channel: string;
                 travel_advisor: boolean;
@@ -1300,6 +1692,14 @@ export interface components {
                     remaining_minutes: number;
                     breached: boolean;
                 };
+            } | null;
+            payment_links: unknown[];
+            refund: {
+                status: string;
+                penalty_amount: number;
+                refund_due: number;
+                band_label: string;
+                due_by: string | null;
             } | null;
         };
         /**
@@ -1450,6 +1850,31 @@ export interface components {
          * @enum {string}
          */
         ChannelOfOrigin: "Hotel Website Inquiry" | "Hotel Booking Engine" | "Phone" | "Email" | "WhatsApp" | "Hotel Social" | "Organic Search" | "Paid Search" | "Paid Ads" | "AI / LLM" | "Email Marketing" | "Referral" | "Travel Advisor" | "Luxury Agency" | "Host Agency" | "Consortia" | "Tour Operator" | "Luxury Tour Operator" | "DMC" | "Incoming Operator" | "Wholesaler" | "Corporate Direct" | "Corporate Travel Agency" | "Business Travel" | "MICE" | "Group" | "GDS" | "CRS" | "Switch" | "Hotel Partner" | "Airline" | "Credit Card" | "Membership Club" | "Affiliate" | "Influencer" | "Brand Partnership" | "Complimentary" | "Owner" | "Staff" | "Unknown";
+        /**
+         * CommissionAccrualStatus
+         * @enum {string}
+         */
+        CommissionAccrualStatus: "ACCRUED" | "PAYABLE" | "BLOCKED" | "CANCELLED";
+        /** CommissionApprovalRequest */
+        CommissionApprovalRequest: {
+            approve: boolean;
+            reason: string;
+        };
+        /** CommissionResource */
+        CommissionResource: {
+            booking_id: number;
+            reference: string | null;
+            agency: {
+                id: number | null;
+                reference: string | null;
+                name: string | null;
+            };
+            commission_pct: number | null;
+            commission_amount: number;
+            payable_date: string;
+            status: string;
+            departure_date: string;
+        };
         /** ConfigValidationResource */
         ConfigValidationResource: {
             errors: {
@@ -1491,6 +1916,23 @@ export interface components {
             phone: string | null;
             country: string | null;
             preferred_channel: string;
+        };
+        /** CreatePaymentLinkRequest */
+        CreatePaymentLinkRequest: {
+            kind: components["schemas"]["PaymentKind"];
+            amount?: number | null;
+        };
+        /** DecideAgencyRequest */
+        DecideAgencyRequest: {
+            /** @enum {string} */
+            decision: "APPROVED" | "REJECTED";
+            reason?: string | null;
+        };
+        /** DecideRefundRequest */
+        DecideRefundRequest: {
+            /** @enum {string} */
+            decision: "APPROVED" | "REJECTED";
+            reason: string;
         };
         /** DepartureMutationResource */
         DepartureMutationResource: {
@@ -1701,6 +2143,12 @@ export interface components {
             warnings: unknown[];
             changes: unknown[];
             rule_fields_changed: boolean;
+        };
+        /** ExecuteRefundRequest */
+        ExecuteRefundRequest: {
+            method: components["schemas"]["PaymentMethod"];
+            reference?: string | null;
+            amount?: number;
         };
         /** ForgotPasswordRequest */
         ForgotPasswordRequest: {
@@ -1972,6 +2420,10 @@ export interface components {
          * @enum {string}
          */
         MainChannel: "D2C" | "B2B" | "B2B – Travel Advisor" | "B2B – Tour Operator" | "B2B – Corporate" | "Wholesale / Distribution" | "Partners" | "Other";
+        /** MarkWireReceivedRequest */
+        MarkWireReceivedRequest: {
+            bank_reference: string;
+        };
         /** MeResource */
         MeResource: {
             id: number;
@@ -2012,16 +2464,72 @@ export interface components {
             channel: components["schemas"]["PreferredChannel"];
         };
         /**
+         * OverdueDecision
+         * @enum {string}
+         */
+        OverdueDecision: "EXTEND" | "CANCEL";
+        /** OverdueDecisionRequest */
+        OverdueDecisionRequest: {
+            decision: components["schemas"]["OverdueDecision"];
+            reason: string;
+            /** Format: date */
+            new_due_date?: string | null;
+        };
+        /**
+         * PaymentKind
+         * @enum {string}
+         */
+        PaymentKind: "DEPOSIT" | "BALANCE" | "EXTRAS" | "REFUND" | "OTHER";
+        /** PaymentLinkResource */
+        PaymentLinkResource: {
+            id: number;
+            kind: string;
+            amount: number;
+            stripe_id: string;
+            url: string;
+            status: string;
+            mode: string;
+            created_at: string | null;
+        };
+        /**
+         * PaymentMethod
+         * @enum {string}
+         */
+        PaymentMethod: "CARD_STRIPE" | "STRIPE_LINK" | "WIRE" | "OTHER";
+        /** PaymentResource */
+        PaymentResource: {
+            id: number;
+            reference: string;
+            date: string;
+            kind: string;
+            method: string;
+            amount: number;
+            status: string;
+            gateway_id: string | null;
+            recorded_by: string | null;
+            can_mark_wire: string;
+            wire_window_ends_at: string | null;
+            booking: {
+                id: number;
+                display_reference: string | null;
+            };
+        };
+        /**
+         * PaymentStatus
+         * @enum {string}
+         */
+        PaymentStatus: "SETTLED" | "AWAITING_WIRE" | "REFUNDED";
+        /**
          * Permission
          * @description Staff permissions are code, not data. Adding a case is a code change and needs a default decision for the Manager and Sales Exec roles.
          * @enum {string}
          */
-        Permission: "panel.rms" | "panel.crm" | "users.manage" | "roles.manage" | "records.act_on_any" | "bookings.view_all" | "bookings.create" | "bookings.change_status" | "bookings.move" | "bookings.delete" | "requests.confirm" | "requests.release" | "departures.manage" | "itineraries.manage" | "blocks.manage" | "rates.manage" | "rules.view" | "rules.manage" | "engine_settings.manage" | "engine_copy.manage" | "offers.manage" | "offers.approve" | "extras.manage" | "agencies.manage" | "guests.view_sensitive" | "pipeline.move_stage" | "payments.mark_wire_received" | "refunds.execute" | "refunds.approve" | "commissions.override_cap" | "bookings.overdue_decision";
+        Permission: "panel.rms" | "panel.crm" | "users.manage" | "roles.manage" | "records.act_on_any" | "bookings.view_all" | "bookings.create" | "bookings.change_status" | "bookings.move" | "bookings.delete" | "requests.confirm" | "requests.release" | "departures.manage" | "itineraries.manage" | "blocks.manage" | "rates.manage" | "rules.view" | "rules.manage" | "engine_settings.manage" | "engine_copy.manage" | "offers.manage" | "offers.approve" | "extras.manage" | "agencies.manage" | "guests.view_sensitive" | "pipeline.move_stage" | "payments.record" | "payments.mark_wire_received" | "refunds.execute" | "refunds.approve" | "commissions.override_cap" | "bookings.overdue_decision";
         /** PermissionResource */
         PermissionResource: {
             value: string;
             /** @enum {string} */
-            label: "Access RMS" | "Access CRM" | "Manage users" | "Manage roles" | "Act on any record" | "View all reservations" | "Create reservation" | "Change reservation status" | "Move reservation" | "Delete reservation" | "Confirm requests" | "Release requests" | "Manage departures" | "Manage itineraries" | "Manage internal blocks" | "Edit rates, deposit terms and discount rules" | "View business rules" | "View and adjust business rules" | "Manage engine settings" | "Edit engine copy" | "Manage offers" | "Approve offers" | "Manage extras catalog" | "Manage agencies" | "View sensitive guest data" | "Move lead stage" | "Mark wire received" | "Execute refunds" | "Approve refunds" | "Approve commission above cap" | "OPS-007 overdue decisions";
+            label: "Access RMS" | "Access CRM" | "Manage users" | "Manage roles" | "Act on any record" | "View all reservations" | "Create reservation" | "Change reservation status" | "Move reservation" | "Delete reservation" | "Confirm requests" | "Release requests" | "Manage departures" | "Manage itineraries" | "Manage internal blocks" | "Edit rates, deposit terms and discount rules" | "View business rules" | "View and adjust business rules" | "Manage engine settings" | "Edit engine copy" | "Manage offers" | "Approve offers" | "Manage extras catalog" | "Manage agencies" | "View sensitive guest data" | "Move lead stage" | "Record a payment" | "Mark wire received" | "Execute refunds" | "Approve refunds" | "Approve commission above cap" | "OPS-007 overdue decisions";
             /** @enum {string} */
             group: "sections" | "admin" | "bookings" | "requests" | "inventory" | "commercial" | "guests" | "crm" | "finance" | "director";
             /** @enum {string} */
@@ -2077,6 +2585,229 @@ export interface components {
             } | null;
             approval_reference: string | null;
         };
+        /** ReconciliationResource */
+        ReconciliationResource: {
+            matched: {
+                gateway: string;
+                stripe_id: string;
+                payment_intent: string | null;
+                date: string;
+                amount: number;
+                description: string;
+                booking_id?: number;
+                reference?: string;
+                ledger_amount?: number;
+            }[];
+            in_gateway_not_rms: {
+                gateway: string;
+                stripe_id: string;
+                payment_intent: string | null;
+                date: string;
+                amount: number;
+                description: string;
+            }[];
+            to_review: {
+                gateway: string;
+                stripe_id: string;
+                payment_intent: string | null;
+                date: string;
+                amount: number;
+                description: string;
+                booking_id?: number;
+                reference?: string;
+                ledger_amount?: number;
+            }[];
+            counts: {
+                matched: number;
+                in_gateway_not_rms: number;
+                to_review: number;
+            };
+            meta: {
+                from: string;
+                to: string;
+                mode: string;
+            };
+            note: string;
+        };
+        /** RecordPaymentRequest */
+        RecordPaymentRequest: {
+            kind: components["schemas"]["PaymentKind"];
+            method: components["schemas"]["PaymentMethod"];
+            amount: number;
+            /** Format: date */
+            paid_at?: string | null;
+            note?: string | null;
+            status?: components["schemas"]["PaymentStatus"];
+        };
+        /** RecordedPaymentResource */
+        RecordedPaymentResource: {
+            id: number;
+            reference: string;
+            date: string;
+            kind: string;
+            method: string;
+            amount: number;
+            status: string;
+            gateway_id: string | null;
+            recorded_by: string | null;
+            can_mark_wire: string;
+            wire_window_ends_at: string | null;
+            booking: {
+                id: number;
+                reference: string | null;
+                request_reference: string | null;
+                display_reference: string | null;
+                type: string;
+                status: string;
+                segment: string;
+                main_channel: string;
+                channel_of_origin: string;
+                adults: number;
+                children: number;
+                party_label: string;
+                back_to_back: boolean;
+                total: number;
+                paid: number;
+                pledged: number;
+                balance: number;
+                payments_count: number;
+                deposit_pct: number;
+                deposit_amount: number;
+                balance_days: number;
+                balance_due_date: string;
+                overdue: boolean;
+                overdue_days: number | null;
+                wire_window_ends_at: string | null;
+                price_lines: {
+                    code: string;
+                    label: string;
+                    amount: number;
+                }[];
+                rates_version: {
+                    id: number;
+                    version: number;
+                };
+                internal_notes: string | null;
+                can_act: string;
+                allowed_transitions: unknown[];
+                departure: {
+                    id: number;
+                    date: string;
+                    return_date: string;
+                    itinerary_name: string;
+                    embark: string;
+                    festive: boolean;
+                    yacht: {
+                        id: number;
+                        code: string;
+                        name: string;
+                    };
+                };
+                cabin: {
+                    id: number;
+                    code: string;
+                    label: string;
+                } | null;
+                cabin_label: string;
+                contact: {
+                    id: number;
+                    name: string;
+                    email: string | null;
+                    phone: string | null;
+                    country: string | null;
+                    preferred_channel: string;
+                };
+                group: {
+                    id: number;
+                    reference: string;
+                    name: string;
+                    coordinator: {
+                        id: number;
+                        name: string;
+                    };
+                } | null;
+                owner: {
+                    id: number;
+                    name: string;
+                };
+                agency: {
+                    id: number;
+                    reference: string;
+                    name: string;
+                    commission_pct: number;
+                } | null;
+                commission_pct: number | null;
+                commission_amount: number;
+                commission_approved: boolean;
+                commission_approved_by: {
+                    id: number;
+                    name: string;
+                } | null;
+                commission_approved_at: string | null;
+                commission_reason: string | null;
+                request: {
+                    preferred_channel: string;
+                    travel_advisor: boolean;
+                    notes: string | null;
+                    hold: {
+                        expires_at: string | null;
+                        expired: boolean;
+                        rule: string;
+                        remaining_business_minutes: number;
+                    };
+                    sla: {
+                        due_at: string | null;
+                        remaining_minutes: number;
+                        breached: boolean;
+                    };
+                } | null;
+                payment_links: unknown[];
+                refund: {
+                    status: string;
+                    penalty_amount: number;
+                    refund_due: number;
+                    band_label: string;
+                    due_by: string | null;
+                } | null;
+            };
+            warnings: string[];
+        };
+        /** RefundRequestResource */
+        RefundRequestResource: {
+            id: number;
+            status: string;
+            booking: {
+                id: number;
+                reference: string | null;
+                display_reference: string | null;
+            };
+            client: string;
+            cancelled_at: string | null;
+            days_before_departure: number;
+            band_min_days: number;
+            band_label: string;
+            penalty_pct: number;
+            penalty_amount: number;
+            paid_at_cancellation: number;
+            refund_due: number;
+            due_by: string | null;
+            business_days_remaining: unknown;
+            sla_breached: string;
+            decision_reason: string | null;
+            decided_at: string | null;
+            decided_by: {
+                id: number;
+                name: string;
+            } | null;
+            executed_payment_id: number | null;
+            can_approve: string;
+            can_execute: string;
+        };
+        /**
+         * RefundRequestStatus
+         * @enum {string}
+         */
+        RefundRequestStatus: "PENDING" | "APPROVED" | "REJECTED" | "EXECUTED";
         /** ReleaseInternalBlockRequest */
         ReleaseInternalBlockRequest: {
             note?: string | null;
@@ -2148,6 +2879,17 @@ export interface components {
          * @enum {string}
          */
         SeasonPattern: "ALT" | "WEST" | "NORTH";
+        /** StoreAgencyRequest */
+        StoreAgencyRequest: {
+            name: string;
+            contact?: string | null;
+            /** Format: email */
+            email: string;
+            country?: string | null;
+            network?: string | null;
+            commission_pct?: number | null;
+            payment_terms?: string | null;
+        };
         /** StoreDepartureRequest */
         StoreDepartureRequest: {
             /** Format: date */
@@ -2239,6 +2981,8 @@ export interface components {
                 name?: string | null;
             };
             internal_notes?: string | null;
+            agency_id?: number | null;
+            commission_pct?: number | null;
         };
         /** StoreRoleRequest */
         StoreRoleRequest: {
@@ -2266,6 +3010,14 @@ export interface components {
         TransitionBookingRequest: {
             to: components["schemas"]["BookingStatus"];
             reason?: string | null;
+        };
+        /** UpdateAgencyRequest */
+        UpdateAgencyRequest: {
+            name?: string;
+            contact?: string | null;
+            network?: string | null;
+            payment_terms?: string | null;
+            commission_pct?: number;
         };
         /** UpdateBookingRequest */
         UpdateBookingRequest: {
@@ -2488,6 +3240,157 @@ export interface components {
 }
 export type $defs = Record<string, never>;
 export interface operations {
+    "agency.index": {
+        parameters: {
+            query?: {
+                status?: components["schemas"]["AgencyStatus"];
+                q?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Array of `AgencyResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["AgencyResource"][];
+                        meta: {
+                            kpis: {
+                                approved_agencies: number;
+                                registrations_to_review: number;
+                                agency_revenue: number;
+                                commission_accrued: number;
+                            };
+                        };
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "agency.store": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["StoreAgencyRequest"];
+            };
+        };
+        responses: {
+            /** @description `AgencyResource` */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AgencyResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "agency.show": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The agency ID */
+                agency: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `AgencyResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AgencyResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "agency.update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The agency ID */
+                agency: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["UpdateAgencyRequest"];
+            };
+        };
+        responses: {
+            /** @description `AgencyResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AgencyResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "agency.decide": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The agency ID */
+                agency: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["DecideAgencyRequest"];
+            };
+        };
+        responses: {
+            /** @description `AgencyResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AgencyResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
     "auth.login": {
         parameters: {
             query?: never;
@@ -2643,6 +3546,7 @@ export interface operations {
                 group_id?: number;
                 q?: string;
                 mine?: boolean;
+                overdue?: boolean;
                 per_page?: number;
             };
             header?: never;
@@ -2683,6 +3587,10 @@ export interface operations {
                             to: number | null;
                             /** @description Total number of items being paginated. */
                             total: number;
+                            kpis: {
+                                overdue_count: number;
+                                overdue_amount: number;
+                            };
                         };
                     };
                 };
@@ -2872,6 +3780,38 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": components["schemas"]["TransitionBookingRequest"];
+            };
+        };
+        responses: {
+            /** @description `BookingResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["BookingResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            409: components["responses"]["CabinUnavailableException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "booking.overdueDecision": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The booking ID */
+                booking: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["OverdueDecisionRequest"];
             };
         };
         responses: {
@@ -3255,6 +4195,66 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["CalendarGridResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "commission.decide": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The booking ID */
+                booking: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CommissionApprovalRequest"];
+            };
+        };
+        responses: {
+            /** @description `BookingResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["BookingResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "commission.index": {
+        parameters: {
+            query?: {
+                from?: string;
+                to?: string;
+                status?: components["schemas"]["CommissionAccrualStatus"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Array of `CommissionResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["CommissionResource"][];
+                    };
                 };
             };
             401: components["responses"]["AuthenticationException"];
@@ -4197,6 +5197,234 @@ export interface operations {
             404: components["responses"]["ModelNotFoundException"];
         };
     };
+    "payment.index": {
+        parameters: {
+            query?: {
+                from?: string;
+                to?: string;
+                booking_id?: number;
+                kind?: components["schemas"]["PaymentKind"];
+                method?: components["schemas"]["PaymentMethod"];
+                status?: components["schemas"]["PaymentStatus"];
+                q?: string;
+                per_page?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Paginated set of `PaymentResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["PaymentResource"][];
+                        links: {
+                            first: string | null;
+                            last: string | null;
+                            prev: string | null;
+                            next: string | null;
+                        };
+                        meta: {
+                            current_page: number;
+                            from: number | null;
+                            last_page: number;
+                            links: {
+                                url: string | null;
+                                label: string;
+                                active: boolean;
+                            }[];
+                            path: string | null;
+                            per_page: number;
+                            to: number | null;
+                            total: number;
+                            kpis: {
+                                collected: number;
+                                deposits: number;
+                                pending: number;
+                                pending_count: number;
+                                overdue_count: number;
+                                overdue_amount: number;
+                                commission_accrued: number;
+                                cabin_deposit_pct: number;
+                                charter_deposit_pct: number;
+                                cabin_balance_days: number;
+                                commission_payable_days: number;
+                            };
+                        };
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "payment.markReceived": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The payment ID */
+                payment: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["MarkWireReceivedRequest"];
+            };
+        };
+        responses: {
+            /** @description `PaymentResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaymentResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "payment.forBooking": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The booking ID */
+                booking: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Array of `PaymentResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["PaymentResource"][];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "payment.store": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The booking ID */
+                booking: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RecordPaymentRequest"];
+            };
+        };
+        responses: {
+            /** @description `RecordedPaymentResource` */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        id: number;
+                        reference: string;
+                        date: string;
+                        kind: string;
+                        method: string;
+                        amount: number;
+                        status: string;
+                        gateway_id: string | null;
+                        recorded_by: string | null;
+                        can_mark_wire: boolean;
+                        wire_window_ends_at: string | null;
+                        booking: components["schemas"]["BookingResource"];
+                        warnings: string[];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "paymentLink.cancel": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The payment link ID */
+                paymentLink: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `PaymentLinkResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaymentLinkResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "paymentLink.store": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The booking ID */
+                booking: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CreatePaymentLinkRequest"];
+            };
+        };
+        responses: {
+            /** @description `PaymentLinkResource` */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaymentLinkResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
     "permission.index": {
         parameters: {
             query?: never;
@@ -4389,6 +5617,160 @@ export interface operations {
                 };
             };
             401: components["responses"]["AuthenticationException"];
+        };
+    };
+    "reconciliation.index": {
+        parameters: {
+            query: {
+                from: string;
+                to: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `ReconciliationResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ReconciliationResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "reconciliation.apply": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ApplyReconciliationRequest"];
+            };
+        };
+        responses: {
+            /** @description `PaymentResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaymentResource"];
+                };
+            };
+            /** @description `PaymentResource` */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaymentResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "refund.index": {
+        parameters: {
+            query?: {
+                status?: components["schemas"]["RefundRequestStatus"];
+                from?: string;
+                to?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Array of `RefundRequestResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["RefundRequestResource"][];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "refund.decide": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The refund ID */
+                refund: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["DecideRefundRequest"];
+            };
+        };
+        responses: {
+            /** @description `RefundRequestResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RefundRequestResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "refund.execute": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The refund ID */
+                refund: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ExecuteRefundRequest"];
+            };
+        };
+        responses: {
+            /** @description `RefundRequestResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RefundRequestResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
         };
     };
     "request.index": {
@@ -4645,6 +6027,38 @@ export interface operations {
             401: components["responses"]["AuthenticationException"];
             403: components["responses"]["AuthorizationException"];
             404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    stripeWebhook: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        ok: boolean;
+                    };
+                };
+            };
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @constant */
+                        message: "Invalid signature.";
+                    };
+                };
+            };
         };
     };
     "user.index": {
