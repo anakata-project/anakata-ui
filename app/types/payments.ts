@@ -140,3 +140,18 @@ export type RefundRequest = Omit<
 }
 
 export type PaymentsKpis = operations['payment.index']['responses'][200]['content']['application/json']['meta']['kpis']
+
+/**
+ * Mirrors App\Support\Payments\PaymentOptions::all().
+ * Generated kinds/methods use Type[]; overlay keeps Array<>.
+ */
+export type PaymentOption = {
+  value: string
+  label: string
+  recordable: boolean
+}
+
+export type PaymentOptions = {
+  kinds: Array<PaymentOption>
+  methods: Array<PaymentOption>
+}

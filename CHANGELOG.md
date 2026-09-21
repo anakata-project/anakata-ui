@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.6.1
+
+- Regenerated API types for `GET /rms/payments/options` (`PaymentOptionsResource`: kinds and methods as `{ value, label, recordable }`).
+- Alias `PaymentOptions` / `PaymentOption` in `payments.ts`. Booking form-options is unchanged.
+
 ## v0.6.0
 
 - Regenerated API types from the Sprint 5 OpenAPI spec (payments ledger, payment links, reconciliation, agencies, commissions, refunds, booking money / overdue / agency / refund fields, `GET /rms/payments` `meta.kpis`).

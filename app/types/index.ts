@@ -122,6 +122,8 @@ export type {
   PaymentLink,
   PaymentListItem,
   PaymentMethod,
+  PaymentOption,
+  PaymentOptions,
   PaymentStatus,
   PaymentsKpis,
   ReconciliationReport,
