@@ -294,3 +294,61 @@ export type PriceChangedError = {
   message: string
   quote: EngineQuote
 }
+
+export type EngineEventsAccepted = components['schemas']['EngineEventsAcceptedResource']
+
+export type EngineEventName = NonNullable<
+  components['schemas']['StoreEngineEventsRequest']['events'][number]['name']
+>
+
+/**
+ * Mirrors App\Support\Engine\BehaviouralEventParams whitelist keys.
+ * Generated params is string[] | null.
+ */
+export type EngineEventParams = {
+  itinerary_code?: string
+  departure_id?: number
+  step?: string
+  cabin_count?: number
+  path?: CheckoutPath
+  currency?: string
+  value?: number
+  coupon_code?: string
+  page_path?: string
+}
+
+/**
+ * Mirrors App\Http\Requests\Engine\StoreEngineEventsRequest.
+ * session_id is required; generated type is string | null.
+ */
+export type EngineEventsInput = Omit<
+  components['schemas']['StoreEngineEventsRequest'],
+  'session_id' | 'events'
+> & {
+  session_id: string
+  events: Array<{
+    event_id: string
+    name: EngineEventName
+    occurred_at: string
+    params?: EngineEventParams | null
+  }>
+}
+
+/**
+ * Mirrors App\Support\Crm\AttributionTouch.
+ * Generated SubmitCheckoutRequest.attribution touches are string[].
+ */
+export type AttributionTouch = {
+  source?: string
+  medium?: string
+  campaign?: string
+  content?: string
+  term?: string
+  landing_path?: string
+  captured_at?: string
+}
+
+export type AttributionInput = {
+  first_touch?: AttributionTouch | null
+  last_touch?: AttributionTouch | null
+}

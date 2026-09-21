@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.10.0
+
+- Regenerated API types from the Sprint 9 OpenAPI spec (CRM contacts, duplicates, merges, timeline, activity `meta.kpis`, the five sync endpoints, and the engine's events and attribution inputs).
+- New `app/types/crm.ts` aliases from `/api/crm` schemas only — never an RMS resource (`Contact`, `ContactType`, `Lifecycle`, `Segment`, `ContactProfile`, `ContactDuplicate`, `ContactMerge`, `TimelineItem`, `ActivityEvent`, `ActivityKpis`, `OwnershipRow`, `ScheduledJobRun`, `SyncFailure`, `EventCatalogueRow`).
+- Barrel exports the CRM people row as `CrmContact`. RMS `Contact` stays the search row from `bookings.ts`.
+- `engine.ts` gains `EngineEventsAccepted`, `EngineEventsInput`, `EngineEventName` (client names only), `EngineEventParams`, `AttributionTouch` and `AttributionInput`.
+
 ## v0.9.0
 
 - Regenerated API types from the Sprint 8 OpenAPI spec (RMS offers and charter enquiries, the complete-link, and every `/api/engine` response: feed, cabins, promo check, quote, checkout, waitlist, charter enquiry, complete-reservation).

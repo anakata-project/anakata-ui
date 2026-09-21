@@ -627,6 +627,22 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/engine/checkout/{token}/status": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["checkout.status"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/engine/checkout/{token}": {
         parameters: {
             query?: never;
@@ -810,7 +826,119 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        get: operations["contact.index"];
+        get: operations["rms.contact.index"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/crm/contacts": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["crm.contact.index"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/crm/contacts/duplicates": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["contact.duplicates"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/crm/contacts/{contact}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["contact.show"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch: operations["contact.update"];
+        trace?: never;
+    };
+    "/crm/contacts/{contact}/merge": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["contact.merge"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/crm/contact-merges": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["contactMerge.index"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/crm/contact-merges/{merge}/undo": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["contactMerge.undo"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/crm/contacts/{contact}/timeline": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["crm.contactTimeline"];
         put?: never;
         post?: never;
         delete?: never;
@@ -859,6 +987,22 @@ export interface paths {
             cookie?: never;
         };
         get: operations["country.index"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/engine/countries": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["engine.country"];
         put?: never;
         post?: never;
         delete?: never;
@@ -1117,6 +1261,38 @@ export interface paths {
         get?: never;
         put?: never;
         post: operations["document.send"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/crm/activity": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["crm.engineActivity"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/engine/events": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["engine.engineEvents"];
         delete?: never;
         options?: never;
         head?: never;
@@ -1587,6 +1763,22 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/rms/offers/{offer}/history": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["offer.history"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/rms/payments": {
         parameters: {
             query?: never;
@@ -2019,6 +2211,102 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/crm/sync/ownership": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["sync.ownership"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/crm/sync/jobs": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["sync.jobs"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/crm/sync/failures": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["sync.failures"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/crm/sync/failures/{id}/retry": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["sync.retry"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/crm/sync/identity": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["sync.identity"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/crm/sync/events": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["sync.events"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/rms/users": {
         parameters: {
             query?: never;
@@ -2312,6 +2600,11 @@ export interface components {
             reason: string;
         };
         /**
+         * BehaviouralEventName
+         * @enum {string}
+         */
+        BehaviouralEventName: "search_availability" | "view_itinerary" | "select_departure" | "view_itinerary_detail" | "view_route_map" | "begin_checkout" | "begin_booking_request" | "select_payment_path" | "apply_promotion" | "remove_promotion" | "promo_invalid" | "booking_form_invalid" | "submit_booking_request" | "abandon_cart" | "charter_inquiry_submit" | "view_departure" | "page_view" | "identity.stitched";
+        /**
          * BlockReason
          * @enum {string}
          */
@@ -2435,6 +2728,12 @@ export interface components {
             segment: string;
             main_channel: string;
             channel_of_origin: string;
+            utm_first: {
+                [key: string]: unknown;
+            } | null;
+            utm_last: {
+                [key: string]: unknown;
+            } | null;
             adults: number;
             children: number;
             party_label: string;
@@ -2767,6 +3066,18 @@ export interface components {
          * @enum {string}
          */
         CheckoutPath: "PAY_LATER" | "PAY_DEPOSIT";
+        /** CheckoutStatusResource */
+        CheckoutStatusResource: {
+            status: string;
+            path: string | null;
+            email: string | null;
+            bookings: {
+                reference: string | null;
+                status: string;
+            }[];
+            stripe_checkout_session_id: string | null;
+            stripe_expires_at: string | null;
+        };
         /** CheckoutSubmittedResource */
         CheckoutSubmittedResource: {
             path: string;
@@ -2915,6 +3226,27 @@ export interface components {
             recorded_by: number | null;
             withdrawn: boolean;
         };
+        /** ContactBookingResource */
+        ContactBookingResource: {
+            id: number;
+            display_reference: string | null;
+            departure_date: string;
+            status: string;
+            charges_total: number;
+            balance: number;
+            can_act: string;
+        };
+        /**
+         * ContactConsentFilter
+         * @enum {string}
+         */
+        ContactConsentFilter: "marketing" | "transactional_only";
+        /** ContactDuplicateResource */
+        ContactDuplicateResource: {
+            a: components["schemas"]["CrmContactResource"];
+            b: components["schemas"]["CrmContactResource"];
+            reasons: string;
+        };
         /** ContactInResource */
         ContactInResource: {
             id: number;
@@ -2935,6 +3267,34 @@ export interface components {
             };
             can_act: boolean;
         };
+        /**
+         * ContactLifecycle
+         * @enum {string}
+         */
+        ContactLifecycle: "GUEST" | "BOOKED" | "SQL" | "PAST_GUEST" | "MQL" | "PROSPECT" | "AGENT";
+        /** ContactMergeResource */
+        ContactMergeResource: {
+            id: number;
+            survivor_id: number;
+            loser_id: number;
+            reason: string;
+            merged_by: number | null;
+            merged_at: string | null;
+            undone_at: string | null;
+            undone_by: number | null;
+            undo_reason: string | null;
+            erased_at: string | null;
+            repointed_rows: {
+                table: string;
+                id: number;
+            }[];
+        };
+        /** ContactMergeResultResource */
+        ContactMergeResultResource: {
+            swapped: string;
+            merge: components["schemas"]["ContactMergeResource"];
+            contact: components["schemas"]["CrmContactResource"];
+        };
         /** ContactResource */
         ContactResource: {
             id: number;
@@ -2943,6 +3303,28 @@ export interface components {
             phone: string | null;
             country: string | null;
             preferred_channel: string;
+        };
+        /** ContactTimelineItemResource */
+        ContactTimelineItemResource: {
+            at: string;
+            kind: string;
+            title: string;
+            detail: string;
+            link: {
+                type: string;
+                id: number;
+                reference: string | null;
+            } | null;
+        };
+        /**
+         * ContactType
+         * @enum {string}
+         */
+        ContactType: "DIRECT_PASSENGER" | "TRAVEL_AGENT" | "CORPORATE_CHARTER";
+        /** ContactUnmergeResultResource */
+        ContactUnmergeResultResource: {
+            skipped_rows: string;
+            merge: components["schemas"]["ContactMergeResource"];
         };
         /** ContactsInNationalitiesResource */
         ContactsInNationalitiesResource: {
@@ -2974,6 +3356,53 @@ export interface components {
         CreatePaymentLinkRequest: {
             kind: components["schemas"]["PaymentKind"];
             amount?: number | null;
+        };
+        /** CrmContactResource */
+        CrmContactResource: {
+            id: number;
+            name: string;
+            email: string | null;
+            phone: string | null;
+            phone_e164: string | null;
+            country: string | null;
+            language: string;
+            preferred_channel: string;
+            type: string;
+            first_touch: {
+                source?: string;
+                medium?: string;
+                campaign?: string;
+                content?: string;
+                term?: string;
+                landing_path?: string;
+                captured_at?: string;
+            } | null;
+            last_touch: {
+                source?: string;
+                medium?: string;
+                campaign?: string;
+                content?: string;
+                term?: string;
+                landing_path?: string;
+                captured_at?: string;
+            } | null;
+            lifetime_value: number;
+            segment: string;
+            lifecycle: string;
+            nps: null;
+            consent: {
+                marketing: string;
+                transactional: boolean;
+            } | {
+                marketing: boolean;
+                transactional: boolean;
+            };
+            main_channel: string | null;
+            channel_of_origin: string | null;
+            resolved_from_alias: boolean;
+            alias_id: number | null;
+            merge_id: number | null;
+            bookings: components["schemas"]["ContactBookingResource"][];
         };
         /** DecideAgencyRequest */
         DecideAgencyRequest: {
@@ -3240,11 +3669,24 @@ export interface components {
                 name: string;
             } | null;
         };
+        /** EngineActivityItemResource */
+        EngineActivityItemResource: {
+            at: string;
+            name: string;
+            contact: string;
+            detail: string;
+            side: string;
+        };
         /** EngineCharterEnquiryResource */
         EngineCharterEnquiryResource: {
             id: number;
             status: string;
             source: string;
+        };
+        /** EngineCountryResource */
+        EngineCountryResource: {
+            code: string;
+            name: string;
         };
         /** EngineDepartureResource */
         EngineDepartureResource: {
@@ -3263,6 +3705,11 @@ export interface components {
             waitlist: string;
             note: string;
             offers: string;
+        };
+        /** EngineEventsAcceptedResource */
+        EngineEventsAcceptedResource: {
+            accepted: number;
+            duplicate: number;
         };
         /** EngineItineraryResource */
         EngineItineraryResource: {
@@ -3425,6 +3872,10 @@ export interface components {
                 hold_long_lead_business_days: string;
                 response_sla_hours: string;
                 modification_fee_usd: string;
+                extras_due_hours: string;
+            };
+            legal: {
+                consent_versions: string;
             };
             calendar: {
                 first_bookable_month: string;
@@ -3456,6 +3907,13 @@ export interface components {
             cabin_category: string;
             source: string;
         };
+        /** EventCatalogueResource */
+        EventCatalogueResource: {
+            name: string;
+            family: string;
+            producer: string;
+            listeners: string[];
+        };
         /** ExecuteRefundRequest */
         ExecuteRefundRequest: {
             method: components["schemas"]["PaymentMethod"];
@@ -3470,6 +3928,15 @@ export interface components {
             rates: components["schemas"]["EngineRatesResource"];
             settings: components["schemas"]["EngineSettingsResource"];
             offers: components["schemas"]["EngineOfferResource"][];
+        };
+        /** FieldOwnershipResource */
+        FieldOwnershipResource: {
+            object: string;
+            field_group: string;
+            system_of_record: string;
+            read_by: string;
+            rule: string;
+            code: string | null;
         };
         /** ForgotPasswordRequest */
         ForgotPasswordRequest: {
@@ -3800,6 +4267,11 @@ export interface components {
             sections: ("rms" | "crm")[];
             time_zone: string;
         };
+        /** MergeContactRequest */
+        MergeContactRequest: {
+            contact_id: number;
+            reason: string;
+        };
         /** MoveBookingRequest */
         MoveBookingRequest: {
             departure_id: number;
@@ -3949,12 +4421,12 @@ export interface components {
          * @description Staff permissions are code, not data. Adding a case is a code change and needs a default decision for the Manager and Sales Exec roles.
          * @enum {string}
          */
-        Permission: "panel.rms" | "panel.crm" | "users.manage" | "roles.manage" | "records.act_on_any" | "bookings.view_all" | "bookings.create" | "bookings.change_status" | "bookings.move" | "bookings.delete" | "requests.confirm" | "requests.release" | "departures.manage" | "itineraries.manage" | "blocks.manage" | "rates.manage" | "rules.view" | "rules.manage" | "engine_settings.manage" | "engine_copy.manage" | "offers.manage" | "offers.approve" | "extras.manage" | "agencies.manage" | "guests.view_sensitive" | "pipeline.move_stage" | "payments.record" | "payments.mark_wire_received" | "refunds.execute" | "refunds.approve" | "commissions.override_cap" | "bookings.overdue_decision";
+        Permission: "panel.rms" | "panel.crm" | "users.manage" | "roles.manage" | "records.act_on_any" | "bookings.view_all" | "bookings.create" | "bookings.change_status" | "bookings.move" | "bookings.delete" | "requests.confirm" | "requests.release" | "departures.manage" | "itineraries.manage" | "blocks.manage" | "rates.manage" | "rules.view" | "rules.manage" | "engine_settings.manage" | "engine_copy.manage" | "offers.manage" | "offers.approve" | "extras.manage" | "agencies.manage" | "guests.view_sensitive" | "pipeline.move_stage" | "contacts.manage" | "contacts.merge" | "sync.retry" | "payments.record" | "payments.mark_wire_received" | "refunds.execute" | "refunds.approve" | "commissions.override_cap" | "bookings.overdue_decision";
         /** PermissionResource */
         PermissionResource: {
             value: string;
             /** @enum {string} */
-            label: "Access RMS" | "Access CRM" | "Manage users" | "Manage roles" | "Act on any record" | "View all reservations" | "Create reservation" | "Change reservation status" | "Move reservation" | "Delete reservation" | "Confirm requests" | "Release requests" | "Manage departures" | "Manage itineraries" | "Manage internal blocks" | "Edit rates, deposit terms and discount rules" | "View business rules" | "View and adjust business rules" | "Manage engine settings" | "Edit engine copy" | "Manage offers" | "Approve offers" | "Manage extras catalog" | "Manage agencies" | "View sensitive guest data" | "Move lead stage" | "Record a payment" | "Mark wire received" | "Execute refunds" | "Approve refunds" | "Approve commission above cap" | "OPS-007 overdue decisions";
+            label: "Access RMS" | "Access CRM" | "Manage users" | "Manage roles" | "Act on any record" | "View all reservations" | "Create reservation" | "Change reservation status" | "Move reservation" | "Delete reservation" | "Confirm requests" | "Release requests" | "Manage departures" | "Manage itineraries" | "Manage internal blocks" | "Edit rates, deposit terms and discount rules" | "View business rules" | "View and adjust business rules" | "Manage engine settings" | "Edit engine copy" | "Manage offers" | "Approve offers" | "Manage extras catalog" | "Manage agencies" | "View sensitive guest data" | "Move lead stage" | "Manage contacts" | "Merge contacts" | "Retry failed sync work" | "Record a payment" | "Mark wire received" | "Execute refunds" | "Approve refunds" | "Approve commission above cap" | "OPS-007 overdue decisions";
             /** @enum {string} */
             group: "sections" | "admin" | "bookings" | "requests" | "inventory" | "commercial" | "guests" | "crm" | "finance" | "director";
             /** @enum {string} */
@@ -4067,6 +4539,7 @@ export interface components {
         /** RecordCompleteDeclarationsRequest */
         RecordCompleteDeclarationsRequest: {
             documents: components["schemas"]["ConsentDocument"][];
+            session_id?: string | null;
         };
         /** RecordConsentRequest */
         RecordConsentRequest: {
@@ -4106,6 +4579,12 @@ export interface components {
                 segment: string;
                 main_channel: string;
                 channel_of_origin: string;
+                utm_first: {
+                    [key: string]: unknown;
+                } | null;
+                utm_last: {
+                    [key: string]: unknown;
+                } | null;
                 adults: number;
                 children: number;
                 party_label: string;
@@ -4331,6 +4810,11 @@ export interface components {
             password: string;
             password_confirmation: string;
         };
+        /** RetrySyncFailureResource */
+        RetrySyncFailureResource: {
+            id: string;
+            retried: boolean;
+        };
         /** RoleResource */
         RoleResource: {
             id: number;
@@ -4363,6 +4847,18 @@ export interface components {
             guardian_name?: string | null;
             guardian_relationship?: string | null;
             guardian_consented?: boolean;
+        };
+        /** ScheduledJobResource */
+        ScheduledJobResource: {
+            command: string;
+            cadence: string;
+            timezone: string | null;
+            description: string;
+            last_started_at: string | null;
+            last_finished_at: string | null;
+            last_outcome: string | null;
+            last_output: string | null;
+            next_run_at: string | null;
         };
         /**
          * SeasonPattern
@@ -4410,6 +4906,20 @@ export interface components {
                 preferred_channel?: components["schemas"]["PreferredChannel"];
             };
             message: string;
+            session_id?: string | null;
+        };
+        /** StoreEngineEventsRequest */
+        StoreEngineEventsRequest: {
+            session_id: string | null;
+            events: {
+                /** Format: uuid */
+                event_id: string;
+                /** @enum {string} */
+                name: "search_availability" | "view_itinerary" | "select_departure" | "view_itinerary_detail" | "view_route_map" | "begin_checkout" | "begin_booking_request" | "select_payment_path" | "apply_promotion" | "remove_promotion" | "promo_invalid" | "booking_form_invalid" | "submit_booking_request" | "abandon_cart" | "charter_inquiry_submit" | "view_departure" | "page_view";
+                /** Format: date-time */
+                occurred_at: string;
+                params?: string[] | null;
+            }[];
         };
         /** StoreEngineWaitlistRequest */
         StoreEngineWaitlistRequest: {
@@ -4425,6 +4935,7 @@ export interface components {
             adults: number;
             children: number;
             notes?: string | null;
+            session_id?: string | null;
         };
         /** StoreInternalBlockRequest */
         StoreInternalBlockRequest: {
@@ -4581,11 +5092,39 @@ export interface components {
                 nationality: "AD" | "AE" | "AF" | "AG" | "AI" | "AL" | "AM" | "AO" | "AQ" | "AR" | "AS" | "AT" | "AU" | "AW" | "AX" | "AZ" | "BA" | "BB" | "BD" | "BE" | "BF" | "BG" | "BH" | "BI" | "BJ" | "BL" | "BM" | "BN" | "BO" | "BQ" | "BR" | "BS" | "BT" | "BV" | "BW" | "BY" | "BZ" | "CA" | "CC" | "CD" | "CF" | "CG" | "CH" | "CI" | "CK" | "CL" | "CM" | "CN" | "CO" | "CR" | "CU" | "CV" | "CW" | "CX" | "CY" | "CZ" | "DE" | "DJ" | "DK" | "DM" | "DO" | "DZ" | "EC" | "EE" | "EG" | "EH" | "ER" | "ES" | "ET" | "FI" | "FJ" | "FK" | "FM" | "FO" | "FR" | "GA" | "GB" | "GD" | "GE" | "GF" | "GG" | "GH" | "GI" | "GL" | "GM" | "GN" | "GP" | "GQ" | "GR" | "GS" | "GT" | "GU" | "GW" | "GY" | "HK" | "HM" | "HN" | "HR" | "HT" | "HU" | "ID" | "IE" | "IL" | "IM" | "IN" | "IO" | "IQ" | "IR" | "IS" | "IT" | "JE" | "JM" | "JO" | "JP" | "KE" | "KG" | "KH" | "KI" | "KM" | "KN" | "KP" | "KR" | "KW" | "KY" | "KZ" | "LA" | "LB" | "LC" | "LI" | "LK" | "LR" | "LS" | "LT" | "LU" | "LV" | "LY" | "MA" | "MC" | "MD" | "ME" | "MF" | "MG" | "MH" | "MK" | "ML" | "MM" | "MN" | "MO" | "MP" | "MQ" | "MR" | "MS" | "MT" | "MU" | "MV" | "MW" | "MX" | "MY" | "MZ" | "NA" | "NC" | "NE" | "NF" | "NG" | "NI" | "NL" | "NO" | "NP" | "NR" | "NU" | "NZ" | "OM" | "PA" | "PE" | "PF" | "PG" | "PH" | "PK" | "PL" | "PM" | "PN" | "PR" | "PS" | "PT" | "PW" | "PY" | "QA" | "RE" | "RO" | "RS" | "RU" | "RW" | "SA" | "SB" | "SC" | "SD" | "SE" | "SG" | "SH" | "SI" | "SJ" | "SK" | "SL" | "SM" | "SN" | "SO" | "SR" | "SS" | "ST" | "SV" | "SX" | "SY" | "SZ" | "TC" | "TD" | "TF" | "TG" | "TH" | "TJ" | "TK" | "TL" | "TM" | "TN" | "TO" | "TR" | "TT" | "TV" | "TW" | "TZ" | "UA" | "UG" | "UM" | "US" | "UY" | "UZ" | "VA" | "VC" | "VE" | "VG" | "VI" | "VN" | "VU" | "WF" | "WS" | "YE" | "YT" | "ZA" | "ZM" | "ZW";
                 ecuador_resident: boolean;
             }[];
+            session_id?: string | null;
+            attribution?: {
+                first_touch?: string[] | null;
+                last_touch?: string[] | null;
+            };
+        };
+        /** SyncFailureResource */
+        SyncFailureResource: {
+            id: string;
+            kind: string;
+            name: string;
+            at: string;
+            detail: string;
+        };
+        /** SyncIdentityResource */
+        SyncIdentityResource: {
+            id: number;
+            survivor_id: number;
+            loser_id: number;
+            reason: string;
+            merged_by: string;
+            merged_at: string | null;
+            undone: boolean;
+            undone_at: string | null;
         };
         /** TransitionBookingRequest */
         TransitionBookingRequest: {
             to: components["schemas"]["BookingStatus"];
             reason?: string | null;
+        };
+        /** UndoContactMergeRequest */
+        UndoContactMergeRequest: {
+            reason: string;
         };
         /** UpdateAgencyRequest */
         UpdateAgencyRequest: {
@@ -4624,6 +5163,7 @@ export interface components {
             /** Format: email */
             billing_email?: string | null;
             billing_phone?: string | null;
+            session_id?: string | null;
         };
         /** UpdateCompleteGuestRequest */
         UpdateCompleteGuestRequest: {
@@ -4643,6 +5183,18 @@ export interface components {
             guardian_name?: string | null;
             guardian_relationship?: string | null;
             guardian_consented?: boolean;
+            session_id?: string | null;
+        };
+        /** UpdateContactRequest */
+        UpdateContactRequest: {
+            name?: string;
+            /** Format: email */
+            email?: string | null;
+            phone?: string | null;
+            country?: string | null;
+            language?: string;
+            preferred_channel?: components["schemas"]["PreferredChannel"];
+            type?: components["schemas"]["ContactType"];
         };
         /** UpdateDepartureRequest */
         UpdateDepartureRequest: {
@@ -6168,6 +6720,43 @@ export interface operations {
             };
         };
     };
+    "checkout.status": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                token: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `CheckoutStatusResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CheckoutStatusResource"];
+                };
+            };
+            /** @description An error */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /**
+                         * @description Error overview.
+                         * @example
+                         */
+                        message: string;
+                    };
+                };
+            };
+        };
+    };
     "checkout.destroy": {
         parameters: {
             query?: never;
@@ -6556,7 +7145,7 @@ export interface operations {
             422: components["responses"]["ValidationException"];
         };
     };
-    "contact.index": {
+    "rms.contact.index": {
         parameters: {
             query?: {
                 q?: string | null;
@@ -6580,6 +7169,314 @@ export interface operations {
             };
             401: components["responses"]["AuthenticationException"];
             403: components["responses"]["AuthorizationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "crm.contact.index": {
+        parameters: {
+            query?: {
+                type?: components["schemas"]["ContactType"];
+                lifecycle?: components["schemas"]["ContactLifecycle"];
+                main_channel?: components["schemas"]["MainChannel"];
+                channel_of_origin?: components["schemas"]["ChannelOfOrigin"];
+                consent?: components["schemas"]["ContactConsentFilter"];
+                q?: string;
+                page?: number;
+                per_page?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Paginated set of `CrmContactResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["CrmContactResource"][];
+                        links: {
+                            first: string | null;
+                            last: string | null;
+                            prev: string | null;
+                            next: string | null;
+                        };
+                        meta: {
+                            current_page: number;
+                            from: number | null;
+                            last_page: number;
+                            links: {
+                                url: string | null;
+                                label: string;
+                                active: boolean;
+                            }[];
+                            path: string | null;
+                            per_page: number;
+                            to: number | null;
+                            total: number;
+                            filters: {
+                                type: {
+                                    value: string;
+                                    label: string;
+                                }[];
+                                lifecycle: {
+                                    value: string;
+                                    label: string;
+                                }[];
+                            };
+                        };
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "contact.duplicates": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Array of `ContactDuplicateResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["ContactDuplicateResource"][];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+        };
+    };
+    "contact.show": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The contact ID */
+                contact: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `CrmContactResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CrmContactResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "contact.update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The contact ID */
+                contact: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["UpdateContactRequest"];
+            };
+        };
+        responses: {
+            /** @description `CrmContactResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CrmContactResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "contact.merge": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The contact ID */
+                contact: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["MergeContactRequest"];
+            };
+        };
+        responses: {
+            /** @description `ContactMergeResultResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ContactMergeResultResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "contactMerge.index": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Paginated set of `ContactMergeResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["ContactMergeResource"][];
+                        links: {
+                            first: string | null;
+                            last: string | null;
+                            prev: string | null;
+                            next: string | null;
+                        };
+                        meta: {
+                            current_page: number;
+                            from: number | null;
+                            last_page: number;
+                            /** @description Generated paginator links. */
+                            links: {
+                                url: string | null;
+                                label: string;
+                                active: boolean;
+                            }[];
+                            /** @description Base path for paginator generated URLs. */
+                            path: string | null;
+                            /** @description Number of items shown per page. */
+                            per_page: number;
+                            /** @description Number of the last item in the slice. */
+                            to: number | null;
+                            /** @description Total number of items being paginated. */
+                            total: number;
+                        };
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+        };
+    };
+    "contactMerge.undo": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The merge ID */
+                merge: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["UndoContactMergeRequest"];
+            };
+        };
+        responses: {
+            /** @description `ContactUnmergeResultResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ContactUnmergeResultResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "crm.contactTimeline": {
+        parameters: {
+            query?: {
+                page?: number;
+                per_page?: number;
+            };
+            header?: never;
+            path: {
+                /** @description The contact ID */
+                contact: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Paginated set of `ContactTimelineItemResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["ContactTimelineItemResource"][];
+                        links: {
+                            first: string | null;
+                            last: string | null;
+                            prev: string | null;
+                            next: string | null;
+                        };
+                        meta: {
+                            current_page: number;
+                            from: number | null;
+                            last_page: number;
+                            links: {
+                                url: string | null;
+                                label: string;
+                                active: boolean;
+                            }[];
+                            path: string | null;
+                            per_page: number;
+                            to: number | null;
+                            total: number;
+                        };
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
             422: components["responses"]["ValidationException"];
         };
     };
@@ -6691,6 +7588,25 @@ export interface operations {
                 };
             };
             401: components["responses"]["AuthenticationException"];
+        };
+    };
+    "engine.country": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["EngineCountryResource"][];
+                };
+            };
         };
     };
     "delivery.index": {
@@ -7289,6 +8205,91 @@ export interface operations {
             401: components["responses"]["AuthenticationException"];
             403: components["responses"]["AuthorizationException"];
             404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "crm.engineActivity": {
+        parameters: {
+            query?: {
+                from?: string;
+                to?: string;
+                name?: components["schemas"]["BehaviouralEventName"];
+                identified?: boolean;
+                page?: number;
+                per_page?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Paginated set of `EngineActivityItemResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["EngineActivityItemResource"][];
+                        links: {
+                            first: string | null;
+                            last: string | null;
+                            prev: string | null;
+                            next: string | null;
+                        };
+                        meta: {
+                            current_page: number;
+                            from: number | null;
+                            last_page: number;
+                            links: {
+                                url: string | null;
+                                label: string;
+                                active: boolean;
+                            }[];
+                            path: string | null;
+                            per_page: number;
+                            to: number | null;
+                            total: number;
+                            kpis: {
+                                events_today: number;
+                                identified: number;
+                                anonymous: number;
+                                inventory_touching: number;
+                                web_hold_minutes: number;
+                                web_hold_extension_minutes: number;
+                            };
+                        };
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "engine.engineEvents": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["StoreEngineEventsRequest"];
+            };
+        };
+        responses: {
+            /** @description `EngineEventsAcceptedResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["EngineEventsAcceptedResource"];
+                };
+            };
             422: components["responses"]["ValidationException"];
         };
     };
@@ -8455,6 +9456,59 @@ export interface operations {
             404: components["responses"]["ModelNotFoundException"];
         };
     };
+    "offer.history": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The offer ID */
+                offer: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Paginated set of `ChangeHistoryResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["ChangeHistoryResource"][];
+                        links: {
+                            first: string | null;
+                            last: string | null;
+                            prev: string | null;
+                            next: string | null;
+                        };
+                        meta: {
+                            current_page: number;
+                            from: number | null;
+                            last_page: number;
+                            /** @description Generated paginator links. */
+                            links: {
+                                url: string | null;
+                                label: string;
+                                active: boolean;
+                            }[];
+                            /** @description Base path for paginator generated URLs. */
+                            path: string | null;
+                            /** @description Number of items shown per page. */
+                            per_page: number;
+                            /** @description Number of the last item in the slice. */
+                            to: number | null;
+                            /** @description Total number of items being paginated. */
+                            total: number;
+                        };
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
     "payment.index": {
         parameters: {
             query?: {
@@ -9462,6 +10516,186 @@ export interface operations {
                     };
                 };
             };
+        };
+    };
+    "sync.ownership": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Array of `FieldOwnershipResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["FieldOwnershipResource"][];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+        };
+    };
+    "sync.jobs": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Array of `ScheduledJobResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["ScheduledJobResource"][];
+                        meta: {
+                            kpis: {
+                                jobs_failing: number;
+                                failures_open: number;
+                                merges_this_month: number;
+                            };
+                        };
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+        };
+    };
+    "sync.failures": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Array of `SyncFailureResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["SyncFailureResource"][];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+        };
+    };
+    "sync.retry": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `RetrySyncFailureResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RetrySyncFailureResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "sync.identity": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Paginated set of `SyncIdentityResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["SyncIdentityResource"][];
+                        links: {
+                            first: string | null;
+                            last: string | null;
+                            prev: string | null;
+                            next: string | null;
+                        };
+                        meta: {
+                            current_page: number;
+                            from: number | null;
+                            last_page: number;
+                            /** @description Generated paginator links. */
+                            links: {
+                                url: string | null;
+                                label: string;
+                                active: boolean;
+                            }[];
+                            /** @description Base path for paginator generated URLs. */
+                            path: string | null;
+                            /** @description Number of items shown per page. */
+                            per_page: number;
+                            /** @description Number of the last item in the slice. */
+                            to: number | null;
+                            /** @description Total number of items being paginated. */
+                            total: number;
+                        };
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+        };
+    };
+    "sync.events": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Array of `EventCatalogueResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["EventCatalogueResource"][];
+                        meta: {
+                            note: string;
+                        };
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
         };
     };
     "user.index": {

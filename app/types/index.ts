@@ -164,6 +164,8 @@ export type {
 } from './offers'
 
 export type {
+  AttributionInput,
+  AttributionTouch,
   CheckoutCreated,
   CheckoutExtended,
   CheckoutPath,
@@ -177,6 +179,10 @@ export type {
   EngineCharterEnquiry,
   EngineCountry,
   EngineDeparture,
+  EngineEventName,
+  EngineEventParams,
+  EngineEventsAccepted,
+  EngineEventsInput,
   EngineFeed,
   EngineItinerary,
   EngineOffer,
@@ -188,6 +194,30 @@ export type {
   PriceChangedError,
   PromoCheck,
 } from './engine'
+
+export type {
+  ActivityEvent,
+  ActivityKpis,
+  Contact as CrmContact,
+  ContactBooking,
+  ContactDuplicate,
+  ContactFilters,
+  ContactMerge,
+  ContactMergeResult,
+  ContactProfile,
+  ContactType,
+  ContactUnmergeResult,
+  EventCatalogueRow,
+  Lifecycle,
+  OwnershipRow,
+  RetrySyncFailure,
+  ScheduledJobRun,
+  Segment,
+  SyncFailure,
+  SyncIdentityRow,
+  SyncKpis,
+  TimelineItem,
+} from './crm'
 
 export type {
   AgenciesKpis,
