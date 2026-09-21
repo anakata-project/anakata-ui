@@ -84,6 +84,7 @@ export type Booking = Omit<
   | 'request'
   | 'refund'
   | 'payment_links'
+  | 'commission_cap_pct'
 > & {
   type: BookingType
   status: BookingStatus
@@ -96,6 +97,7 @@ export type Booking = Omit<
   contact: Contact
   group: GroupSummary | null
   request: BookingRequestSummary | null
+  commission_cap_pct: number
   refund: {
     status: RefundStatus
     penalty_amount: number

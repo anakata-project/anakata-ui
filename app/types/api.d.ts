@@ -1450,9 +1450,10 @@ export interface components {
                 email: string;
                 status: string;
             }[];
+            bookings_count: number;
             revenue: number;
             commission_accrued: number;
-            bookings_count: number;
+            held_bookings_count: number;
             bookings: {
                 id: number;
                 reference: string | null;
@@ -1499,6 +1500,10 @@ export interface components {
                 email: string;
                 status: string;
             }[];
+            bookings_count: number;
+            revenue: number;
+            commission_accrued: number;
+            held_bookings_count: number;
         };
         /**
          * AgencyStatus
@@ -1693,6 +1698,7 @@ export interface components {
             } | null;
             commission_approved_at: string | null;
             commission_reason: string | null;
+            commission_cap_pct: string;
             request: {
                 preferred_channel: string;
                 travel_advisor: boolean;
@@ -2777,6 +2783,7 @@ export interface components {
                 } | null;
                 commission_approved_at: string | null;
                 commission_reason: string | null;
+                commission_cap_pct: string;
                 request: {
                     preferred_channel: string;
                     travel_advisor: boolean;
@@ -3277,6 +3284,8 @@ export interface operations {
             query?: {
                 status?: components["schemas"]["AgencyStatus"];
                 q?: string;
+                from?: string;
+                to?: string;
             };
             header?: never;
             path?: never;
@@ -3298,6 +3307,10 @@ export interface operations {
                                 registrations_to_review: number;
                                 agency_revenue: number;
                                 commission_accrued: number;
+                                agency_approval_business_days: number;
+                                commission_payable_days: number;
+                                commission_cap_pct: number;
+                                commission_default_pct: number;
                             };
                         };
                     };
@@ -5760,6 +5773,11 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: components["schemas"]["RefundRequestResource"][];
+                        meta: {
+                            rules: {
+                                refund_business_days: number;
+                            };
+                        };
                     };
                 };
             };

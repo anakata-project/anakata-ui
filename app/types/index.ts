@@ -110,6 +110,7 @@ export type {
 } from './bookings'
 
 export type {
+  AgenciesKpis,
   Agency,
   AgencyListItem,
   AgencyStatus,
@@ -129,6 +130,7 @@ export type {
   ReconciliationReport,
   ReconciliationRow,
   RefundRequest,
+  RefundsRules,
   RefundStatus,
 } from './payments'
 

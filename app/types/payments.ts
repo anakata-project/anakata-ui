@@ -85,8 +85,8 @@ export type AgencyUser = {
 }
 
 type AgencyGenerated = components['schemas']['AgencyResource']
-type AgencyDetailedGenerated = Extract<AgencyGenerated, { revenue: number }>
-type AgencyListGenerated = Exclude<AgencyGenerated, { revenue: number }>
+type AgencyDetailedGenerated = Extract<AgencyGenerated, { portal_preview: { commission_pct: number } }>
+type AgencyListGenerated = Exclude<AgencyGenerated, { portal_preview: { commission_pct: number } }>
 
 export type AgencyListItem = Omit<
   AgencyListGenerated,
@@ -140,6 +140,10 @@ export type RefundRequest = Omit<
 }
 
 export type PaymentsKpis = operations['payment.index']['responses'][200]['content']['application/json']['meta']['kpis']
+
+export type AgenciesKpis = operations['agency.index']['responses'][200]['content']['application/json']['meta']['kpis']
+
+export type RefundsRules = operations['refund.index']['responses'][200]['content']['application/json']['meta']['rules']
 
 /**
  * Mirrors App\Support\Payments\PaymentOptions::all().
