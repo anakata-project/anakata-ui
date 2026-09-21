@@ -48,11 +48,16 @@ export type {
   ConfigVersionDetail,
   ConfigVersionSummary,
   ConfigWarning,
+  ConsentVersions,
   CopySettings,
   DiscountsRules,
   EngineSettingsDocument,
   EngineSettingsValidation,
   EngineSettingsVersion,
+  ExtrasCatalogue,
+  ExtrasCatalogueItem,
+  ExtrasDocument,
+  ExtrasVersion,
   FeesSettings,
   GuestsSettings,
   HoldsRules,
@@ -108,6 +113,29 @@ export type {
   RequestQueueRules,
   WaitlistEntry,
 } from './bookings'
+
+export type {
+  BookingConsent,
+  Consent,
+  ConsentDocument,
+  ConsentSource,
+  ContactInRow,
+  Country,
+  Guest,
+  GuestIssue,
+  GuestIssueSeverity,
+  GuestListSummary,
+  MaskedNote,
+  NationalitiesSummary,
+  NationalityRow,
+  PngCategory,
+} from './guests'
+
+export type {
+  BookingExtra,
+  ExtrasListSummary,
+  ExtrasVersionDetail,
+} from './extras'
 
 export type {
   AgenciesKpis,

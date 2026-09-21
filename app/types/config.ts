@@ -178,6 +178,32 @@ export type CancellationBand = {
   penalty_pct: number
 }
 
+/** Mirrors App\Support\Config\Documents\ConsentVersions. Update when the PHP class changes. */
+export type ConsentVersions = {
+  terms: string
+  cancellation: string
+  privacy: string
+  insurance: string
+  marketing: string
+}
+
+/** Mirrors App\Support\Config\Documents\ExtraItem. Update when the PHP class changes. */
+export type ExtrasCatalogueItem = {
+  code: string
+  name: string
+  unit: string
+  price_usd: number | null
+  triggers_transfer_voucher: boolean
+  active: boolean
+}
+
+/** Mirrors App\Support\Config\Documents\ExtrasDocument. Update when the PHP document changes. */
+export type ExtrasCatalogue = {
+  items: Array<ExtrasCatalogueItem>
+}
+
+export type ExtrasDocument = ExtrasCatalogue
+
 /** Mirrors App\Support\Config\Documents\BusinessRulesDocument. Update when the PHP document changes. */
 export type BusinessRulesDocument = {
   commission: CommissionRules
@@ -191,6 +217,9 @@ export type BusinessRulesDocument = {
   retention: RetentionRules
   cancellation: {
     bands: Array<CancellationBand>
+  }
+  legal: {
+    consent_versions: ConsentVersions
   }
 }
 
@@ -300,6 +329,7 @@ export type RuleGroup =
   | 'cancellation'
   | 'guests_capacity'
   | 'data_retention'
+  | 'legal'
   | 'structural_locked'
 
 /** Mirrors App\Enums\RuleStatus. Update when the PHP enum changes. */
@@ -366,3 +396,6 @@ export type BusinessRulesVersion = ConfigVersion<BusinessRulesDocument> & {
   registry: Array<RuleRegistryRow>
   counts: RuleRegistryCounts
 }
+
+/** GET /rms/extras — ConfigCurrentResource with a typed extras document. */
+export type ExtrasVersion = ConfigVersion<ExtrasCatalogue>

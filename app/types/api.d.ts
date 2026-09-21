@@ -403,6 +403,54 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/rms/bookings/{booking}/extras": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["bookingExtra.index"];
+        put?: never;
+        post: operations["bookingExtra.store"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/booking-extras/{extra}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete: operations["bookingExtra.destroy"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/bookings/{booking}/fees": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch: operations["bookingFees.update"];
+        trace?: never;
+    };
     "/rms/business-rules": {
         parameters: {
             query?: never;
@@ -515,6 +563,22 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/rms/bookings/{booking}/consents": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["consent.index"];
+        put?: never;
+        post: operations["consent.store"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/rms/contacts": {
         parameters: {
             query?: never;
@@ -523,6 +587,54 @@ export interface paths {
             cookie?: never;
         };
         get: operations["contact.index"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/contacts-in/nationalities": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["contactsIn.nationalities"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/contacts-in": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["contactsIn.index"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/countries": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["country.index"];
         put?: never;
         post?: never;
         delete?: never;
@@ -675,6 +787,70 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/rms/extras": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["extras.current"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/extras/validate": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["extras.validateDocument"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/extras/versions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["extras.index"];
+        put?: never;
+        post: operations["extras.store"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/extras/versions/{version}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["extras.show"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/rms/groups": {
         parameters: {
             query?: never;
@@ -689,6 +865,38 @@ export interface paths {
         options?: never;
         head?: never;
         patch?: never;
+        trace?: never;
+    };
+    "/rms/bookings/{booking}/guests": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["guest.index"];
+        put?: never;
+        post: operations["guest.store"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/guests/{guest}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete: operations["guest.destroy"];
+        options?: never;
+        head?: never;
+        patch: operations["guest.update"];
         trace?: never;
     };
     "/health": {
@@ -1423,6 +1631,13 @@ export interface components {
             password: string;
             password_confirmation: string;
         };
+        /** AddBookingExtraRequest */
+        AddBookingExtraRequest: {
+            code: string;
+            qty: number;
+            rate_usd?: number | null;
+            note?: string | null;
+        };
         /** AgencyResource */
         AgencyResource: {
             id: number;
@@ -1530,6 +1745,28 @@ export interface components {
             what: unknown;
             why: string | null;
         };
+        /** BookingConsentResource */
+        BookingConsentResource: {
+            document: string;
+            /** @enum {string} */
+            label: "Terms & Conditions" | "Cancellation policy" | "Privacy policy" | "Travel insurance declaration" | "Marketing (optional)";
+            required: boolean;
+            current_version: string;
+            outdated: boolean;
+            consent: components["schemas"]["ConsentResource"] | null;
+        };
+        /** BookingExtraResource */
+        BookingExtraResource: {
+            id: number;
+            booking_id: number;
+            code: string;
+            name: string;
+            unit: string;
+            qty: number;
+            rate_usd: number;
+            amount: number;
+            note: string | null;
+        };
         /** BookingFormOptionsResource */
         BookingFormOptionsResource: {
             main: {
@@ -1623,6 +1860,14 @@ export interface components {
             party_label: string;
             back_to_back: boolean;
             total: number;
+            extras_total: number;
+            fees_collected_total: number;
+            png_collected: boolean;
+            tct_collected: boolean;
+            png_pending_count: number;
+            charges_total: number;
+            cruise_outstanding: number;
+            extras_due_at: string | null;
             paid: number;
             pledged: number;
             balance: number;
@@ -1726,6 +1971,10 @@ export interface components {
                 band_label: string;
                 due_by: string | null;
             } | null;
+            guests_summary: {
+                complete: number;
+                total: number;
+            };
         };
         /**
          * BookingSegment
@@ -1900,6 +2149,19 @@ export interface components {
             status: string;
             departure_date: string;
         };
+        /** ConfigCurrentResource */
+        ConfigCurrentResource: {
+            version: number;
+            document: {
+                [key: string]: unknown;
+            };
+            published_at: string | null;
+            published_by: {
+                id: string;
+                name: string;
+            } | null;
+            approval_reference: string | null;
+        };
         /** ConfigValidationResource */
         ConfigValidationResource: {
             errors: {
@@ -1933,6 +2195,43 @@ export interface components {
             approval_reference: string | null;
             changes: string;
         };
+        /**
+         * ConsentDocument
+         * @enum {string}
+         */
+        ConsentDocument: "TERMS" | "CANCELLATION" | "PRIVACY" | "INSURANCE" | "MARKETING";
+        /** ConsentResource */
+        ConsentResource: {
+            id: number;
+            document: string;
+            version: string;
+            accepted_at: string | null;
+            ip: string | null;
+            source: string;
+            how_obtained: string | null;
+            recorded_by: number | null;
+            withdrawn: boolean;
+        };
+        /** ContactInResource */
+        ContactInResource: {
+            id: number;
+            display_reference: string | null;
+            status: string;
+            segment: string;
+            main_channel: string;
+            channel_of_origin: string;
+            charges_total: number;
+            contact: {
+                id: number;
+                name: string;
+            };
+            travel_advisor: boolean;
+            owner: {
+                id: number;
+                name: string;
+            };
+            can_act: boolean;
+        };
         /** ContactResource */
         ContactResource: {
             id: number;
@@ -1941,6 +2240,22 @@ export interface components {
             phone: string | null;
             country: string | null;
             preferred_channel: string;
+        };
+        /** ContactsInNationalitiesResource */
+        ContactsInNationalitiesResource: {
+            nationalities: {
+                nationality: string;
+                country_name: string;
+                guests: number;
+                bookings: number;
+            }[];
+            unknown: number;
+            total_guests: number;
+        };
+        /** CountryResource */
+        CountryResource: {
+            code: string;
+            name: string;
         };
         /** CreatePaymentLinkRequest */
         CreatePaymentLinkRequest: {
@@ -2226,6 +2541,37 @@ export interface components {
             balance: number;
             statuses: string[];
         };
+        /** GuestResource */
+        GuestResource: {
+            id: number;
+            booking_id: number;
+            position: number;
+            is_lead: boolean;
+            first_name: string;
+            last_name: string;
+            display_name: string;
+            dob: string | null;
+            nationality: string | null;
+            ecuador_resident: boolean;
+            passport_no: string | null;
+            passport_expiry: string | null;
+            email: string | null;
+            insurance_declared: boolean;
+            medical_note: components["schemas"]["MaskedNoteResource"];
+            dietary_note: components["schemas"]["MaskedNoteResource"];
+            accessibility_note: components["schemas"]["MaskedNoteResource"];
+            age_at_departure: number | null;
+            is_minor_now: boolean;
+            png_category: string | null;
+            png_category_label: string | null;
+            png_fee: number | null;
+            complete: boolean;
+            guardian: {
+                name: string | null;
+                relationship: string | null;
+                consented_at: string | null;
+            } | null;
+        };
         /** HoldResource */
         HoldResource: {
             type: string | null;
@@ -2449,6 +2795,11 @@ export interface components {
         MarkWireReceivedRequest: {
             bank_reference: string;
         };
+        /** MaskedNoteResource */
+        MaskedNoteResource: {
+            value: string | null;
+            on_file: boolean;
+        };
         /** MeResource */
         MeResource: {
             id: number;
@@ -2670,6 +3021,11 @@ export interface components {
             };
             note: string;
         };
+        /** RecordConsentRequest */
+        RecordConsentRequest: {
+            document: components["schemas"]["ConsentDocument"];
+            how_obtained: string;
+        };
         /** RecordPaymentRequest */
         RecordPaymentRequest: {
             kind: components["schemas"]["PaymentKind"];
@@ -2708,6 +3064,14 @@ export interface components {
                 party_label: string;
                 back_to_back: boolean;
                 total: number;
+                extras_total: number;
+                fees_collected_total: number;
+                png_collected: boolean;
+                tct_collected: boolean;
+                png_pending_count: number;
+                charges_total: number;
+                cruise_outstanding: number;
+                extras_due_at: string | null;
                 paid: number;
                 pledged: number;
                 balance: number;
@@ -2811,6 +3175,10 @@ export interface components {
                     band_label: string;
                     due_by: string | null;
                 } | null;
+                guests_summary: {
+                    complete: number;
+                    total: number;
+                };
             };
             warnings: string[];
         };
@@ -2915,6 +3283,28 @@ export interface components {
             is_admin: boolean;
             users_count: number;
             permissions: string[];
+        };
+        /** SaveGuestRequest */
+        SaveGuestRequest: {
+            first_name?: string | null;
+            last_name?: string | null;
+            /** Format: date */
+            dob?: string | null;
+            /** @enum {string|null} */
+            nationality?: "AD" | "AE" | "AF" | "AG" | "AI" | "AL" | "AM" | "AO" | "AQ" | "AR" | "AS" | "AT" | "AU" | "AW" | "AX" | "AZ" | "BA" | "BB" | "BD" | "BE" | "BF" | "BG" | "BH" | "BI" | "BJ" | "BL" | "BM" | "BN" | "BO" | "BQ" | "BR" | "BS" | "BT" | "BV" | "BW" | "BY" | "BZ" | "CA" | "CC" | "CD" | "CF" | "CG" | "CH" | "CI" | "CK" | "CL" | "CM" | "CN" | "CO" | "CR" | "CU" | "CV" | "CW" | "CX" | "CY" | "CZ" | "DE" | "DJ" | "DK" | "DM" | "DO" | "DZ" | "EC" | "EE" | "EG" | "EH" | "ER" | "ES" | "ET" | "FI" | "FJ" | "FK" | "FM" | "FO" | "FR" | "GA" | "GB" | "GD" | "GE" | "GF" | "GG" | "GH" | "GI" | "GL" | "GM" | "GN" | "GP" | "GQ" | "GR" | "GS" | "GT" | "GU" | "GW" | "GY" | "HK" | "HM" | "HN" | "HR" | "HT" | "HU" | "ID" | "IE" | "IL" | "IM" | "IN" | "IO" | "IQ" | "IR" | "IS" | "IT" | "JE" | "JM" | "JO" | "JP" | "KE" | "KG" | "KH" | "KI" | "KM" | "KN" | "KP" | "KR" | "KW" | "KY" | "KZ" | "LA" | "LB" | "LC" | "LI" | "LK" | "LR" | "LS" | "LT" | "LU" | "LV" | "LY" | "MA" | "MC" | "MD" | "ME" | "MF" | "MG" | "MH" | "MK" | "ML" | "MM" | "MN" | "MO" | "MP" | "MQ" | "MR" | "MS" | "MT" | "MU" | "MV" | "MW" | "MX" | "MY" | "MZ" | "NA" | "NC" | "NE" | "NF" | "NG" | "NI" | "NL" | "NO" | "NP" | "NR" | "NU" | "NZ" | "OM" | "PA" | "PE" | "PF" | "PG" | "PH" | "PK" | "PL" | "PM" | "PN" | "PR" | "PS" | "PT" | "PW" | "PY" | "QA" | "RE" | "RO" | "RS" | "RU" | "RW" | "SA" | "SB" | "SC" | "SD" | "SE" | "SG" | "SH" | "SI" | "SJ" | "SK" | "SL" | "SM" | "SN" | "SO" | "SR" | "SS" | "ST" | "SV" | "SX" | "SY" | "SZ" | "TC" | "TD" | "TF" | "TG" | "TH" | "TJ" | "TK" | "TL" | "TM" | "TN" | "TO" | "TR" | "TT" | "TV" | "TW" | "TZ" | "UA" | "UG" | "UM" | "US" | "UY" | "UZ" | "VA" | "VC" | "VE" | "VG" | "VI" | "VN" | "VU" | "WF" | "WS" | "YE" | "YT" | "ZA" | "ZM" | "ZW" | null;
+            ecuador_resident?: boolean;
+            passport_no?: string | null;
+            /** Format: date */
+            passport_expiry?: string | null;
+            /** Format: email */
+            email?: string | null;
+            insurance_declared?: boolean;
+            medical_note?: string | null;
+            dietary_note?: string | null;
+            accessibility_note?: string | null;
+            guardian_name?: string | null;
+            guardian_relationship?: string | null;
+            guardian_consented?: boolean;
         };
         /**
          * SeasonPattern
@@ -3060,6 +3450,11 @@ export interface components {
             network?: string | null;
             payment_terms?: string | null;
             commission_pct?: number;
+        };
+        /** UpdateBookingFeesRequest */
+        UpdateBookingFeesRequest: {
+            png_collected?: boolean;
+            tct_collected?: boolean;
         };
         /** UpdateBookingRequest */
         UpdateBookingRequest: {
@@ -4080,6 +4475,129 @@ export interface operations {
             404: components["responses"]["ModelNotFoundException"];
         };
     };
+    "bookingExtra.index": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The booking ID */
+                booking: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Array of `BookingExtraResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["BookingExtraResource"][];
+                        extras_total: number;
+                        png_collected: boolean;
+                        tct_collected: boolean;
+                        png_known_total: number;
+                        png_pending_count: number;
+                        tct_pp: number;
+                        tct_count: number;
+                        extras_due_hours: number;
+                        extras_due_at: string;
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "bookingExtra.store": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The booking ID */
+                booking: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["AddBookingExtraRequest"];
+            };
+        };
+        responses: {
+            /** @description `BookingExtraResource` */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["BookingExtraResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "bookingExtra.destroy": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The extra ID */
+                extra: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No content */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "bookingFees.update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The booking ID */
+                booking: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["UpdateBookingFeesRequest"];
+            };
+        };
+        responses: {
+            /** @description `BookingResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["BookingResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
     "businessRules.current": {
         parameters: {
             query?: never;
@@ -4311,6 +4829,65 @@ export interface operations {
             422: components["responses"]["ValidationException"];
         };
     };
+    "consent.index": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The booking ID */
+                booking: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Array of `BookingConsentResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["BookingConsentResource"][];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "consent.store": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The booking ID */
+                booking: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RecordConsentRequest"];
+            };
+        };
+        responses: {
+            /** @description `ConsentResource` */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ConsentResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
     "contact.index": {
         parameters: {
             query?: {
@@ -4336,6 +4913,116 @@ export interface operations {
             401: components["responses"]["AuthenticationException"];
             403: components["responses"]["AuthorizationException"];
             422: components["responses"]["ValidationException"];
+        };
+    };
+    "contactsIn.nationalities": {
+        parameters: {
+            query?: {
+                from?: string;
+                to?: string;
+                per_page?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `ContactsInNationalitiesResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        nationalities: {
+                            nationality: string;
+                            country_name: string;
+                            guests: number;
+                            bookings: number;
+                        }[];
+                        unknown: number;
+                        total_guests: number;
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "contactsIn.index": {
+        parameters: {
+            query?: {
+                from?: string;
+                to?: string;
+                per_page?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Paginated set of `ContactInResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["ContactInResource"][];
+                        links: {
+                            first: string | null;
+                            last: string | null;
+                            prev: string | null;
+                            next: string | null;
+                        };
+                        meta: {
+                            current_page: number;
+                            from: number | null;
+                            last_page: number;
+                            /** @description Generated paginator links. */
+                            links: {
+                                url: string | null;
+                                label: string;
+                                active: boolean;
+                            }[];
+                            /** @description Base path for paginator generated URLs. */
+                            path: string | null;
+                            /** @description Number of items shown per page. */
+                            per_page: number;
+                            /** @description Number of the last item in the slice. */
+                            to: number | null;
+                            /** @description Total number of items being paginated. */
+                            total: number;
+                        };
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "country.index": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CountryResource"][];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
         };
     };
     "departure.index": {
@@ -4755,6 +5442,150 @@ export interface operations {
             401: components["responses"]["AuthenticationException"];
         };
     };
+    "extras.current": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `ConfigCurrentResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ConfigCurrentResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+        };
+    };
+    "extras.validateDocument": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ValidateConfigRequest"];
+            };
+        };
+        responses: {
+            /** @description `ConfigValidationResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ConfigValidationResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "extras.index": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Paginated set of `ConfigVersionSummaryResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["ConfigVersionSummaryResource"][];
+                        links: {
+                            first: string | null;
+                            last: string | null;
+                            prev: string | null;
+                            next: string | null;
+                        };
+                        meta: {
+                            current_page: number;
+                            from: number | null;
+                            last_page: number;
+                            /** @description Generated paginator links. */
+                            links: {
+                                url: string | null;
+                                label: string;
+                                active: boolean;
+                            }[];
+                            /** @description Base path for paginator generated URLs. */
+                            path: string | null;
+                            /** @description Number of items shown per page. */
+                            per_page: number;
+                            /** @description Number of the last item in the slice. */
+                            to: number | null;
+                            /** @description Total number of items being paginated. */
+                            total: number;
+                        };
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+        };
+    };
+    "extras.store": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PublishConfigRequest"];
+            };
+        };
+        responses: {
+            /** @description `ConfigVersionDetailResource` */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ConfigVersionDetailResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "extras.show": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                version: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `ConfigVersionDetailResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ConfigVersionDetailResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+        };
+    };
     "group.index": {
         parameters: {
             query?: {
@@ -4781,6 +5612,130 @@ export interface operations {
             };
             401: components["responses"]["AuthenticationException"];
             403: components["responses"]["AuthorizationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "guest.index": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The booking ID */
+                booking: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Array of `GuestResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["GuestResource"][];
+                        complete_count: number;
+                        total: number;
+                        png_known_total: number;
+                        png_pending_count: number;
+                        issues: {
+                            severity: string;
+                            code: string;
+                            guest_id: number | null;
+                            message: string;
+                        }[];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "guest.store": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The booking ID */
+                booking: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["SaveGuestRequest"];
+            };
+        };
+        responses: {
+            /** @description `GuestResource` */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["GuestResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "guest.destroy": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The guest ID */
+                guest: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No content */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "guest.update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The guest ID */
+                guest: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["SaveGuestRequest"];
+            };
+        };
+        responses: {
+            /** @description `GuestResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["GuestResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
             422: components["responses"]["ValidationException"];
         };
     };

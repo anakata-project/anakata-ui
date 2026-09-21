@@ -1,0 +1,101 @@
+/**
+ * Guest, consent and Contacts In aliases over generated schemas.
+ * Overlays only where Scramble still cannot express the shape.
+ * Each leftover mirrors a PHP class.
+ */
+
+import type { components, operations } from './api'
+import type {
+  BookingSegment,
+  BookingStatus,
+  ChannelOfOrigin,
+  MainChannel,
+} from './bookings'
+
+export type MaskedNote = components['schemas']['MaskedNoteResource']
+
+/**
+ * Mirrors App\Enums\PngCategory. No FormRequest enum schema.
+ */
+export type PngCategory =
+  | 'PENDING'
+  | 'EXEMPT'
+  | 'NATIONAL_OR_RESIDENT'
+  | 'CAN_ADULT'
+  | 'CAN_MINOR'
+  | 'FOREIGN_OVER_12'
+  | 'FOREIGN_12_AND_UNDER'
+
+/**
+ * Mirrors GuestIssues::issue() severity. The DocumentedResponse
+ * still serialises the field as string.
+ */
+export type GuestIssueSeverity = 'error' | 'warning'
+
+type GuestIssueGenerated =
+  operations['guest.index']['responses'][200]['content']['application/json']['issues'][number]
+
+/**
+ * Mirrors App\Support\Guests\GuestIssues::issue().
+ */
+export type GuestIssue = Omit<GuestIssueGenerated, 'severity'> & {
+  severity: GuestIssueSeverity
+}
+
+type GuestIndexBody =
+  operations['guest.index']['responses'][200]['content']['application/json']
+
+export type GuestListSummary = Omit<GuestIndexBody, 'data' | 'issues'> & {
+  issues: Array<GuestIssue>
+}
+
+export type Guest = Omit<
+  components['schemas']['GuestResource'],
+  'png_category'
+> & {
+  png_category: PngCategory | null
+}
+
+export type ConsentDocument = components['schemas']['ConsentDocument']
+
+/**
+ * Mirrors App\Enums\ConsentSource. No FormRequest enum schema.
+ */
+export type ConsentSource = 'ENGINE' | 'PAYMENT_LINK' | 'STAFF'
+
+export type Consent = Omit<
+  components['schemas']['ConsentResource'],
+  'document' | 'source'
+> & {
+  document: ConsentDocument
+  source: ConsentSource
+}
+
+/**
+ * Mirrors App\Http\Resources\Rms\BookingConsentResource.
+ * The panel consent table iterates this row, not Consent alone.
+ */
+export type BookingConsent = Omit<
+  components['schemas']['BookingConsentResource'],
+  'document' | 'consent'
+> & {
+  document: ConsentDocument
+  consent: Consent | null
+}
+
+export type Country = components['schemas']['CountryResource']
+
+export type ContactInRow = Omit<
+  components['schemas']['ContactInResource'],
+  'status' | 'segment' | 'main_channel' | 'channel_of_origin'
+> & {
+  status: BookingStatus
+  segment: BookingSegment
+  main_channel: MainChannel
+  channel_of_origin: ChannelOfOrigin
+}
+
+export type NationalitiesSummary =
+  components['schemas']['ContactsInNationalitiesResource']
+
+export type NationalityRow = NationalitiesSummary['nationalities'][number]

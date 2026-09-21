@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.7.0
+
+- Regenerated API types from the Sprint 6 OpenAPI spec (guests, masked notes, consents, extras catalogue and booking extras, charges fields on `BookingResource`, Contacts In, `GET /rms/countries`).
+- New `app/types/guests.ts` aliases (`Guest`, `GuestIssue`, `Consent`, `BookingConsent`, `Country`, `ContactInRow`, `NationalityRow`). Notes stay `{ value: string | null, on_file: boolean }` as the API sends them. `PngCategory` and `ConsentSource` are leftovers (no FormRequest schema).
+- New `app/types/extras.ts` (`BookingExtra`, `ExtrasListSummary`). Catalogue leftovers (`ExtrasCatalogue`, `ExtrasCatalogueItem`, `ExtrasVersion`) live in `config.ts` like the other three documents. `BusinessRulesDocument` gains `legal.consent_versions`; `RuleGroup` gains `legal`.
+- `Booking` keeps the Sprint 4 name. `guests_summary`, `extras_total`, `fees_collected_total`, `png_collected`, `tct_collected`, `png_pending_count`, `charges_total`, `cruise_outstanding` and `extras_due_at` come through from `BookingResource`.
+
 ## v0.6.4
 
 - Regenerated API types for New Reservation: `BookingFormOptionsResource.payments.wire_window_hours` (with existing `commission` / `agencies`). No new leftover overlays.
