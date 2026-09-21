@@ -35,6 +35,7 @@ export type Paginated<T> = LaravelPaginator<T>
 
 export type {
   AlertsRules,
+  BankDetails,
   BusinessRulesDocument,
   BusinessRulesVersion,
   CalendarSettings,
@@ -51,6 +52,7 @@ export type {
   ConsentVersions,
   CopySettings,
   DiscountsRules,
+  DocumentsRules,
   EngineSettingsDocument,
   EngineSettingsValidation,
   EngineSettingsVersion,
@@ -61,6 +63,7 @@ export type {
   FeesSettings,
   GuestsSettings,
   HoldsRules,
+  LegalEntity,
   LocaleSettings,
   ManifestsRules,
   NoRate,
@@ -136,6 +139,18 @@ export type {
   ExtrasListSummary,
   ExtrasVersionDetail,
 } from './extras'
+
+export type {
+  ClientDocumentRow,
+  Delivery,
+  DeliveryKind,
+  DeliveryStatus,
+  DocumentKind,
+  DocumentPlanKind,
+  DocumentPlanRow,
+  DocumentStatus,
+  IssuedDocument,
+} from './documents'
 
 export type {
   AgenciesKpis,

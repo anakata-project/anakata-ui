@@ -403,6 +403,22 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/rms/bookings/{booking}/billing": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch: operations["bookingBilling.update"];
+        trace?: never;
+    };
     "/rms/bookings/{booking}/extras": {
         parameters: {
             query?: never;
@@ -531,6 +547,22 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/rms/documents": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["clientDocument.index"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/rms/bookings/{booking}/commission-approval": {
         parameters: {
             query?: never;
@@ -643,6 +675,38 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/rms/bookings/{booking}/deliveries": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["delivery.index"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/bookings/{booking}/wire-instructions/send": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["delivery.sendWire"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/rms/departures": {
         parameters: {
             query?: never;
@@ -717,6 +781,134 @@ export interface paths {
         get: operations["departure.history"];
         put?: never;
         post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/bookings/{booking}/documents": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["document.index"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/bookings/{booking}/documents/plan": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["document.plan"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/bookings/{booking}/documents/{kind}/html": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["document.html"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/bookings/{booking}/documents/{kind}/issue": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["document.issue"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/bookings/{booking}/receipts/{payment}/html": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["document.receiptHtml"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/documents/{document}/html": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["document.issuedHtml"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/documents/{document}/file": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["document.file"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/documents/{document}/send": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["document.send"];
         delete?: never;
         options?: never;
         head?: never;
@@ -1133,6 +1325,22 @@ export interface paths {
         get: operations["payment.forBooking"];
         put?: never;
         post: operations["payment.store"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/payment-links/{paymentLink}/send": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["paymentLink.send"];
         delete?: never;
         options?: never;
         head?: never;
@@ -1889,6 +2097,10 @@ export interface components {
                 version: number;
             };
             internal_notes: string | null;
+            billing_name: string | null;
+            billing_address: string | null;
+            billing_email: string | null;
+            billing_phone: string | null;
             can_act: string;
             allowed_transitions: unknown[];
             departure: {
@@ -2274,6 +2486,25 @@ export interface components {
             decision: "APPROVED" | "REJECTED";
             reason: string;
         };
+        /** DeliveryResource */
+        DeliveryResource: {
+            id: number;
+            booking_id: number;
+            document_id: number | null;
+            kind: string;
+            /** @enum {string} */
+            kind_label: "Booking Confirmation & Invoice" | "Final Invoice" | "Booking Summary" | "Payment Confirmation" | "Balance reminder" | "Transfer Voucher" | "Pre-trip Itinerary" | "Payment link" | "Wire Instructions";
+            to: string[];
+            cc: string[];
+            subject: string;
+            status: string;
+            error: string | null;
+            blocked_reason: string | null;
+            sent_at: string | null;
+            triggered_by: string;
+            created_at: string | null;
+            warning: string | null;
+        };
         /** DepartureMutationResource */
         DepartureMutationResource: {
             id: number;
@@ -2447,6 +2678,58 @@ export interface components {
         /** DisableUserRequest */
         DisableUserRequest: {
             reason?: string | null;
+        };
+        /**
+         * DocumentKind
+         * @enum {string}
+         */
+        DocumentKind: "INVOICE" | "FINAL_INVOICE" | "SUMMARY" | "RECEIPT" | "VOUCHER" | "PRETRIP" | "WIRE_INSTRUCTIONS";
+        /**
+         * DocumentPlanKind
+         * @enum {string}
+         */
+        DocumentPlanKind: "INVOICE" | "SUMMARY" | "RECEIPT" | "REMINDER" | "PRETRIP" | "QUESTIONNAIRE" | "VOUCHER" | "FINAL_INVOICE" | "WIRE_INSTRUCTIONS";
+        /** DocumentPlanRowResource */
+        DocumentPlanRowResource: {
+            booking_id: number;
+            kind: string;
+            name: string;
+            recipient: string;
+            trigger: string;
+            date: string | null;
+            status: string;
+            document_id: number | null;
+            version: number | null;
+            delivery_id: number | null;
+            error: string | null;
+            payment_id: number | null;
+            reminder_days: number | null;
+            can_preview: boolean;
+            can_issue: boolean;
+            can_resend: boolean;
+        };
+        /**
+         * DocumentPlanStatus
+         * @enum {string}
+         */
+        DocumentPlanStatus: "SENT" | "FAILED" | "BLOCKED" | "SCHEDULED" | "WAITING" | "NOT NEEDED" | "NOT CONTRACTED" | "DUE";
+        /** DocumentResource */
+        DocumentResource: {
+            id: number;
+            booking_id: number;
+            kind: string;
+            /** @enum {string} */
+            kind_label: "Booking Confirmation & Invoice" | "Final Invoice" | "Booking Summary" | "Payment Confirmation" | "Transfer Voucher" | "Pre-trip Itinerary" | "Wire Instructions";
+            number: string | null;
+            version: number;
+            reason: string | null;
+            payment_id: number | null;
+            issued_at: string | null;
+            file_sha256: string;
+            issued_by: {
+                id: number;
+                name: string;
+            } | null;
         };
         /** EngineSettingsCurrentResource */
         EngineSettingsCurrentResource: {
@@ -2637,6 +2920,11 @@ export interface components {
             /** Format: email */
             email: string;
             role_id: number;
+        };
+        /** IssueDocumentRequest */
+        IssueDocumentRequest: {
+            reason?: string | null;
+            payment_id?: number | null;
         };
         /** ItineraryDefaultsResource */
         ItineraryDefaultsResource: {
@@ -3093,6 +3381,10 @@ export interface components {
                     version: number;
                 };
                 internal_notes: string | null;
+                billing_name: string | null;
+                billing_address: string | null;
+                billing_email: string | null;
+                billing_phone: string | null;
                 can_act: string;
                 allowed_transitions: unknown[];
                 departure: {
@@ -3450,6 +3742,14 @@ export interface components {
             network?: string | null;
             payment_terms?: string | null;
             commission_pct?: number;
+        };
+        /** UpdateBookingBillingRequest */
+        UpdateBookingBillingRequest: {
+            billing_name?: string | null;
+            billing_address?: string | null;
+            /** Format: email */
+            billing_email?: string | null;
+            billing_phone?: string | null;
         };
         /** UpdateBookingFeesRequest */
         UpdateBookingFeesRequest: {
@@ -4475,6 +4775,37 @@ export interface operations {
             404: components["responses"]["ModelNotFoundException"];
         };
     };
+    "bookingBilling.update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The booking ID */
+                booking: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["UpdateBookingBillingRequest"];
+            };
+        };
+        responses: {
+            /** @description `BookingResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["BookingResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
     "bookingExtra.index": {
         parameters: {
             query?: never;
@@ -4769,6 +5100,64 @@ export interface operations {
             422: components["responses"]["ValidationException"];
         };
     };
+    "clientDocument.index": {
+        parameters: {
+            query?: {
+                from?: string;
+                to?: string;
+                kind?: components["schemas"]["DocumentPlanKind"];
+                status?: components["schemas"]["DocumentPlanStatus"];
+                q?: string;
+                per_page?: number;
+                page?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Paginated set of `DocumentPlanRowResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["DocumentPlanRowResource"][];
+                        links: {
+                            first: string | null;
+                            last: string | null;
+                            prev: string | null;
+                            next: string | null;
+                        };
+                        meta: {
+                            current_page: number;
+                            from: number | null;
+                            last_page: number;
+                            /** @description Generated paginator links. */
+                            links: {
+                                url: string | null;
+                                label: string;
+                                active: boolean;
+                            }[];
+                            /** @description Base path for paginator generated URLs. */
+                            path: string | null;
+                            /** @description Number of items shown per page. */
+                            per_page: number;
+                            /** @description Number of the last item in the slice. */
+                            to: number | null;
+                            /** @description Total number of items being paginated. */
+                            total: number;
+                        };
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
     "commission.decide": {
         parameters: {
             query?: never;
@@ -5023,6 +5412,70 @@ export interface operations {
                 };
             };
             401: components["responses"]["AuthenticationException"];
+        };
+    };
+    "delivery.index": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The booking ID */
+                booking: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Array of `DeliveryResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["DeliveryResource"][];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "delivery.sendWire": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The booking ID */
+                booking: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `DeliveryResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DeliveryResource"];
+                };
+            };
+            /** @description `DeliveryResource` */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DeliveryResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
         };
     };
     "departure.index": {
@@ -5296,6 +5749,245 @@ export interface operations {
             401: components["responses"]["AuthenticationException"];
             403: components["responses"]["AuthorizationException"];
             404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "document.index": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The booking ID */
+                booking: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Array of `DocumentResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["DocumentResource"][];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "document.plan": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The booking ID */
+                booking: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Array of `DocumentPlanRowResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["DocumentPlanRowResource"][];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "document.html": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The booking ID */
+                booking: number;
+                /** @description The kind ID */
+                kind: components["schemas"]["DocumentKind"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "text/html; charset=UTF-8": string;
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "document.issue": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The booking ID */
+                booking: number;
+                /** @description The kind ID */
+                kind: components["schemas"]["DocumentKind"];
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["IssueDocumentRequest"];
+            };
+        };
+        responses: {
+            /** @description `DocumentResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DocumentResource"];
+                };
+            };
+            /** @description `DocumentResource` */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DocumentResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "document.receiptHtml": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The booking ID */
+                booking: number;
+                /** @description The payment ID */
+                payment: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "text/html; charset=UTF-8": string;
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "document.issuedHtml": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The document ID */
+                document: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "text/html; charset=UTF-8": string;
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "document.file": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The document ID */
+                document: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    "Content-Disposition"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/pdf": string | null;
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "document.send": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The document ID */
+                document: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `DeliveryResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DeliveryResource"];
+                };
+            };
+            /** @description `DeliveryResource` */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DeliveryResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
         };
     };
     "engineSettings.current": {
@@ -6390,6 +7082,42 @@ export interface operations {
                         booking: components["schemas"]["BookingResource"];
                         warnings: string[];
                     };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "paymentLink.send": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The payment link ID */
+                paymentLink: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `DeliveryResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DeliveryResource"];
+                };
+            };
+            /** @description `DeliveryResource` */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DeliveryResource"];
                 };
             };
             401: components["responses"]["AuthenticationException"];

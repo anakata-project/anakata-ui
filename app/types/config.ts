@@ -204,6 +204,31 @@ export type ExtrasCatalogue = {
 
 export type ExtrasDocument = ExtrasCatalogue
 
+/** Mirrors App\Support\Config\Documents\BankRules. Update when the PHP class changes. */
+export type BankDetails = {
+  bank_name: string
+  account_name: string
+  account_number: string
+  routing: string
+  swift: string
+}
+
+/** Mirrors App\Support\Config\Documents\LegalEntityRules. Update when the PHP class changes. */
+export type LegalEntity = {
+  name: string
+  address_lines: Array<string>
+  email: string
+  website: string
+  ein: string
+  bank: BankDetails
+}
+
+/** Mirrors App\Support\Config\Documents\DocumentsRules. Update when the PHP class changes. */
+export type DocumentsRules = {
+  pretrip_days_before: number
+  voucher_days_before: number
+}
+
 /** Mirrors App\Support\Config\Documents\BusinessRulesDocument. Update when the PHP document changes. */
 export type BusinessRulesDocument = {
   commission: CommissionRules
@@ -221,6 +246,8 @@ export type BusinessRulesDocument = {
   legal: {
     consent_versions: ConsentVersions
   }
+  legal_entity: LegalEntity
+  documents: DocumentsRules
 }
 
 /** Mirrors App\Support\Config\Change. Update when the PHP class changes. */

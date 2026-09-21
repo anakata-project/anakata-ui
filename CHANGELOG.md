@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.8.0
+
+- Regenerated API types from the Sprint 7 OpenAPI spec (issued documents, the document plan, client documents, deliveries, billing fields on `BookingResource`, payment-link / wire send including the LEG-004 `warning`).
+- New `app/types/documents.ts` aliases (`IssuedDocument`, `DocumentKind`, `DocumentPlanKind`, `DocumentPlanRow`, `DocumentStatus`, `ClientDocumentRow`, `Delivery`, `DeliveryKind`, `DeliveryStatus`). Plan `kind` is `DocumentPlanKind` (includes `REMINDER` and `QUESTIONNAIRE`); issued rows stay on `DocumentKind` (includes `WIRE_INSTRUCTIONS`).
+- `Booking` keeps the Sprint 4 name. `billing_name`, `billing_address`, `billing_email` and `billing_phone` come through from `BookingResource`.
+- `BusinessRulesDocument` leftover gains sibling `legal_entity` and `documents`. `legal.consent_versions` is unchanged.
+- HTML preview and PDF download endpoints are `text/html` / `application/pdf`. They have no JSON body type — use the URL.
+
 ## v0.7.1
 
 - Regenerated API types for the guest-list summary: `max` and `can_add` on `GET /rms/bookings/{booking}/guests`. `GuestListSummary` picks them up from the generated operation. No leftover overlay.
