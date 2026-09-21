@@ -5639,6 +5639,8 @@ export interface operations {
                         total: number;
                         png_known_total: number;
                         png_pending_count: number;
+                        max: number;
+                        can_add: boolean;
                         issues: {
                             severity: string;
                             code: string;

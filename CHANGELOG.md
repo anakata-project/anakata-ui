@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.7.1
+
+- Regenerated API types for the guest-list summary: `max` and `can_add` on `GET /rms/bookings/{booking}/guests`. `GuestListSummary` picks them up from the generated operation. No leftover overlay.
+
 ## v0.7.0
 
 - Regenerated API types from the Sprint 6 OpenAPI spec (guests, masked notes, consents, extras catalogue and booking extras, charges fields on `BookingResource`, Contacts In, `GET /rms/countries`).
