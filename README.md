@@ -16,15 +16,19 @@ Nothing app-specific belongs here. If only one app uses it, it lives in that app
 
 ## How apps consume it
 
-Local path only, for now:
+Locally the sibling folder (A13). On Netlify, when that folder is missing, the apps extend the public GitHub tag:
 
 ```ts
-export default defineNuxtConfig({
-  extends: ['../anakata-ui'],
-})
+const localUi = resolve(import.meta.dirname, '../anakata-ui')
+
+extends: [
+  existsSync(localUi)
+    ? '../anakata-ui'
+    : 'github:anakata-project/anakata-ui#v0.9.0'
+]
 ```
 
-How apps fetch the layer remotely will be decided with the git host (08-dev-decisions A13). Do not publish this package to npm.
+Pin the tag to the layer version the app was built against. Do not publish this package to npm.
 
 `@nuxt/ui` and `tailwindcss` versions in the apps **must match** this layer. Today that is `@nuxt/ui` `^4.11.1` and `tailwindcss` `^4.3.3`. If you bump one, bump the others in the same change.
 
