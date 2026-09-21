@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.9.0
+
+- Regenerated API types from the Sprint 8 OpenAPI spec (RMS offers and charter enquiries, the complete-link, and every `/api/engine` response: feed, cabins, promo check, quote, checkout, waitlist, charter enquiry, complete-reservation).
+- New `app/types/offers.ts` aliases (`Offer`, `OfferType`, `OfferChannel`, `OfferStatus` including derived `EXPIRED`, `CharterEnquiry`, `CompleteLink`).
+- New `app/types/engine.ts` aliases from `/api/engine` schemas only — never an RMS resource (`EngineFeed`, `EngineItinerary`, `EngineDeparture`, `EngineOffer`, `EngineRates`, `EngineSettings`, `EngineCabin`, `PromoCheck`, `EngineQuote`, checkout / waitlist / charter / complete types, `EngineCountry`, `PriceChangedError`).
+- `CopySettings` leftover gains `online_deposit_advantage` and `online_deposit_perk`.
+- `Booking` keeps the Sprint 4 name. `promo_code`, `online_deposit` and `sold_on` come through from `BookingResource`.
+
 ## v0.8.1
 
 - Regenerated API types for client-documents list fields: `DocumentPlanRowResource.booking_reference` and `client`, and `GET /documents` `meta.filters` (`kinds` / `statuses` as `{ value, label }`). `ClientDocumentFilters` picks the filters object from the generated operation. No leftover overlay.

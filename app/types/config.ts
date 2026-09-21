@@ -92,6 +92,8 @@ export type CopySettings = {
   pay_today: string
   details_note: string
   confirmation_steps: Array<string>
+  online_deposit_advantage: string
+  online_deposit_perk: string
 }
 
 /** Mirrors App\Support\Config\Documents\CharterSettings. Update when the PHP class changes. */

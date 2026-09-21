@@ -154,6 +154,41 @@ export type {
 } from './documents'
 
 export type {
+  CharterEnquiry,
+  CharterEnquiryStatus,
+  CompleteLink,
+  Offer,
+  OfferChannel,
+  OfferStatus,
+  OfferType,
+} from './offers'
+
+export type {
+  CheckoutCreated,
+  CheckoutExtended,
+  CheckoutPath,
+  CheckoutSubmitted,
+  CompleteBooking,
+  CompleteDeclaration,
+  CompleteGuest,
+  CompleteReservation,
+  EngineCabin,
+  EngineCharterEnquiry,
+  EngineCountry,
+  EngineDeparture,
+  EngineFeed,
+  EngineItinerary,
+  EngineOffer,
+  EngineOfferType,
+  EngineQuote,
+  EngineRates,
+  EngineSettings,
+  EngineWaitlist,
+  PriceChangedError,
+  PromoCheck,
+} from './engine'
+
+export type {
   AgenciesKpis,
   Agency,
   AgencyListItem,
