@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.6.4
+
+- Regenerated API types for New Reservation: `BookingFormOptionsResource.payments.wire_window_hours` (with existing `commission` / `agencies`). No new leftover overlays.
+
 ## v0.6.3
 
 - Regenerated API types for the Refund Approvals / B2B prelude: agency list `bookings_count` / `revenue` / `commission_accrued` / `held_bookings_count`, `GET /agencies` `from` / `to` and `meta.kpis` rule numbers, `GET /refunds` `meta.rules.refund_business_days`, and `BookingResource.commission_cap_pct` (overlayed as `number`). No new AgencyListItem overlays; the Agency / AgencyListItem split is `portal_preview`.

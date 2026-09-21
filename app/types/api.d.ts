@@ -1557,6 +1557,9 @@ export interface components {
                 cap_pct: number;
                 default_pct: number;
             };
+            payments: {
+                wire_window_hours: number;
+            };
             agencies: {
                 id: number;
                 reference: string;
