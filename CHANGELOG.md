@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.8.1
+
+- Regenerated API types for client-documents list fields: `DocumentPlanRowResource.booking_reference` and `client`, and `GET /documents` `meta.filters` (`kinds` / `statuses` as `{ value, label }`). `ClientDocumentFilters` picks the filters object from the generated operation. No leftover overlay.
+
 ## v0.8.0
 
 - Regenerated API types from the Sprint 7 OpenAPI spec (issued documents, the document plan, client documents, deliveries, billing fields on `BookingResource`, payment-link / wire send including the LEG-004 `warning`).

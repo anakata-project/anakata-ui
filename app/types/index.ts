@@ -141,6 +141,7 @@ export type {
 } from './extras'
 
 export type {
+  ClientDocumentFilters,
   ClientDocumentRow,
   Delivery,
   DeliveryKind,

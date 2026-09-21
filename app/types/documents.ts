@@ -4,7 +4,7 @@
  * Each leftover mirrors a PHP class.
  */
 
-import type { components } from './api'
+import type { components, operations } from './api'
 
 export type DocumentKind = components['schemas']['DocumentKind']
 export type DocumentPlanKind = components['schemas']['DocumentPlanKind']
@@ -49,6 +49,8 @@ export type DocumentPlanRow = Omit<
  * DocumentPlanRowResource.
  */
 export type ClientDocumentRow = DocumentPlanRow
+
+export type ClientDocumentFilters = operations['clientDocument.index']['responses'][200]['content']['application/json']['meta']['filters']
 
 export type Delivery = Omit<
   components['schemas']['DeliveryResource'],

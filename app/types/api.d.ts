@@ -2692,6 +2692,8 @@ export interface components {
         /** DocumentPlanRowResource */
         DocumentPlanRowResource: {
             booking_id: number;
+            booking_reference: string | null;
+            client: string;
             kind: string;
             name: string;
             recipient: string;
@@ -5135,20 +5137,25 @@ export interface operations {
                             current_page: number;
                             from: number | null;
                             last_page: number;
-                            /** @description Generated paginator links. */
                             links: {
                                 url: string | null;
                                 label: string;
                                 active: boolean;
                             }[];
-                            /** @description Base path for paginator generated URLs. */
                             path: string | null;
-                            /** @description Number of items shown per page. */
                             per_page: number;
-                            /** @description Number of the last item in the slice. */
                             to: number | null;
-                            /** @description Total number of items being paginated. */
                             total: number;
+                            filters: {
+                                kinds: {
+                                    value: string;
+                                    label: string;
+                                }[];
+                                statuses: {
+                                    value: string;
+                                    label: string;
+                                }[];
+                            };
                         };
                     };
                 };
