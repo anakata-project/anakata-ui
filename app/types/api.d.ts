@@ -2541,6 +2541,7 @@ export interface components {
             booking: {
                 id: number;
                 display_reference: string | null;
+                client: string;
             };
         };
         /**
@@ -2650,6 +2651,8 @@ export interface components {
                 matched: number;
                 in_gateway_not_rms: number;
                 to_review: number;
+                gateway: number;
+                discrepancies: number;
             };
             meta: {
                 from: string;
@@ -3576,6 +3579,7 @@ export interface operations {
                 q?: string;
                 mine?: boolean;
                 overdue?: boolean;
+                pending_payment?: boolean;
                 per_page?: number;
             };
             header?: never;
@@ -5283,6 +5287,8 @@ export interface operations {
                                 charter_deposit_pct: number;
                                 cabin_balance_days: number;
                                 commission_payable_days: number;
+                                commission_cap_pct: number;
+                                wire_window_hours: number;
                             };
                         };
                     };

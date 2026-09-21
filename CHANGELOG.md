@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.6.2
+
+- Regenerated API types for the Payments & Revenue prelude: `GET /bookings` `pending_payment`, `PaymentResource.booking.client`, `GET /payments` `meta.kpis.commission_cap_pct` / `wire_window_hours`, and reconciliation `counts.gateway` / `counts.discrepancies`.
+
 ## v0.6.1
 
 - Regenerated API types for `GET /rms/payments/options` (`PaymentOptionsResource`: kinds and methods as `{ value, label, recordable }`).
