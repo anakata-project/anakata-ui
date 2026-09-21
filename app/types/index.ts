@@ -167,6 +167,7 @@ export type {
   CheckoutCreated,
   CheckoutExtended,
   CheckoutPath,
+  CheckoutStatus,
   CheckoutSubmitted,
   CompleteBooking,
   CompleteDeclaration,

@@ -92,6 +92,16 @@ export type EngineSettings = {
     hold_long_lead_business_days: number
     response_sla_hours: number
     modification_fee_usd: number
+    extras_due_hours: number
+  }
+  legal: {
+    consent_versions: {
+      terms: string
+      cancellation: string
+      privacy: string
+      insurance: string
+      marketing: string
+    }
   }
   calendar: {
     default_search_from: string
@@ -187,6 +197,22 @@ export type CheckoutCreated = Omit<
 export type CheckoutExtended = components['schemas']['CheckoutExtendedResource']
 
 export type CheckoutPath = components['schemas']['CheckoutPath']
+
+/**
+ * Mirrors App\Http\Resources\Engine\CheckoutStatusResource.
+ * Database-only — no live Stripe retrieve.
+ */
+export type CheckoutStatus = {
+  status: 'HOLDING' | 'SUBMITTED' | 'RELEASED' | 'EXPIRED'
+  path: CheckoutPath | null
+  email: string | null
+  bookings: Array<{
+    reference: string | null
+    status: string
+  }>
+  stripe_checkout_session_id: string | null
+  stripe_expires_at: string | null
+}
 
 /**
  * Mirrors App\Http\Resources\Engine\CheckoutSubmittedResource.
