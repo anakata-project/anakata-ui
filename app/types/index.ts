@@ -128,6 +128,7 @@ export type {
   GuestIssue,
   GuestIssueSeverity,
   GuestListSummary,
+  GuestExperienceDeparture,
   DepartureGuestExperience,
   GuestPreferences,
   GuestPreferencesInput,
@@ -139,6 +140,9 @@ export type {
   NpsView,
   PngCategory,
   PreferenceQuestion,
+  PreferenceSource,
+  PreferenceStatus,
+  SurveyGuest,
 } from './guests'
 
 export type {

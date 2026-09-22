@@ -1875,6 +1875,22 @@ export interface paths {
         patch: operations["guest.update"];
         trace?: never;
     };
+    "/rms/guest-experience/departures": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["guestExperience.departures"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/rms/guest-experience/questions": {
         parameters: {
             query?: never;
@@ -1963,6 +1979,22 @@ export interface paths {
             cookie?: never;
         };
         get: operations["guestResponse.questions"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/bookings/{booking}/survey-guests": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["guestResponse.surveyGuests"];
         put?: never;
         post?: never;
         delete?: never;
@@ -5283,6 +5315,13 @@ export interface components {
             balance: number;
             statuses: string[];
         };
+        /** GuestExperienceDepartureResource */
+        GuestExperienceDepartureResource: {
+            departure_id: number;
+            date: string;
+            yacht: string;
+            passengers: number;
+        };
         /** GuestPreferencesResource */
         GuestPreferencesResource: {
             current: {
@@ -6734,6 +6773,13 @@ export interface components {
                 first_touch?: string[] | null;
                 last_touch?: string[] | null;
             };
+        };
+        /** SurveyGuestResource */
+        SurveyGuestResource: {
+            guest_id: number;
+            name: string;
+            cabin: string;
+            responded: boolean;
         };
         /** SurveyQuestionResource */
         SurveyQuestionResource: {
@@ -11233,6 +11279,30 @@ export interface operations {
             422: components["responses"]["ValidationException"];
         };
     };
+    "guestExperience.departures": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `GuestExperienceDepartureResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["GuestExperienceDepartureResource"];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+        };
+    };
     "guestExperience.questions": {
         parameters: {
             query?: never;
@@ -11421,6 +11491,34 @@ export interface operations {
             };
             401: components["responses"]["AuthenticationException"];
             403: components["responses"]["AuthorizationException"];
+        };
+    };
+    "guestResponse.surveyGuests": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The booking ID */
+                booking: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `SurveyGuestResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["SurveyGuestResource"];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
         };
     };
     "guestResponse.store": {
@@ -11918,9 +12016,9 @@ export interface operations {
     };
     "manifest.index": {
         parameters: {
-            query: {
-                from: string;
-                to: string;
+            query?: {
+                from?: string;
+                to?: string;
             };
             header?: never;
             path?: never;
@@ -12688,9 +12786,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        data: components["schemas"]["QuestionnaireResource"];
-                    };
+                    "application/json": components["schemas"]["QuestionnaireResource"];
                 };
             };
         };
@@ -12717,9 +12813,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        data: components["schemas"]["QuestionnaireResource"];
-                    };
+                    "application/json": components["schemas"]["QuestionnaireResource"];
                 };
             };
             422: components["responses"]["ValidationException"];
@@ -13676,9 +13770,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        data: components["schemas"]["SurveyResource"];
-                    };
+                    "application/json": components["schemas"]["SurveyResource"];
                 };
             };
         };
@@ -13705,9 +13797,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        data: components["schemas"]["SurveyResource"];
-                    };
+                    "application/json": components["schemas"]["SurveyResource"];
                 };
             };
             422: components["responses"]["ValidationException"];
