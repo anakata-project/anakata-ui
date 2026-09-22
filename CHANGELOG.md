@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.12.1
+
+- Regenerated API types so `AgencyUser.status` is `AgencyUserStatus` (`INVITE_ON_APPROVAL`, `INVITE_ON_PORTAL_LAUNCH`, `ACTIVE`, `DISABLED`). The previous leftover union named statuses the API no longer returns.
+
 ## v0.12.0
 
 - Regenerated API types from the Sprint 11 OpenAPI spec (alert inbox and kind registry, manifests, departure guest experience and preferences, the NPS view and staff response, commission payout, the agency portal preview, the scheduled-job catalogue, and the engine questionnaire and survey).

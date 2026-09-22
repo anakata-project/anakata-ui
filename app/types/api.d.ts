@@ -3387,7 +3387,7 @@ export interface components {
                 id: number;
                 name: string;
                 email: string;
-                status: string;
+                status: components["schemas"]["AgencyUserStatus"];
             }[];
             bookings_count: number;
             revenue: number;
@@ -3444,7 +3444,7 @@ export interface components {
                 id: number;
                 name: string;
                 email: string;
-                status: string;
+                status: components["schemas"]["AgencyUserStatus"];
             }[];
             bookings_count: number;
             revenue: number;
@@ -3456,6 +3456,11 @@ export interface components {
          * @enum {string}
          */
         AgencyStatus: "PENDING" | "APPROVED" | "REJECTED";
+        /**
+         * AgencyUserStatus
+         * @enum {string}
+         */
+        AgencyUserStatus: "INVITE_ON_APPROVAL" | "INVITE_ON_PORTAL_LAUNCH" | "ACTIVE" | "DISABLED";
         /**
          * AlertKind
          * @enum {string}

@@ -74,15 +74,9 @@ export type ReconciliationReport = Omit<
   to_review: Array<ReconciliationRow>
 }
 
-/**
- * Mirrors App\Enums\AgencyUserStatus. No FormRequest enum schema.
- */
-export type AgencyUser = {
-  id: number
-  name: string
-  email: string
-  status: 'PENDING' | 'INVITED' | 'ACTIVE' | 'DISABLED'
-}
+export type AgencyUserStatus = components['schemas']['AgencyUserStatus']
+
+export type AgencyUser = AgencyGenerated['users'][number]
 
 type AgencyGenerated = components['schemas']['AgencyResource']
 type AgencyDetailedGenerated = Extract<AgencyGenerated, { portal_preview: { commission_pct: number } }>

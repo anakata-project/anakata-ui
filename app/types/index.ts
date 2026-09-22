@@ -299,6 +299,7 @@ export type {
   AgencyStatus,
   AgencyUser,
   AgencyUserInput,
+  AgencyUserStatus,
   AgencyUserUpdate,
   CancellationBandLabel,
   CommissionPayout,
