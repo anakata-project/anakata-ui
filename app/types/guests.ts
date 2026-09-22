@@ -99,3 +99,22 @@ export type NationalitiesSummary =
   components['schemas']['ContactsInNationalitiesResource']
 
 export type NationalityRow = NationalitiesSummary['nationalities'][number]
+
+export type PreferenceQuestion = components['schemas']['PreferenceQuestionResource']
+export type DepartureGuestExperience = components['schemas']['DepartureGuestExperienceResource']
+export type GuestPreferences = components['schemas']['GuestPreferencesResource']
+export type GuestResponse = components['schemas']['GuestResponseResource']
+export type NpsView = components['schemas']['NpsViewResource']
+
+/**
+ * Scramble types a PHP associative `answers` array as string[].
+ * The validator accepts question key → value.
+ */
+export type GuestPreferencesInput = Omit<
+  components['schemas']['UpdateGuestPreferencesRequest'],
+  'answers'
+> & {
+  answers: Record<string, string>
+}
+
+export type GuestResponseInput = components['schemas']['StoreGuestResponseRequest']

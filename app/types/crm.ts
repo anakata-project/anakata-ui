@@ -98,6 +98,8 @@ export type ActivityKpis = operations['crm.engineActivity']['responses'][200]['c
 
 export type OwnershipRow = components['schemas']['FieldOwnershipResource']
 export type ScheduledJobRun = components['schemas']['ScheduledJobResource']
+export type ScheduledJobCatalogueRow =
+  operations['sync.jobs']['responses'][200]['content']['application/json']['meta']['catalogue'][number]
 export type SyncFailure = components['schemas']['SyncFailureResource']
 export type EventCatalogueRow = components['schemas']['EventCatalogueResource']
 export type SyncIdentityRow = components['schemas']['SyncIdentityResource']

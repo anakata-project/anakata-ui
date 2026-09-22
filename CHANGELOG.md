@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.12.0
+
+- Regenerated API types from the Sprint 11 OpenAPI spec (alert inbox and kind registry, manifests, departure guest experience and preferences, the NPS view and staff response, commission payout, the agency portal preview, the scheduled-job catalogue, and the engine questionnaire and survey).
+- New `app/types/alerts.ts` aliases from the generated schemas (`Alert`, `AlertKind`, `AlertSeverity`, `AlertKindRow`, `AlertCounts`). Enums are the OpenAPI schemas, not copied case lists.
+- `documents.ts` gains `ManifestRow`, `ManifestVersion`, `ManifestKind` and `ManifestIssued`. `guests.ts` gains `PreferenceQuestion`, `DepartureGuestExperience`, `GuestPreferences`, `GuestResponse`, `NpsView` and the write inputs. `payments.ts` gains `CommissionPayout`, `PortalPreview` and the payout / agency-user inputs. `crm.ts` gains `ScheduledJobCatalogueRow` from `/api/crm` only. `engine.ts` gains `QuestionnaireView`, `QuestionnaireAnswersInput`, `SurveyView` and `SurveyInput` from `/api/engine` only.
+- Restricted preference strings (`accessibility`, `emergency_contact`) are optional properties on the generated guest-experience and preference schemas. The `*_provided` booleans are always present.
+
 ## v0.11.0
 
 - Regenerated API types from the Sprint 10 OpenAPI spec (consent register, contact consents, the pipeline and stage map, tasks, campaigns, the delivery log, and `/api/privacy` subject requests).

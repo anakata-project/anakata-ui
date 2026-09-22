@@ -99,6 +99,54 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/rms/agencies/{agency}/portal-preview": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["agency.portalPreview"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/agencies/{agency}/users": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["agency.storeUser"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/agencies/{agency}/users/{user}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch: operations["agency.updateUser"];
+        trace?: never;
+    };
     "/rms/agencies/{agency}": {
         parameters: {
             query?: never;
@@ -125,6 +173,54 @@ export interface paths {
         get?: never;
         put?: never;
         post: operations["agency.decide"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/alerts": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["alert.index"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/alerts/kinds": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["alert.kinds"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/alerts/{alert}/acknowledge": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["alert.acknowledge"];
         delete?: never;
         options?: never;
         head?: never;
@@ -813,6 +909,22 @@ export interface paths {
         get: operations["commission.index"];
         put?: never;
         post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/commissions/{booking}/payout": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["commission.payout"];
         delete?: never;
         options?: never;
         head?: never;
@@ -1763,6 +1875,102 @@ export interface paths {
         patch: operations["guest.update"];
         trace?: never;
     };
+    "/rms/guest-experience/questions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["guestExperience.questions"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/departures/{departure}/guest-experience": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["guestExperience.show"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/departures/{departure}/hotel-manager-brief": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["guestExperience.brief"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/guests/{guest}/preferences": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["guestExperience.preferences"];
+        put: operations["guestExperience.update"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/guest-experience/nps": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["guestResponse.index"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/bookings/{booking}/guest-responses": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["guestResponse.store"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/health": {
         parameters: {
             query?: never;
@@ -1931,6 +2139,70 @@ export interface paths {
             cookie?: never;
         };
         get: operations["itinerary.history"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/manifests": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["manifest.index"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/departures/{departure}/manifests": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["manifest.versions"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/departures/{departure}/manifests/{kind}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["manifest.store"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/departures/{departure}/manifests/{manifest}/file/{format}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["manifest.file"];
         put?: never;
         post?: never;
         delete?: never;
@@ -2189,6 +2461,38 @@ export interface paths {
         get?: never;
         put?: never;
         post: operations["engine.promoCheck"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/engine/questionnaire/{token}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["questionnaire.show"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/engine/questionnaire/{token}/guests/{guest}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put: operations["questionnaire.update"];
+        post?: never;
         delete?: never;
         options?: never;
         head?: never;
@@ -2579,6 +2883,38 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/engine/survey/{token}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["survey.show"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/engine/survey/{token}/guests/{guest}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["survey.store"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/crm/sync/ownership": {
         parameters: {
             query?: never;
@@ -2950,6 +3286,34 @@ export interface components {
             rate_usd?: number | null;
             note?: string | null;
         };
+        /** AgencyPortalPreviewResource */
+        AgencyPortalPreviewResource: {
+            commission_pct: number;
+            net_rates: {
+                year: number;
+                suite_pp: number;
+                owner_pp: number;
+                charter_week: number;
+            }[];
+            bookings: {
+                reference: string | null;
+                lead_guest: string;
+                departure_date: string;
+                status: string;
+                net_due: number;
+            }[];
+            commissions: {
+                reference: string | null;
+                rate: number | null;
+                commission_amount: number;
+                payable_date: string;
+                status: components["schemas"]["CommissionAccrualStatus"];
+            }[];
+            sales_materials: {
+                items: string[];
+                note: string;
+            };
+        };
         /** AgencyResource */
         AgencyResource: {
             id: number;
@@ -2991,11 +3355,18 @@ export interface components {
                 commission_approved: boolean;
                 departure_date: string;
                 client: string;
+                payable_date: string;
+                accrual_status: string;
+                payout: {
+                    amount: number;
+                    paid_on: string;
+                    bank_reference: string;
+                } | null;
             }[];
             portal_preview: {
                 commission_pct: number;
                 net_rates: {
-                    year: string;
+                    year: number;
                     suite_pp: number;
                     owner_pp: number;
                     charter_week: number;
@@ -3037,6 +3408,155 @@ export interface components {
          * @enum {string}
          */
         AgencyStatus: "PENDING" | "APPROVED" | "REJECTED";
+        /**
+         * AlertKind
+         * @enum {string}
+         */
+        AlertKind: "OVERDUE_BALANCE" | "COMMISSION_CAP" | "WIRE_NOT_RECEIVED" | "SLA_BREACH" | "DELIVERY_FAILED" | "CONFIRMED_AT_DEPARTURE" | "LEDGER_DRIFT" | "COMMISSION_LEAKAGE" | "LOW_OCCUPANCY" | "MANIFEST_DATA_OVERDUE" | "NPS_LOW";
+        /** AlertKindResource */
+        AlertKindResource: {
+            kind: components["schemas"]["AlertKind"];
+            label: string;
+            severity: components["schemas"]["AlertSeverity"];
+            audience: {
+                value: string;
+                label: string;
+            }[];
+            condition: string;
+            resolves_when: string;
+            emails: boolean;
+            section: string;
+        };
+        /** AlertListResource */
+        AlertListResource: {
+            data: {
+                id: number;
+                kind: components["schemas"]["AlertKind"];
+                kind_label: string;
+                severity: components["schemas"]["AlertSeverity"];
+                title: string;
+                sentence: string;
+                /** @enum {string} */
+                state: "open" | "acknowledged" | "resolved";
+                raised_at: string | null;
+                acknowledged_at: string | null;
+                resolved_at: string | null;
+                resolution: string | null;
+                subject: {
+                    type: string;
+                    id: number | null;
+                    reference: string;
+                    href: string;
+                };
+                task: {
+                    id: number;
+                    title: string;
+                    href: string;
+                } | null;
+                may_acknowledge: boolean;
+                notifications: {
+                    user_id: number;
+                    user_name: string;
+                    status: components["schemas"]["AlertNotificationStatus"];
+                    error: string | null;
+                    sent_at: string | null;
+                    attempts: number;
+                }[];
+            }[];
+            meta: {
+                current_page: number;
+                last_page: number;
+                per_page: number;
+                total: number;
+                counts: {
+                    INFO: number;
+                    WARN: number;
+                    CRITICAL: number;
+                };
+            };
+        };
+        /**
+         * AlertNotificationStatus
+         * @enum {string}
+         */
+        AlertNotificationStatus: "SENT" | "FAILED";
+        /** AlertResource */
+        AlertResource: {
+            id: number;
+            kind: components["schemas"]["AlertKind"];
+            /** @enum {string} */
+            kind_label: "Overdue balance" | "Commission cap" | "Wire not received" | "SLA breach" | "Delivery failed" | "Confirmed at departure" | "Ledger drift" | "Commission leakage" | "Low occupancy" | "Manifest data overdue" | "NPS below threshold";
+            severity: components["schemas"]["AlertSeverity"];
+            title: string;
+            sentence: string;
+            /** @enum {string} */
+            state: "open" | "acknowledged" | "resolved";
+            raised_at: string | null;
+            acknowledged_at: string | null;
+            resolved_at: string | null;
+            resolution: string | null;
+            subject: {
+                /** @constant */
+                type: "alert";
+                id: number;
+                reference: string;
+                /** @constant */
+                href: "/rms/operations/alerts";
+            } | {
+                /** @constant */
+                type: "departure";
+                id: number | null;
+                reference: string;
+                /** @constant */
+                href: "/rms/operations/documents";
+            } | {
+                /** @constant */
+                type: "task";
+                id: number | null;
+                reference: string;
+                /** @constant */
+                href: "/crm/sales/tasks";
+            } | {
+                /** @constant */
+                type: "booking";
+                id: number | null;
+                reference: string;
+                href: string;
+            } | {
+                /** @constant */
+                type: "payment";
+                id: number | null;
+                reference: string;
+                href: string;
+            } | {
+                /** @constant */
+                type: "delivery";
+                id: number | null;
+                reference: string;
+                /** @constant */
+                href: "/crm/system/sync";
+            };
+            task: {
+                id: number;
+                title: string;
+                /** @constant */
+                href: "/crm/sales/tasks";
+            } | null;
+            may_acknowledge: boolean;
+            notifications: {
+                user_id: number;
+                user_name: string;
+                status: components["schemas"]["AlertNotificationStatus"];
+                error: string | null;
+                sent_at: string | null;
+                attempts: number;
+            }[];
+        };
+        /**
+         * AlertSeverity
+         * @enum {string}
+         */
+        AlertSeverity: "INFO" | "WARN" | "CRITICAL";
         /** ApplyReconciliationRequest */
         ApplyReconciliationRequest: {
             stripe_id: string;
@@ -3653,7 +4173,7 @@ export interface components {
          * CommissionAccrualStatus
          * @enum {string}
          */
-        CommissionAccrualStatus: "ACCRUED" | "PAYABLE" | "BLOCKED" | "CANCELLED";
+        CommissionAccrualStatus: "EARNED_ON_COMPLETION" | "PAYABLE" | "PAID" | "BLOCKED" | "CANCELLED";
         /** CommissionApprovalRequest */
         CommissionApprovalRequest: {
             approve: boolean;
@@ -3671,7 +4191,12 @@ export interface components {
             commission_pct: number | null;
             commission_amount: number;
             payable_date: string;
-            status: string;
+            status: components["schemas"]["CommissionAccrualStatus"];
+            payout: {
+                amount: number;
+                paid_on: string;
+                bank_reference: string;
+            } | null;
             departure_date: string;
         };
         /** CompleteBookingResource */
@@ -4018,7 +4543,7 @@ export interface components {
             lifetime_value: number;
             segment: string;
             lifecycle: string;
-            nps: null;
+            nps: number | null;
             consent: {
                 marketing: string;
                 transactional: boolean;
@@ -4136,7 +4661,7 @@ export interface components {
             document_id: number | null;
             kind: string;
             /** @enum {string} */
-            kind_label: "Booking Confirmation & Invoice" | "Final Invoice" | "Booking Summary" | "Payment Confirmation" | "Balance reminder" | "Transfer Voucher" | "Pre-trip Itinerary" | "Payment link" | "Wire Instructions";
+            kind_label: "Booking Confirmation & Invoice" | "Final Invoice" | "Booking Summary" | "Payment Confirmation" | "Balance reminder" | "Transfer Voucher" | "Pre-trip Itinerary" | "Payment link" | "Wire Instructions" | "Passenger details needed" | "Guest preferences questionnaire" | "Post-trip survey" | "Review request";
             to: string[];
             cc: string[];
             subject: string;
@@ -4153,6 +4678,40 @@ export interface components {
             code: string;
             category: string;
             bookable: boolean;
+        };
+        /** DepartureGuestExperienceResource */
+        DepartureGuestExperienceResource: {
+            send_date: string;
+            /** @enum {string} */
+            send_state: "sent" | "scheduled";
+            kpis: {
+                guests: number;
+                bookings: number;
+                answered: number;
+                total: number;
+                celebrations: number;
+                accessibility_or_medical: number;
+            };
+            guests: {
+                guest_id: number;
+                name: string;
+                booking_reference: string;
+                email: string | null;
+                email_note: string | null;
+                cabin: string;
+                status: components["schemas"]["PreferenceStatus"];
+                status_label: string;
+                answered_at: string | null;
+                source: components["schemas"]["PreferenceSource"] | null;
+                send_date: string;
+                dietary: string | null;
+                celebration: string | null;
+                activity: string | null;
+                accessibility_provided: boolean;
+                emergency_contact_provided: boolean;
+                accessibility?: string | null;
+                emergency_contact?: string | null;
+            }[];
         };
         /** DepartureMutationResource */
         DepartureMutationResource: {
@@ -4708,6 +5267,45 @@ export interface components {
             balance: number;
             statuses: string[];
         };
+        /** GuestPreferencesResource */
+        GuestPreferencesResource: {
+            current: {
+                id: number;
+                version: number;
+                source: components["schemas"]["PreferenceSource"];
+                answered_at: string | null;
+                purged_at: string | null;
+                recorded_by: {
+                    id: number;
+                    name: string | null;
+                } | null;
+                answers: {
+                    [key: string]: string;
+                };
+                accessibility_provided: boolean;
+                emergency_contact_provided: boolean;
+                accessibility?: string | null;
+                emergency_contact?: string | null;
+            } | null;
+            versions: {
+                id: number;
+                version: number;
+                source: components["schemas"]["PreferenceSource"];
+                answered_at: string | null;
+                purged_at: string | null;
+                recorded_by: {
+                    id: number;
+                    name: string | null;
+                } | null;
+                answers: {
+                    [key: string]: string;
+                };
+                accessibility_provided: boolean;
+                emergency_contact_provided: boolean;
+                accessibility?: string | null;
+                emergency_contact?: string | null;
+            }[];
+        };
         /** GuestResource */
         GuestResource: {
             id: number;
@@ -4739,6 +5337,20 @@ export interface components {
                 consented_at: string | null;
             } | null;
         };
+        /** GuestResponseResource */
+        GuestResponseResource: {
+            id: number;
+            guest_id: number;
+            score: number;
+            recommend: number | null;
+            call_notes: string | null;
+            source: components["schemas"]["GuestResponseSource"];
+        };
+        /**
+         * GuestResponseSource
+         * @enum {string}
+         */
+        GuestResponseSource: "GUEST_LINK" | "STAFF";
         /** HoldResource */
         HoldResource: {
             type: string | null;
@@ -4963,6 +5575,55 @@ export interface components {
          * @enum {string}
          */
         MainChannel: "D2C" | "B2B" | "B2B – Travel Advisor" | "B2B – Tour Operator" | "B2B – Corporate" | "Wholesale / Distribution" | "Partners" | "Other";
+        /** ManifestDepartureResource */
+        ManifestDepartureResource: {
+            departure_id: number;
+            reference: string;
+            date: string;
+            yacht: string;
+            charter: boolean;
+            passengers: number;
+            complete: number;
+            dpng_due: string;
+            dpng_offset_days: number;
+            captain_due: string;
+            captain_offset_days: number;
+            status: string;
+            dpng: components["schemas"]["ManifestVersionResource"] | null;
+            captain: components["schemas"]["ManifestVersionResource"] | null;
+        };
+        /** ManifestIssuedResource */
+        ManifestIssuedResource: {
+            created: boolean;
+            message: string;
+            data: components["schemas"]["ManifestVersionResource"];
+        };
+        /**
+         * ManifestKind
+         * @enum {string}
+         */
+        ManifestKind: "DPNG" | "CAPTAIN";
+        /**
+         * ManifestReason
+         * @enum {string}
+         */
+        ManifestReason: "FIRST" | "PASSENGER_CHANGE" | "REQUESTED";
+        /** ManifestVersionResource */
+        ManifestVersionResource: {
+            id: number;
+            departure_id: number;
+            kind: components["schemas"]["ManifestKind"];
+            version: number;
+            reason: components["schemas"]["ManifestReason"];
+            generated_at: string | null;
+            generated_by: {
+                id: number;
+                name: string;
+            } | null;
+            passengers: number;
+            complete: number;
+            purged_at: string | null;
+        };
         /** MarkWireReceivedRequest */
         MarkWireReceivedRequest: {
             bank_reference: string;
@@ -5021,6 +5682,32 @@ export interface components {
         /** NotifyWaitlistEntryRequest */
         NotifyWaitlistEntryRequest: {
             channel: components["schemas"]["PreferredChannel"];
+        };
+        /** NpsViewResource */
+        NpsViewResource: {
+            kpis: {
+                average_score: string | null;
+                responses: number;
+                alerts_below: number;
+                review_requests_sent: number;
+            };
+            responses: {
+                booking_reference: string;
+                guest: string;
+                score: number;
+                /** @enum {string} */
+                score_class: "low" | "neutral" | "high";
+                recommend: number | null;
+                best: string | null;
+                better: string | null;
+                crew: string | null;
+            }[];
+            facts: {
+                first_expected_survey_on: string | null;
+                survey_hours_after_return: number;
+                alert_below: number;
+                review_request_from: number;
+            };
         };
         /**
          * OfferChannel
@@ -5146,12 +5833,12 @@ export interface components {
          * @description Staff permissions are code, not data. Adding a case is a code change and needs a default decision for the Manager and Sales Exec roles.
          * @enum {string}
          */
-        Permission: "panel.rms" | "panel.crm" | "users.manage" | "roles.manage" | "records.act_on_any" | "bookings.view_all" | "bookings.create" | "bookings.change_status" | "bookings.move" | "bookings.delete" | "requests.confirm" | "requests.release" | "departures.manage" | "itineraries.manage" | "blocks.manage" | "rates.manage" | "rules.view" | "rules.manage" | "engine_settings.manage" | "engine_copy.manage" | "offers.manage" | "offers.approve" | "extras.manage" | "agencies.manage" | "guests.view_sensitive" | "pipeline.move_stage" | "contacts.manage" | "contacts.merge" | "consents.record" | "campaigns.manage" | "sync.retry" | "payments.record" | "payments.mark_wire_received" | "refunds.execute" | "refunds.approve" | "commissions.override_cap" | "bookings.overdue_decision" | "privacy.manage";
+        Permission: "panel.rms" | "panel.crm" | "users.manage" | "roles.manage" | "records.act_on_any" | "bookings.view_all" | "bookings.create" | "bookings.change_status" | "bookings.move" | "bookings.delete" | "requests.confirm" | "requests.release" | "departures.manage" | "itineraries.manage" | "blocks.manage" | "rates.manage" | "rules.view" | "rules.manage" | "engine_settings.manage" | "engine_copy.manage" | "offers.manage" | "offers.approve" | "extras.manage" | "agencies.manage" | "guests.view_sensitive" | "guest_experience.manage" | "pipeline.move_stage" | "contacts.manage" | "contacts.merge" | "consents.record" | "campaigns.manage" | "sync.retry" | "payments.record" | "payments.mark_wire_received" | "refunds.execute" | "refunds.approve" | "commissions.override_cap" | "commissions.record_payout" | "bookings.overdue_decision" | "privacy.manage";
         /** PermissionResource */
         PermissionResource: {
             value: string;
             /** @enum {string} */
-            label: "Access RMS" | "Access CRM" | "Manage users" | "Manage roles" | "Act on any record" | "View all reservations" | "Create reservation" | "Change reservation status" | "Move reservation" | "Delete reservation" | "Confirm requests" | "Release requests" | "Manage departures" | "Manage itineraries" | "Manage internal blocks" | "Edit rates, deposit terms and discount rules" | "View business rules" | "View and adjust business rules" | "Manage engine settings" | "Edit engine copy" | "Manage offers" | "Approve offers" | "Manage extras catalog" | "Manage agencies" | "View sensitive guest data" | "Move lead stage" | "Manage contacts" | "Merge contacts" | "Record contact consent" | "Manage campaigns" | "Retry failed sync work" | "Record a payment" | "Mark wire received" | "Execute refunds" | "Approve refunds" | "Approve commission above cap" | "OPS-007 overdue decisions" | "Manage subject requests";
+            label: "Access RMS" | "Access CRM" | "Manage users" | "Manage roles" | "Act on any record" | "View all reservations" | "Create reservation" | "Change reservation status" | "Move reservation" | "Delete reservation" | "Confirm requests" | "Release requests" | "Manage departures" | "Manage itineraries" | "Manage internal blocks" | "Edit rates, deposit terms and discount rules" | "View business rules" | "View and adjust business rules" | "Manage engine settings" | "Edit engine copy" | "Manage offers" | "Approve offers" | "Manage extras catalog" | "Manage agencies" | "View sensitive guest data" | "Record guest preferences" | "Move lead stage" | "Manage contacts" | "Merge contacts" | "Record contact consent" | "Manage campaigns" | "Retry failed sync work" | "Record a payment" | "Mark wire received" | "Execute refunds" | "Approve refunds" | "Approve commission above cap" | "Record a commission payout" | "OPS-007 overdue decisions" | "Manage subject requests";
             /** @enum {string} */
             group: "sections" | "admin" | "bookings" | "requests" | "inventory" | "commercial" | "guests" | "crm" | "finance" | "director";
             /** @enum {string} */
@@ -5202,6 +5889,30 @@ export interface components {
                 };
             };
         };
+        /** PreferenceQuestionResource */
+        PreferenceQuestionResource: {
+            key: string;
+            label: string;
+            type: components["schemas"]["PreferenceQuestionType"];
+            options: string[];
+            restricted: boolean;
+            required: boolean;
+        };
+        /**
+         * PreferenceQuestionType
+         * @enum {string}
+         */
+        PreferenceQuestionType: "text" | "choice";
+        /**
+         * PreferenceSource
+         * @enum {string}
+         */
+        PreferenceSource: "GUEST_LINK" | "STAFF";
+        /**
+         * PreferenceStatus
+         * @enum {string}
+         */
+        PreferenceStatus: "ANSWERED" | "SENT_NO_REPLY" | "SCHEDULED";
         /**
          * PreferredChannel
          * @enum {string}
@@ -5233,6 +5944,28 @@ export interface components {
             document: string[];
             base_version: number;
             approval_reference?: string | null;
+        };
+        /** QuestionnaireResource */
+        QuestionnaireResource: {
+            reference: string;
+            departure_date: string;
+            itinerary_name: string;
+            questions: {
+                key: string;
+                label: string;
+                type: components["schemas"]["PreferenceQuestionType"];
+                options: string[];
+                restricted: boolean;
+                required: boolean;
+            }[];
+            guests: {
+                id: number;
+                first_name: string;
+                cabin: string;
+                answers: {
+                    [key: string]: string;
+                };
+            }[];
         };
         /** QuoteReservationRequest */
         QuoteReservationRequest: {
@@ -5664,6 +6397,12 @@ export interface components {
             commission_pct?: number | null;
             payment_terms?: string | null;
         };
+        /** StoreAgencyUserRequest */
+        StoreAgencyUserRequest: {
+            name: string;
+            /** Format: email */
+            email: string;
+        };
         /** StoreCampaignRequest */
         StoreCampaignRequest: {
             name: string;
@@ -5671,6 +6410,13 @@ export interface components {
             utm_campaign?: string | null;
             audience?: string | null;
             media_spend?: number;
+        };
+        /** StoreCommissionPayoutRequest */
+        StoreCommissionPayoutRequest: {
+            amount: number;
+            /** Format: date */
+            paid_on: string;
+            bank_reference: string;
         };
         /** StoreContactActivityRequest */
         StoreContactActivityRequest: {
@@ -5749,6 +6495,17 @@ export interface components {
             children: number;
             notes?: string | null;
             session_id?: string | null;
+        };
+        /** StoreGuestResponseRequest */
+        StoreGuestResponseRequest: {
+            score: number;
+            recommend?: number | null;
+            why?: string | null;
+            best?: string | null;
+            better?: string | null;
+            crew?: string | null;
+            call_notes?: string | null;
+            guest_id: number;
         };
         /** StoreInternalBlockRequest */
         StoreInternalBlockRequest: {
@@ -5884,6 +6641,15 @@ export interface components {
             channel: components["schemas"]["SubjectRequestChannel"];
             notes?: string | null;
         };
+        /** StoreSurveyResponseRequest */
+        StoreSurveyResponseRequest: {
+            score: number;
+            recommend?: number | null;
+            why?: string | null;
+            best?: string | null;
+            better?: string | null;
+            crew?: string | null;
+        };
         /** StoreWaitlistEntryRequest */
         StoreWaitlistEntryRequest: {
             departure_id: number;
@@ -5952,6 +6718,18 @@ export interface components {
                 first_touch?: string[] | null;
                 last_touch?: string[] | null;
             };
+        };
+        /** SurveyResource */
+        SurveyResource: {
+            reference: string;
+            departure_date: string;
+            itinerary_name: string;
+            guests: {
+                id: number;
+                first_name: string;
+                last_name: string;
+                responded: boolean;
+            }[];
         };
         /** SyncFailureResource */
         SyncFailureResource: {
@@ -6029,6 +6807,12 @@ export interface components {
             network?: string | null;
             payment_terms?: string | null;
             commission_pct?: number;
+        };
+        /** UpdateAgencyUserRequest */
+        UpdateAgencyUserRequest: {
+            name?: string;
+            /** @enum {string} */
+            status?: "ACTIVE" | "DISABLED";
         };
         /** UpdateBookingBillingRequest */
         UpdateBookingBillingRequest: {
@@ -6112,6 +6896,10 @@ export interface components {
             public_note?: string | null;
             festive?: boolean;
         };
+        /** UpdateGuestPreferencesRequest */
+        UpdateGuestPreferencesRequest: {
+            answers: string[];
+        };
         /** UpdateInternalBlockRequest */
         UpdateInternalBlockRequest: {
             reason?: components["schemas"]["BlockReason"];
@@ -6188,6 +6976,10 @@ export interface components {
             price_line?: string | null;
             terms?: string | null;
             as_draft?: boolean;
+        };
+        /** UpdateQuestionnaireRequest */
+        UpdateQuestionnaireRequest: {
+            answers: string[];
         };
         /** UpdateRoleRequest */
         UpdateRoleRequest: {
@@ -6391,6 +7183,8 @@ export interface operations {
                                 registrations_to_review: number;
                                 agency_revenue: number;
                                 commission_accrued: number;
+                                commission_payable: number;
+                                commission_paid: number;
                                 agency_approval_business_days: number;
                                 commission_payable_days: number;
                                 commission_cap_pct: number;
@@ -6429,6 +7223,96 @@ export interface operations {
             };
             401: components["responses"]["AuthenticationException"];
             403: components["responses"]["AuthorizationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "agency.portalPreview": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The agency ID */
+                agency: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `AgencyPortalPreviewResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AgencyPortalPreviewResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "agency.storeUser": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The agency ID */
+                agency: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["StoreAgencyUserRequest"];
+            };
+        };
+        responses: {
+            /** @description `AgencyResource` */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AgencyResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "agency.updateUser": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The agency ID */
+                agency: number;
+                /** @description The user ID */
+                user: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["UpdateAgencyUserRequest"];
+            };
+        };
+        responses: {
+            /** @description `AgencyResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AgencyResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
             422: components["responses"]["ValidationException"];
         };
     };
@@ -6518,6 +7402,86 @@ export interface operations {
             403: components["responses"]["AuthorizationException"];
             404: components["responses"]["ModelNotFoundException"];
             422: components["responses"]["ValidationException"];
+        };
+    };
+    "alert.index": {
+        parameters: {
+            query?: {
+                state?: "open" | "acknowledged" | "resolved" | null;
+                severity?: components["schemas"]["AlertSeverity"] | null;
+                kind?: components["schemas"]["AlertKind"] | null;
+                section?: "rms" | "crm" | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `AlertListResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AlertListResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "alert.kinds": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Array of `AlertKindResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["AlertKindResource"][];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+        };
+    };
+    "alert.acknowledge": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The alert ID */
+                alert: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `AlertResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["AlertResource"];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
         };
     };
     "auth.login": {
@@ -8049,6 +9013,37 @@ export interface operations {
             };
             401: components["responses"]["AuthenticationException"];
             403: components["responses"]["AuthorizationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "commission.payout": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The booking ID */
+                booking: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["StoreCommissionPayoutRequest"];
+            };
+        };
+        responses: {
+            /** @description `CommissionResource` */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CommissionResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
             422: components["responses"]["ValidationException"];
         };
     };
@@ -10202,6 +11197,203 @@ export interface operations {
             422: components["responses"]["ValidationException"];
         };
     };
+    "guestExperience.questions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `PreferenceQuestionResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["PreferenceQuestionResource"];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+        };
+    };
+    "guestExperience.show": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The departure ID */
+                departure: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `DepartureGuestExperienceResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["DepartureGuestExperienceResource"];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "guestExperience.brief": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The departure ID */
+                departure: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    "Content-Disposition"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "text/html; charset=UTF-8": string;
+                    "application/pdf": string;
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "guestExperience.preferences": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The guest ID */
+                guest: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `GuestPreferencesResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["GuestPreferencesResource"];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "guestExperience.update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The guest ID */
+                guest: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["UpdateGuestPreferencesRequest"];
+            };
+        };
+        responses: {
+            /** @description `GuestPreferencesResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["GuestPreferencesResource"];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "guestResponse.index": {
+        parameters: {
+            query?: {
+                from?: string | null;
+                to?: string | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `NpsViewResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["NpsViewResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "guestResponse.store": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The booking ID */
+                booking: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["StoreGuestResponseRequest"];
+            };
+        };
+        responses: {
+            /** @description `GuestResponseResource` */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["GuestResponseResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
     health: {
         parameters: {
             query?: never;
@@ -10657,6 +11849,127 @@ export interface operations {
                             total: number;
                         };
                     };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "manifest.index": {
+        parameters: {
+            query: {
+                from: string;
+                to: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Array of `ManifestDepartureResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["ManifestDepartureResource"][];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "manifest.versions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The departure ID */
+                departure: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Array of `ManifestVersionResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["ManifestVersionResource"][];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "manifest.store": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The departure ID */
+                departure: number;
+                kind: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `ManifestIssuedResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ManifestIssuedResource"];
+                };
+            };
+            /** @description `ManifestIssuedResource` */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ManifestIssuedResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "manifest.file": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The departure ID */
+                departure: number;
+                /** @description The manifest ID */
+                manifest: number;
+                format: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    "Transfer-Encoding": "chunked";
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/octet-stream": string;
                 };
             };
             401: components["responses"]["AuthenticationException"];
@@ -11292,6 +12605,60 @@ export interface operations {
                          * @example
                          */
                         message: string;
+                    };
+                };
+            };
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "questionnaire.show": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                token: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `QuestionnaireResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["QuestionnaireResource"];
+                    };
+                };
+            };
+        };
+    };
+    "questionnaire.update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                token: string;
+                guest: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["UpdateQuestionnaireRequest"];
+            };
+        };
+        responses: {
+            /** @description `QuestionnaireResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["QuestionnaireResource"];
                     };
                 };
             };
@@ -12232,6 +13599,60 @@ export interface operations {
             422: components["responses"]["ValidationException"];
         };
     };
+    "survey.show": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                token: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `SurveyResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["SurveyResource"];
+                    };
+                };
+            };
+        };
+    };
+    "survey.store": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                token: string;
+                guest: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["StoreSurveyResponseRequest"];
+            };
+        };
+        responses: {
+            /** @description `SurveyResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["SurveyResource"];
+                    };
+                };
+            };
+            422: components["responses"]["ValidationException"];
+        };
+    };
     "sync.ownership": {
         parameters: {
             query?: never;
@@ -12279,6 +13700,11 @@ export interface operations {
                                 failures_open: number;
                                 merges_this_month: number;
                             };
+                            catalogue: {
+                                job: string;
+                                command: string;
+                                sentence: string;
+                            }[];
                         };
                     };
                 };

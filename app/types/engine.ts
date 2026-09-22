@@ -352,3 +352,19 @@ export type AttributionInput = {
   first_touch?: AttributionTouch | null
   last_touch?: AttributionTouch | null
 }
+
+export type QuestionnaireView = components['schemas']['QuestionnaireResource']
+
+/**
+ * Scramble types a PHP associative `answers` array as string[].
+ * The validator accepts question key → value.
+ */
+export type QuestionnaireAnswersInput = Omit<
+  components['schemas']['UpdateQuestionnaireRequest'],
+  'answers'
+> & {
+  answers: Record<string, string>
+}
+
+export type SurveyView = components['schemas']['SurveyResource']
+export type SurveyInput = components['schemas']['StoreSurveyResponseRequest']

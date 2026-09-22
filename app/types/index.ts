@@ -128,10 +128,17 @@ export type {
   GuestIssue,
   GuestIssueSeverity,
   GuestListSummary,
+  DepartureGuestExperience,
+  GuestPreferences,
+  GuestPreferencesInput,
+  GuestResponse,
+  GuestResponseInput,
   MaskedNote,
   NationalitiesSummary,
   NationalityRow,
+  NpsView,
   PngCategory,
+  PreferenceQuestion,
 } from './guests'
 
 export type {
@@ -151,7 +158,19 @@ export type {
   DocumentPlanRow,
   DocumentStatus,
   IssuedDocument,
+  ManifestIssued,
+  ManifestKind,
+  ManifestRow,
+  ManifestVersion,
 } from './documents'
+
+export type {
+  Alert,
+  AlertCounts,
+  AlertKind,
+  AlertKindRow,
+  AlertSeverity,
+} from './alerts'
 
 export type {
   CharterEnquiry,
@@ -193,6 +212,10 @@ export type {
   EngineWaitlist,
   PriceChangedError,
   PromoCheck,
+  QuestionnaireAnswersInput,
+  QuestionnaireView,
+  SurveyInput,
+  SurveyView,
 } from './engine'
 
 export type {
@@ -211,6 +234,7 @@ export type {
   Lifecycle,
   OwnershipRow,
   RetrySyncFailure,
+  ScheduledJobCatalogueRow,
   ScheduledJobRun,
   Segment,
   SyncFailure,
@@ -269,7 +293,11 @@ export type {
   AgencyListItem,
   AgencyStatus,
   AgencyUser,
+  AgencyUserInput,
+  AgencyUserUpdate,
   CancellationBandLabel,
+  CommissionPayout,
+  CommissionPayoutInput,
   CommissionRow,
   CommissionStatus,
   Payment,
@@ -281,6 +309,7 @@ export type {
   PaymentOptions,
   PaymentStatus,
   PaymentsKpis,
+  PortalPreview,
   ReconciliationReport,
   ReconciliationRow,
   RefundRequest,

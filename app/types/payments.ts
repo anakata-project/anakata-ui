@@ -122,6 +122,12 @@ export type CommissionRow = Omit<
   status: CommissionStatus
 }
 
+export type CommissionPayout = NonNullable<components['schemas']['CommissionResource']['payout']>
+export type CommissionPayoutInput = components['schemas']['StoreCommissionPayoutRequest']
+export type PortalPreview = components['schemas']['AgencyPortalPreviewResource']
+export type AgencyUserInput = components['schemas']['StoreAgencyUserRequest']
+export type AgencyUserUpdate = components['schemas']['UpdateAgencyUserRequest']
+
 export type RefundRequest = Omit<
   components['schemas']['RefundRequestResource'],
   | 'status'
