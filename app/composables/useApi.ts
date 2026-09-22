@@ -6,15 +6,27 @@ export type ApiErrorStatus = (typeof API_ERROR_STATUSES)[number]
 
 const MUTATING_METHODS = new Set(['POST', 'PUT', 'PATCH', 'DELETE'])
 
+export type ConflictingContact = {
+  id: number
+  name: string
+}
+
 export class ApiError extends Error {
   status: ApiErrorStatus
   errors?: Record<string, Array<string>>
+  conflictingContact?: ConflictingContact
 
-  constructor(status: ApiErrorStatus, message: string, errors?: Record<string, Array<string>>) {
+  constructor(
+    status: ApiErrorStatus,
+    message: string,
+    errors?: Record<string, Array<string>>,
+    conflictingContact?: ConflictingContact,
+  ) {
     super(message)
     this.name = 'ApiError'
     this.status = status
     this.errors = errors
+    this.conflictingContact = conflictingContact
   }
 }
 
@@ -60,12 +72,32 @@ function responseStatus(error: unknown): number | undefined {
   return undefined
 }
 
-function responseData(error: unknown): { message?: string, errors?: Record<string, Array<string>> } {
+function responseData(error: unknown): {
+  message?: string
+  errors?: Record<string, Array<string>>
+  conflicting_contact?: { id?: unknown, name?: unknown }
+} {
   if (typeof error !== 'object' || error === null || !('data' in error) || typeof error.data !== 'object' || error.data === null) {
     return {}
   }
 
-  return error.data as { message?: string, errors?: Record<string, Array<string>> }
+  return error.data as {
+    message?: string
+    errors?: Record<string, Array<string>>
+    conflicting_contact?: { id?: unknown, name?: unknown }
+  }
+}
+
+function conflictingContactFrom(data: {
+  conflicting_contact?: { id?: unknown, name?: unknown }
+}): ConflictingContact | undefined {
+  const contact = data.conflicting_contact
+
+  if (!contact || typeof contact.id !== 'number' || typeof contact.name !== 'string') {
+    return undefined
+  }
+
+  return { id: contact.id, name: contact.name }
 }
 
 export function toApiError(error: unknown): ApiError | null {
@@ -81,7 +113,7 @@ export function toApiError(error: unknown): ApiError | null {
 
   const data = responseData(error)
 
-  return new ApiError(status, data.message ?? 'Request failed', data.errors)
+  return new ApiError(status, data.message ?? 'Request failed', data.errors, conflictingContactFrom(data))
 }
 
 function readDocumentXsrfToken(): string | null {

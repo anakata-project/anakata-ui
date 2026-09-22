@@ -91,6 +91,18 @@ describe('createApiClient', () => {
     }))
     await expect(client.request('/api/me')).rejects.toMatchObject({ status: 409 })
 
+    fetchImpl.mockRejectedValueOnce(Object.assign(new Error('Conflict'), {
+      status: 409,
+      data: {
+        message: 'That email belongs to contact #12 (Ada).',
+        conflicting_contact: { id: 12, name: 'Ada' },
+      },
+    }))
+    await expect(client.request('/api/me')).rejects.toMatchObject({
+      status: 409,
+      conflictingContact: { id: 12, name: 'Ada' },
+    })
+
     fetchImpl.mockRejectedValueOnce(Object.assign(new Error('The given data was invalid.'), {
       status: 422,
       data: {
