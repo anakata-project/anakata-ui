@@ -366,5 +366,6 @@ export type QuestionnaireAnswersInput = Omit<
   answers: Record<string, string>
 }
 
+export type SurveyQuestion = components['schemas']['SurveyQuestionResource']
 export type SurveyView = components['schemas']['SurveyResource']
 export type SurveyInput = components['schemas']['StoreSurveyResponseRequest']

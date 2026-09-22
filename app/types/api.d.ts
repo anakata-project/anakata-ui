@@ -1955,6 +1955,22 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/rms/guest-experience/survey-questions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["guestResponse.questions"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/rms/bookings/{booking}/guest-responses": {
         parameters: {
             query?: never;
@@ -6499,11 +6515,11 @@ export interface components {
         /** StoreGuestResponseRequest */
         StoreGuestResponseRequest: {
             score: number;
-            recommend?: number | null;
             why?: string | null;
             best?: string | null;
             better?: string | null;
             crew?: string | null;
+            rec?: number | null;
             call_notes?: string | null;
             guest_id: number;
         };
@@ -6644,11 +6660,11 @@ export interface components {
         /** StoreSurveyResponseRequest */
         StoreSurveyResponseRequest: {
             score: number;
-            recommend?: number | null;
             why?: string | null;
             best?: string | null;
             better?: string | null;
             crew?: string | null;
+            rec?: number | null;
         };
         /** StoreWaitlistEntryRequest */
         StoreWaitlistEntryRequest: {
@@ -6719,11 +6735,31 @@ export interface components {
                 last_touch?: string[] | null;
             };
         };
+        /** SurveyQuestionResource */
+        SurveyQuestionResource: {
+            key: string;
+            label: string;
+            type: components["schemas"]["SurveyQuestionType"];
+            min: number | null;
+            max: number | null;
+        };
+        /**
+         * SurveyQuestionType
+         * @enum {string}
+         */
+        SurveyQuestionType: "scale" | "text";
         /** SurveyResource */
         SurveyResource: {
             reference: string;
             departure_date: string;
             itinerary_name: string;
+            questions: {
+                key: string;
+                label: string;
+                type: components["schemas"]["SurveyQuestionType"];
+                min: number | null;
+                max: number | null;
+            }[];
             guests: {
                 id: number;
                 first_name: string;
@@ -11361,6 +11397,30 @@ export interface operations {
             401: components["responses"]["AuthenticationException"];
             403: components["responses"]["AuthorizationException"];
             422: components["responses"]["ValidationException"];
+        };
+    };
+    "guestResponse.questions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `SurveyQuestionResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["SurveyQuestionResource"];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
         };
     };
     "guestResponse.store": {

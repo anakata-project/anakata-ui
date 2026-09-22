@@ -215,6 +215,7 @@ export type {
   QuestionnaireAnswersInput,
   QuestionnaireView,
   SurveyInput,
+  SurveyQuestion,
   SurveyView,
 } from './engine'
 
