@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.11.0
+
+- Regenerated API types from the Sprint 10 OpenAPI spec (consent register, contact consents, the pipeline and stage map, tasks, campaigns, the delivery log, and `/api/privacy` subject requests).
+- `app/types/crm.ts` gains the Sprint 10 aliases from `/api/crm` schemas only (`ConsentPurpose`, `ConsentRegisterRow`, `ContactConsentState`, `DealStage`, `DealType`, `PipelineColumn`, `PipelineKpis`, `StageMapRow`, `DealDetail`, `CrmTask`, `TaskKind`, `TaskKpis`, `ContactActivity`, `Campaign`, `CampaignMeasures`, `AttributionModelRow`, `DeliveryRow`, `DeliveryKpis`, and the write inputs).
+- New `app/types/privacy.ts` for `/api/privacy` only (`SubjectRequest`, `SubjectRequestType`, `SubjectRequestStatus`, `SubjectRequestChannel`, and the write inputs). It does not import CRM or RMS types.
+
 ## v0.10.0
 
 - Regenerated API types from the Sprint 9 OpenAPI spec (CRM contacts, duplicates, merges, timeline, activity `meta.kpis`, the five sync endpoints, and the engine's events and attribution inputs).

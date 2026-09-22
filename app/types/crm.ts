@@ -103,3 +103,128 @@ export type EventCatalogueRow = components['schemas']['EventCatalogueResource']
 export type SyncIdentityRow = components['schemas']['SyncIdentityResource']
 export type RetrySyncFailure = components['schemas']['RetrySyncFailureResource']
 export type SyncKpis = operations['sync.jobs']['responses'][200]['content']['application/json']['meta']['kpis']
+
+export type ConsentPurpose = components['schemas']['ConsentPurpose']
+
+/**
+ * Mirrors App\Enums\DealStage. The pipeline schema stores the stage as a string.
+ */
+export type DealStage =
+  | 'NEW_LEAD'
+  | 'QUALIFYING'
+  | 'QUOTED'
+  | 'NEGOTIATION'
+  | 'DEPOSIT_PENDING'
+  | 'BOOKING_CONFIRMED'
+  | 'WON_COMPLETED'
+  | 'LOST'
+
+export type DealType = components['schemas']['DealType']
+
+/**
+ * Mirrors App\Enums\TaskKind. The task list stores the kind as a string.
+ */
+export type TaskKind =
+  | 'REQUEST_RESPONSE'
+  | 'CHARTER_QUOTE'
+  | 'OVERDUE_DECISION'
+  | 'COMMISSION_CAP'
+  | 'WIRE_WINDOW'
+  | 'REFUND_DECISION'
+  | 'DEAL_QUOTE'
+  | 'MANUAL'
+  | 'SUBJECT_REQUEST'
+
+type ConsentCurrent = components['schemas']['ContactConsentsResource']['current'][number]
+type ConsentHistory = components['schemas']['ContactConsentsResource']['history'][number]
+
+export type ContactConsentState = Omit<ConsentCurrent, 'purpose'> & {
+  purpose: ConsentPurpose
+}
+
+export type ContactConsentEntry = Omit<ConsentHistory, 'purpose'> & {
+  purpose: ConsentPurpose
+}
+
+export type ConsentRegisterRow = Omit<
+  components['schemas']['ConsentRegisterRowResource'],
+  'purpose'
+> & {
+  purpose: ConsentPurpose
+}
+
+export type DataMapRow = components['schemas']['ConsentDataMapRowResource']
+
+export type RecordConsentInput = components['schemas']['RecordContactConsentRequest']
+
+type PipelineDealGenerated = components['schemas']['PipelineResource']['columns'][number]['deals'][number]
+type PipelineColumnGenerated = components['schemas']['PipelineResource']['columns'][number]
+
+export type PipelineDeal = Omit<PipelineDealGenerated, 'type'> & {
+  type: DealType
+}
+
+export type PipelineColumn = Omit<PipelineColumnGenerated, 'stage' | 'deals'> & {
+  stage: DealStage
+  deals: Array<PipelineDeal>
+}
+
+export type PipelineKpis = components['schemas']['PipelineResource']['meta']['kpis']
+
+export type StageMapRow = Omit<
+  components['schemas']['StageMapResource']['data'][number],
+  'stage'
+> & {
+  stage: DealStage
+}
+
+export type DealDetail = Omit<components['schemas']['DealResource'], 'type' | 'stage'> & {
+  type: DealType
+  stage: DealStage
+}
+
+export type DealInput = components['schemas']['StoreDealRequest']
+export type MoveDealInput = components['schemas']['MoveDealStageRequest']
+export type AssignDealInput = components['schemas']['AssignDealRequest']
+export type BindDealInput = components['schemas']['BindDealRequest']
+
+export type CrmTask = Omit<
+  components['schemas']['TaskListResource']['data'][number],
+  'kind'
+> & {
+  kind: TaskKind
+}
+
+export type TaskKpis = components['schemas']['TaskListResource']['meta']['kpis']
+
+export type TaskInput = components['schemas']['StoreManualTaskRequest']
+export type TaskUpdate = components['schemas']['UpdateManualTaskRequest']
+export type CompleteTaskInput = components['schemas']['CompleteTaskRequest']
+
+export type ContactActivity = components['schemas']['ContactActivityResource']
+export type ActivityInput = components['schemas']['StoreContactActivityRequest']
+
+export type Campaign = components['schemas']['CampaignIndexResource']['data'][number]
+
+export type CampaignMeasures = Pick<
+  Campaign,
+  | 'redeemed'
+  | 'revenue'
+  | 'attributed_first'
+  | 'attributed_last'
+  | 'trade'
+  | 'roas'
+  | 'sends'
+  | 'clicks'
+>
+
+export type CampaignOffer = components['schemas']['CampaignOffersResource']['data'][number]
+export type CampaignBooking = components['schemas']['CampaignBookingPageResource']['data'][number]
+export type CampaignInput = components['schemas']['StoreCampaignRequest']
+export type CampaignUpdate = components['schemas']['UpdateCampaignRequest']
+
+export type AttributionModelRow = components['schemas']['AttributionModelResource']['data'][number]
+
+export type DeliveryRow = components['schemas']['DeliveryIndexResource']['data'][number]
+export type DeliveryKpis = components['schemas']['DeliveryIndexResource']['meta']['kpis']
+
