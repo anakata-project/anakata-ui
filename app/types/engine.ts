@@ -236,6 +236,10 @@ export type EngineWaitlist = Omit<
   cabin_category: components['schemas']['CabinCategory']
 }
 
+export type CharterProposalView = components['schemas']['CharterProposalViewResource']
+export type AcceptCharterProposalInput = components['schemas']['AcceptCharterProposalRequest']
+export type DeclineCharterProposalInput = components['schemas']['DeclineCharterProposalRequest']
+
 /**
  * Mirrors App\Http\Resources\Engine\EngineCharterEnquiryResource.
  */

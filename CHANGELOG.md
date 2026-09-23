@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.13.0
+
+- Regenerated API types from the Sprint 12 OpenAPI spec (commercial metrics and their definition sentences, report definitions, runs and subscriptions, waitlist `auto_notified` and position, charter enquiry proposal state, and the engine charter proposal page).
+- New `app/types/metrics.ts` (`CommercialMetrics`, `MetricDefinition`, `MetricWindow`, `MetricScope`) and `app/types/reports.ts` (`ReportDefinition`, `ReportRun`, `ReportRunStatus`, `ReportCadence`, `ReportSubscription`, `RunReportInput`, `UpdateSubscriptionInput`). Enums are the OpenAPI schemas.
+- `offers.ts` gains `CharterProposal` and `CharterProposalState`. `engine.ts` gains `CharterProposalView`, `AcceptCharterProposalInput` and `DeclineCharterProposalInput` from `/api/engine` only. `inventory.ts` gains `WaitlistNotice` for the new waitlist fields.
+
 ## v0.12.1
 
 - Regenerated API types so `AgencyUser.status` is `AgencyUserStatus` (`INVITE_ON_APPROVAL`, `INVITE_ON_PORTAL_LAUNCH`, `ACTIVE`, `DISABLED`). The previous leftover union named statuses the API no longer returns.

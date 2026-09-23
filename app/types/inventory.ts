@@ -245,3 +245,9 @@ export type CabinUnavailableError = {
   message: string
   unavailable: Array<CabinUnavailableItem>
 }
+
+/** Sprint 12 waitlist list fields. The row stays `WaitlistEntry` in bookings.ts. */
+export type WaitlistNotice = Pick<
+  components['schemas']['WaitlistEntryResource'],
+  'auto_notified' | 'position' | 'notified'
+>

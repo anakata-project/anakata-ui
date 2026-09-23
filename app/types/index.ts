@@ -177,8 +177,27 @@ export type {
 } from './alerts'
 
 export type {
+  CommercialMetrics,
+  MetricDefinition,
+  MetricScope,
+  MetricWindow,
+} from './metrics'
+
+export type {
+  ReportCadence,
+  ReportDefinition,
+  ReportRun,
+  ReportRunStatus,
+  ReportSubscription,
+  RunReportInput,
+  UpdateSubscriptionInput,
+} from './reports'
+
+export type {
   CharterEnquiry,
   CharterEnquiryStatus,
+  CharterProposal,
+  CharterProposalState,
   CompleteLink,
   Offer,
   OfferChannel,
@@ -199,6 +218,9 @@ export type {
   CompleteGuest,
   CompleteReservation,
   EngineCabin,
+  AcceptCharterProposalInput,
+  CharterProposalView,
+  DeclineCharterProposalInput,
   EngineCharterEnquiry,
   EngineCountry,
   EngineDeparture,
@@ -361,5 +383,6 @@ export type {
   ItineraryListItem,
   ItineraryPair,
   ItineraryStatus,
+  WaitlistNotice,
   Yacht,
 } from './inventory'

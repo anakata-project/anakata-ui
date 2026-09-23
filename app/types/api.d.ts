@@ -771,6 +771,22 @@ export interface paths {
         patch: operations["charterEnquiry.update"];
         trace?: never;
     };
+    "/rms/charter-enquiries/{enquiry}/proposal": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["charterEnquiry.proposal"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/engine/charter-enquiries": {
         parameters: {
             query?: never;
@@ -781,6 +797,54 @@ export interface paths {
         get?: never;
         put?: never;
         post: operations["engine.charterEnquiry"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/engine/charter-proposal/{token}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["charterProposal.show"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/engine/charter-proposal/{token}/accept": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["charterProposal.accept"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/engine/charter-proposal/{token}/decline": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["charterProposal.decline"];
         delete?: never;
         options?: never;
         head?: never;
@@ -2259,6 +2323,22 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/rms/metrics": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["rms.metrics"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/rms/offers": {
         parameters: {
             query?: never;
@@ -2717,6 +2797,118 @@ export interface paths {
         get?: never;
         put?: never;
         post: operations["refund.execute"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/reports": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["report.index"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/reports/runs": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["report.runs"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/reports/{key}/runs": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["report.store"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/reports/runs/{run}/file/{format}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["report.file"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/reports/subscriptions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["reportSubscription.index"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/reports/subscriptions/{subscription}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch: operations["reportSubscription.update"];
+        trace?: never;
+    };
+    "/rms/reports/subscriptions/{subscription}/run-now": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["reportSubscription.runNow"];
         delete?: never;
         options?: never;
         head?: never;
@@ -3319,6 +3511,12 @@ export interface paths {
 export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
+        /** AcceptCharterProposalRequest */
+        AcceptCharterProposalRequest: {
+            name: string;
+            /** @enum {unknown} */
+            terms: "yes" | "on" | "1" | 1 | "true" | true;
+        };
         /** AcceptInvitationRequest */
         AcceptInvitationRequest: {
             token: string;
@@ -3465,7 +3663,7 @@ export interface components {
          * AlertKind
          * @enum {string}
          */
-        AlertKind: "OVERDUE_BALANCE" | "COMMISSION_CAP" | "WIRE_NOT_RECEIVED" | "SLA_BREACH" | "DELIVERY_FAILED" | "CONFIRMED_AT_DEPARTURE" | "LEDGER_DRIFT" | "COMMISSION_LEAKAGE" | "LOW_OCCUPANCY" | "MANIFEST_DATA_OVERDUE" | "NPS_LOW";
+        AlertKind: "OVERDUE_BALANCE" | "COMMISSION_CAP" | "WIRE_NOT_RECEIVED" | "SLA_BREACH" | "DELIVERY_FAILED" | "CONFIRMED_AT_DEPARTURE" | "LEDGER_DRIFT" | "COMMISSION_LEAKAGE" | "LOW_OCCUPANCY" | "MANIFEST_DATA_OVERDUE" | "NPS_LOW" | "REPORT_FAILED" | "CHARTER_DEPOSIT_DUE";
         /** AlertKindResource */
         AlertKindResource: {
             kind: components["schemas"]["AlertKind"];
@@ -3538,7 +3736,7 @@ export interface components {
             id: number;
             kind: components["schemas"]["AlertKind"];
             /** @enum {string} */
-            kind_label: "Overdue balance" | "Commission cap" | "Wire not received" | "SLA breach" | "Delivery failed" | "Confirmed at departure" | "Ledger drift" | "Commission leakage" | "Low occupancy" | "Manifest data overdue" | "NPS below threshold";
+            kind_label: "Overdue balance" | "Commission cap" | "Wire not received" | "SLA breach" | "Delivery failed" | "Confirmed at departure" | "Ledger drift" | "Commission leakage" | "Low occupancy" | "Manifest data overdue" | "NPS below threshold" | "Report failed" | "Charter deposit due";
             severity: components["schemas"]["AlertSeverity"];
             title: string;
             sentence: string;
@@ -3662,7 +3860,7 @@ export interface components {
         BookingConsentResource: {
             document: string;
             /** @enum {string} */
-            label: "Terms & Conditions" | "Cancellation policy" | "Privacy policy" | "Travel insurance declaration" | "Marketing (optional)";
+            label: "Terms & Conditions" | "Cancellation policy" | "Privacy policy" | "Travel insurance declaration" | "Marketing (optional)" | "Charter proposal";
             required: boolean;
             current_version: string;
             outdated: boolean;
@@ -4142,6 +4340,11 @@ export interface components {
          * @enum {string}
          */
         ChannelOfOrigin: "Hotel Website Inquiry" | "Hotel Booking Engine" | "Phone" | "Email" | "WhatsApp" | "Hotel Social" | "Organic Search" | "Paid Search" | "Paid Ads" | "AI / LLM" | "Email Marketing" | "Referral" | "Travel Advisor" | "Luxury Agency" | "Host Agency" | "Consortia" | "Tour Operator" | "Luxury Tour Operator" | "DMC" | "Incoming Operator" | "Wholesaler" | "Corporate Direct" | "Corporate Travel Agency" | "Business Travel" | "MICE" | "Group" | "GDS" | "CRS" | "Switch" | "Hotel Partner" | "Airline" | "Credit Card" | "Membership Club" | "Affiliate" | "Influencer" | "Brand Partnership" | "Complimentary" | "Owner" | "Staff" | "Unknown";
+        /**
+         * ChannelOfOriginGroup
+         * @enum {string}
+         */
+        ChannelOfOriginGroup: "Direct" | "Marketing" | "Trade, corporate & groups" | "Distribution, partners & other";
         /** CharterEnquiryResource */
         CharterEnquiryResource: {
             id: number;
@@ -4159,14 +4362,58 @@ export interface components {
             };
             message: string;
             source: string;
-            status: string;
+            status: components["schemas"]["CharterEnquiryStatus"];
+            proposal: {
+                version: number;
+                number: string | null;
+                state: components["schemas"]["CharterProposalState"];
+                valid_until: unknown;
+            } | null;
+            sla_breached: boolean;
+            booking: {
+                id: number;
+                reference: string | null;
+            } | null;
             created_at: string | null;
         };
         /**
          * CharterEnquiryStatus
          * @enum {string}
          */
-        CharterEnquiryStatus: "NEW" | "CONTACTED" | "CLOSED";
+        CharterEnquiryStatus: "NEW" | "CONTACTED" | "QUOTED" | "ACCEPTED" | "DECLINED" | "CLOSED";
+        /** CharterProposalAcceptedResource */
+        CharterProposalAcceptedResource: {
+            booking_reference: string;
+            deposit_due_on: string | null;
+        };
+        /** CharterProposalDeclinedResource */
+        CharterProposalDeclinedResource: {
+            status: components["schemas"]["CharterEnquiryStatus"];
+        };
+        /**
+         * CharterProposalState
+         * @enum {string}
+         */
+        CharterProposalState: "sent" | "accepted" | "declined" | "expired";
+        /** CharterProposalViewResource */
+        CharterProposalViewResource: {
+            html: string;
+            version: number;
+            number: string | null;
+            state: components["schemas"]["CharterEnquiryStatus"];
+            expired: boolean;
+            price: {
+                lines: {
+                    code: string;
+                    label: string;
+                    amount: number;
+                }[];
+                total: number | null;
+                deposit_pct: number | null;
+                deposit: number | null;
+            };
+            valid_until: string | null;
+        };
         /** CheckPromoRequest */
         CheckPromoRequest: {
             code: string;
@@ -4368,7 +4615,7 @@ export interface components {
          * ConsentDocument
          * @enum {string}
          */
-        ConsentDocument: "TERMS" | "CANCELLATION" | "PRIVACY" | "INSURANCE" | "MARKETING";
+        ConsentDocument: "TERMS" | "CANCELLATION" | "PRIVACY" | "INSURANCE" | "MARKETING" | "CHARTER_PROPOSAL";
         /**
          * ConsentPurpose
          * @enum {string}
@@ -4665,6 +4912,10 @@ export interface components {
             decision: "APPROVED" | "REJECTED";
             reason: string;
         };
+        /** DeclineCharterProposalRequest */
+        DeclineCharterProposalRequest: {
+            reason?: string | null;
+        };
         /** DeliveryIndexResource */
         DeliveryIndexResource: {
             data: {
@@ -4710,11 +4961,11 @@ export interface components {
         /** DeliveryResource */
         DeliveryResource: {
             id: number;
-            booking_id: number;
+            booking_id: number | null;
             document_id: number | null;
             kind: string;
             /** @enum {string} */
-            kind_label: "Booking Confirmation & Invoice" | "Final Invoice" | "Booking Summary" | "Payment Confirmation" | "Balance reminder" | "Transfer Voucher" | "Pre-trip Itinerary" | "Payment link" | "Wire Instructions" | "Passenger details needed" | "Guest preferences questionnaire" | "Post-trip survey" | "Review request";
+            kind_label: "Booking Confirmation & Invoice" | "Final Invoice" | "Booking Summary" | "Payment Confirmation" | "Balance reminder" | "Transfer Voucher" | "Pre-trip Itinerary" | "Payment link" | "Wire Instructions" | "Passenger details needed" | "Guest preferences questionnaire" | "Post-trip survey" | "Review request" | "Waitlist offer" | "Charter proposal";
             to: string[];
             cc: string[];
             subject: string;
@@ -4944,7 +5195,7 @@ export interface components {
          * DocumentKind
          * @enum {string}
          */
-        DocumentKind: "INVOICE" | "FINAL_INVOICE" | "SUMMARY" | "RECEIPT" | "VOUCHER" | "PRETRIP" | "WIRE_INSTRUCTIONS";
+        DocumentKind: "INVOICE" | "FINAL_INVOICE" | "SUMMARY" | "RECEIPT" | "VOUCHER" | "PRETRIP" | "WIRE_INSTRUCTIONS" | "CHARTER_PROPOSAL";
         /**
          * DocumentPlanKind
          * @enum {string}
@@ -4979,10 +5230,10 @@ export interface components {
         /** DocumentResource */
         DocumentResource: {
             id: number;
-            booking_id: number;
+            booking_id: number | null;
             kind: string;
             /** @enum {string} */
-            kind_label: "Booking Confirmation & Invoice" | "Final Invoice" | "Booking Summary" | "Payment Confirmation" | "Transfer Voucher" | "Pre-trip Itinerary" | "Wire Instructions";
+            kind_label: "Booking Confirmation & Invoice" | "Final Invoice" | "Booking Summary" | "Payment Confirmation" | "Transfer Voucher" | "Pre-trip Itinerary" | "Wire Instructions" | "Charter proposal";
             number: string | null;
             version: number;
             reason: string | null;
@@ -5477,6 +5728,10 @@ export interface components {
             email: string;
             role_id: number;
         };
+        /** IssueCharterProposalRequest */
+        IssueCharterProposalRequest: {
+            reason?: string | null;
+        };
         /** IssueDocumentRequest */
         IssueDocumentRequest: {
             reason?: string | null;
@@ -5711,6 +5966,128 @@ export interface components {
         MergeContactRequest: {
             contact_id: number;
             reason: string;
+        };
+        /** MetricsResource */
+        MetricsResource: {
+            window: {
+                from: string;
+                to: string;
+            };
+            scope: {
+                yacht: number | null;
+                itinerary: number | null;
+                channel: string | null;
+                agency: number | null;
+            };
+            metrics: {
+                occupancy: {
+                    sold_berths: number;
+                    sellable_berths: number;
+                    occupancy: string | null;
+                    departures: {
+                        id: number;
+                        date: string;
+                        yacht_code: string;
+                        sold_berths: number;
+                        sellable_berths: number;
+                        occupancy: string | null;
+                    }[];
+                    definition: {
+                        sentence: string;
+                        filters_on: string;
+                        excludes: string;
+                    };
+                };
+                revpab: {
+                    cruise_revenue: number;
+                    sellable_berths: number;
+                    revpab: number | null;
+                    definition: {
+                        sentence: string;
+                        filters_on: string;
+                        excludes: string;
+                    };
+                };
+                adr: {
+                    cruise_revenue: number;
+                    berths_sold: number;
+                    adr: number | null;
+                    definition: {
+                        sentence: string;
+                        filters_on: string;
+                        excludes: string;
+                    };
+                };
+                lead_time: {
+                    average_days: string | null;
+                    median_days: string | null;
+                    bookings: number;
+                    definition: {
+                        sentence: string;
+                        filters_on: string;
+                        excludes: string;
+                    };
+                };
+                channel_mix: {
+                    rows: {
+                        channel: string;
+                        group: string;
+                        bookings: number;
+                        revenue: number;
+                    }[];
+                    definition: {
+                        sentence: string;
+                        filters_on: string;
+                        excludes: string;
+                    };
+                };
+                nationality_mix: {
+                    rows: {
+                        country_code: string;
+                        guests: number;
+                    }[];
+                    unknown: number;
+                    definition: {
+                        sentence: string;
+                        filters_on: string;
+                        excludes: string;
+                    };
+                };
+                nps: {
+                    average_score: string | null;
+                    responses: number;
+                    promoters: number;
+                    passives: number;
+                    detractors: number;
+                    definition: {
+                        sentence: string;
+                        filters_on: string;
+                        excludes: string;
+                    };
+                };
+                commissions: {
+                    blocked: number;
+                    earned: number;
+                    payable: number;
+                    paid: number;
+                    definition: {
+                        sentence: string;
+                        filters_on: string;
+                        excludes: string;
+                    };
+                };
+                cash: {
+                    collected: number;
+                    pending: number;
+                    overdue: number;
+                    deposit_share_pct: number | null;
+                    definition: {
+                        sentence: string;
+                        filters_on: string;
+                        excludes: string;
+                    };
+                };
+            };
         };
         /** MoveBookingRequest */
         MoveBookingRequest: {
@@ -6298,6 +6675,7 @@ export interface components {
             cancelled_at: string | null;
             days_before_departure: number;
             band_min_days: number;
+            band_source: string | null;
             band_label: string;
             penalty_pct: number;
             penalty_amount: number;
@@ -6336,6 +6714,58 @@ export interface components {
         /** RemoveWaitlistEntryRequest */
         RemoveWaitlistEntryRequest: {
             reason: string;
+        };
+        /**
+         * ReportCadence
+         * @enum {string}
+         */
+        ReportCadence: "DAILY" | "WEEKLY" | "MONTHLY" | "QUARTERLY";
+        /** ReportDefinitionResource */
+        ReportDefinitionResource: {
+            key: string;
+            title: string;
+            sentence: string;
+            permission: components["schemas"]["Permission"];
+            formats: components["schemas"]["ReportFormat"][];
+            allowed: boolean;
+        };
+        /**
+         * ReportFormat
+         * @enum {string}
+         */
+        ReportFormat: "csv" | "xlsx" | "pdf";
+        /** ReportRunResource */
+        ReportRunResource: {
+            id: number;
+            definition_key: string;
+            parameters: {
+                [key: string]: unknown;
+            };
+            window_from: string;
+            window_to: string;
+            requested_by: number | null;
+            status: components["schemas"]["ReportRunStatus"];
+            error: string | null;
+            rows: number;
+            generated_at: string | null;
+            formats: components["schemas"]["ReportFormat"][];
+            purged_at: string | null;
+        };
+        /**
+         * ReportRunStatus
+         * @enum {string}
+         */
+        ReportRunStatus: "QUEUED" | "READY" | "FAILED";
+        /** ReportSubscriptionResource */
+        ReportSubscriptionResource: {
+            id: number;
+            definition_key: string;
+            cadence: components["schemas"]["ReportCadence"];
+            send_at: string;
+            weekday: number | null;
+            day_of_month: number | null;
+            window: unknown;
+            active: boolean;
         };
         /** ReservationCreatedResource */
         ReservationCreatedResource: {
@@ -6658,6 +7088,17 @@ export interface components {
             terms?: string | null;
             as_draft?: boolean;
         };
+        /** StoreReportRunRequest */
+        StoreReportRunRequest: {
+            /** Format: date */
+            from: string;
+            /** Format: date */
+            to: string;
+            yacht?: number | null;
+            itinerary?: number | null;
+            channel?: components["schemas"]["ChannelOfOriginGroup"] | null;
+            agency?: number | null;
+        };
         /** StoreReservationRequest */
         StoreReservationRequest: {
             departure_id: number;
@@ -6930,6 +7371,7 @@ export interface components {
         /** UpdateCharterEnquiryRequest */
         UpdateCharterEnquiryRequest: {
             status: components["schemas"]["CharterEnquiryStatus"];
+            reason?: string | null;
         };
         /** UpdateCompleteBillingRequest */
         UpdateCompleteBillingRequest: {
@@ -7068,6 +7510,13 @@ export interface components {
         UpdateQuestionnaireRequest: {
             answers: string[];
         };
+        /** UpdateReportSubscriptionRequest */
+        UpdateReportSubscriptionRequest: {
+            active?: boolean;
+            send_at?: string;
+            weekday?: number | null;
+            day_of_month?: number | null;
+        };
         /** UpdateRoleRequest */
         UpdateRoleRequest: {
             name?: string;
@@ -7119,16 +7568,17 @@ export interface components {
                 };
                 festive: boolean;
             };
-            cabin_category: string;
+            cabin_category: components["schemas"]["CabinCategory"];
             /** @enum {string} */
             cabin_type: "Owner's Suite" | "Suite";
             position: number | null;
             since: string | null;
             notified: {
                 at: string | null;
-                channel: string;
+                channel: components["schemas"]["PreferredChannel"] | null;
                 by: string;
             } | null;
+            auto_notified: boolean;
             cabin_available: boolean;
             notes: string | null;
         };
@@ -8778,6 +9228,46 @@ export interface operations {
             422: components["responses"]["ValidationException"];
         };
     };
+    "charterEnquiry.proposal": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The enquiry ID */
+                enquiry: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["IssueCharterProposalRequest"];
+            };
+        };
+        responses: {
+            /** @description `DocumentResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DocumentResource"];
+                };
+            };
+            /** @description `DocumentResource` */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DocumentResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
     "engine.charterEnquiry": {
         parameters: {
             query?: never;
@@ -8801,6 +9291,82 @@ export interface operations {
                 };
             };
             404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "charterProposal.show": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                token: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `CharterProposalViewResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CharterProposalViewResource"];
+                };
+            };
+        };
+    };
+    "charterProposal.accept": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                token: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["AcceptCharterProposalRequest"];
+            };
+        };
+        responses: {
+            /** @description `CharterProposalAcceptedResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CharterProposalAcceptedResource"];
+                };
+            };
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "charterProposal.decline": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                token: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["DeclineCharterProposalRequest"];
+            };
+        };
+        responses: {
+            /** @description `CharterProposalDeclinedResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CharterProposalDeclinedResource"];
+                };
+            };
             422: components["responses"]["ValidationException"];
         };
     };
@@ -12140,6 +12706,35 @@ export interface operations {
             404: components["responses"]["ModelNotFoundException"];
         };
     };
+    "rms.metrics": {
+        parameters: {
+            query: {
+                from: string;
+                to: string;
+                yacht?: number | null;
+                itinerary?: number | null;
+                channel?: components["schemas"]["ChannelOfOriginGroup"] | null;
+                agency?: number | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `MetricsResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MetricsResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
     "offer.index": {
         parameters: {
             query?: {
@@ -13191,6 +13786,226 @@ export interface operations {
             403: components["responses"]["AuthorizationException"];
             404: components["responses"]["ModelNotFoundException"];
             422: components["responses"]["ValidationException"];
+        };
+    };
+    "report.index": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Array of `ReportDefinitionResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["ReportDefinitionResource"][];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+        };
+    };
+    "report.runs": {
+        parameters: {
+            query?: {
+                definition?: string | null;
+                from?: string | null;
+                to?: string | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Array of `ReportRunResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["ReportRunResource"][];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "report.store": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                key: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["StoreReportRunRequest"];
+            };
+        };
+        responses: {
+            /** @description `ReportRunResource` */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["ReportRunResource"];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            /** @description An error */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /**
+                         * @description Error overview.
+                         * @example You cannot run this report.
+                         */
+                        message: string;
+                    };
+                };
+            };
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "report.file": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The run ID */
+                run: number;
+                format: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    "Transfer-Encoding": "chunked";
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/octet-stream": string;
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            /** @description An error */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /**
+                         * @description Error overview.
+                         * @example You cannot download this report.
+                         */
+                        message: string;
+                    };
+                };
+            };
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "reportSubscription.index": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Array of `ReportSubscriptionResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["ReportSubscriptionResource"][];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+        };
+    };
+    "reportSubscription.update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The subscription ID */
+                subscription: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["UpdateReportSubscriptionRequest"];
+            };
+        };
+        responses: {
+            /** @description `ReportSubscriptionResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["ReportSubscriptionResource"];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "reportSubscription.runNow": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The subscription ID */
+                subscription: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `ReportRunResource` */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["ReportRunResource"];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            404: components["responses"]["ModelNotFoundException"];
         };
     };
     "request.index": {
