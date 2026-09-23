@@ -3925,6 +3925,10 @@ export interface components {
             decision_reason: string | null;
             portal_suspended: boolean;
             portal_suspended_at: string | null;
+            portal_suspended_by: {
+                id: number;
+                name: string;
+            } | null;
             portal_suspend_reason: string | null;
             sla_business_days_elapsed: number;
             sla_breached: string;
@@ -3933,6 +3937,9 @@ export interface components {
                 name: string;
                 email: string;
                 status: components["schemas"]["AgencyUserStatus"];
+                invite_sent_at: string | null;
+                invite_expires_at: string | null;
+                last_login_at: string | null;
             }[];
             bookings_count: number;
             revenue: number;
@@ -3985,6 +3992,10 @@ export interface components {
             decision_reason: string | null;
             portal_suspended: boolean;
             portal_suspended_at: string | null;
+            portal_suspended_by: {
+                id: number;
+                name: string;
+            } | null;
             portal_suspend_reason: string | null;
             sla_business_days_elapsed: number;
             sla_breached: string;
@@ -3993,6 +4004,9 @@ export interface components {
                 name: string;
                 email: string;
                 status: components["schemas"]["AgencyUserStatus"];
+                invite_sent_at: string | null;
+                invite_expires_at: string | null;
+                last_login_at: string | null;
             }[];
             bookings_count: number;
             revenue: number;

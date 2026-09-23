@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.14.1
+
+- Regenerated API types so an agency user includes `invite_sent_at`, `invite_expires_at` and `last_login_at`, and an agency includes `portal_suspended_by`. No new aliases.
+
 ## v0.14.0
 
 - Regenerated API types from the Sprint 13 OpenAPI spec (portal session and agency profile, net rates, availability, bookings, commissions, requests, and sales materials, plus RMS materials, portal activity, and portal suspension).
