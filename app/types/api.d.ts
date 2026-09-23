@@ -419,6 +419,38 @@ export interface paths {
         patch: operations["automation.update"];
         trace?: never;
     };
+    "/crm/b2b-partners": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["b2bPartner.index"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/crm/b2b-partners/{agency}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["b2bPartner.show"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/rms/bookings": {
         parameters: {
             query?: never;
@@ -1389,6 +1421,70 @@ export interface paths {
         get: operations["contactsIn.index"];
         put?: never;
         post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/crm/conversations": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["conversation.index"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/crm/conversations/{conversation}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["conversation.show"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch: operations["conversation.update"];
+        trace?: never;
+    };
+    "/crm/conversations/{conversation}/reply": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["conversation.reply"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/crm/conversations/{conversation}/link-contact": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["conversation.linkContact"];
         delete?: never;
         options?: never;
         head?: never;
@@ -2909,6 +3005,22 @@ export interface paths {
         get: operations["portalBooking.index"];
         put?: never;
         post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/portal/bookings/{booking}/payment-link": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["portalBooking.storePaymentLink"];
         delete?: never;
         options?: never;
         head?: never;
@@ -4494,6 +4606,111 @@ export interface components {
          * @enum {string}
          */
         AutomationKind: "MARKETING" | "TRANSACTIONAL";
+        /** B2bPartnerResource */
+        B2bPartnerResource: {
+            id: number;
+            reference: string;
+            name: string;
+            status: components["schemas"]["AgencyStatus"];
+            commission_pct: number;
+            contact: {
+                id: number;
+                name: string;
+            } | null;
+            revenue: number;
+            commission_accrued: number;
+            enrolment: {
+                id: number;
+                journey_key: string;
+                contact: {
+                    id: number;
+                    name: string;
+                    email: string | null;
+                };
+                booking: {
+                    id: number;
+                    reference: string | null;
+                } | null;
+                step: {
+                    position: number;
+                    name: string;
+                    template_key: string;
+                } | null;
+                next_due_at: string | null;
+                status: components["schemas"]["JourneyEnrolmentStatus"];
+                exit_reason: string | null;
+                enrolled_at: string | null;
+                exited_at: string | null;
+                sends: {
+                    sent_at: string | null;
+                    template_key: string;
+                    catalogue_key: string | null;
+                    delivery_id: number | null;
+                }[];
+            } | {
+                status: components["schemas"]["JourneyEnrolmentStatus"];
+                step: {
+                    position: number;
+                    name: string;
+                } | null;
+                next_due_at: string | null;
+            } | null;
+            /** @enum {string|null} */
+            enrolment_note: "No CRM contact matches this agency, so b2b_partner_activation was not enrolled." | null;
+            open_deal_count: number;
+            deals: components["schemas"]["DealResource"][];
+        } | {
+            id: number;
+            reference: string;
+            name: string;
+            status: components["schemas"]["AgencyStatus"];
+            commission_pct: number;
+            contact: {
+                id: number;
+                name: string;
+            } | null;
+            revenue: number;
+            commission_accrued: number;
+            enrolment: {
+                id: number;
+                journey_key: string;
+                contact: {
+                    id: number;
+                    name: string;
+                    email: string | null;
+                };
+                booking: {
+                    id: number;
+                    reference: string | null;
+                } | null;
+                step: {
+                    position: number;
+                    name: string;
+                    template_key: string;
+                } | null;
+                next_due_at: string | null;
+                status: components["schemas"]["JourneyEnrolmentStatus"];
+                exit_reason: string | null;
+                enrolled_at: string | null;
+                exited_at: string | null;
+                sends: {
+                    sent_at: string | null;
+                    template_key: string;
+                    catalogue_key: string | null;
+                    delivery_id: number | null;
+                }[];
+            } | {
+                status: components["schemas"]["JourneyEnrolmentStatus"];
+                step: {
+                    position: number;
+                    name: string;
+                } | null;
+                next_due_at: string | null;
+            } | null;
+            /** @enum {string|null} */
+            enrolment_note: "No CRM contact matches this agency, so b2b_partner_activation was not enrolled." | null;
+            open_deal_count: number;
+        };
         /**
          * BehaviouralEventName
          * @enum {string}
@@ -5461,6 +5678,11 @@ export interface components {
             unknown: number;
             total_guests: number;
         };
+        /**
+         * ConversationStatus
+         * @enum {string}
+         */
+        ConversationStatus: "OPEN" | "CLOSED";
         /** CountryResource */
         CountryResource: {
             code: string;
@@ -5480,6 +5702,10 @@ export interface components {
         CreatePaymentLinkRequest: {
             kind: components["schemas"]["PaymentKind"];
             amount?: number | null;
+        };
+        /** CreatePortalPaymentLinkRequest */
+        CreatePortalPaymentLinkRequest: {
+            kind: components["schemas"]["PaymentKind"];
         };
         /** CrmAutomationResource */
         CrmAutomationResource: {
@@ -5551,6 +5777,20 @@ export interface components {
             merge_id: number | null;
             bookings: components["schemas"]["ContactBookingResource"][];
         };
+        /** CrmConversationResource */
+        CrmConversationResource: {
+            id: number;
+            contact_id: number | null;
+            contact_name: string | null;
+            from: string | null;
+            subject: string;
+            preview: string;
+            unread: boolean;
+            message_count: number;
+            status: components["schemas"]["ConversationStatus"];
+            last_message_at: string | null;
+            messages: components["schemas"]["CrmMessageResource"][];
+        };
         /** CrmJourneyEnrolmentResource */
         CrmJourneyEnrolmentResource: {
             id: number;
@@ -5605,6 +5845,20 @@ export interface components {
                 action: components["schemas"]["JourneyStepAction"];
                 count: number;
             }[];
+        };
+        /** CrmMessageResource */
+        CrmMessageResource: {
+            id: number;
+            direction: components["schemas"]["MessageDirection"];
+            from: string;
+            to: string[];
+            subject: string;
+            body_html: string;
+            body_text: string;
+            message_id: string | null;
+            in_reply_to: string | null;
+            sent_at: string | null;
+            staff_id: number | null;
         };
         /** CrmMessageTemplateResource */
         CrmMessageTemplateResource: {
@@ -6710,6 +6964,10 @@ export interface components {
          * @enum {string}
          */
         JourneyStepAction: "send" | "pointer" | "task";
+        /** LinkConversationContactRequest */
+        LinkConversationContactRequest: {
+            contact_id: number;
+        };
         /** LoginRequest */
         LoginRequest: {
             /** Format: email */
@@ -6802,6 +7060,11 @@ export interface components {
             contact_id: number;
             reason: string;
         };
+        /**
+         * MessageDirection
+         * @enum {string}
+         */
+        MessageDirection: "IN" | "OUT";
         /** MetricsResource */
         MetricsResource: {
             window: {
@@ -7693,6 +7956,10 @@ export interface components {
         RemoveWaitlistEntryRequest: {
             reason: string;
         };
+        /** ReplyToConversationRequest */
+        ReplyToConversationRequest: {
+            message: string;
+        };
         /**
          * ReportCadence
          * @enum {string}
@@ -8507,6 +8774,10 @@ export interface components {
             language?: string;
             preferred_channel?: components["schemas"]["PreferredChannel"];
             type?: components["schemas"]["ContactType"];
+        };
+        /** UpdateConversationRequest */
+        UpdateConversationRequest: {
+            status: components["schemas"]["ConversationStatus"];
         };
         /** UpdateDepartureRequest */
         UpdateDepartureRequest: {
@@ -9477,6 +9748,56 @@ export interface operations {
             403: components["responses"]["AuthorizationException"];
             404: components["responses"]["ModelNotFoundException"];
             422: components["responses"]["ValidationException"];
+        };
+    };
+    "b2bPartner.index": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Array of `B2bPartnerResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["B2bPartnerResource"][];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+        };
+    };
+    "b2bPartner.show": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The agency ID */
+                agency: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `B2bPartnerResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["B2bPartnerResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
         };
     };
     "booking.index": {
@@ -11745,6 +12066,170 @@ export interface operations {
             };
             401: components["responses"]["AuthenticationException"];
             403: components["responses"]["AuthorizationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "conversation.index": {
+        parameters: {
+            query?: {
+                status?: components["schemas"]["ConversationStatus"] | null;
+                unread?: boolean;
+                contact_id?: number;
+                per_page?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Paginated set of `CrmConversationResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["CrmConversationResource"][];
+                        links: {
+                            first: string | null;
+                            last: string | null;
+                            prev: string | null;
+                            next: string | null;
+                        };
+                        meta: {
+                            current_page: number;
+                            from: number | null;
+                            last_page: number;
+                            path: string | null;
+                            per_page: number;
+                            to: number | null;
+                            total: number;
+                        };
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "conversation.show": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The conversation ID */
+                conversation: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `CrmConversationResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CrmConversationResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "conversation.update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The conversation ID */
+                conversation: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["UpdateConversationRequest"];
+            };
+        };
+        responses: {
+            /** @description `CrmConversationResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CrmConversationResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "conversation.reply": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The conversation ID */
+                conversation: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ReplyToConversationRequest"];
+            };
+        };
+        responses: {
+            /** @description `CrmConversationResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CrmConversationResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "conversation.linkContact": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The conversation ID */
+                conversation: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["LinkConversationContactRequest"];
+            };
+        };
+        responses: {
+            /** @description `CrmConversationResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CrmConversationResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
             422: components["responses"]["ValidationException"];
         };
     };
@@ -15109,6 +15594,35 @@ export interface operations {
                     };
                 };
             };
+        };
+    };
+    "portalBooking.storePaymentLink": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The booking ID */
+                booking: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CreatePortalPaymentLinkRequest"];
+            };
+        };
+        responses: {
+            /** @description `PaymentLinkResource` */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaymentLinkResource"];
+                };
+            };
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
         };
     };
     "portalCommission.index": {

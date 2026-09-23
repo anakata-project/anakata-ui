@@ -19,6 +19,7 @@ export type PortalMaterial = components['schemas']['PortalSalesMaterialResource'
 export type PortalRequest = components['schemas']['PortalRequestResource']
 export type PortalRequestCreated = components['schemas']['PortalRequestCreatedResource']
 export type PortalRequestInput = components['schemas']['StorePortalRequestRequest']
+export type PortalPaymentLinkInput = components['schemas']['CreatePortalPaymentLinkRequest']
 export type AcceptPortalInviteInput = components['schemas']['AcceptInviteRequest']
 export type PortalLoginInput = components['schemas']['PortalLoginRequest']
 export type PortalForgotInput = components['schemas']['PortalForgotPasswordRequest']

@@ -251,3 +251,11 @@ export type TemplateDraftInput = components['schemas']['StoreTemplateDraftReques
 export type PublishTemplateInput = components['schemas']['PublishTemplateVersionRequest']
 export type TemplatePreviewInput = components['schemas']['PreviewTemplateRequest']
 
+export type ConversationStatus = components['schemas']['ConversationStatus']
+export type MessageDirection = components['schemas']['MessageDirection']
+export type Conversation = components['schemas']['CrmConversationResource']
+export type ConversationMessage = Conversation['messages'][number]
+export type ConversationReplyInput = components['schemas']['ReplyToConversationRequest']
+export type ConversationLinkInput = components['schemas']['LinkConversationContactRequest']
+export type B2bPartnerRow = components['schemas']['B2bPartnerResource']
+

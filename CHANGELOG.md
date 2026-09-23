@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.16.0
+
+- Regenerated API types from the Sprint 15 OpenAPI spec (shared inbox conversations and messages, CRM B2B partners, and the portal payment-link request).
+- `crm.ts` gains `Conversation`, `ConversationMessage`, `ConversationStatus`, `MessageDirection`, `ConversationReplyInput`, `ConversationLinkInput` and `B2bPartnerRow`. Enums are the OpenAPI schemas. `B2bPartnerRow` is the list/detail union. The detail arm includes `deals`.
+- `portal.ts` gains `PortalPaymentLinkInput`. The created link is the existing `PaymentLink` alias. No portal payment-link resource.
+
 ## v0.15.0
 
 - Regenerated API types from the Sprint 14 OpenAPI spec (segments, journeys, enrolments, automations, message templates, and the engine marketing lead and unsubscribe view).
