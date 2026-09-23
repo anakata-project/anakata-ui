@@ -373,3 +373,6 @@ export type QuestionnaireAnswersInput = Omit<
 export type SurveyQuestion = components['schemas']['SurveyQuestionResource']
 export type SurveyView = components['schemas']['SurveyResource']
 export type SurveyInput = components['schemas']['StoreSurveyResponseRequest']
+
+export type MarketingLeadInput = components['schemas']['StoreMarketingLeadRequest']
+export type UnsubscribeView = components['schemas']['UnsubscribeResource']

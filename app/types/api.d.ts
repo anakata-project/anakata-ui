@@ -387,6 +387,38 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/crm/automations": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["automation.index"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/crm/automations/{key}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch: operations["automation.update"];
+        trace?: never;
+    };
     "/rms/bookings": {
         parameters: {
             query?: never;
@@ -2323,6 +2355,70 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/crm/journeys": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["journey.index"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/crm/journeys/{journey}/enrolments": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["journey.enrolments"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/crm/journeys/{journey}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch: operations["journey.update"];
+        trace?: never;
+    };
+    "/crm/contacts/{contact}/journeys": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["journey.forContact"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/rms/manifests": {
         parameters: {
             query?: never;
@@ -2381,6 +2477,22 @@ export interface paths {
         get: operations["manifest.file"];
         put?: never;
         post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/engine/marketing-leads": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["marketingLead.store"];
         delete?: never;
         options?: never;
         head?: never;
@@ -3347,6 +3459,70 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/crm/segments": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["segment.index"];
+        put?: never;
+        post: operations["segment.store"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/crm/segments/vocabulary": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["segment.vocabulary"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/crm/segments/{segment}/contacts": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["segment.contacts"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/crm/segments/{segment}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch: operations["segment.update"];
+        trace?: never;
+    };
     "/stripe/webhook": {
         parameters: {
             query?: never;
@@ -3661,6 +3837,118 @@ export interface paths {
         get?: never;
         put?: never;
         post: operations["task.storeActivity"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/crm/templates": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["template.index"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/crm/templates/{template}/versions/{version}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["template.show"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/crm/templates/{template}/drafts": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["template.storeDraft"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/crm/templates/{template}/versions/{version}/publish": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["template.publish"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/crm/templates/{template}/preview": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["template.preview"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/crm/templates/{template}/test-send": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["template.testSend"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/engine/unsubscribe/{token}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["unsubscribe.show"];
+        put?: never;
+        post: operations["unsubscribe.store"];
         delete?: never;
         options?: never;
         head?: never;
@@ -4196,6 +4484,16 @@ export interface components {
             }[];
             conflict: string;
         };
+        /**
+         * AutomationAudience
+         * @enum {string}
+         */
+        AutomationAudience: "customer" | "staff";
+        /**
+         * AutomationKind
+         * @enum {string}
+         */
+        AutomationKind: "MARKETING" | "TRANSACTIONAL";
         /**
          * BehaviouralEventName
          * @enum {string}
@@ -5125,6 +5423,11 @@ export interface components {
             country: string | null;
             preferred_channel: string;
         };
+        /**
+         * ContactSegment
+         * @enum {string}
+         */
+        ContactSegment: "HIGH" | "MID" | "NEW";
         /** ContactTimelineItemResource */
         ContactTimelineItemResource: {
             at: string;
@@ -5178,6 +5481,29 @@ export interface components {
             kind: components["schemas"]["PaymentKind"];
             amount?: number | null;
         };
+        /** CrmAutomationResource */
+        CrmAutomationResource: {
+            key: string;
+            section: string;
+            section_label: string;
+            name: string;
+            subject: string;
+            trigger: string;
+            timing: string;
+            location: string | null;
+            audience: components["schemas"]["AutomationAudience"];
+            kind: components["schemas"]["AutomationKind"];
+            switchable: boolean;
+            locked_reason: string | null;
+            built: boolean;
+            not_built_note: string | null;
+            alert_kind: string | null;
+            journey_key: string | null;
+            enabled: boolean;
+            disabled_reason: string | null;
+            disabled_by: string | null;
+            disabled_at: string | null;
+        };
         /** CrmContactResource */
         CrmContactResource: {
             id: number;
@@ -5208,7 +5534,7 @@ export interface components {
                 captured_at?: string;
             } | null;
             lifetime_value: number;
-            segment: string;
+            segment: components["schemas"]["ContactSegment"];
             lifecycle: string;
             nps: number | null;
             consent: {
@@ -5224,6 +5550,129 @@ export interface components {
             alias_id: number | null;
             merge_id: number | null;
             bookings: components["schemas"]["ContactBookingResource"][];
+        };
+        /** CrmJourneyEnrolmentResource */
+        CrmJourneyEnrolmentResource: {
+            id: number;
+            journey_key: string;
+            contact: {
+                id: number;
+                name: string;
+                email: string | null;
+            };
+            booking: {
+                id: number;
+                reference: string | null;
+            } | null;
+            step: {
+                position: number;
+                name: string;
+                template_key: string;
+            } | null;
+            next_due_at: string | null;
+            status: components["schemas"]["JourneyEnrolmentStatus"];
+            exit_reason: string | null;
+            enrolled_at: string | null;
+            exited_at: string | null;
+            sends: {
+                sent_at: string | null;
+                template_key: string;
+                catalogue_key: string | null;
+                delivery_id: number | null;
+            }[];
+        };
+        /** CrmJourneyResource */
+        CrmJourneyResource: {
+            key: string;
+            name: string;
+            goal: string;
+            kind: components["schemas"]["AutomationKind"];
+            trigger: string;
+            exit_sentence: string;
+            /** @constant */
+            suppression_sentence: "Suppression: unsubscribed · consent withdrawn · human-touch handoff";
+            contract: string | null;
+            active: boolean;
+            system: boolean;
+            steps: {
+                position: number;
+                branch: string;
+                timing: string | ("Every 3 months" | "DPNG due date" | "manifest chase date" | "pre-trip days before departure" | "extras due hours before departure" | "The day after the balance is due" | "21 days before the balance due date" | "7 days before the balance due date");
+                name: string;
+                template_key: string;
+                catalogue_key: string | null;
+                catalogue_keys: string[];
+                action: components["schemas"]["JourneyStepAction"];
+                count: number;
+            }[];
+        };
+        /** CrmMessageTemplateResource */
+        CrmMessageTemplateResource: {
+            key: string;
+            name: string;
+            kind: components["schemas"]["AutomationKind"];
+            published: components["schemas"]["CrmMessageTemplateVersionResource"] | null;
+            draft: components["schemas"]["CrmMessageTemplateVersionResource"] | null;
+        };
+        /** CrmMessageTemplateVersionResource */
+        CrmMessageTemplateVersionResource: {
+            version: number;
+            subject: string;
+            body: {
+                paragraphs: string[];
+                list: string[];
+                cta: {
+                    label: string;
+                    link_key: string;
+                } | null;
+            };
+            variables: string[];
+            published: boolean;
+            published_at: string | null;
+            approval_reference: string | null;
+        };
+        /** CrmSegmentResource */
+        CrmSegmentResource: {
+            key: string;
+            name: string;
+            sentence: string;
+            conditions: {
+                match: string;
+                items: {
+                    field: string;
+                    operator: string;
+                    value: number | boolean | string | string[] | number[];
+                    event: string;
+                    within_days: number | null;
+                }[];
+            };
+            dimensions: {
+                axis: components["schemas"]["SegmentDimension"];
+                label: string;
+            }[];
+            kind: components["schemas"]["SegmentKind"];
+            system: boolean;
+            active: boolean;
+            feeds: string;
+            count: number;
+        };
+        /** CrmSegmentVocabularyResource */
+        CrmSegmentVocabularyResource: {
+            data: {
+                fields: {
+                    field: string;
+                    label: string;
+                    operators: string[];
+                    value: string;
+                    values?: string[];
+                    params?: {
+                        name: string;
+                        type: string;
+                        values?: string[];
+                    }[];
+                }[];
+                combinators: string[];
+            };
         };
         /** DealResource */
         DealResource: {
@@ -5332,7 +5781,7 @@ export interface components {
             document_id: number | null;
             kind: string;
             /** @enum {string} */
-            kind_label: "Booking Confirmation & Invoice" | "Final Invoice" | "Booking Summary" | "Payment Confirmation" | "Balance reminder" | "Transfer Voucher" | "Pre-trip Itinerary" | "Payment link" | "Wire Instructions" | "Passenger details needed" | "Guest preferences questionnaire" | "Post-trip survey" | "Review request" | "Waitlist offer" | "Charter proposal" | "Portal invitation";
+            kind_label: "Booking Confirmation & Invoice" | "Final Invoice" | "Booking Summary" | "Payment Confirmation" | "Balance reminder" | "Transfer Voucher" | "Pre-trip Itinerary" | "Payment link" | "Wire Instructions" | "Passenger details needed" | "Guest preferences questionnaire" | "Post-trip survey" | "Review request" | "Waitlist offer" | "Charter proposal" | "Portal invitation" | "Journey message";
             to: string[];
             cc: string[];
             subject: string;
@@ -6251,6 +6700,16 @@ export interface components {
          * @enum {string}
          */
         ItineraryStatus: "DRAFT" | "PUBLISHED" | "HIDDEN";
+        /**
+         * JourneyEnrolmentStatus
+         * @enum {string}
+         */
+        JourneyEnrolmentStatus: "ACTIVE" | "EXITED" | "SUPPRESSED" | "COMPLETED";
+        /**
+         * JourneyStepAction
+         * @enum {string}
+         */
+        JourneyStepAction: "send" | "pointer" | "task";
         /** LoginRequest */
         LoginRequest: {
             /** Format: email */
@@ -6314,6 +6773,10 @@ export interface components {
         /** MarkWireReceivedRequest */
         MarkWireReceivedRequest: {
             bank_reference: string;
+        };
+        /** MarketingLeadResource */
+        MarketingLeadResource: {
+            accepted: boolean;
         };
         /** MaskedNoteResource */
         MaskedNoteResource: {
@@ -6865,6 +7328,12 @@ export interface components {
             departure_id: number;
             cabin_code?: string | null;
         };
+        /** PreviewTemplateRequest */
+        PreviewTemplateRequest: {
+            contact_id?: number;
+            booking_id?: number;
+            version?: number;
+        };
         /** PriceCheckRequest */
         PriceCheckRequest: {
             year: number;
@@ -6886,6 +7355,10 @@ export interface components {
             document: string[];
             base_version: number;
             approval_reference?: string | null;
+        };
+        /** PublishTemplateVersionRequest */
+        PublishTemplateVersionRequest: {
+            approval_reference: string;
         };
         /** QuestionnaireResource */
         QuestionnaireResource: {
@@ -7395,6 +7868,16 @@ export interface components {
          * @enum {string}
          */
         SeasonPattern: "ALT" | "WEST" | "NORTH";
+        /**
+         * SegmentDimension
+         * @enum {string}
+         */
+        SegmentDimension: "BEHAVIOUR" | "INTEREST" | "LOCATION" | "PROFILE" | "PROMOTION";
+        /**
+         * SegmentKind
+         * @enum {string}
+         */
+        SegmentKind: "MARKETING" | "OPERATIONAL";
         /** StageMapResource */
         StageMapResource: {
             data: {
@@ -7590,6 +8073,16 @@ export interface components {
             deal_id?: number | null;
             owner_id?: number | null;
         };
+        /** StoreMarketingLeadRequest */
+        StoreMarketingLeadRequest: {
+            /** Format: email */
+            email: string;
+            first_name: string;
+            /** @enum {unknown} */
+            consent: "yes" | "on" | "1" | 1 | "true" | true;
+            version: string;
+            session_id?: string | null;
+        };
         /** StoreOfferRequest */
         StoreOfferRequest: {
             code: string;
@@ -7696,6 +8189,19 @@ export interface components {
              */
             file: string;
         };
+        /** StoreSegmentRequest */
+        StoreSegmentRequest: {
+            name: string;
+            sentence: string;
+            conditions: string[];
+            dimensions: {
+                axis: components["schemas"]["SegmentDimension"];
+                label: string;
+            }[];
+            kind: components["schemas"]["SegmentKind"];
+            feeds: string;
+            active?: boolean;
+        };
         /** StoreSubjectRequestRequest */
         StoreSubjectRequestRequest: {
             contact_id: number;
@@ -7713,6 +8219,18 @@ export interface components {
             better?: string | null;
             crew?: string | null;
             rec?: number | null;
+        };
+        /** StoreTemplateDraftRequest */
+        StoreTemplateDraftRequest: {
+            subject: string;
+            body: {
+                paragraphs: string[];
+                list: string[];
+                cta?: {
+                    label?: string;
+                    link_key?: string;
+                } | null;
+            };
         };
         /** StoreWaitlistEntryRequest */
         StoreWaitlistEntryRequest: {
@@ -7895,6 +8413,11 @@ export interface components {
         UndoContactMergeRequest: {
             reason: string;
         };
+        /** UnsubscribeResource */
+        UnsubscribeResource: {
+            valid: boolean;
+            already_unsubscribed: string;
+        };
         /** UpdateAgencyRequest */
         UpdateAgencyRequest: {
             name?: string;
@@ -7908,6 +8431,11 @@ export interface components {
             name?: string;
             /** @enum {string} */
             status?: "ACTIVE" | "DISABLED";
+        };
+        /** UpdateAutomationRequest */
+        UpdateAutomationRequest: {
+            enabled: boolean;
+            reason: string;
         };
         /** UpdateBookingBillingRequest */
         UpdateBookingBillingRequest: {
@@ -8038,6 +8566,10 @@ export interface components {
             meta_description?: string;
             status?: components["schemas"]["ItineraryStatus"];
         };
+        /** UpdateJourneyRequest */
+        UpdateJourneyRequest: {
+            active: boolean;
+        };
         /** UpdateManualTaskRequest */
         UpdateManualTaskRequest: {
             title?: string;
@@ -8089,6 +8621,19 @@ export interface components {
             name?: string;
             description?: string | null;
             permissions?: components["schemas"]["Permission"][];
+        };
+        /** UpdateSegmentRequest */
+        UpdateSegmentRequest: {
+            name?: string;
+            sentence?: string;
+            conditions?: string[];
+            dimensions?: {
+                axis?: components["schemas"]["SegmentDimension"];
+                label?: string;
+            }[];
+            kind?: components["schemas"]["SegmentKind"];
+            feeds?: string;
+            active?: boolean;
         };
         /** UpdateUserRequest */
         UpdateUserRequest: {
@@ -8878,6 +9423,60 @@ export interface operations {
                 };
             };
             401: components["responses"]["AuthenticationException"];
+        };
+    };
+    "automation.index": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Array of `CrmAutomationResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["CrmAutomationResource"][];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+        };
+    };
+    "automation.update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                key: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["UpdateAutomationRequest"];
+            };
+        };
+        responses: {
+            /** @description `CrmAutomationResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CrmAutomationResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
         };
     };
     "booking.index": {
@@ -13300,6 +13899,132 @@ export interface operations {
             404: components["responses"]["ModelNotFoundException"];
         };
     };
+    "journey.index": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Array of `CrmJourneyResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["CrmJourneyResource"][];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+        };
+    };
+    "journey.enrolments": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The journey key */
+                journey: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Paginated set of `CrmJourneyEnrolmentResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["CrmJourneyEnrolmentResource"][];
+                        links: {
+                            first: string | null;
+                            last: string | null;
+                            prev: string | null;
+                            next: string | null;
+                        };
+                        meta: {
+                            current_page: number;
+                            from: number | null;
+                            last_page: number;
+                            path: string | null;
+                            per_page: number;
+                            to: number | null;
+                            total: number;
+                        };
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "journey.update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The journey key */
+                journey: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["UpdateJourneyRequest"];
+            };
+        };
+        responses: {
+            /** @description `CrmJourneyResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CrmJourneyResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "journey.forContact": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The contact ID */
+                contact: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Array of `CrmJourneyEnrolmentResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["CrmJourneyEnrolmentResource"][];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
     "manifest.index": {
         parameters: {
             query?: {
@@ -13419,6 +14144,31 @@ export interface operations {
             401: components["responses"]["AuthenticationException"];
             403: components["responses"]["AuthorizationException"];
             404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "marketingLead.store": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["StoreMarketingLeadRequest"];
+            };
+        };
+        responses: {
+            /** @description `MarketingLeadResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MarketingLeadResource"];
+                };
+            };
+            422: components["responses"]["ValidationException"];
         };
     };
     "rms.metrics": {
@@ -15575,6 +16325,162 @@ export interface operations {
             404: components["responses"]["ModelNotFoundException"];
         };
     };
+    "segment.index": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Array of `CrmSegmentResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["CrmSegmentResource"][];
+                        meta: {
+                            cap: number;
+                            capped: boolean;
+                            message: string | null;
+                        };
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+        };
+    };
+    "segment.store": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["StoreSegmentRequest"];
+            };
+        };
+        responses: {
+            /** @description `CrmSegmentResource` */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CrmSegmentResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "segment.vocabulary": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `CrmSegmentVocabularyResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CrmSegmentVocabularyResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+        };
+    };
+    "segment.contacts": {
+        parameters: {
+            query?: {
+                page?: number;
+                per_page?: number;
+            };
+            header?: never;
+            path: {
+                /** @description The segment key */
+                segment: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Array of `CrmContactResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["CrmContactResource"][];
+                        links: {
+                            first: string | null;
+                            last: string | null;
+                            prev: string | null;
+                            next: string | null;
+                        };
+                        meta: {
+                            current_page: number;
+                            from: number | null;
+                            last_page: number;
+                            path: string | null;
+                            per_page: number;
+                            to: number | null;
+                            total: number;
+                        };
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "segment.update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The segment key */
+                segment: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["UpdateSegmentRequest"];
+            };
+        };
+        responses: {
+            /** @description `CrmSegmentResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CrmSegmentResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
     stripeWebhook: {
         parameters: {
             query?: never;
@@ -16305,6 +17211,231 @@ export interface operations {
             403: components["responses"]["AuthorizationException"];
             404: components["responses"]["ModelNotFoundException"];
             422: components["responses"]["ValidationException"];
+        };
+    };
+    "template.index": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Array of `CrmMessageTemplateResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["CrmMessageTemplateResource"][];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+        };
+    };
+    "template.show": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The template key */
+                template: string;
+                version: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `CrmMessageTemplateVersionResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CrmMessageTemplateVersionResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "template.storeDraft": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The template key */
+                template: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["StoreTemplateDraftRequest"];
+            };
+        };
+        responses: {
+            /** @description `CrmMessageTemplateVersionResource` */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CrmMessageTemplateVersionResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "template.publish": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The template key */
+                template: string;
+                version: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PublishTemplateVersionRequest"];
+            };
+        };
+        responses: {
+            /** @description `CrmMessageTemplateVersionResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CrmMessageTemplateVersionResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "template.preview": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The template key */
+                template: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PreviewTemplateRequest"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        subject: string;
+                        body: string;
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "template.testSend": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The template key */
+                template: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PreviewTemplateRequest"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        version: number;
+                        subject: string;
+                        status: components["schemas"]["AlertNotificationStatus"];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "unsubscribe.show": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                token: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `UnsubscribeResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UnsubscribeResource"];
+                };
+            };
+        };
+    };
+    "unsubscribe.store": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                token: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `UnsubscribeResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UnsubscribeResource"];
+                };
+            };
         };
     };
     "user.index": {

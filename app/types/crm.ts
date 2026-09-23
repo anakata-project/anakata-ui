@@ -8,19 +8,14 @@ import type { components, operations } from './api'
 
 export type ContactType = components['schemas']['ContactType']
 export type Lifecycle = components['schemas']['ContactLifecycle']
-
-/**
- * Mirrors App\Enums\ContactSegment. Derived, no FormRequest schema.
- */
-export type Segment = 'HIGH' | 'MID' | 'NEW'
+export type ContactSegment = components['schemas']['ContactSegment']
 
 export type Contact = Omit<
   components['schemas']['CrmContactResource'],
-  'type' | 'lifecycle' | 'segment' | 'bookings' | 'consent'
+  'type' | 'lifecycle' | 'bookings' | 'consent'
 > & {
   type: ContactType
   lifecycle: Lifecycle
-  segment: Segment
   consent: {
     marketing: boolean
     transactional: true
@@ -229,4 +224,30 @@ export type AttributionModelRow = components['schemas']['AttributionModelResourc
 
 export type DeliveryRow = components['schemas']['DeliveryIndexResource']['data'][number]
 export type DeliveryKpis = components['schemas']['DeliveryIndexResource']['meta']['kpis']
+
+export type SegmentKind = components['schemas']['SegmentKind']
+export type SegmentDimension = components['schemas']['SegmentDimension']
+export type Segment = components['schemas']['CrmSegmentResource']
+export type SegmentCondition = Segment['conditions']['items'][number]
+export type SegmentVocabulary = components['schemas']['CrmSegmentVocabularyResource']
+export type SegmentInput = components['schemas']['StoreSegmentRequest']
+export type SegmentUpdate = components['schemas']['UpdateSegmentRequest']
+
+export type AutomationKind = components['schemas']['AutomationKind']
+export type AutomationAudience = components['schemas']['AutomationAudience']
+export type AutomationRow = components['schemas']['CrmAutomationResource']
+export type AutomationSwitchInput = components['schemas']['UpdateAutomationRequest']
+
+export type JourneyStepAction = components['schemas']['JourneyStepAction']
+export type Journey = components['schemas']['CrmJourneyResource']
+export type JourneyStep = Journey['steps'][number]
+export type JourneyEnrolmentStatus = components['schemas']['JourneyEnrolmentStatus']
+export type JourneyEnrolment = components['schemas']['CrmJourneyEnrolmentResource']
+export type JourneyUpdate = components['schemas']['UpdateJourneyRequest']
+
+export type MessageTemplate = components['schemas']['CrmMessageTemplateResource']
+export type MessageTemplateVersion = components['schemas']['CrmMessageTemplateVersionResource']
+export type TemplateDraftInput = components['schemas']['StoreTemplateDraftRequest']
+export type PublishTemplateInput = components['schemas']['PublishTemplateVersionRequest']
+export type TemplatePreviewInput = components['schemas']['PreviewTemplateRequest']
 

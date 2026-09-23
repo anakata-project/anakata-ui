@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.15.0
+
+- Regenerated API types from the Sprint 14 OpenAPI spec (segments, journeys, enrolments, automations, message templates, and the engine marketing lead and unsubscribe view).
+- `crm.ts` gains `Segment`, `SegmentCondition`, `SegmentVocabulary`, `SegmentInput`, `SegmentUpdate`, `AutomationRow`, `AutomationSwitchInput`, `Journey`, `JourneyStep`, `JourneyEnrolment`, `JourneyUpdate`, `MessageTemplate`, `MessageTemplateVersion`, `TemplateDraftInput`, `PublishTemplateInput` and `TemplatePreviewInput`. Enums are the OpenAPI schemas (`ContactSegment`, `SegmentKind`, `SegmentDimension`, `AutomationKind`, `AutomationAudience`, `JourneyStepAction`, `JourneyEnrolmentStatus`).
+- The contact band alias is `ContactSegment`. `Segment` is the audience (`CrmSegmentResource`).
+- `engine.ts` gains `MarketingLeadInput` and `UnsubscribeView`. There is no unsubscribe input. Lead `consent` stays Laravel's `accepted` union. A template test send's status is the existing `AlertNotificationStatus` schema.
+
 ## v0.14.1
 
 - Regenerated API types so an agency user includes `invite_sent_at`, `invite_expires_at` and `last_login_at`, and an agency includes `portal_suspended_by`. No new aliases.
