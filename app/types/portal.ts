@@ -2,9 +2,9 @@
  * Portal /api/portal aliases. Sources are portal schemas only.
  * This file does not import CRM or panel types.
  *
- * payment_state on PortalBooking is the inline enum Scramble emitted
- * (three sentences from paymentStateWords). next stays a string because
- * the sentence interpolates the SLA hours.
+ * payment_state on PortalBooking and PortalRequest is the inline enum
+ * Scramble emitted (three sentences from paymentStateWords). next stays a
+ * string because the sentence interpolates the SLA hours.
  */
 
 import type { components } from './api'

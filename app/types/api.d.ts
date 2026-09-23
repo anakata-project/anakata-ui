@@ -7476,6 +7476,7 @@ export interface components {
         };
         /** PortalBookingResource */
         PortalBookingResource: {
+            id: number;
             reference: string | null;
             departure_date: string;
             itinerary: string;
@@ -7484,6 +7485,7 @@ export interface components {
             net_due: number;
             /** @enum {string} */
             payment_state: "Paid in full" | "Awaiting deposit" | "Deposit received";
+            open_payment_kinds: string[];
         };
         /** PortalCommissionResource */
         PortalCommissionResource: {
@@ -7535,10 +7537,14 @@ export interface components {
         };
         /** PortalRequestResource */
         PortalRequestResource: {
+            id: number;
             reference: string | null;
             status: components["schemas"]["BookingStatus"];
             lead_guest: string;
             next: string;
+            /** @enum {string} */
+            payment_state: "Paid in full" | "Awaiting deposit" | "Deposit received";
+            open_payment_kinds: string[];
         };
         /** PortalResetPasswordRequest */
         PortalResetPasswordRequest: {
