@@ -21,8 +21,7 @@ export type ClaimKind = 'BLOCK' | 'HOLD' | 'BOOKING'
 /** Mirrors App\Enums\HoldType. Scramble emits string. */
 export type HoldType = 'WEB' | 'REQUEST' | 'AGENCY' | 'CHARTER_QUOTE'
 
-/** Mirrors App\Enums\EngineLabelCode. Scramble emits string. */
-export type EngineLabelCode = 'NOT_SHOWN' | 'CHARTERED' | 'CLOSED' | 'CHARTER' | 'LIMITED' | 'FULL' | 'ONLY_N_LEFT' | 'AVAILABLE'
+export type EngineLabelCode = components['schemas']['EngineLabelCode']
 
 /** Mirrors App\Enums\EngineLabelTone. Scramble emits string. */
 export type EngineLabelTone = 'wait' | 'comp' | 'pend' | 'canc' | 'hold' | 'conf'
@@ -100,7 +99,7 @@ export type ItineraryDefaults = {
   meta_description: string
 }
 
-/** Mirrors App\Support\Inventory\EngineLabel. Scramble emits code / tone as string. */
+/** Mirrors App\Support\Inventory\EngineLabel. Code is the named schema. Tone is still a string. */
 export type EngineLabel = {
   code: EngineLabelCode
   text: string

@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.14.0
+
+- Regenerated API types from the Sprint 13 OpenAPI spec (portal session and agency profile, net rates, availability, bookings, commissions, requests, and sales materials, plus RMS materials, portal activity, and portal suspension).
+- New `app/types/portal.ts` (`PortalSession`, `PortalAgency`, `PortalNetRates`, `PortalAvailabilityRow`, `PortalBooking`, `PortalCommission`, `PortalMaterial`, `PortalRequest`, `PortalRequestCreated`, `PortalRequestInput`, and the auth inputs). Enums are the OpenAPI schemas. It does not import CRM or panel types.
+- `payments.ts` gains `SalesMaterial`, `SalesMaterialKind`, `StoreSalesMaterialInput`, `PortalActivity`, `SuspendPortalInput` and `ResumePortalInput` beside the agency aliases.
+- `inventory.ts` `EngineLabelCode` now uses the named schema. `payment_state` is the inline enum on `PortalBooking`. `next` and activity `event` stay strings. The invite route has no body. Material file routes stay streams.
+
 ## v0.13.0
 
 - Regenerated API types from the Sprint 12 OpenAPI spec (commercial metrics and their definition sentences, report definitions, runs and subscriptions, waitlist `auto_notified` and position, charter enquiry proposal state, and the engine charter proposal page).

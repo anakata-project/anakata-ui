@@ -115,6 +115,22 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/rms/agencies/{agency}/portal-activity": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["agency.portalActivity"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/rms/agencies/{agency}/users": {
         parameters: {
             query?: never;
@@ -173,6 +189,54 @@ export interface paths {
         get?: never;
         put?: never;
         post: operations["agency.decide"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/agencies/{agency}/portal/suspend": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["agency.suspendPortal"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/agencies/{agency}/portal/resume": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["agency.resumePortal"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/agencies/{agency}/users/{user}/invite": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["agency.inviteUser"];
         delete?: never;
         options?: never;
         head?: never;
@@ -2579,6 +2643,230 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/portal/me": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["portalAgency.me"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/portal/rates": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["portalAgency.rates"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/portal/auth/accept": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["portalAuth.accept"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/portal/auth/login": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["portalAuth.login"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/portal/auth/forgot": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["portalAuth.forgot"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/portal/auth/reset": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["portalAuth.reset"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/portal/auth/logout": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["portalAuth.logout"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/portal/auth/me": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["portalAuth.me"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/portal/availability": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["portalAvailability.index"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/portal/bookings": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["portalBooking.index"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/portal/commissions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["portalCommission.index"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/portal/requests": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["portalRequest.index"];
+        put?: never;
+        post: operations["portalRequest.store"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/portal/sales-materials": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["portalSalesMaterial.index"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/portal/sales-materials/{material}/file": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["portalSalesMaterial.file"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/engine/promo/check": {
         parameters: {
             query?: never;
@@ -3003,6 +3291,54 @@ export interface paths {
             cookie?: never;
         };
         get: operations["role.history"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/sales-materials": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["salesMaterial.index"];
+        put?: never;
+        post: operations["salesMaterial.store"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/rms/sales-materials/{material}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch: operations["salesMaterial.update"];
+        trace?: never;
+    };
+    "/rms/sales-materials/{material}/file": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["salesMaterial.file"];
         put?: never;
         post?: never;
         delete?: never;
@@ -3525,6 +3861,14 @@ export interface components {
             password: string;
             password_confirmation: string;
         };
+        /** AcceptInviteRequest */
+        AcceptInviteRequest: {
+            token: string;
+            /** Format: email */
+            email: string;
+            password: string;
+            password_confirmation: string;
+        };
         /** AddBookingExtraRequest */
         AddBookingExtraRequest: {
             code: string;
@@ -3579,6 +3923,9 @@ export interface components {
                 name: string;
             } | null;
             decision_reason: string | null;
+            portal_suspended: boolean;
+            portal_suspended_at: string | null;
+            portal_suspend_reason: string | null;
             sla_business_days_elapsed: number;
             sla_breached: string;
             users: {
@@ -3636,6 +3983,9 @@ export interface components {
                 name: string;
             } | null;
             decision_reason: string | null;
+            portal_suspended: boolean;
+            portal_suspended_at: string | null;
+            portal_suspend_reason: string | null;
             sla_business_days_elapsed: number;
             sla_breached: string;
             users: {
@@ -3954,6 +4304,9 @@ export interface components {
                 breached: boolean;
             };
             can_act: string;
+            /** @enum {string} */
+            source: "rms" | "portal" | "engine";
+            agency_name: string | null;
         };
         /** BookingResource */
         BookingResource: {
@@ -4965,7 +5318,7 @@ export interface components {
             document_id: number | null;
             kind: string;
             /** @enum {string} */
-            kind_label: "Booking Confirmation & Invoice" | "Final Invoice" | "Booking Summary" | "Payment Confirmation" | "Balance reminder" | "Transfer Voucher" | "Pre-trip Itinerary" | "Payment link" | "Wire Instructions" | "Passenger details needed" | "Guest preferences questionnaire" | "Post-trip survey" | "Review request" | "Waitlist offer" | "Charter proposal";
+            kind_label: "Booking Confirmation & Invoice" | "Final Invoice" | "Booking Summary" | "Payment Confirmation" | "Balance reminder" | "Transfer Voucher" | "Pre-trip Itinerary" | "Payment link" | "Wire Instructions" | "Passenger details needed" | "Guest preferences questionnaire" | "Post-trip survey" | "Review request" | "Waitlist offer" | "Charter proposal" | "Portal invitation";
             to: string[];
             cc: string[];
             subject: string;
@@ -5330,6 +5683,11 @@ export interface components {
                 description: string;
             };
         };
+        /**
+         * EngineLabelCode
+         * @enum {string}
+         */
+        EngineLabelCode: "NOT_SHOWN" | "CHARTERED" | "CLOSED" | "CHARTER" | "LIMITED" | "FULL" | "ONLY_N_LEFT" | "AVAILABLE";
         /** EngineOfferResource */
         EngineOfferResource: {
             code: string;
@@ -6326,6 +6684,139 @@ export interface components {
                 };
             };
         };
+        /** PortalActivityResource */
+        PortalActivityResource: {
+            at: string;
+            event: string;
+            agency_user: {
+                id: number | null;
+                name: string;
+            };
+            references: string[] | null;
+            material: {
+                id: number;
+                title: string;
+                version: number;
+            } | null;
+        };
+        /** PortalAgencyMeResource */
+        PortalAgencyMeResource: {
+            agency: {
+                name: string;
+                reference: string;
+                commission_pct: number;
+                payment_terms: string;
+                status: components["schemas"]["AgencyStatus"];
+            };
+            user: {
+                id: number;
+                name: string;
+                email: string;
+            };
+            materials_exist: boolean;
+        };
+        /** PortalAvailabilityResource */
+        PortalAvailabilityResource: {
+            id: number;
+            itinerary: string;
+            yacht: string;
+            embark: string;
+            disembark: string;
+            festive: boolean;
+            rate_year: number;
+            status: components["schemas"]["DepartureStatus"];
+            label: {
+                code: components["schemas"]["EngineLabelCode"];
+                text: string;
+            };
+            net_rates: {
+                suite_pp: number;
+                owner_pp: number;
+            };
+        };
+        /** PortalBookingResource */
+        PortalBookingResource: {
+            reference: string | null;
+            departure_date: string;
+            itinerary: string;
+            status: components["schemas"]["BookingStatus"];
+            lead_guest: string;
+            net_due: number;
+            /** @enum {string} */
+            payment_state: "Paid in full" | "Awaiting deposit" | "Deposit received";
+        };
+        /** PortalCommissionResource */
+        PortalCommissionResource: {
+            reference: string | null;
+            rate: number | null;
+            commission_amount: number;
+            payable_date: string;
+            status: components["schemas"]["CommissionAccrualStatus"];
+            payout: {
+                paid_on: string;
+                reference: string | null;
+            } | null;
+        };
+        /** PortalForgotPasswordRequest */
+        PortalForgotPasswordRequest: {
+            /** Format: email */
+            email: string;
+        };
+        /** PortalLoginRequest */
+        PortalLoginRequest: {
+            /** Format: email */
+            email: string;
+            password: string;
+        };
+        /** PortalMeResource */
+        PortalMeResource: {
+            id: number;
+            name: string;
+            email: string;
+            agency: {
+                id: number;
+                reference: string;
+                name: string;
+            };
+            time_zone: string;
+        };
+        /** PortalNetRateResource */
+        PortalNetRateResource: {
+            year: number;
+            suite_pp: number;
+            owner_pp: number;
+            charter_week: number;
+        };
+        /** PortalRequestCreatedResource */
+        PortalRequestCreatedResource: {
+            references: string[];
+            status: components["schemas"]["BookingStatus"];
+            message: string;
+        };
+        /** PortalRequestResource */
+        PortalRequestResource: {
+            reference: string | null;
+            status: components["schemas"]["BookingStatus"];
+            lead_guest: string;
+            next: string;
+        };
+        /** PortalResetPasswordRequest */
+        PortalResetPasswordRequest: {
+            token: string;
+            /** Format: email */
+            email: string;
+            password: string;
+            password_confirmation: string;
+        };
+        /** PortalSalesMaterialResource */
+        PortalSalesMaterialResource: {
+            id: number;
+            title: string;
+            kind: components["schemas"]["SalesMaterialKind"];
+            size: number;
+            version: number;
+            updated: string | null;
+        };
         /** PreferenceQuestionResource */
         PreferenceQuestionResource: {
             key: string;
@@ -6810,6 +7301,10 @@ export interface components {
             password: string;
             password_confirmation: string;
         };
+        /** ResumeAgencyPortalRequest */
+        ResumeAgencyPortalRequest: {
+            reason: string;
+        };
         /** RetrySyncFailureResource */
         RetrySyncFailureResource: {
             id: string;
@@ -6825,6 +7320,27 @@ export interface components {
             is_admin: boolean;
             users_count: number;
             permissions: string[];
+        };
+        /**
+         * SalesMaterialKind
+         * @enum {string}
+         */
+        SalesMaterialKind: "FACT_SHEET" | "BRAND_DECK" | "PHOTOGRAPHY" | "ITINERARY_PDF" | "VIDEO" | "OTHER";
+        /** SalesMaterialResource */
+        SalesMaterialResource: {
+            id: number;
+            title: string;
+            kind: components["schemas"]["SalesMaterialKind"];
+            agency_id: number | null;
+            version: number;
+            bytes: number;
+            mime: string;
+            published: boolean;
+            uploaded_by: {
+                id: number;
+                name: string;
+            } | null;
+            updated_at: string | null;
         };
         /** SaveGuestRequest */
         SaveGuestRequest: {
@@ -7088,6 +7604,28 @@ export interface components {
             terms?: string | null;
             as_draft?: boolean;
         };
+        /** StorePortalRequestRequest */
+        StorePortalRequestRequest: {
+            departure_id: number;
+            category: components["schemas"]["CabinCategory"];
+            cabins: {
+                adults: number;
+                children: number;
+            }[];
+            client: {
+                name: string;
+                /** Format: email */
+                email: string;
+            };
+            notes?: string | null;
+            /** @enum {unknown} */
+            client_of_record?: "yes" | "on" | "1" | 1 | "true" | true;
+            price?: string;
+            discount?: string;
+            commission_pct?: string;
+            promo_code?: string;
+            agency_id?: string;
+        };
         /** StoreReportRunRequest */
         StoreReportRunRequest: {
             /** Format: date */
@@ -7132,6 +7670,17 @@ export interface components {
             name: string;
             description?: string | null;
             permissions?: components["schemas"]["Permission"][];
+        };
+        /** StoreSalesMaterialRequest */
+        StoreSalesMaterialRequest: {
+            title: string;
+            kind: components["schemas"]["SalesMaterialKind"];
+            agency_id?: number | null;
+            /**
+             * Format: binary
+             * @description Maximum file size: 51200 kilobytes.
+             */
+            file: string;
         };
         /** StoreSubjectRequestRequest */
         StoreSubjectRequestRequest: {
@@ -7258,6 +7807,10 @@ export interface components {
                 last_name: string;
                 responded: boolean;
             }[];
+        };
+        /** SuspendAgencyPortalRequest */
+        SuspendAgencyPortalRequest: {
+            reason: string;
         };
         /** SyncFailureResource */
         SyncFailureResource: {
@@ -7625,8 +8178,8 @@ export interface components {
                 };
             };
         };
-        /** @description Authorization error */
-        AuthorizationException: {
+        /** @description Not found */
+        ModelNotFoundException: {
             headers: {
                 [name: string]: unknown;
             };
@@ -7637,8 +8190,8 @@ export interface components {
                 };
             };
         };
-        /** @description Not found */
-        ModelNotFoundException: {
+        /** @description Authorization error */
+        AuthorizationException: {
             headers: {
                 [name: string]: unknown;
             };
@@ -7787,6 +8340,62 @@ export interface operations {
             401: components["responses"]["AuthenticationException"];
             403: components["responses"]["AuthorizationException"];
             404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "agency.portalActivity": {
+        parameters: {
+            query?: {
+                per_page?: number;
+            };
+            header?: never;
+            path: {
+                /** @description The agency ID */
+                agency: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Paginated set of `PortalActivityResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["PortalActivityResource"][];
+                        links: {
+                            first: string | null;
+                            last: string | null;
+                            prev: string | null;
+                            next: string | null;
+                        };
+                        meta: {
+                            current_page: number;
+                            from: number | null;
+                            last_page: number;
+                            /** @description Generated paginator links. */
+                            links: {
+                                url: string | null;
+                                label: string;
+                                active: boolean;
+                            }[];
+                            /** @description Base path for paginator generated URLs. */
+                            path: string | null;
+                            /** @description Number of items shown per page. */
+                            per_page: number;
+                            /** @description Number of the last item in the slice. */
+                            to: number | null;
+                            /** @description Total number of items being paginated. */
+                            total: number;
+                        };
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
         };
     };
     "agency.storeUser": {
@@ -7939,6 +8548,98 @@ export interface operations {
             403: components["responses"]["AuthorizationException"];
             404: components["responses"]["ModelNotFoundException"];
             422: components["responses"]["ValidationException"];
+        };
+    };
+    "agency.suspendPortal": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The agency ID */
+                agency: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SuspendAgencyPortalRequest"];
+            };
+        };
+        responses: {
+            /** @description `AgencyResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AgencyResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "agency.resumePortal": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The agency ID */
+                agency: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ResumeAgencyPortalRequest"];
+            };
+        };
+        responses: {
+            /** @description `AgencyResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AgencyResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "agency.inviteUser": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The agency ID */
+                agency: number;
+                /** @description The user ID */
+                user: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @constant */
+                        message: "Invitation sent.";
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
         };
     };
     "alert.index": {
@@ -13329,6 +14030,496 @@ export interface operations {
             403: components["responses"]["AuthorizationException"];
         };
     };
+    "portalAgency.me": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `PortalAgencyMeResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PortalAgencyMeResource"];
+                };
+            };
+            /** @description An error */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /**
+                         * @description Error overview.
+                         * @example
+                         */
+                        message: string;
+                    };
+                };
+            };
+        };
+    };
+    "portalAgency.rates": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Array of `PortalNetRateResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["PortalNetRateResource"][];
+                    };
+                };
+            };
+        };
+    };
+    "portalAuth.accept": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["AcceptInviteRequest"];
+            };
+        };
+        responses: {
+            /** @description `PortalMeResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PortalMeResource"];
+                };
+            };
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "portalAuth.login": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PortalLoginRequest"];
+            };
+        };
+        responses: {
+            /** @description `PortalMeResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PortalMeResource"];
+                };
+            };
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "portalAuth.forgot": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PortalForgotPasswordRequest"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @constant */
+                        message: "We have emailed your password reset link.";
+                    };
+                };
+            };
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "portalAuth.reset": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PortalResetPasswordRequest"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @constant */
+                        message: "Your password has been reset.";
+                    };
+                };
+            };
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "portalAuth.logout": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No content */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    "portalAuth.me": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `PortalMeResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PortalMeResource"];
+                };
+            };
+            /** @description An error */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /**
+                         * @description Error overview.
+                         * @example
+                         */
+                        message: string;
+                    };
+                };
+            };
+        };
+    };
+    "portalAvailability.index": {
+        parameters: {
+            query?: {
+                from?: string;
+                to?: string;
+                yacht?: string;
+                itinerary?: string;
+                per_page?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Paginated set of `PortalAvailabilityResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["PortalAvailabilityResource"][];
+                        links: {
+                            first: string | null;
+                            last: string | null;
+                            prev: string | null;
+                            next: string | null;
+                        };
+                        meta: {
+                            current_page: number;
+                            from: number | null;
+                            last_page: number;
+                            /** @description Generated paginator links. */
+                            links: {
+                                url: string | null;
+                                label: string;
+                                active: boolean;
+                            }[];
+                            /** @description Base path for paginator generated URLs. */
+                            path: string | null;
+                            /** @description Number of items shown per page. */
+                            per_page: number;
+                            /** @description Number of the last item in the slice. */
+                            to: number | null;
+                            /** @description Total number of items being paginated. */
+                            total: number;
+                        };
+                    };
+                };
+            };
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "portalBooking.index": {
+        parameters: {
+            query?: {
+                per_page?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Paginated set of `PortalBookingResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["PortalBookingResource"][];
+                        links: {
+                            first: string | null;
+                            last: string | null;
+                            prev: string | null;
+                            next: string | null;
+                        };
+                        meta: {
+                            current_page: number;
+                            from: number | null;
+                            last_page: number;
+                            /** @description Generated paginator links. */
+                            links: {
+                                url: string | null;
+                                label: string;
+                                active: boolean;
+                            }[];
+                            /** @description Base path for paginator generated URLs. */
+                            path: string | null;
+                            /** @description Number of items shown per page. */
+                            per_page: number;
+                            /** @description Number of the last item in the slice. */
+                            to: number | null;
+                            /** @description Total number of items being paginated. */
+                            total: number;
+                        };
+                    };
+                };
+            };
+        };
+    };
+    "portalCommission.index": {
+        parameters: {
+            query?: {
+                per_page?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Paginated set of `PortalCommissionResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["PortalCommissionResource"][];
+                        links: {
+                            first: string | null;
+                            last: string | null;
+                            prev: string | null;
+                            next: string | null;
+                        };
+                        meta: {
+                            current_page: number;
+                            from: number | null;
+                            last_page: number;
+                            /** @description Generated paginator links. */
+                            links: {
+                                url: string | null;
+                                label: string;
+                                active: boolean;
+                            }[];
+                            /** @description Base path for paginator generated URLs. */
+                            path: string | null;
+                            /** @description Number of items shown per page. */
+                            per_page: number;
+                            /** @description Number of the last item in the slice. */
+                            to: number | null;
+                            /** @description Total number of items being paginated. */
+                            total: number;
+                        };
+                    };
+                };
+            };
+        };
+    };
+    "portalRequest.index": {
+        parameters: {
+            query?: {
+                per_page?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Paginated set of `PortalRequestResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["PortalRequestResource"][];
+                        links: {
+                            first: string | null;
+                            last: string | null;
+                            prev: string | null;
+                            next: string | null;
+                        };
+                        meta: {
+                            current_page: number;
+                            from: number | null;
+                            last_page: number;
+                            /** @description Generated paginator links. */
+                            links: {
+                                url: string | null;
+                                label: string;
+                                active: boolean;
+                            }[];
+                            /** @description Base path for paginator generated URLs. */
+                            path: string | null;
+                            /** @description Number of items shown per page. */
+                            per_page: number;
+                            /** @description Number of the last item in the slice. */
+                            to: number | null;
+                            /** @description Total number of items being paginated. */
+                            total: number;
+                        };
+                    };
+                };
+            };
+        };
+    };
+    "portalRequest.store": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["StorePortalRequestRequest"];
+            };
+        };
+        responses: {
+            /** @description `PortalRequestCreatedResource` */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PortalRequestCreatedResource"];
+                };
+            };
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "portalSalesMaterial.index": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Array of `PortalSalesMaterialResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["PortalSalesMaterialResource"][];
+                        meta: {
+                            /** @constant */
+                            note: "assets pending upload";
+                        };
+                    };
+                };
+            };
+        };
+    };
+    "portalSalesMaterial.file": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The material ID */
+                material: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    "Transfer-Encoding": "chunked";
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/octet-stream": string;
+                };
+            };
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
     "engine.promoCheck": {
         parameters: {
             query?: never;
@@ -14257,6 +15448,112 @@ export interface operations {
                             total: number;
                         };
                     };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "salesMaterial.index": {
+        parameters: {
+            query?: {
+                agency_id?: number | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Array of `SalesMaterialResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["SalesMaterialResource"][];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "salesMaterial.store": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "multipart/form-data": components["schemas"]["StoreSalesMaterialRequest"];
+            };
+        };
+        responses: {
+            /** @description `SalesMaterialResource` */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SalesMaterialResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "salesMaterial.update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The material ID */
+                material: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `SalesMaterialResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SalesMaterialResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "salesMaterial.file": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The material ID */
+                material: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    "Transfer-Encoding": "chunked";
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/octet-stream": string;
                 };
             };
             401: components["responses"]["AuthenticationException"];

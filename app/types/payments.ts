@@ -121,6 +121,12 @@ export type CommissionPayoutInput = components['schemas']['StoreCommissionPayout
 export type PortalPreview = components['schemas']['AgencyPortalPreviewResource']
 export type AgencyUserInput = components['schemas']['StoreAgencyUserRequest']
 export type AgencyUserUpdate = components['schemas']['UpdateAgencyUserRequest']
+export type SalesMaterialKind = components['schemas']['SalesMaterialKind']
+export type SalesMaterial = components['schemas']['SalesMaterialResource']
+export type StoreSalesMaterialInput = components['schemas']['StoreSalesMaterialRequest']
+export type PortalActivity = components['schemas']['PortalActivityResource']
+export type SuspendPortalInput = components['schemas']['SuspendAgencyPortalRequest']
+export type ResumePortalInput = components['schemas']['ResumeAgencyPortalRequest']
 
 export type RefundRequest = Omit<
   components['schemas']['RefundRequestResource'],

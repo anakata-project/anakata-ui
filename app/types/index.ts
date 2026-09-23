@@ -337,13 +337,36 @@ export type {
   PaymentOptions,
   PaymentStatus,
   PaymentsKpis,
+  PortalActivity,
   PortalPreview,
   ReconciliationReport,
   ReconciliationRow,
   RefundRequest,
   RefundsRules,
   RefundStatus,
+  ResumePortalInput,
+  SalesMaterial,
+  SalesMaterialKind,
+  StoreSalesMaterialInput,
+  SuspendPortalInput,
 } from './payments'
+
+export type {
+  AcceptPortalInviteInput,
+  PortalAgency,
+  PortalAvailabilityRow,
+  PortalBooking,
+  PortalCommission,
+  PortalForgotInput,
+  PortalLoginInput,
+  PortalMaterial,
+  PortalNetRates,
+  PortalRequest,
+  PortalRequestCreated,
+  PortalRequestInput,
+  PortalResetInput,
+  PortalSession,
+} from './portal'
 
 export type {
   Availability,
