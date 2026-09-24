@@ -29,6 +29,7 @@
     "vue-tsc": "^3.3.11"
   },
   "dependencies": {
+    "@internationalized/date": "^3.12.4",
     "@nuxt/ui": "^4.11.1",
     "@nuxtjs/i18n": "^10.6.0",
     "tailwindcss": "^4.3.3"

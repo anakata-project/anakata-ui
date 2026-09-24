@@ -88,6 +88,62 @@ export default defineAppConfig({
       ],
     },
 
+    inputDate: {
+      slots: {
+        base: 'rounded-none font-normal disabled:opacity-35 w-full',
+        segment: 'rounded-none',
+      },
+      variants: {
+        size: {
+          md: {
+            base: 'px-3 py-[11px] text-[13px] md:text-[13px] font-sans',
+            segment: 'text-[13px] font-sans',
+          },
+          sm: {
+            base: 'px-2.5 py-2 text-[11px] font-mono tracking-[.06em]',
+            segment: 'text-[11px] font-mono tracking-[.06em]',
+          },
+        },
+        variant: {
+          outline: 'bg-(--forest-950) text-(--ivory) ring ring-inset ring-(--hair)',
+        },
+      },
+      compoundVariants: [
+        { color: 'primary', variant: ['outline', 'subtle'], class: 'has-focus-visible:ring-1 has-focus-visible:ring-inset has-focus-visible:ring-(--coral)' },
+        { color: 'neutral', variant: ['outline', 'subtle'], class: 'has-focus-visible:ring-1 has-focus-visible:ring-inset has-focus-visible:ring-(--coral)' },
+        { fixed: false, size: 'md', class: 'md:text-[13px]' },
+        { fixed: false, size: 'sm', class: 'md:text-[11px]' },
+      ],
+    },
+
+    calendar: {
+      slots: {
+        root: 'bg-(--forest)',
+        headingLabel: 'font-mono font-normal text-[10px] tracking-[.14em] uppercase',
+        headCell: 'rounded-none font-mono text-[9px] uppercase tracking-[.12em]',
+        cellTrigger: 'rounded-none',
+      },
+      variants: {
+        view: {
+          day: {
+            cellTrigger: 'rounded-none',
+          },
+          month: {
+            cellTrigger: 'rounded-none',
+          },
+          year: {
+            cellTrigger: 'rounded-none',
+          },
+        },
+      },
+    },
+
+    popover: {
+      slots: {
+        content: 'rounded-none shadow-none bg-(--forest) ring ring-(--hair)',
+      },
+    },
+
     select: {
       slots: {
         base: 'rounded-none font-normal disabled:opacity-35',

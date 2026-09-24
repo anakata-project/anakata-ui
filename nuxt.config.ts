@@ -1,4 +1,5 @@
 import { createResolver } from 'nuxt/kit'
+import { fileURLToPath } from 'node:url'
 
 const { resolve } = createResolver(import.meta.url)
 
@@ -6,6 +7,9 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxt/ui', '@nuxtjs/i18n'],
   css: [resolve('./app/assets/css/main.css')],
+  alias: {
+    '@internationalized/date': fileURLToPath(new URL('./node_modules/@internationalized/date', import.meta.url)),
+  },
   colorMode: {
     preference: 'dark',
     fallback: 'dark',

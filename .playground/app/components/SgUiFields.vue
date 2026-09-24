@@ -8,6 +8,7 @@ const selectValue = ref('ANAMARA')
 const selectMenuValue = ref('ANATIVA')
 const inputValue = ref('')
 const textareaValue = ref('')
+const dateValue = ref<string | null>('2027-11-14')
 </script>
 
 <template>
@@ -60,6 +61,9 @@ const textareaValue = ref('')
       <UFormField label="Internal notes">
         <UTextarea v-model="textareaValue" :rows="2" />
       </UFormField>
+      <UFormField label="Departure date">
+        <AnkDateInput v-model="dateValue" />
+      </UFormField>
     </div>
 
     <p class="label" style="margin: 28px 0 10px">
@@ -97,7 +101,7 @@ const textareaValue = ref('')
       position="40% 8%"
     >
       <div class="sg-states">
-        <UInput size="sm" placeholder="mm/dd/yyyy" />
+        <AnkDateInput v-model="dateValue" size="sm" aria-label="From" />
         <USelect v-model="selectValue" size="sm" :items="yachtOptions" />
       </div>
     </SgCompare>

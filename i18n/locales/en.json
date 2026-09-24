@@ -3,5 +3,8 @@
     "toLight": "◐ Light",
     "toDark": "◑ Dark",
     "toggleAria": "Toggle colour mode"
+  },
+  "date": {
+    "chooseAria": "Choose a date"
   }
 }
