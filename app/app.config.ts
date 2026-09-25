@@ -160,7 +160,7 @@ export default defineAppConfig({
           },
         },
         variant: {
-          outline: 'bg-(--forest-950) text-(--ivory) ring ring-inset ring-(--hair)',
+          outline: 'bg-(--forest-950) text-(--ivory) ring ring-inset ring-(--hair) hover:bg-(--forest-950)!',
         },
       },
       compoundVariants: [
@@ -187,7 +187,7 @@ export default defineAppConfig({
           },
         },
         variant: {
-          outline: 'bg-(--forest-950) text-(--ivory) ring ring-inset ring-(--hair)',
+          outline: 'bg-(--forest-950) text-(--ivory) ring ring-inset ring-(--hair) hover:bg-(--forest-950)!',
         },
       },
       compoundVariants: [
