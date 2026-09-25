@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.17.1
+
+- The `@internationalized/date` alias is set only when the layer has that package installed. A git clone of the layer (Netlify) has no `node_modules`, so the alias no longer points Vite at a missing path.
+
 ## v0.16.0
 
 - Regenerated API types from the Sprint 15 OpenAPI spec (shared inbox conversations and messages, CRM B2B partners, and the portal payment-link request).

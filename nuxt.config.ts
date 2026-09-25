@@ -1,15 +1,17 @@
+import { existsSync } from 'node:fs'
 import { createResolver } from 'nuxt/kit'
 import { fileURLToPath } from 'node:url'
 
 const { resolve } = createResolver(import.meta.url)
+const internationalizedDate = fileURLToPath(new URL('./node_modules/@internationalized/date', import.meta.url))
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxt/ui', '@nuxtjs/i18n'],
   css: [resolve('./app/assets/css/main.css')],
-  alias: {
-    '@internationalized/date': fileURLToPath(new URL('./node_modules/@internationalized/date', import.meta.url)),
-  },
+  alias: existsSync(internationalizedDate)
+    ? { '@internationalized/date': internationalizedDate }
+    : {},
   colorMode: {
     preference: 'dark',
     fallback: 'dark',
