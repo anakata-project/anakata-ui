@@ -83,22 +83,25 @@ defineProps<{
   color: var(--iv62);
   margin-top: 4px;
 }
+</style>
 
+<!-- Unscoped on purpose: the scope is the .ank-backoffice class on <html>. -->
+<style>
 /* Back office: figures follow the design tokens. */
-:global(.ank-backoffice) .ank-kpi__label {
+html.ank-backoffice .ank-kpi__label {
   font-size: var(--fs-2xs);
   letter-spacing: var(--tracking-label);
   margin-bottom: var(--space-1);
 }
 
-:global(.ank-backoffice) .ank-kpi__value {
+html.ank-backoffice .ank-kpi__value {
   font-weight: var(--weight-medium);
   font-size: var(--fs-xl);
   letter-spacing: .02em;
   line-height: 1.1;
 }
 
-:global(.ank-backoffice) .ank-kpi__sub {
+html.ank-backoffice .ank-kpi__sub {
   font-size: var(--fs-xs);
   color: var(--text-faint);
   margin-top: var(--space-1);
