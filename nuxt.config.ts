@@ -18,6 +18,8 @@ export default defineNuxtConfig({
   },
   fonts: {
     families: [
+      { name: 'IBM Plex Sans', provider: 'google', weights: [400, 500, 600] },
+      { name: 'IBM Plex Sans Condensed', provider: 'google', weights: [400, 500, 600] },
       { name: 'Oswald', provider: 'google', weights: [300, 400] },
       { name: 'Archivo', provider: 'google', weights: [300, 400, 500] },
       { name: 'IBM Plex Mono', provider: 'google', weights: [400, 500] },

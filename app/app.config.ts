@@ -215,8 +215,8 @@ export default defineAppConfig({
       slots: {
         root: '',
         th: 'px-5 py-2.5 text-start font-mono font-normal text-[8.5px] tracking-[.16em] uppercase text-(--iv38) border-b border-(--hair)',
-        td: 'px-5 py-[11px] text-[12.5px] text-default whitespace-normal border-b border-[rgba(242,241,225,0.06)]',
-        tbody: '[&>tr]:hover:bg-[rgba(242,241,225,0.03)]',
+        td: 'px-5 py-[11px] text-[12.5px] text-default whitespace-normal border-b border-(--hair)/50',
+        tbody: '[&>tr]:hover:bg-(--ivory)/[0.03]',
       },
     },
 

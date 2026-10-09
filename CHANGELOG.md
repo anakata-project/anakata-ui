@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.18.0
+
+- Back-office design tokens in `main.css`: surfaces, text, lines, the booking-status set (`--status-*`), occupancy, sidebar (`--side-*`), type scale (`--fs-*`), spacing, sizing. Brand coral and the forest green are unchanged. The scale is `--fs-*` (not `--text-*`) so it does not collide with Tailwind's font-size theme.
+- `html.ank-backoffice` (set by the panel) points the legacy names (`--forest*`, `--ivory`, `--iv62`, `--iv38`, `--hair`, `--coral-400`) at the new tokens and switches the font pair to IBM Plex Sans / IBM Plex Sans Condensed. The engine and portal do not set the class and render as before.
+- `AnkKpi` takes an optional `icon` and shows it in a tile beside the figure. Back-office figures use the new type scale.
+- Table row lines and hover in `app.config.ts` follow `--hair` / `--ivory`, so they track the active theme.
+- Fonts: IBM Plex Sans and IBM Plex Sans Condensed added.
+
 ## v0.17.1
 
 - The `@internationalized/date` alias is set only when the layer has that package installed. A git clone of the layer (Netlify) has no `node_modules`, so the alias no longer points Vite at a missing path.

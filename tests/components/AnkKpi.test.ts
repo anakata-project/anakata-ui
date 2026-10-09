@@ -16,4 +16,19 @@ describe('AnkKpi', () => {
     expect(wrapper.get('.ank-kpi__value').text()).toBe('USD 28,520')
     expect(wrapper.get('.ank-kpi__sub').text()).toBe('deposits + balances, all channels')
   })
+
+  it('renders an icon tile only when an icon is given', async () => {
+    const plain = await mountSuspended(AnkKpi, {
+      props: { label: 'Sold' },
+      slots: { default: () => '95' },
+    })
+    const withIcon = await mountSuspended(AnkKpi, {
+      props: { label: 'Sold', icon: 'i-lucide-check' },
+      slots: { default: () => '95' },
+    })
+
+    expect(plain.find('.ank-kpi__tile').exists()).toBe(false)
+    expect(withIcon.find('.ank-kpi__tile').exists()).toBe(true)
+    expect(withIcon.classes()).toContain('ank-kpi--icon')
+  })
 })

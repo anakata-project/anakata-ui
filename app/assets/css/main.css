@@ -97,6 +97,186 @@
 }
 :root { --ease:cubic-bezier(.16,1,.3,1); --eo:cubic-bezier(.23,1,.32,1); --eio:cubic-bezier(.77,0,.175,1); }
 
+/* ==========================================================================
+   Back-office design tokens (panel: RMS + CRM)
+   Light values on :root, dark values on .dark (Nuxt colour mode).
+   Brand stays: coral (accent) and the forest green (sidebar). The legacy
+   names above (--forest, --ivory, --hair…) are re-pointed at these tokens by
+   `html.ank-backoffice` below, so the engine and portal are unaffected.
+   ========================================================================== */
+:root {
+  /* Brand (fixed) */
+  --coral-500: #E85646;
+  --on-coral: #1A0E0C;
+
+  /* Sidebar — forest green, identical in both themes */
+  --side-bg: #202B26;
+  --side-text: #F2F1E1;
+  --side-muted: rgba(242, 241, 225, .68);
+  --side-faint: rgba(242, 241, 225, .42);
+  --side-line: rgba(242, 241, 225, .12);
+  --side-active-bg: rgba(232, 86, 70, .20);
+  --side-active-text: #FFFFFF;
+  --side-active-icon: #EF7365;
+  --side-active-bar: #E85646;
+
+  /* Surfaces & text (light) */
+  --bg: #F6F1E7;
+  --header-bg: #FBF7EF;
+  --surface: #FFFDF8;
+  --surface-2: #F2ECDF;
+  --line: #E6DECD;
+  --line-2: #D3C8B2;
+  --text: #1A2220;
+  --text-muted: #56625E;
+  --text-faint: #7A847F;
+
+  --accent: #D24537;
+  --accent-soft: rgba(232, 86, 70, .12);
+  --focus-ring: var(--text);
+
+  /* Booking status (light) */
+  --status-available-bg: transparent;
+  --status-available-fg: var(--text-muted);
+  --status-available-border: var(--line-2);
+  --status-hold-bg: #FFE2AE;
+  --status-hold-fg: #6E4300;
+  --status-hold-border: #E6A640;
+  --status-confirmed-bg: #D8EBDE;
+  --status-confirmed-fg: #1F5A38;
+  --status-confirmed-border: #9CCBAE;
+  --status-paid-bg: #22804C;
+  --status-paid-fg: #FFFFFF;
+  --status-paid-border: #22804C;
+  --status-pending-bg: var(--surface-2);
+  --status-pending-fg: var(--text);
+  --status-pending-border: var(--text-muted);
+  --status-requested-bg: rgba(232, 86, 70, .10);
+  --status-requested-fg: var(--accent);
+  --status-requested-border: var(--coral);
+  --status-charter-bg: var(--coral);
+  --status-charter-fg: var(--on-coral);
+  --status-charter-border: var(--coral);
+  --status-block-bg: repeating-linear-gradient(135deg, var(--line-2) 0 2px, transparent 2px 7px);
+  --status-block-fg: var(--text-muted);
+  --status-block-border: var(--line-2);
+  --status-private-bg: var(--surface-2);
+  --status-private-fg: var(--text-faint);
+  --status-private-border: var(--text-faint);
+
+  --occupancy-track: var(--line-2);
+  --occupancy-fill: var(--text-muted);
+  --occupancy-full: var(--coral);
+
+  /* Typography */
+  --fs-2xs: 9.5px;
+  --fs-xs: 10.5px;
+  --fs-sm: 12.5px;
+  --fs-base: 14px;
+  --fs-md: 17px;
+  --fs-lg: 28px;
+  --fs-xl: 30px;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --tracking-label: .16em;
+  --tracking-title: .12em;
+  --tracking-button: .14em;
+  --leading: 1.4;
+
+  /* Spacing (4px base) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+
+  /* Sizing */
+  --control-h: 44px;
+  --input-h: 40px;
+  --chip-h: 32px;
+  --nav-item-h: 38px;
+  --cell-h: 34px;
+  --sidebar-w: 248px;
+  --grid-label-col: 220px;
+  --grid-day-col-min: 84px;
+
+  /* Shape & motion */
+  --radius: 0;
+  --border: 1px solid var(--line);
+  --border-strong: 1px solid var(--line-2);
+  --duration: 140ms;
+}
+
+.dark {
+  --bg: #0B1517;
+  --header-bg: #0E1A1C;
+  --surface: #11201F;
+  --surface-2: #172B2B;
+  --line: #1F3536;
+  --line-2: #2D4A4A;
+  --text: #EEF3EF;
+  --text-muted: #A3B6B1;
+  --text-faint: #78908A;
+
+  --accent: #EF7365;
+  --accent-soft: rgba(232, 86, 70, .16);
+
+  --status-hold-bg: #5A3B0E;
+  --status-hold-fg: #FFC266;
+  --status-hold-border: #B9822A;
+  --status-confirmed-bg: #1C3A2B;
+  --status-confirmed-fg: #93D3AC;
+  --status-confirmed-border: #2F5E45;
+  --status-paid-bg: #3DB27A;
+  --status-paid-fg: #05200F;
+  --status-paid-border: #3DB27A;
+  --status-requested-bg: rgba(232, 86, 70, .14);
+}
+
+/* Legacy names → back-office tokens. Opt-in: the panel sets the class on <html>. */
+html.ank-backoffice {
+  --forest-950: var(--bg);
+  --forest-900: var(--surface);
+  --forest: var(--surface);
+  --forest-700: var(--surface-2);
+  --forest-600: var(--line-2);
+  --ivory: var(--text);
+  --iv62: var(--text-muted);
+  --iv38: var(--text-faint);
+  --hair: var(--line);
+  --coral-400: var(--accent);
+  --coral-600: #D24537;
+
+  --font-bo-sans: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-bo-display: 'IBM Plex Sans Condensed', 'IBM Plex Sans', sans-serif;
+  --font-sans: var(--font-bo-sans);
+  --font-display: var(--font-bo-display);
+}
+
+html.ank-backoffice body {
+  font-family: var(--font-bo-sans);
+  font-weight: var(--weight-regular);
+  font-size: var(--fs-base);
+  line-height: var(--leading);
+}
+
+html.ank-backoffice h1 {
+  font-family: var(--font-bo-display);
+  font-weight: var(--weight-medium);
+  font-size: var(--fs-lg);
+  letter-spacing: var(--tracking-title);
+  line-height: 1.1;
+}
+
+html.ank-backoffice .label {
+  font-size: var(--fs-2xs);
+  letter-spacing: var(--tracking-label);
+}
+
 :root {
   --ui-bg: var(--forest-950);
   --ui-bg-muted: var(--forest-900);
