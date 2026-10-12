@@ -289,6 +289,7 @@ export type {
   DataMapRow,
   DealDetail,
   DealInput,
+  DealListItem,
   DealStage,
   DealType,
   DeliveryKpis,

@@ -1562,7 +1562,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        get?: never;
+        get: operations["deal.index"];
         put?: never;
         post: operations["deal.store"];
         delete?: never;
@@ -5928,6 +5928,31 @@ export interface components {
                 combinators: string[];
             };
         };
+        /** DealListResource */
+        DealListResource: {
+            id: number;
+            title: string;
+            stage: string;
+            stage_label: string;
+            contact: {
+                id: number;
+                name: string;
+            };
+            type: string;
+            owner: {
+                id: number;
+                name: string;
+            } | null;
+            value: number;
+            value_label: string;
+            sla_state: string | null;
+            booking: {
+                reference: string;
+                status: string;
+                departure_date: string;
+            } | null;
+            may_move: boolean;
+        };
         /** DealResource */
         DealResource: {
             id: number;
@@ -5965,6 +5990,11 @@ export interface components {
             } | null;
             contact_id: number;
         };
+        /**
+         * DealStage
+         * @enum {string}
+         */
+        DealStage: "NEW_LEAD" | "QUALIFYING" | "QUOTED" | "NEGOTIATION" | "DEPOSIT_PENDING" | "BOOKING_CONFIRMED" | "WON_COMPLETED" | "LOST";
         /**
          * DealType
          * @enum {string}
@@ -12326,6 +12356,63 @@ export interface operations {
             };
             401: components["responses"]["AuthenticationException"];
             403: components["responses"]["AuthorizationException"];
+        };
+    };
+    "deal.index": {
+        parameters: {
+            query?: {
+                owner?: string;
+                type?: components["schemas"]["DealType"];
+                stage?: components["schemas"]["DealStage"];
+                q?: string;
+                page?: number;
+                per_page?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Paginated set of `DealListResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["DealListResource"][];
+                        links: {
+                            first: string | null;
+                            last: string | null;
+                            prev: string | null;
+                            next: string | null;
+                        };
+                        meta: {
+                            current_page: number;
+                            from: number | null;
+                            last_page: number;
+                            /** @description Generated paginator links. */
+                            links: {
+                                url: string | null;
+                                label: string;
+                                active: boolean;
+                            }[];
+                            /** @description Base path for paginator generated URLs. */
+                            path: string | null;
+                            /** @description Number of items shown per page. */
+                            per_page: number;
+                            /** @description Number of the last item in the slice. */
+                            to: number | null;
+                            /** @description Total number of items being paginated. */
+                            total: number;
+                        };
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            403: components["responses"]["AuthorizationException"];
+            422: components["responses"]["ValidationException"];
         };
     };
     "deal.store": {

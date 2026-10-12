@@ -175,6 +175,11 @@ export type StageMapRow = Omit<
   stage: DealStage
 }
 
+export type DealListItem = Omit<components['schemas']['DealListResource'], 'type' | 'stage'> & {
+  type: DealType
+  stage: DealStage
+}
+
 export type DealDetail = Omit<components['schemas']['DealResource'], 'type' | 'stage'> & {
   type: DealType
   stage: DealStage
