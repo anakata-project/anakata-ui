@@ -24,7 +24,7 @@ const localUi = resolve(import.meta.dirname, '../anakata-ui')
 extends: [
   existsSync(localUi)
     ? '../anakata-ui'
-    : 'github:anakata-project/anakata-ui#v0.16.0'
+    : 'github:anakata-project/anakata-ui#v0.18.0'
 ]
 ```
 
