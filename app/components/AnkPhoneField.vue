@@ -58,7 +58,18 @@ const message = computed(() => {
   })
 })
 
-const controlUi = computed(() => message.value === '' ? undefined : { base: 'ring-(--coral)' })
+const controlUi = computed(() => {
+  const ui: { base?: string, content: string, itemLabel: string } = {
+    content: 'ank-phone-menu',
+    itemLabel: 'ank-phone-item',
+  }
+
+  if (message.value !== '') {
+    ui.base = 'ring-(--coral)'
+  }
+
+  return ui
+})
 
 function rowLabel(item: unknown): string {
   if (!item || typeof item !== 'object') {
@@ -171,5 +182,16 @@ onMounted(async () => {
   margin: 6px 0 0;
   color: var(--coral-400);
   font-size: 11px;
+}
+
+.ank-phone-menu {
+  width: 20rem !important;
+  min-width: 20rem !important;
+}
+
+.ank-phone-item {
+  overflow: visible !important;
+  text-overflow: clip !important;
+  white-space: nowrap !important;
 }
 </style>
