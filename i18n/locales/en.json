@@ -6,5 +6,12 @@
   },
   "date": {
     "chooseAria": "Choose a date"
+  },
+  "phone": {
+    "search": "Search country",
+    "codeAria": "Country code",
+    "tooShort": "{country} number is too short. Example: {example}.",
+    "tooLong": "{country} number is too long. Example: {example}.",
+    "invalid": "Enter a valid {country} number. Example: {example}."
   }
 }

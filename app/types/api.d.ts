@@ -8426,6 +8426,8 @@ export interface components {
                 name: string;
                 /** Format: email */
                 email: string;
+                phone?: string | null;
+                country?: string | null;
             };
             notes?: string | null;
             /** @enum {unknown} */

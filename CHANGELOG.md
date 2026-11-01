@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- `AnkPhoneField` is a shared phone input: searchable country code, USA / UK / Canada pinned, `+1` countries labelled apart, national validation, and E.164 on submit.
+
 ## v0.18.0
 
 - Back-office design tokens in `main.css`: surfaces, text, lines, the booking-status set (`--status-*`), occupancy, sidebar (`--side-*`), type scale (`--fs-*`), spacing, sizing. Brand coral and the forest green are unchanged. The scale is `--fs-*` (not `--text-*`) so it does not collide with Tailwind's font-size theme.

@@ -9,6 +9,9 @@ const selectMenuValue = ref('ANATIVA')
 const inputValue = ref('')
 const textareaValue = ref('')
 const dateValue = ref<string | null>('2027-11-14')
+const phoneValue = ref('')
+const phoneIso = ref('US')
+const phonePicked = ref(true)
 </script>
 
 <template>
@@ -63,6 +66,14 @@ const dateValue = ref<string | null>('2027-11-14')
       </UFormField>
       <UFormField label="Departure date">
         <AnkDateInput v-model="dateValue" />
+      </UFormField>
+      <UFormField label="Phone">
+        <AnkPhoneField
+          v-model="phoneValue"
+          v-model:iso="phoneIso"
+          v-model:picked="phonePicked"
+          placeholder="--"
+        />
       </UFormField>
     </div>
 
